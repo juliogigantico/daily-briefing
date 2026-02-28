@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>The Daily Briefing</title>
+    <meta name="description" content="Your personal morning newspaper">
+    <meta name="theme-color" content="#2C3E50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Briefing">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <style>{{ css }}</style>
+</head>
+<body>
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+        <h1 class="masthead-title">The Daily Briefing</h1>
+        <div class="masthead-date">{{ date_str }}</div>
+        <div class="masthead-edition">Personal Edition &middot; Berlin</div>
+    </header>
+
+    <!-- WEATHER -->
+    {% if weather %}
+    <div class="weather">
+        <div class="weather-main">
+            <span class="weather-emoji">{{ weather.emoji }}</span>
+            <span class="weather-temp">{{ weather.temp }}&deg;C</span>
+            <span class="weather-city">Berlin</span>
+        </div>
+        <div class="weather-details">
+            {% if weather.today_high is not none %}
+                {{ weather.today_high }}&deg; / {{ weather.today_low }}&deg; &middot; {{ weather.description }}
+            {% else %}
+                {{ weather.description }}
+            {% endif %}
+            {% if weather.tomorrow_high is not none %}
+                <br>Tomorrow: {{ weather.tomorrow_high }}&deg; / {{ weather.tomorrow_low }}&deg;
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- QUICK NAV -->
+    <nav class="quick-nav">
+        {% for key, config in category_config.items() %}
+        <a href="#{{ key }}">{{ config.icon }} {{ config.title.split(' ')[0] }}</a>
+        {% endfor %}
+    </nav>
+
+    <!-- CATEGORIES -->
+    {% for key, config in category_config.items() %}
+    <section class="category" id="{{ key }}">
+        <div class="category-header">
+            <span class="category-name">{{ config.icon }} {{ config.title }}</span>
+        </div>
+
+        {% if categories.get(key) %}
+            {% for article in categories[key] %}
+            <article class="article" data-cat="{{ key }}">
+                <h3 class="article-title">
+                    <a href="{{ article.link }}" target="_blank" rel="noopener">{{ article.title }}</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">{{ article.source }}</span>
+                    <span>&middot;</span>
+                    <span>{{ article.time_ago }}</span>
+                </div>
+                {% if article.summary %}
+                <p class="article-summary">{{ article.summary }}</p>
+                {% endif %}
+            </article>
+            {% endfor %}
+        {% else %}
+            <p class="empty-category">No recent articles available.</p>
+        {% endif %}
+    </section>
+    {% endfor %}
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        Generated {{ time_str }} &middot; {{ date_short }}<br>
+        Next edition tomorrow morning
+    </footer>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+    </script>
+</body>
+</html>

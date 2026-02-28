@@ -1,0 +1,78 @@
+CATEGORIES = {
+    "international": {
+        "title": "International & Geopolitics",
+        "icon": "\U0001F310",
+        "language": "en",
+        "color": "#2C3E50",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml"},
+            {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml"},
+            {"name": "The Guardian", "url": "https://www.theguardian.com/world/rss"},
+            {"name": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml"},
+        ],
+    },
+    "environment": {
+        "title": "Environment & Climate",
+        "icon": "\U0001F33F",
+        "language": "en",
+        "color": "#27AE60",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "Carbon Brief", "url": "https://www.carbonbrief.org/feed/"},
+            {"name": "Inside Climate News", "url": "https://insideclimatenews.org/feed/"},
+            {"name": "BBC Environment", "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"},
+            {"name": "The Guardian", "url": "https://www.theguardian.com/environment/rss"},
+        ],
+    },
+    "tech": {
+        "title": "Tech & AI",
+        "icon": "\U0001F4BB",
+        "language": "en",
+        "color": "#8E44AD",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "TechCrunch", "url": "https://techcrunch.com/feed/"},
+            {"name": "Hacker News", "url": "https://hnrss.org/frontpage"},
+            {"name": "BBC Technology", "url": "https://feeds.bbci.co.uk/news/technology/rss.xml"},
+            {"name": "Ars Technica", "url": "https://feeds.arstechnica.com/arstechnica/index"},
+        ],
+    },
+    "economy": {
+        "title": "Economy & Markets",
+        "icon": "\U0001F4C8",
+        "language": "en",
+        "color": "#E67E22",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml"},
+            {"name": "CNBC Top News", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114"},
+            {"name": "CNBC Economy", "url": "https://www.cnbc.com/id/20910258/device/rss/rss.html"},
+        ],
+    },
+    "science": {
+        "title": "Science",
+        "icon": "\U0001F52C",
+        "language": "en",
+        "color": "#2980B9",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "Nature", "url": "https://www.nature.com/nature.rss"},
+            {"name": "ScienceDaily", "url": "https://www.sciencedaily.com/rss/all.xml"},
+            {"name": "Phys.org", "url": "https://phys.org/rss-feed/"},
+        ],
+    },
+    "germany": {
+        "title": "Deutschland & EU",
+        "icon": "\U0001F1E9\U0001F1EA",
+        "language": "de",
+        "color": "#C0392B",
+        "max_articles": 5,
+        "feeds": [
+            {"name": "Tagesschau", "url": "https://www.tagesschau.de/xml/rss2/"},
+            {"name": "ZEIT Online", "url": "https://newsfeed.zeit.de/index"},
+            {"name": "Spiegel", "url": "https://www.spiegel.de/schlagzeilen/index.rss"},
+            {"name": "DW Deutsch", "url": "https://rss.dw.com/rdf/rss-de-all"},
+        ],
+    },
+}
