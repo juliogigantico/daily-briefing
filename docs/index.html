@@ -214,14 +214,14 @@ body {
    ============================== */
 .section {
     padding: 0 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 .sec-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 0.65rem;
-    padding-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0.4rem;
     border-bottom: 2px solid var(--text);
 }
 .sec-head[data-cat=&#34;international&#34;] { border-color: var(--cat-international); }
@@ -250,29 +250,53 @@ body {
 .tldr {
     background: var(--surface);
     border-radius: var(--r);
-    padding: 0.85rem 1rem;
-    margin-bottom: 0.75rem;
+    padding: 0.7rem 0.85rem;
+    margin-bottom: 0.5rem;
     border: 1px solid rgba(0,0,0,0.04);
-    position: relative;
 }
 .tldr-tag {
     font-family: var(--f-mono);
-    font-size: 0.58rem;
+    font-size: 0.55rem;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--accent);
     background: var(--accent-soft);
-    padding: 0.15rem 0.45rem;
+    padding: 0.12rem 0.4rem;
     border-radius: 4px;
     display: inline-block;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.35rem;
 }
-.tldr-text {
-    font-size: 0.85rem;
-    line-height: 1.55;
+.tldr-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.tldr-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    line-height: 1.35;
+}
+.tldr-item::before {
+    content: &#39;›&#39;;
+    font-family: var(--f-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+.tldr-title {
+    font-size: 0.8rem;
+    font-weight: 500;
     color: var(--text-2);
-    font-weight: 400;
+}
+.tldr-src {
+    font-family: var(--f-mono);
+    font-size: 0.58rem;
+    color: var(--text-4);
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 /* ==============================
@@ -280,84 +304,86 @@ body {
    ============================== */
 .story {
     background: var(--surface);
-    border-radius: var(--r);
-    margin-bottom: 0.45rem;
+    border-radius: var(--r-sm);
+    margin-bottom: 0.3rem;
     border: 1px solid rgba(0,0,0,0.04);
-    overflow: hidden;
     transition: border-color 0.15s;
 }
 .story[open] {
     border-color: rgba(0,0,0,0.08);
+    border-radius: var(--r);
 }
 .story-head {
-    padding: 0.85rem 1rem;
+    display: block;
+    padding: 0.6rem 0.85rem;
     cursor: pointer;
     list-style: none;
     -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
     transition: background 0.12s;
 }
 .story-head::-webkit-details-marker { display: none; }
 .story-head::marker { display: none; content: &#39;&#39;; }
 .story-head:active {
-    background: rgba(0,0,0,0.015);
+    background: rgba(0,0,0,0.02);
+}
+.story-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
 }
 .story-title {
     font-family: var(--f-body);
-    font-size: 0.93rem;
-    font-weight: 600;
-    line-height: 1.35;
-    color: var(--text);
-    margin-bottom: 0.15rem;
-    padding-right: 1.5rem;
-    position: relative;
-}
-/* Expand indicator */
-.story-title::after {
-    content: &#39;+&#39;;
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-family: var(--f-mono);
     font-size: 0.85rem;
-    font-weight: 400;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+    flex: 1;
+}
+.story-chevron {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
     color: var(--text-4);
+    flex-shrink: 0;
     transition: transform 0.2s;
 }
-.story[open] .story-title::after {
-    content: &#39;\2212&#39;;
+.story[open] .story-chevron {
+    transform: rotate(90deg);
 }
 .story-meta {
     font-family: var(--f-mono);
-    font-size: 0.65rem;
+    font-size: 0.58rem;
     color: var(--text-4);
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    margin-top: 0.1rem;
 }
 .story-src { color: var(--text-3); font-weight: 500; }
 
 /* Expanded body */
 .story-body {
-    padding: 0 1rem 1rem;
+    padding: 0 0.85rem 0.75rem;
 }
 .story-text {
-    font-size: 0.87rem;
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.55;
     color: var(--text-2);
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.5rem;
 }
 .story-link {
     font-family: var(--f-mono);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     font-weight: 500;
     color: var(--text-3);
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
+    padding: 0.35rem 0.65rem;
     border-radius: 100px;
     background: var(--bg);
     border: 1px solid rgba(0,0,0,0.06);
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.25rem;
     transition: all 0.12s;
 }
 .story-link:active {
@@ -577,8 +603,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Travel changes likely at short notice, including on routes to Europe. Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with Tanya Plibersek on a Sunrise panel this morning, One Nation MP Barnaby Joyce says Australia should focus on building up fuel supplies under risk due to conflict in the Middle EastIt’s a shame in a crisis like this that we’ve got ourselves down to two oil refineries, ... — US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday eveningPodcast: The assassination of Iran’s ayatollah – and fears for a wider conflictHow have you been affected by events in the Middle East?Loud explosions were heard early on Sunday near Erbil airport, which hosts US-led coalition troops in Iraq’s autonomous Kurdistan region, AFP reported. Thick black smoke was rising from the airport area.O... — On tour of returns centre, home secretary says ‘legitimate grievances’ have to be acknowledged as part of ‘responsible’ politicsThe UK home secretary, Shabana Mahmood, and Danish immigration officials strode through the bleak and chilly Sjælsmark returns centre, a former military barracks used to house men and women who have no right to remain in the country. Followed by photographers, reporters and civil servants, Mahmood was told of the strict conditions in which hundreds of people live aft... — Shorter asylum period can be renewed under hardline policy aimed at stopping rise of Reform UKShabana Mahmood has ripped up the government’s asylum rules so that from Monday every refugee will be told that their status is temporary and will last just 30 months.In a move that has concerned a refugee charity, the home secretary said that claimants whose countries are deemed to be safe by the UK government will from now on be expected to return. Continue reading...</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">What is the U.S. military&#39;s capacity to carry out extended strikes in Iran?</span>
+                    <span class="tldr-src">NPR World</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Iranian spokesperson says country has &#39;no other choice&#39; but to fight back</span>
+                    <span class="tldr-src">NPR World</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">U.S.-Israeli war with Iran continues as 3 American troops are killed</span>
+                    <span class="tldr-src">NPR World</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</span>
+                    <span class="tldr-src">The Guardian</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -586,11 +634,77 @@ body {
             
             <details class="story" data-cat="international">
                 <summary class="story-head">
-                    <h3 class="story-title">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">What is the U.S. military&#39;s capacity to carry out extended strikes in Iran?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">NPR World</span>
+                        <span>2m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Seth Jones of the center for Strategic and International Studies talks about the U.S military&#39;s capacity to carry out extended strikes in Iran, and Iran&#39;s ability to retaliate.</p>
+                    
+                    <a href="https://www.npr.org/2026/03/01/nx-s1-5731493/what-is-the-u-s-militarys-capacity-to-carry-out-extended-strikes-in-iran" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Iranian spokesperson says country has &#39;no other choice&#39; but to fight back</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">NPR World</span>
+                        <span>2m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Esmail Baghaei, spokeman for Iran&#39;s Foreign Ministry, talks about his country&#39;s response to U.S. and Israeli airstrikes.</p>
+                    
+                    <a href="https://www.npr.org/2026/03/01/nx-s1-5731458/iranian-spokesperson-says-country-has-no-other-choice-but-to-fight-back" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">U.S.-Israeli war with Iran continues as 3 American troops are killed</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">NPR World</span>
+                        <span>7m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Three U.S. service members have been killed in ongoing operations in the Middle East, as U.S. and Israeli strikes continue to hit Iran and Iran responds with waves of missiles and drones across the region.</p>
+                    
+                    <a href="https://www.npr.org/2026/03/01/nx-s1-5731467/u-s-israeli-war-with-iran-continues-as-3-american-troops-are-killed" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>8m ago</span>
-                    </div>
+                        <span>19m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -604,71 +718,20 @@ body {
             
             <details class="story" data-cat="international">
                 <summary class="story-head">
-                    <h3 class="story-title">US-Israel war on Iran live: Trump says attack ‘will continue until all of our objectives are achieved’</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">US-Israel war on Iran live: Trump says attack ‘will continue until all of our objectives are achieved’</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>8m ago</span>
-                    </div>
+                        <span>20m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
                     <p class="story-text">US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday eveningPodcast: The assassination of Iran’s ayatollah – and fears for a wider conflictHow have you been affected by events in the Middle East?Loud explosions were heard early on Sunday near Erbil airport, which hosts US-led coalition troops in Iraq’s autonomous Kurdistan region, AFP reported. Thick black smoke was rising from the airport area.O...</p>
                     
                     <a href="https://www.theguardian.com/us-news/live/2026/mar/01/us-israel-war-on-iran-ayatollah-ali-khamenei-i-dead-latest-reports" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <h3 class="story-title">‘That resentment is real’: Mahmood’s Denmark visit aims to hammer home tough line on immigration</h3>
-                    <div class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>10m ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">On tour of returns centre, home secretary says ‘legitimate grievances’ have to be acknowledged as part of ‘responsible’ politicsThe UK home secretary, Shabana Mahmood, and Danish immigration officials strode through the bleak and chilly Sjælsmark returns centre, a former military barracks used to house men and women who have no right to remain in the country. Followed by photographers, reporters and civil servants, Mahmood was told of the strict conditions in which hundreds of people live aft...</p>
-                    
-                    <a href="https://www.theguardian.com/uk-news/2026/mar/01/shabana-mahmood-denmark-uk-immigration" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <h3 class="story-title">Shabana Mahmood to limit refugees to 30 months in UK</h3>
-                    <div class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>10m ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Shorter asylum period can be renewed under hardline policy aimed at stopping rise of Reform UKShabana Mahmood has ripped up the government’s asylum rules so that from Monday every refugee will be told that their status is temporary and will last just 30 months.In a move that has concerned a refugee charity, the home secretary said that claimants whose countries are deemed to be safe by the UK government will from now on be expected to return. Continue reading...</p>
-                    
-                    <a href="https://www.theguardian.com/uk-news/2026/mar/01/shabana-mahmood-to-limit-refugees-to-30-months-in-uk" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <h3 class="story-title">Starmer faces greater quandary over ‘special relationship’ after Iran attack</h3>
-                    <div class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>10m ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">PM is in diplomatically precarious position of declining to endorse US strikes while also refusing to condemn themUS-Israel war on Iran – latest updatesIt was perhaps naive of No 10 ever to position Keir Starmer as a “Donald Trump whisperer” capable of persuading the unpredictable US president to step back from reckless decisions.The “special relationship” has been under severe strain in recent months over the UK’s decision to give up sovereignty of the Chagos Islands and the refusal of Europ...</p>
-                    
-                    <a href="https://www.theguardian.com/politics/2026/mar/01/keir-starmer-donald-trump-uk-us-special-relationship-iran" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -685,8 +748,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Campaign groups write to technology secretary amid concerns that sites could double overall electricity demandDatacentre developers are facing pressure to reveal whether their projects will increase the UK’s net greenhouse gas emissions, amid concerns the sites could double national electricity demand.Campaign groups have written to the UK technology secretary, Liz Kendall, warning that the energy required by new AI infrastructure poses a “serious threat to efforts to decarbonise the electric... — The saplings have been planted at Dartmoor&#39;s Wistman&#39;s Wood National Nature Reserve. — LOUISVILLE, Ky.—Nearly a foot of snow has melted. The deep freeze that sent temperatures across the region plummeting to below zero has warmed to a balmy 55 degrees on a sunny February day.&amp;#160; As Matt Thomas augers a three-foot-wide hole into the ground at a city park in the shadow of downtown, Mike Hayman lets [&amp;#8230;] — PALO, Iowa—There are two restaurants in Palo, not counting the chicken wings and pizza sold at the only gas station in town. All three establishments, including the gas station, stand on the same half-mile stretch of First Street, an artery that divides the marshy floodplain of the Cedar River to the east from hundreds of [&amp;#8230;]</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Datacentre developers face calls to disclose effect on UK’s net emissions</span>
+                    <span class="tldr-src">The Guardian</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Young trees planted to expand temperate rainforest</span>
+                    <span class="tldr-src">BBC Environment</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Helping Trees—and a City—Outrace Climate Change</span>
+                    <span class="tldr-src">Inside Climate News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Facing Its Third Data Center, an Iowa County Rolls Out Extensive Zoning Rules</span>
+                    <span class="tldr-src">Inside Climate News</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -694,11 +779,14 @@ body {
             
             <details class="story" data-cat="environment">
                 <summary class="story-head">
-                    <h3 class="story-title">Datacentre developers face calls to disclose effect on UK’s net emissions</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Datacentre developers face calls to disclose effect on UK’s net emissions</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">The Guardian</span>
                         <span>6h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -712,11 +800,14 @@ body {
             
             <details class="story" data-cat="environment">
                 <summary class="story-head">
-                    <h3 class="story-title">Young trees planted to expand temperate rainforest</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Young trees planted to expand temperate rainforest</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">BBC Environment</span>
                         <span>10h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -730,11 +821,14 @@ body {
             
             <details class="story" data-cat="environment">
                 <summary class="story-head">
-                    <h3 class="story-title">Helping Trees—and a City—Outrace Climate Change</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Helping Trees—and a City—Outrace Climate Change</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
                         <span>12h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -748,11 +842,14 @@ body {
             
             <details class="story" data-cat="environment">
                 <summary class="story-head">
-                    <h3 class="story-title">Facing Its Third Data Center, an Iowa County Rolls Out Extensive Zoning Rules</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Facing Its Third Data Center, an Iowa County Rolls Out Extensive Zoning Rules</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
                         <span>12h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -766,11 +863,14 @@ body {
             
             <details class="story" data-cat="environment">
                 <summary class="story-head">
-                    <h3 class="story-title">Are ‘Climate Hushers’ Lurking in the Democratic Party?</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Are ‘Climate Hushers’ Lurking in the Democratic Party?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
                         <span>12h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -793,8 +893,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 32 # Comments: 0 — Article URL: https://maurycyz.com/misc/c_files/ Comments URL: https://news.ycombinator.com/item?id=47209788 Points: 23 # Comments: 17 — Article URL: https://health.aws.amazon.com/health/status Comments URL: https://news.ycombinator.com/item?id=47209781 Points: 127 # Comments: 51 — Six newly-created accounts made a profit of $1 million by correctly betting that the U.S. would strike Iran by February 28.</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Big Breakfast Alters Appetite, Gut Health</span>
+                    <span class="tldr-src">Hacker News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">South Korean Police Lose Seized Crypto by Posting Password Online</span>
+                    <span class="tldr-src">Hacker News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Working with memories can reduce fear of failure</span>
+                    <span class="tldr-src">Hacker News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Are the Mysteries of Quantum Mechanics Beginning to Dissolve?</span>
+                    <span class="tldr-src">Hacker News</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -802,89 +924,104 @@ body {
             
             <details class="story" data-cat="tech">
                 <summary class="story-head">
-                    <h3 class="story-title">How the Government Deceived Congress in the Debate over Surveillance Powers (2013)</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Big Breakfast Alters Appetite, Gut Health</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>26m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA Comments URL: https://news.ycombinator.com/item?id=47211112 Points: 8 # Comments: 1</p>
+                    
+                    <a href="https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">South Korean Police Lose Seized Crypto by Posting Password Online</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>30m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191 Comments URL: https://news.ycombinator.com/item?id=47211081 Points: 6 # Comments: 1</p>
+                    
+                    <a href="https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Working with memories can reduce fear of failure</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>33m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://medicalxpress.com/news/2026-02-memories-failure.html Comments URL: https://news.ycombinator.com/item?id=47211040 Points: 7 # Comments: 0</p>
+                    
+                    <a href="https://medicalxpress.com/news/2026-02-memories-failure.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Are the Mysteries of Quantum Mechanics Beginning to Dissolve?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>49m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://www.quantamagazine.org/are-the-mysteries-of-quantum-mechanics-beginning-to-dissolve-20260213/ Comments URL: https://news.ycombinator.com/item?id=47210903 Points: 4 # Comments: 0</p>
+                    
+                    <a href="https://www.quantamagazine.org/are-the-mysteries-of-quantum-mechanics-beginning-to-dissolve-20260213/" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">How the Government Deceived Congress in the Debate over Surveillance Powers (2013)</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Hacker News</span>
                         <span>1h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 32 # Comments: 0</p>
+                    <p class="story-text">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 38 # Comments: 1</p>
                     
                     <a href="https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <h3 class="story-title">Why does C have the best file API</h3>
-                    <div class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>2h ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Article URL: https://maurycyz.com/misc/c_files/ Comments URL: https://news.ycombinator.com/item?id=47209788 Points: 23 # Comments: 17</p>
-                    
-                    <a href="https://maurycyz.com/misc/c_files/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <h3 class="story-title">Operational issue – Multiple services (UAE)</h3>
-                    <div class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>2h ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Article URL: https://health.aws.amazon.com/health/status Comments URL: https://news.ycombinator.com/item?id=47209781 Points: 127 # Comments: 51</p>
-                    
-                    <a href="https://health.aws.amazon.com/health/status" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <h3 class="story-title">Polymarket saw $529M traded on bets tied to bombing of Iran</h3>
-                    <div class="story-meta">
-                        <span class="story-src">TechCrunch</span>
-                        <span>3h ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Six newly-created accounts made a profit of $1 million by correctly betting that the U.S. would strike Iran by February 28.</p>
-                    
-                    <a href="https://techcrunch.com/2026/03/01/polymarket-saw-529m-traded-on-bets-tied-to-bombing-of-iran/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <h3 class="story-title">Let’s explore the best alternatives to Discord</h3>
-                    <div class="story-meta">
-                        <span class="story-src">TechCrunch</span>
-                        <span>3h ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">With many users feeling uneasy about Discord&#39;s new age verification requirement, here are some alternatives that could be worth exploring.</p>
-                    
-                    <a href="https://techcrunch.com/2026/03/01/best-discord-alternatives-age-verification-identity-privacy/" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -901,8 +1038,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei. — It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei. — International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices. — As AI systems become more complex the risk of surpassing human comprehension, not intelligence, could lead to chaos, artificial intelligence experts warn.</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</span>
+                    <span class="tldr-src">CNBC Top News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue</span>
+                    <span class="tldr-src">CNBC Top News</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</span>
+                    <span class="tldr-src">BBC Business</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
+                    <span class="tldr-src">CNBC Top News</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -910,29 +1069,14 @@ body {
             
             <details class="story" data-cat="economy">
                 <summary class="story-head">
-                    <h3 class="story-title">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>2m ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei.</p>
-                    
-                    <a href="https://www.cnbc.com/2026/03/01/us-iran-live-updates-khamenei-death-trump-gulf-strikes.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="economy">
-                <summary class="story-head">
-                    <h3 class="story-title">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</h3>
-                    <div class="story-meta">
-                        <span class="story-src">CNBC Top News</span>
-                        <span>7m ago</span>
-                    </div>
+                        <span>3m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -946,11 +1090,35 @@ body {
             
             <details class="story" data-cat="economy">
                 <summary class="story-head">
-                    <h3 class="story-title">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">CNBC Top News</span>
+                        <span>9m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei.</p>
+                    
+                    <a href="https://www.cnbc.com/2026/03/01/us-iran-live-updates-khamenei-death-trump-gulf-strikes.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">BBC Business</span>
-                        <span>2h ago</span>
-                    </div>
+                        <span>3h ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -964,11 +1132,14 @@ body {
             
             <details class="story" data-cat="economy">
                 <summary class="story-head">
-                    <h3 class="story-title">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
                         <span>3h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -982,11 +1153,14 @@ body {
             
             <details class="story" data-cat="economy">
                 <summary class="story-head">
-                    <h3 class="story-title">Flights cancelled and new travel warnings issued after Iran strikes</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Flights cancelled and new travel warnings issued after Iran strikes</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">BBC Business</span>
                         <span>4h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1009,8 +1183,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S. wine consumers, who happen to be women. Messages like &#34;proudly made by a woman winemaker&#34; increased women&#39;s intentions of purchasing wines, particularly when the label&#39;s artwork reinforced the point with feminine gender cues such as flowers. Women were also willing to pay higher prices for those wines, according to the research from Washington State University and Auburn University. — New geological data indicate that marine life is somewhat resilient to warming in the tropics. Chris Fokkema, Earth scientist at Utrecht University, discovered that tropical algae were largely unaffected by a number of periods of global warming of up to 1.5 degrees Celsius in the distant past. These unicellular organisms form the basis of food webs and are generally very sensitive to rising temperatures. Previous studies of periods of even greater warming showed a dramatic decline in these or... — What do you envision when you think of meekness? You probably see a mousy doormat, someone sheepishly acquiescing to the will of the stronger. When Jesus says, &#34;Blessed are the meek, for they shall inherit the earth,&#34; you might think that those wimps will hand it over without a whimper or word of objection to stronger, more ambitious people. The philosopher Friedrich Nietzsche called meekness &#34;craven baseness.&#34; — Artificial intelligence is rapidly making intellectual work and social interaction easier, but that ease may come at a substantial psychological cost, according to researchers from the University of Toronto. In an article published in Communications Psychology, the authors argue that AI&#39;s greatest strength, namely removing friction from work and relationships, is also a liability.</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Women more likely to choose wine from female winemakers</span>
+                    <span class="tldr-src">Phys.org</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Past climate change: First indicators show resilience in tropical life—up to 1.5°C</span>
+                    <span class="tldr-src">Phys.org</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</span>
+                    <span class="tldr-src">Phys.org</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Frictionless AI comes at a human cost to learning, growth and connection</span>
+                    <span class="tldr-src">Phys.org</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -1018,11 +1214,14 @@ body {
             
             <details class="story" data-cat="science">
                 <summary class="story-head">
-                    <h3 class="story-title">Women more likely to choose wine from female winemakers</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Women more likely to choose wine from female winemakers</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>41m ago</span>
-                    </div>
+                        <span>52m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1036,11 +1235,14 @@ body {
             
             <details class="story" data-cat="science">
                 <summary class="story-head">
-                    <h3 class="story-title">Past climate change: First indicators show resilience in tropical life—up to 1.5°C</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Past climate change: First indicators show resilience in tropical life—up to 1.5°C</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Phys.org</span>
                         <span>1h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1054,11 +1256,14 @@ body {
             
             <details class="story" data-cat="science">
                 <summary class="story-head">
-                    <h3 class="story-title">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Phys.org</span>
                         <span>1h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1072,11 +1277,14 @@ body {
             
             <details class="story" data-cat="science">
                 <summary class="story-head">
-                    <h3 class="story-title">Frictionless AI comes at a human cost to learning, growth and connection</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Frictionless AI comes at a human cost to learning, growth and connection</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Phys.org</span>
                         <span>2h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1090,11 +1298,14 @@ body {
             
             <details class="story" data-cat="science">
                 <summary class="story-head">
-                    <h3 class="story-title">AI cracks Roman-era board game</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">AI cracks Roman-era board game</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>2h ago</span>
-                    </div>
+                        <span>3h ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1117,8 +1328,30 @@ body {
 
         
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden. — Israel hat nach dem Massaker vom 7. Oktober 2023 einen Feldzug gegen die Hamas, die Hisbollah, die Huthis und Irans Führungselite begonnen. Nun meldet die Armee Vollzug – mit einer beispiellosen Liste gezielter Tötungen. — Die Angriffe auf den Iran könnten sich laut dem US-Präsidenten über vier Wochen ziehen. Die USA haben bislang mehr als 1.000 iranische Ziele attackiert. Das Liveblog — Kommunalwahl: Angriff an AfD-Stand – Kandidat für Kommunalwahl verletzt</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
+                    <span class="tldr-src">Tagesschau</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
+                    <span class="tldr-src">ZEIT Online</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</span>
+                    <span class="tldr-src">Spiegel</span>
+                </li>
+                
+                <li class="tldr-item">
+                    <span class="tldr-title">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</span>
+                    <span class="tldr-src">ZEIT Online</span>
+                </li>
+                
+            </ul>
         </div>
         
 
@@ -1126,11 +1359,14 @@ body {
             
             <details class="story" data-cat="germany">
                 <summary class="story-head">
-                    <h3 class="story-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Tagesschau</span>
-                        <span>12m ago</span>
-                    </div>
+                        <span>6m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1144,11 +1380,35 @@ body {
             
             <details class="story" data-cat="germany">
                 <summary class="story-head">
-                    <h3 class="story-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>12m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident. Dabei stelle er sich auf wahrscheinlich weitere US-Tote ein.</p>
+                    
+                    <a href="https://www.zeit.de/politik/ausland/2026-03/donald-trump-iran-vergeltung-us-soldaten-centcom" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">Spiegel</span>
-                        <span>45m ago</span>
-                    </div>
+                        <span>56m ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1162,11 +1422,14 @@ body {
             
             <details class="story" data-cat="germany">
                 <summary class="story-head">
-                    <h3 class="story-title">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>59m ago</span>
-                    </div>
+                        <span>1h ago</span>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
@@ -1180,33 +1443,18 @@ body {
             
             <details class="story" data-cat="germany">
                 <summary class="story-head">
-                    <h3 class="story-title">Kommunalwahl: Angriff an AfD-Stand – Kandidat für Kommunalwahl verletzt</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">Kommunalwahl: Angriff an AfD-Stand – Kandidat für Kommunalwahl verletzt</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
                         <span>1h ago</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     
                     <a href="https://www.zeit.de/news/2026-03/01/angriff-an-afd-stand-kandidat-fuer-kommunalwahl-verletzt" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <h3 class="story-title">&#34;Tatort&#34; Ludwigshafen: Der war so manchem Autofahrer ein Dorn im Auge</h3>
-                    <div class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>1h ago</span>
-                    </div>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Der neue &#34;Tatort&#34; aus Ludwigshafen erzählt von üblen Machenschaften im Fahrradkurier-Business. Die Story ist hanebüchen und das Drehbuch schlecht geölt.</p>
-                    
-                    <a href="https://www.zeit.de/feuilleton/film/2026-03/tatort-ludwigshafen-fahrradkurier-ard-krimi" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1218,7 +1466,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 22:11 UTC &middot; 01.03.2026<br>
+        Generated 22:22 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
