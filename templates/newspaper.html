@@ -18,8 +18,9 @@
 </head>
 <body>
 
-    <!-- HERO: Masthead + Weather combined -->
+    <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
+        <div class="hero-greeting">{{ greeting }}</div>
         <div class="hero-top">
             <h1 class="hero-title">Daily<br>Briefing</h1>
             {% if weather %}
@@ -81,20 +82,22 @@
         {% if category_tldrs.get(key) %}
         <details class="tldr" data-cat="{{ key }}">
             <summary class="tldr-head">
-                <span class="tldr-label">Summary</span>
+                <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">{{ category_tldrs[key].count }} stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
-                {% for item in category_tldrs[key].bullets %}
-                <div class="tldr-bullet">
-                    <span class="tldr-title">{{ item.title }}</span>
-                    {% if item.excerpt %}
-                    <span class="tldr-excerpt">{{ item.excerpt }}</span>
-                    {% endif %}
-                    <span class="tldr-src">{{ item.source }}</span>
+                {% if category_tldrs[key].paragraph %}
+                <p class="tldr-para">{{ category_tldrs[key].paragraph }}</p>
+                {% endif %}
+                {% if category_tldrs[key].also %}
+                <div class="tldr-also">
+                    <span class="tldr-also-label">Also:</span>
+                    {% for title in category_tldrs[key].also %}
+                    <span class="tldr-also-item">{{ title }}{% if not loop.last %} · {% endif %}</span>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                {% endif %}
             </div>
         </details>
         {% endif %}

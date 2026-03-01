@@ -1,5 +1,5 @@
 import shutil
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader
@@ -9,6 +9,54 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = PROJECT_ROOT / "templates"
 STATIC_DIR = PROJECT_ROOT / "static"
 OUTPUT_DIR = PROJECT_ROOT / "docs"
+
+# Berlin is UTC+1 (CET) or UTC+2 (CEST). Good-enough approximation.
+BERLIN_OFFSET = timedelta(hours=1)
+
+GREETINGS = {
+    "morning": [
+        ("Good morning", "☀️"),
+        ("Rise & read", "📰"),
+        ("Morning brew", "☕"),
+        ("Fresh off the press", "✨"),
+        ("Top of the morning", "🌤️"),
+        ("Let's catch up", "🗞️"),
+        ("New day, new stories", "🌅"),
+    ],
+    "afternoon": [
+        ("Good afternoon", "👋"),
+        ("Afternoon check-in", "📋"),
+        ("Midday update", "🔆"),
+    ],
+    "evening": [
+        ("Good evening", "🌙"),
+        ("Evening edition", "🌆"),
+        ("Wind down", "🫖"),
+    ],
+    "night": [
+        ("Night owl edition", "🦉"),
+        ("Late night read", "🌃"),
+    ],
+}
+
+
+def get_greeting() -> str:
+    """Return a greeting with emoji that changes every day."""
+    now_utc = datetime.now(timezone.utc)
+    berlin_hour = (now_utc + BERLIN_OFFSET).hour
+
+    if 5 <= berlin_hour < 12:
+        pool = GREETINGS["morning"]
+    elif 12 <= berlin_hour < 18:
+        pool = GREETINGS["afternoon"]
+    elif 18 <= berlin_hour < 22:
+        pool = GREETINGS["evening"]
+    else:
+        pool = GREETINGS["night"]
+
+    day_of_year = now_utc.timetuple().tm_yday
+    text, emoji = pool[day_of_year % len(pool)]
+    return f"{emoji} {text}"
 
 
 def time_ago(published: datetime | None) -> str:
@@ -28,16 +76,14 @@ def time_ago(published: datetime | None) -> str:
     return f"{days}d ago"
 
 
-def first_sentence(text: str, max_len: int = 140) -> str:
+def first_sentence(text: str, max_len: int = 160) -> str:
     """Extract the first sentence from a text, truncated to max_len."""
     if not text:
         return ""
-    # Split on sentence-ending punctuation
     for sep in (". ", "! ", "? "):
         idx = text.find(sep)
         if 0 < idx < max_len:
             return text[: idx + 1]
-    # No sentence boundary found — truncate cleanly
     if len(text) > max_len:
         space = text.rfind(" ", 0, max_len)
         return text[: space if space > 40 else max_len] + "…"
@@ -45,28 +91,37 @@ def first_sentence(text: str, max_len: int = 140) -> str:
 
 
 def make_tldr(articles: list[dict]) -> dict:
-    """Build a summary dict with bullet points (title + excerpt) for a category."""
+    """Build a proper summary: flowing paragraph from top excerpts + remaining headlines."""
     if not articles:
         return {}
 
-    bullets = []
-    for article in articles[:4]:
-        title = article.get("title", "").strip()
+    # Collect first-sentence excerpts from the top 3 articles (the real info)
+    sentences = []
+    for article in articles[:3]:
         summary = article.get("summary", "").strip()
-        source = article.get("source", "").strip()
-        if not title:
-            continue
-        excerpt = first_sentence(summary)
-        bullets.append({
-            "title": title,
-            "excerpt": excerpt,
-            "source": source,
-        })
+        sentence = first_sentence(summary)
+        if sentence and len(sentence) > 25:
+            sentences.append(sentence)
 
-    if not bullets:
+    # Build a flowing paragraph — sequential sentences read naturally
+    paragraph = " ".join(sentences) if sentences else ""
+
+    # Remaining article titles as quick-reference "also" list
+    used = min(len(sentences), 3)
+    also = []
+    for article in articles[used:]:
+        title = article.get("title", "").strip()
+        if title:
+            also.append(title)
+
+    if not paragraph and not also:
         return {}
 
-    return {"bullets": bullets, "count": len(articles)}
+    return {
+        "paragraph": paragraph,
+        "also": also,
+        "count": len(articles),
+    }
 
 
 def render_newspaper(categories_data: dict, weather: dict | None, category_config: dict):
@@ -97,6 +152,7 @@ def render_newspaper(categories_data: dict, weather: dict | None, category_confi
         date_str=date_str,
         time_str=time_str,
         date_short=date_short,
+        greeting=get_greeting(),
     )
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
