@@ -28,6 +28,21 @@ def time_ago(published: datetime | None) -> str:
     return f"{days}d ago"
 
 
+def make_tldr(articles: list[dict], max_items: int = 3) -> str:
+    if not articles:
+        return ""
+
+    snippets = []
+    for article in articles[:max_items]:
+        title = article.get("title", "")
+        # Shorten long titles to keep TL;DR scannable
+        if len(title) > 65:
+            title = title[:62].rsplit(" ", 1)[0] + "\u2026"
+        snippets.append(title)
+
+    return " \u00b7 ".join(snippets)
+
+
 def render_newspaper(categories_data: dict, weather: dict | None, category_config: dict):
     env = Environment(loader=FileSystemLoader(str(TEMPLATES_DIR)), autoescape=True)
     template = env.get_template("newspaper.html")
@@ -35,10 +50,12 @@ def render_newspaper(categories_data: dict, weather: dict | None, category_confi
     css_path = STATIC_DIR / "style.css"
     css_content = css_path.read_text(encoding="utf-8") if css_path.exists() else ""
 
-    # Add time_ago to each article
-    for articles in categories_data.values():
+    # Add time_ago and build TL;DR per category
+    category_tldrs = {}
+    for key, articles in categories_data.items():
         for article in articles:
             article["time_ago"] = time_ago(article.get("published"))
+        category_tldrs[key] = make_tldr(articles)
 
     now = datetime.now(timezone.utc)
     date_str = f"{now.strftime('%A')}, {now.day} {now.strftime('%B %Y')}"
@@ -48,6 +65,7 @@ def render_newspaper(categories_data: dict, weather: dict | None, category_confi
     html = template.render(
         categories=categories_data,
         category_config=category_config,
+        category_tldrs=category_tldrs,
         weather=weather,
         css=css_content,
         date_str=date_str,

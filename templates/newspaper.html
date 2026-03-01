@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#1B2838">
+    <meta name="theme-color" content="#18181B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -13,64 +13,56 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>{{ css }}</style>
 </head>
 <body>
 
     <!-- MASTHEAD -->
     <header class="masthead">
-        <div class="masthead-ornament">&loz; &loz; &loz;</div>
         <h1 class="masthead-title">The Daily Briefing</h1>
-        <div class="masthead-date">{{ date_str }}</div>
-        <div class="masthead-edition">Personal Edition &middot; Berlin</div>
-        <div class="masthead-ornament">&loz; &loz; &loz;</div>
+        <p class="masthead-sub">{{ date_str }} <span class="masthead-dot">&bull;</span> Berlin</p>
     </header>
 
     <!-- WEATHER -->
     {% if weather %}
     <section class="weather-card">
-        <div class="weather-header">
+        <div class="weather-top">
             <div class="weather-current">
                 <span class="weather-icon">{{ weather.emoji }}</span>
-                <div class="weather-now">
-                    <span class="weather-temp">{{ weather.temp }}&deg;</span>
-                    <span class="weather-desc">{{ weather.description }}</span>
-                </div>
+                <span class="weather-temp">{{ weather.temp }}&deg;</span>
             </div>
-            <div class="weather-summary">
-                <span class="weather-city">Berlin</span>
+            <div class="weather-info">
+                <span class="weather-desc">{{ weather.description }}</span>
                 {% if weather.today_high is not none %}
-                <span class="weather-range">&uarr; {{ weather.today_high }}&deg; &darr; {{ weather.today_low }}&deg;</span>
+                <span class="weather-hilo">H:{{ weather.today_high }}&deg; L:{{ weather.today_low }}&deg;</span>
                 {% endif %}
             </div>
         </div>
 
         {% if weather.hours %}
-        <div class="weather-hourly-scroll">
-            <div class="weather-hourly">
+        <div class="hourly-scroll">
+            <div class="hourly-track">
                 {% for h in weather.hours %}
-                <div class="weather-hour">
-                    <span class="wh-time">{{ h.hour }}</span>
-                    <span class="wh-icon">{{ h.emoji }}</span>
-                    <span class="wh-temp">{{ h.temp }}&deg;</span>
+                <div class="hour-col{% if loop.first %} hour-now{% endif %}">
+                    <span class="hour-time">{% if loop.first %}Now{% else %}{{ h.hour }}{% endif %}</span>
+                    <span class="hour-icon">{{ h.emoji }}</span>
+                    <span class="hour-temp">{{ h.temp }}&deg;</span>
                     {% if h.rain and h.rain > 0 %}
-                    <span class="wh-rain{% if h.rain >= 50 %} wh-rain-high{% endif %}">{{ h.rain }}%</span>
-                    {% else %}
-                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    <span class="hour-rain{% if h.rain >= 50 %} rain-high{% endif %}">
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><path d="M4 0C4 0 1 4 1 5.5C1 7 2.3 8 4 8C5.7 8 7 7 7 5.5C7 4 4 0 4 0Z"/></svg>
+                        {{ h.rain }}%
+                    </span>
                     {% endif %}
                 </div>
                 {% endfor %}
             </div>
         </div>
-        <div class="weather-legend">
-            <span class="wl-item"><span class="wl-dot wl-dot-rain"></span> Rain probability</span>
-        </div>
         {% endif %}
 
         {% if weather.tomorrow_high is not none %}
-        <div class="weather-tomorrow">
-            Tomorrow &rarr; {{ weather.tomorrow_low }}&deg; / {{ weather.tomorrow_high }}&deg;
+        <div class="weather-tmrw">
+            Tomorrow &nbsp;{{ weather.tomorrow_low }}&deg; &ndash; {{ weather.tomorrow_high }}&deg;
         </div>
         {% endif %}
     </section>
@@ -79,43 +71,46 @@
     <!-- QUICK NAV -->
     <nav class="quick-nav">
         {% for key, config in category_config.items() %}
-        <a href="#{{ key }}">{{ config.icon }}<span>{{ config.title.split(' ')[0] }}</span></a>
+        <a href="#{{ key }}">{{ config.icon }} {{ config.title.split(' ')[0] }}</a>
         {% endfor %}
     </nav>
 
     <!-- CATEGORIES -->
     {% for key, config in category_config.items() %}
     <section class="category" id="{{ key }}">
-        <div class="category-header" data-cat="{{ key }}">
-            <div class="cat-icon">{{ config.icon }}</div>
-            <h2 class="cat-title">{{ config.title }}</h2>
+        <header class="cat-header" data-cat="{{ key }}">
+            <span class="cat-label">{{ config.icon }} {{ config.title }}</span>
+        </header>
+
+        {% if category_tldrs.get(key) %}
+        <div class="cat-tldr">
+            {{ category_tldrs[key] }}
         </div>
+        {% endif %}
 
         {% if categories.get(key) %}
             {% for article in categories[key] %}
-            <article class="article" data-cat="{{ key }}">
-                <h3 class="article-title">
-                    <a href="{{ article.link }}" target="_blank" rel="noopener">{{ article.title }}</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">{{ article.source }}</span>
-                    <span class="dot">&middot;</span>
-                    <span>{{ article.time_ago }}</span>
-                </div>
-                {% if article.summary %}
-                <p class="article-summary">{{ article.summary }}</p>
-                {% endif %}
+            <article class="card" data-cat="{{ key }}">
+                <a href="{{ article.link }}" target="_blank" rel="noopener" class="card-link">
+                    <h3 class="card-title">{{ article.title }}</h3>
+                    <div class="card-meta">
+                        <span class="card-source">{{ article.source }}</span>
+                        <span class="card-time">{{ article.time_ago }}</span>
+                    </div>
+                    {% if article.summary %}
+                    <p class="card-summary">{{ article.summary }}</p>
+                    {% endif %}
+                </a>
             </article>
             {% endfor %}
         {% else %}
-            <p class="empty-category">No recent articles available.</p>
+            <p class="empty-state">No recent articles available.</p>
         {% endif %}
     </section>
     {% endfor %}
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-rule"></div>
         Generated {{ time_str }} &middot; {{ date_short }}<br>
         Next edition tomorrow morning
     </footer>
