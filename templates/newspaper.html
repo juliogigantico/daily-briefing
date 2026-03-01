@@ -11,58 +11,84 @@
     <meta name="apple-mobile-web-app-title" content="Briefing">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>{{ css }}</style>
 </head>
 <body>
 
     <!-- MASTHEAD -->
     <header class="masthead">
-        <div class="masthead-rule"></div>
+        <div class="masthead-ornament">&loz; &loz; &loz;</div>
         <h1 class="masthead-title">The Daily Briefing</h1>
         <div class="masthead-date">{{ date_str }}</div>
         <div class="masthead-edition">Personal Edition &middot; Berlin</div>
-        <div class="masthead-rule"></div>
+        <div class="masthead-ornament">&loz; &loz; &loz;</div>
     </header>
 
     <!-- WEATHER -->
     {% if weather %}
-    <div class="weather-card">
-        <div class="weather-today">
-            <div class="weather-icon">{{ weather.emoji }}</div>
-            <div class="weather-now">
-                <span class="weather-temp">{{ weather.temp }}&deg;</span>
-                <span class="weather-label">Berlin &middot; {{ weather.description }}</span>
+    <section class="weather-card">
+        <div class="weather-header">
+            <div class="weather-current">
+                <span class="weather-icon">{{ weather.emoji }}</span>
+                <div class="weather-now">
+                    <span class="weather-temp">{{ weather.temp }}&deg;</span>
+                    <span class="weather-desc">{{ weather.description }}</span>
+                </div>
+            </div>
+            <div class="weather-summary">
+                <span class="weather-city">Berlin</span>
+                {% if weather.today_high is not none %}
+                <span class="weather-range">&uarr; {{ weather.today_high }}&deg; &darr; {{ weather.today_low }}&deg;</span>
+                {% endif %}
             </div>
         </div>
-        <div class="weather-forecast">
-            {% if weather.today_high is not none %}
-            <div class="weather-day">
-                <span class="weather-day-label">Today</span>
-                <span class="weather-day-range">{{ weather.today_low }}&deg; <span class="weather-bar"></span> {{ weather.today_high }}&deg;</span>
+
+        {% if weather.hours %}
+        <div class="weather-hourly-scroll">
+            <div class="weather-hourly">
+                {% for h in weather.hours %}
+                <div class="weather-hour">
+                    <span class="wh-time">{{ h.hour }}</span>
+                    <span class="wh-icon">{{ h.emoji }}</span>
+                    <span class="wh-temp">{{ h.temp }}&deg;</span>
+                    {% if h.rain and h.rain > 0 %}
+                    <span class="wh-rain{% if h.rain >= 50 %} wh-rain-high{% endif %}">{{ h.rain }}%</span>
+                    {% else %}
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
-            {% endif %}
-            {% if weather.tomorrow_high is not none %}
-            <div class="weather-day">
-                <span class="weather-day-label">Tomorrow</span>
-                <span class="weather-day-range">{{ weather.tomorrow_low }}&deg; <span class="weather-bar"></span> {{ weather.tomorrow_high }}&deg;</span>
-            </div>
-            {% endif %}
         </div>
-    </div>
+        <div class="weather-legend">
+            <span class="wl-item"><span class="wl-dot wl-dot-rain"></span> Rain probability</span>
+        </div>
+        {% endif %}
+
+        {% if weather.tomorrow_high is not none %}
+        <div class="weather-tomorrow">
+            Tomorrow &rarr; {{ weather.tomorrow_low }}&deg; / {{ weather.tomorrow_high }}&deg;
+        </div>
+        {% endif %}
+    </section>
     {% endif %}
 
     <!-- QUICK NAV -->
     <nav class="quick-nav">
         {% for key, config in category_config.items() %}
-        <a href="#{{ key }}">{{ config.icon }} {{ config.title.split(' ')[0] }}</a>
+        <a href="#{{ key }}">{{ config.icon }}<span>{{ config.title.split(' ')[0] }}</span></a>
         {% endfor %}
     </nav>
 
     <!-- CATEGORIES -->
     {% for key, config in category_config.items() %}
     <section class="category" id="{{ key }}">
-        <div class="category-header">
-            <span class="category-name">{{ config.icon }} {{ config.title }}</span>
+        <div class="category-header" data-cat="{{ key }}">
+            <div class="cat-icon">{{ config.icon }}</div>
+            <h2 class="cat-title">{{ config.title }}</h2>
         </div>
 
         {% if categories.get(key) %}
@@ -89,6 +115,7 @@
 
     <!-- FOOTER -->
     <footer class="footer">
+        <div class="footer-rule"></div>
         Generated {{ time_str }} &middot; {{ date_short }}<br>
         Next edition tomorrow morning
     </footer>
