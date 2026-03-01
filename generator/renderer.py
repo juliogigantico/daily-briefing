@@ -28,19 +28,26 @@ def time_ago(published: datetime | None) -> str:
     return f"{days}d ago"
 
 
-def make_tldr(articles: list[dict], max_items: int = 3) -> str:
+def make_tldr(articles: list[dict]) -> str:
     if not articles:
         return ""
 
-    snippets = []
-    for article in articles[:max_items]:
-        title = article.get("title", "")
-        # Shorten long titles to keep TL;DR scannable
-        if len(title) > 65:
-            title = title[:62].rsplit(" ", 1)[0] + "\u2026"
-        snippets.append(title)
+    # Build a real summary from the top articles' summaries and titles
+    parts = []
+    for article in articles[:4]:
+        summary = article.get("summary", "").strip()
+        title = article.get("title", "").strip()
+        source = article.get("source", "")
+        # Use the summary if available, otherwise the title
+        text = summary if len(summary) > 40 else title
+        if text:
+            parts.append(text)
 
-    return " \u00b7 ".join(snippets)
+    if not parts:
+        return ""
+
+    # Join all snippets into a flowing brief
+    return " \u2014 ".join(parts)
 
 
 def render_newspaper(categories_data: dict, weather: dict | None, category_config: dict):

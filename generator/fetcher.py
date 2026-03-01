@@ -63,8 +63,8 @@ def fetch_feed(url: str, source_name: str, category_key: str) -> list[dict]:
         summary = strip_html(
             getattr(entry, "summary", "") or getattr(entry, "description", "")
         )
-        if len(summary) > 250:
-            summary = summary[:247] + "..."
+        if len(summary) > 500:
+            summary = summary[:497] + "..."
 
         published = parse_date(entry)
 
