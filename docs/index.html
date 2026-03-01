@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>The Daily Briefing</title>
+    <meta name="description" content="Your personal morning newspaper">
+    <meta name="theme-color" content="#2C3E50">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Briefing">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="manifest" href="manifest.json">
+    <style>/* === RESET &amp; BASE === */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: &#39;Charter&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;
+    background: #FAF7F2;
+    color: #1A1A1A;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+    padding: max(1.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* === MASTHEAD === */
+.masthead {
+    text-align: center;
+    padding: 1.5rem 0 1rem;
+    border-top: 3px double #C4A265;
+    border-bottom: 3px double #C4A265;
+    margin-bottom: 1.25rem;
+}
+.masthead-title {
+    font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #1A1A1A;
+    line-height: 1.2;
+}
+.masthead-date {
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    font-size: 0.82rem;
+    color: #5C5C5C;
+    margin-top: 0.4rem;
+    letter-spacing: 0.04em;
+}
+.masthead-edition {
+    font-size: 0.72rem;
+    color: #8E8E8E;
+    margin-top: 0.15rem;
+    font-style: italic;
+}
+
+/* === WEATHER === */
+.weather {
+    background: #F0EDE6;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    margin-bottom: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+.weather-main {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.weather-emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+.weather-temp {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+.weather-city {
+    font-size: 0.82rem;
+    color: #8E8E8E;
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+}
+.weather-details {
+    text-align: right;
+    font-size: 0.82rem;
+    color: #5C5C5C;
+    line-height: 1.5;
+}
+
+/* === CATEGORY SECTION === */
+.category {
+    margin-bottom: 2rem;
+}
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+}
+.category-header::before,
+.category-header::after {
+    content: &#39;&#39;;
+    flex: 1;
+    height: 1px;
+    background: #C4A265;
+}
+.category-name {
+    font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #2C3E50;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* === ARTICLE CARD === */
+.article {
+    margin-bottom: 1.15rem;
+    padding-left: 0.85rem;
+    border-left: 3px solid #C4A265;
+}
+.article-title {
+    font-size: 1.1rem;
+    line-height: 1.35;
+    margin-bottom: 0.2rem;
+}
+.article-title a {
+    color: #1A1A1A;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.article-title a:hover,
+.article-title a:active {
+    color: #8B4513;
+}
+.article-meta {
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    font-size: 0.75rem;
+    color: #8E8E8E;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.article-meta .source {
+    color: #5C5C5C;
+    font-weight: 600;
+}
+.article-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #5C5C5C;
+}
+
+/* Category border colors */
+.article[data-cat=&#34;international&#34;] { border-left-color: #2C3E50; }
+.article[data-cat=&#34;environment&#34;]   { border-left-color: #27AE60; }
+.article[data-cat=&#34;tech&#34;]          { border-left-color: #8E44AD; }
+.article[data-cat=&#34;economy&#34;]       { border-left-color: #E67E22; }
+.article[data-cat=&#34;science&#34;]       { border-left-color: #2980B9; }
+.article[data-cat=&#34;germany&#34;]       { border-left-color: #C0392B; }
+
+/* === EMPTY STATE === */
+.empty-category {
+    font-size: 0.9rem;
+    color: #8E8E8E;
+    font-style: italic;
+    padding: 0.5rem 0;
+}
+
+/* === FOOTER === */
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #C4A265;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #8E8E8E;
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    line-height: 1.7;
+}
+
+/* === QUICK NAV === */
+.quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+.quick-nav a {
+    font-size: 0.72rem;
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5C5C5C;
+    text-decoration: none;
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+    background: #F0EDE6;
+    transition: background 0.15s, color 0.15s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.quick-nav a:hover,
+.quick-nav a:active {
+    background: #E8E3D9;
+    color: #1A1A1A;
+}
+
+/* === RESPONSIVE === */
+@media (min-width: 768px) {
+    body {
+        padding: 2.5rem 2rem;
+    }
+    .masthead-title {
+        font-size: 2.5rem;
+    }
+    .article-title {
+        font-size: 1.2rem;
+    }
+}
+</style>
+</head>
+<body>
+
+    <!-- MASTHEAD -->
+    <header class="masthead">
+        <h1 class="masthead-title">The Daily Briefing</h1>
+        <div class="masthead-date">Sunday, 1 March 2026</div>
+        <div class="masthead-edition">Personal Edition &middot; Berlin</div>
+    </header>
+
+    <!-- WEATHER -->
+    
+
+    <!-- QUICK NAV -->
+    <nav class="quick-nav">
+        
+        <a href="#international">🌐 International</a>
+        
+        <a href="#environment">🌿 Environment</a>
+        
+        <a href="#tech">💻 Tech</a>
+        
+        <a href="#economy">📈 Economy</a>
+        
+        <a href="#science">🔬 Science</a>
+        
+        <a href="#germany">🇩🇪 Deutschland</a>
+        
+    </nav>
+
+    <!-- CATEGORIES -->
+    
+    <section class="category" id="international">
+        <div class="category-header">
+            <span class="category-name">🌐 International &amp; Geopolitics</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="international">
+                <h3 class="article-title">
+                    <a href="https://www.theguardian.com/world/live/2026/feb/28/israel-attacks-iran-as-blasts-heard-in-tehran-live-updates" target="_blank" rel="noopener">US-Israel war on Iran: IDF launches fresh attacks; Trump says supreme leader Ayatollah Ali Khamenei is dead – latest reports</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">The Guardian</span>
+                    <span>&middot;</span>
+                    <span>15m ago</span>
+                </div>
+                
+                <p class="article-summary">Israeli military says it is striking Iranian missile and air defence systems; US president says Khamenei’s death is ‘justice for the people of Iran’ as he repeats call for regime changeAyatollah Ali Khamenei killed, says TrumpA visual guide to the...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="international">
+                <h3 class="article-title">
+                    <a href="https://www.theguardian.com/australia-news/live/2026/mar/01/australia-news-live-sunday-iran-illegal-war-reaction-labor-coalition" target="_blank" rel="noopener">News live: Anthony Albanese says Australia ‘concerned about regional escalation’ but Ayatollah Ali Khamenei’s death ‘will not be mourned’</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">The Guardian</span>
+                    <span>&middot;</span>
+                    <span>19m ago</span>
+                </div>
+                
+                <p class="article-summary">PM says Australians should leave Middle East and Gulf countries ‘if it is safe to do so’. Follow the latest updates liveGet our breaking news email, free app or daily news podcastThe foreign minister, Penny Wong, says Australia was not told in adv...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="international">
+                <h3 class="article-title">
+                    <a href="https://www.theguardian.com/world/2026/mar/01/penny-wong-backs-israel-and-us-strikes-on-iran-as-labor-group-decries-sycophantic-capitulation-to-militarism" target="_blank" rel="noopener">Penny Wong backs Israeli and US strikes on Iran as Labor group decries ‘sycophantic capitulation to militarism’</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">The Guardian</span>
+                    <span>&middot;</span>
+                    <span>57m ago</span>
+                </div>
+                
+                <p class="article-summary">Australian foreign affairs minister says Israel and US should explain ‘the legal basis for the attacks’ on Iran and won’t say if Pine Gap used during strikesFollow our Australia news live blog for latest updatesGet our breaking news email, free ap...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="international">
+                <h3 class="article-title">
+                    <a href="https://www.theguardian.com/music/2026/mar/01/brit-awards-2026-full-list-of-winners" target="_blank" rel="noopener">Brit awards 2026: full list of winners</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">The Guardian</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Olivia Dean tops the winners list with four, while Sam Fender bags two – see all the category winners hereOlivia Dean Continue reading...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="international">
+                <h3 class="article-title">
+                    <a href="https://www.bbc.com/news/articles/cx2dyz6p3weo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">What we know so far: Supreme Leader Khamenei killed, Trump says, as Iran launches retaliatory strikes</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">BBC World</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Iran has retaliated with a missile barrage towards Israel, while explosions have been heard in Qatar, Bahrain, Kuwait and the UAE.</p>
+                
+            </article>
+            
+        
+    </section>
+    
+    <section class="category" id="environment">
+        <div class="category-header">
+            <span class="category-name">🌿 Environment &amp; Climate</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://www.bbc.com/news/articles/cj32l7kmkmko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">I went to rural Wales to bathe in starlight and the Milky Way blew me away</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">BBC Environment</span>
+                    <span>&middot;</span>
+                    <span>3h ago</span>
+                </div>
+                
+                <p class="article-summary">I join two tourists in the mountains to immerse ourselves in the wonders of the night sky with a star guide.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://www.theguardian.com/commentisfree/2026/mar/01/a-scorching-summer-has-left-australian-wildlife-on-the-brink-but-it-doesnt-have-to-be-this-way" target="_blank" rel="noopener">A scorching summer has left Australian wildlife on the brink, but it doesn’t have to be this way | Euan Ritchie and Jess Harwood</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">The Guardian</span>
+                    <span>&middot;</span>
+                    <span>6h ago</span>
+                </div>
+                
+                <p class="article-summary">Unsettling predictions are now our catastrophic reality, but a brighter future is still within reach if our political leaders change courseSoaring, scorching, record temperatures, yet again. Distressing, protracted droughts. Raging fires and devas...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://www.bbc.com/news/articles/cx284ljnv31o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">New fungal research to support woodland creation</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">BBC Environment</span>
+                    <span>&middot;</span>
+                    <span>10h ago</span>
+                </div>
+                
+                <p class="article-summary">The project&#39;s aim is to understand how underground fungal networks adapt to environments.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://insideclimatenews.org/news/28022026/epa-rolls-back-coal-pollution-standards/" target="_blank" rel="noopener">Without Weighing Costs to Public Health, EPA Rolls Back Air Pollution Standards for Coal Plants</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Inside Climate News</span>
+                    <span>&middot;</span>
+                    <span>15h ago</span>
+                </div>
+                
+                <p class="article-summary">Last week, when the Environmental Protection Agency finalized its repeal of tightened 2024 air pollution standards for power plants, the agency claimed the rollback would save $670 million. Environmental and legal experts said that claim is just t...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://insideclimatenews.org/news/28022026/precision-agriculture-and-ai/" target="_blank" rel="noopener">The Farming Industry Has Embraced ‘Precision Agriculture’ and AI, but Critics Question Its Environmental Benefits</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Inside Climate News</span>
+                    <span>&middot;</span>
+                    <span>15h ago</span>
+                </div>
+                
+                <p class="article-summary">Picture an American farm in your mind.&amp;#160; You might envision a red barn. Some cows. A field of corn. You might even see a tractor in this idealized landscape. Maybe a classic John Deere, its kelly green cab atop giant yellow-hubbed tires. Now t...</p>
+                
+            </article>
+            
+        
+    </section>
+    
+    <section class="category" id="tech">
+        <div class="category-header">
+            <span class="category-name">💻 Tech &amp; AI</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://techcrunch.com/2026/02/28/the-trap-anthropic-built-for-itself/" target="_blank" rel="noopener">The trap Anthropic built for itself</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">TechCrunch</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Anthropic, OpenAI, Google DeepMind and others have long promised to govern themselves responsibly. Now, in the absence of rules, there&#39;s not a lot to protect them.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://fortune.com/2026/02/28/pentagon-officer-education-ivy-league-schools-universities-partners-ai-space/" target="_blank" rel="noopener">Pentagon chief blocks officers from Ivy League schools and top universities</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Hacker News</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Article URL: https://fortune.com/2026/02/28/pentagon-officer-education-ivy-league-schools-universities-partners-ai-space/ Comments URL: https://news.ycombinator.com/item?id=47201882 Points: 46 # Comments: 14</p>
+                
+            </article>
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://github.com/jonwiggins/xmloxide" target="_blank" rel="noopener">Show HN: Xmloxide – an agent made rust replacement for libxml2</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Hacker News</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Recently several AI labs have published experiments where they tried to get AI coding agents to complete large software projects.- Cursor attempted to make a browser from scratch: https://cursor.com/blog/scaling-agents- Anthropic attempted to make...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://dl.acm.org/doi/fullHtml/10.1145/238386.238611" target="_blank" rel="noopener">The Windows 95 user interface: A case study in usability engineering (1996)</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Hacker News</span>
+                    <span>&middot;</span>
+                    <span>3h ago</span>
+                </div>
+                
+                <p class="article-summary">Article URL: https://dl.acm.org/doi/fullHtml/10.1145/238386.238611 Comments URL: https://news.ycombinator.com/item?id=47200904 Points: 128 # Comments: 64</p>
+                
+            </article>
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://alexlitzenberger.com/blog/post.html?post=/building_a_minimal_transformer_for_10_digit_addition" target="_blank" rel="noopener">Building a Minimal Transformer for 10-digit Addition</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Hacker News</span>
+                    <span>&middot;</span>
+                    <span>3h ago</span>
+                </div>
+                
+                <p class="article-summary">Article URL: https://alexlitzenberger.com/blog/post.html?post=/building_a_minimal_transformer_for_10_digit_addition Comments URL: https://news.ycombinator.com/item?id=47200828 Points: 33 # Comments: 4</p>
+                
+            </article>
+            
+        
+    </section>
+    
+    <section class="category" id="economy">
+        <div class="category-header">
+            <span class="category-name">📈 Economy &amp; Markets</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/02/28/trump-iran-strikes-live-updates.html" target="_blank" rel="noopener">Iran live updates: Trump says Khamenei is dead; Iran has not confirmed</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span>&middot;</span>
+                    <span>13m ago</span>
+                </div>
+                
+                <p class="article-summary">The attacks began Saturday morning with Iran following with retaliatory strikes across the Middle East.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/02/28/iran-us-attack-oil-market-economy.html" target="_blank" rel="noopener">How the attack on Iran could impact the global oil market and economy</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">The U.S.-Israeli attack raises the risk of major oil supply disruption. Iran is the fourth-largest OPEC producer and sits on the critical Strait of Hormuz.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/02/28/markets-brace-for-impact-following-us-military-strikes-against-iran.html" target="_blank" rel="noopener">&#39;Bigger ramifications than Venezuela&#39;: Markets brace for impact after U.S. strikes Iran</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">Investors are bracing for impact after the U.S.&#39;s attacks on Iran, a move they see as carrying far larger market consequences than the Venezuela campaign.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/02/28/anthropics-claude-apple-apps.html" target="_blank" rel="noopener">Anthropic&#39;s Claude hits No. 1 on Apple&#39;s top free apps list after Pentagon rejection</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span>&middot;</span>
+                    <span>2h ago</span>
+                </div>
+                
+                <p class="article-summary">Claude has surpassed OpenAI&#39;s ChatGPT as the top free app in the U.S. on Apple&#39;s rankings.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/02/28/3-themes-that-drove-wall-streets-wild-week-and-the-new-us-iran-conflict-wildcard.html" target="_blank" rel="noopener">3 themes that drove Wall Street&#39;s wild week and the new U.S.-Iran conflict wildcard</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span>&middot;</span>
+                    <span>9h ago</span>
+                </div>
+                
+                <p class="article-summary">Investors last week wrestled with the impact of AI adoption on various sectors and the overall economy. This coming week is a wildcard after the U.S. and Israel attacked Iran.</p>
+                
+            </article>
+            
+        
+    </section>
+    
+    <section class="category" id="science">
+        <div class="category-header">
+            <span class="category-name">🔬 Science</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-bronze-age-spain-scandinavian.html" target="_blank" rel="noopener">Bronze Age mines in Spain may explain origin of Scandinavian bronze</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span>&middot;</span>
+                    <span>14m ago</span>
+                </div>
+                
+                <p class="article-summary">During an archaeological survey conducted in February, researchers from the Maritime Encounters program at the University of Gothenburg, Sweden, identified six previously unregistered Bronze Age mines in Extremadura, southwestern Spain. The discov...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-genetic-rice-bug-aids-crop.html" target="_blank" rel="noopener">Genetic mapping of rice stink bug aids crop pest control</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span>&middot;</span>
+                    <span>44m ago</span>
+                </div>
+                
+                <p class="article-summary">Even though farmers have been dealing with rice stink bugs as pests since the 1880s, entomologists are still getting to know them at the genetic level. A first-of-its-kind study published on the genetics of rice stink bugs offers clues that could ...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-aging-mitochondrial-circular-rnas.html" target="_blank" rel="noopener">Study identifies aging-associated mitochondrial circular RNAs</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span>&middot;</span>
+                    <span>1h ago</span>
+                </div>
+                
+                <p class="article-summary">New research profiles mitochondrial circular RNAs in Peripheral Blood Mononuclear Cells (PBMCs) from young and old human cohorts and probes how mitochondrial circRNAs and the mitochondrial RNA-binding protein GRSF1 relate to mitochondrial metaboli...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-daisies-buffet.html" target="_blank" rel="noopener">The wonders of daisies: The buffet we walk on</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span>&middot;</span>
+                    <span>2h ago</span>
+                </div>
+                
+                <p class="article-summary">A yellow disk with rays of white—an icon of childhood drawings and a flower with healing properties. We have picnics on it, play football on it and make daisy chains out of it.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-satellite-imaging-vital-disaster-dangerous.html" target="_blank" rel="noopener">Satellite imaging is now vital for disaster management: But there are dangerous gaps</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span>&middot;</span>
+                    <span>3h ago</span>
+                </div>
+                
+                <p class="article-summary">The extreme weather events and resulting destruction that have hit New Zealand this summer are not only signs of a changing climate. They also highlight the now indispensable role of remote sensing satellite technology.</p>
+                
+            </article>
+            
+        
+    </section>
+    
+    <section class="category" id="germany">
+        <div class="category-header">
+            <span class="category-name">🇩🇪 Deutschland &amp; EU</span>
+        </div>
+
+        
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/politik/ausland/2026-03/irans-staatsmedien-bestaetigen-tod-von-ali-chamenei" target="_blank" rel="noopener">Irans Staatsmedien bestätigen Tod von Ali Chamenei</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span>&middot;</span>
+                    <span>6m ago</span>
+                </div>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/news/2026-02/28/trump-irans-oberster-fuehrer-chamenei-ist-tot" target="_blank" rel="noopener">Staatsoberhaupt: Trump über künftige Iran-Spitze: &#34;Einige gute Kandidaten&#34;</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span>&middot;</span>
+                    <span>7m ago</span>
+                </div>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/news/2026-03/01/technischer-defekt-loest-dachstuhlbrand-aus-kind-verletzt" target="_blank" rel="noopener">Flammen: Technischer Defekt löst Dachstuhlbrand aus – Kind verletzt</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span>&middot;</span>
+                    <span>8m ago</span>
+                </div>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/politik/ausland/2026-03/usa-iran-israel-angriff-un-sicherheitsrat-voelkerrecht" target="_blank" rel="noopener">UN-Sicherheitsrat: USA sehen Angriff auf Iran vom internationalen Recht gedeckt</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span>&middot;</span>
+                    <span>18m ago</span>
+                </div>
+                
+                <p class="article-summary">Der Iran wirft den USA Völkerrechtsbruch vor, die US-Regierung weist das in einer UN-Krisensitzung zurück. Beide Staaten berufen sich auf ihr Selbstverteidigungsrecht.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/news/2026-03/01/familiendrama-los-domingos-mit-goya-als-bester-film-geehrt" target="_blank" rel="noopener">Spanischer Filmpreis: Familiendrama &#34;Los Domingos&#34; mit Goya als bester Film geehrt</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span>&middot;</span>
+                    <span>30m ago</span>
+                </div>
+                
+            </article>
+            
+        
+    </section>
+    
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        Generated 01:44 UTC &middot; 01.03.2026<br>
+        Next edition tomorrow morning
+    </footer>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+    }
+    </script>
+</body>
+</html>
