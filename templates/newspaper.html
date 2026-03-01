@@ -80,8 +80,15 @@
 
         {% if category_tldrs.get(key) %}
         <div class="tldr">
-            <span class="tldr-tag">Summary</span>
-            <p class="tldr-text">{{ category_tldrs[key] }}</p>
+            <span class="tldr-tag">Top stories</span>
+            <ul class="tldr-list">
+                {% for item in category_tldrs[key] %}
+                <li class="tldr-item">
+                    <span class="tldr-title">{{ item.title }}</span>
+                    <span class="tldr-src">{{ item.source }}</span>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
         {% endif %}
 
@@ -89,11 +96,14 @@
             {% for article in categories[key] %}
             <details class="story" data-cat="{{ key }}">
                 <summary class="story-head">
-                    <h3 class="story-title">{{ article.title }}</h3>
-                    <div class="story-meta">
+                    <span class="story-row">
+                        <span class="story-title">{{ article.title }}</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
                         <span class="story-src">{{ article.source }}</span>
                         <span>{{ article.time_ago }}</span>
-                    </div>
+                    </span>
                 </summary>
                 <div class="story-body">
                     {% if article.summary %}
