@@ -7,7 +7,7 @@ html {
 }
 body {
     font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
-    background: #FAF7F2;
+    background: linear-gradient(180deg, #F5EEE3 0%, #FAF7F2 8%, #FAF7F2 100%);
     color: #1A1A1A;
     max-width: 680px;
     margin: 0 auto;
@@ -15,15 +15,19 @@ body {
     padding: max(1.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
 }
 
 /* === MASTHEAD === */
 .masthead {
     text-align: center;
-    padding: 1.5rem 0 1rem;
-    border-top: 3px double #C4A265;
-    border-bottom: 3px double #C4A265;
+    padding: 1.25rem 0 1rem;
     margin-bottom: 1.25rem;
+}
+.masthead-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #B8944F 20%, #D4AF65 50%, #B8944F 80%, transparent 100%);
+    border-radius: 2px;
 }
 .masthead-title {
     font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
@@ -31,125 +35,205 @@ body {
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #1A1A1A;
+    color: #1B2838;
     line-height: 1.2;
+    margin: 0.75rem 0 0.3rem;
 }
 .masthead-date {
     font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
     font-size: 0.82rem;
-    color: #5C5C5C;
-    margin-top: 0.4rem;
+    color: #6B5B3E;
     letter-spacing: 0.04em;
 }
 .masthead-edition {
     font-size: 0.72rem;
-    color: #8E8E8E;
-    margin-top: 0.15rem;
+    color: #9B8B6E;
+    margin-top: 0.1rem;
+    margin-bottom: 0.6rem;
     font-style: italic;
 }
 
-/* === WEATHER === */
-.weather {
-    background: #F0EDE6;
-    border-radius: 10px;
-    padding: 0.85rem 1.1rem;
-    margin-bottom: 1.75rem;
+/* === WEATHER CARD === */
+.weather-card {
+    background: linear-gradient(135deg, #1B2838 0%, #2C3E50 60%, #34495E 100%);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(27, 40, 56, 0.15);
+}
+.weather-today {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-.weather-main {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.weather-emoji {
-    font-size: 1.6rem;
+.weather-icon {
+    font-size: 2.2rem;
     line-height: 1;
 }
-.weather-temp {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #1A1A1A;
+.weather-now {
+    display: flex;
+    flex-direction: column;
 }
-.weather-city {
-    font-size: 0.82rem;
-    color: #8E8E8E;
+.weather-temp {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+.weather-label {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    letter-spacing: 0.02em;
+}
+.weather-forecast {
+    display: flex;
+    gap: 1.5rem;
+}
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+.weather-day-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.5);
     font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
 }
-.weather-details {
-    text-align: right;
-    font-size: 0.82rem;
-    color: #5C5C5C;
-    line-height: 1.5;
+.weather-day-range {
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.weather-bar {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, #5DADE2, #E74C3C);
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+/* === QUICK NAV === */
+.quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+}
+.quick-nav a {
+    font-size: 0.72rem;
+    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6B5B3E;
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(184, 148, 79, 0.1);
+    border: 1px solid rgba(184, 148, 79, 0.15);
+    transition: all 0.2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.quick-nav a:hover,
+.quick-nav a:active {
+    background: rgba(184, 148, 79, 0.2);
+    border-color: rgba(184, 148, 79, 0.3);
+    color: #1B2838;
 }
 
 /* === CATEGORY SECTION === */
 .category {
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
 }
 .category-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
 }
 .category-header::before,
 .category-header::after {
     content: '';
     flex: 1;
     height: 1px;
-    background: #C4A265;
+    background: linear-gradient(90deg, transparent, #C4A265, transparent);
+}
+.category-header::before {
+    background: linear-gradient(90deg, transparent, #C4A265);
+}
+.category-header::after {
+    background: linear-gradient(90deg, #C4A265, transparent);
 }
 .category-name {
     font-family: 'Palatino Linotype', 'Palatino', 'Book Antiqua', serif;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #2C3E50;
+    color: #1B2838;
     white-space: nowrap;
     flex-shrink: 0;
+    font-weight: 600;
 }
 
 /* === ARTICLE CARD === */
 .article {
-    margin-bottom: 1.15rem;
-    padding-left: 0.85rem;
+    margin-bottom: 1.2rem;
+    padding: 0.85rem 0.85rem 0.85rem 1rem;
     border-left: 3px solid #C4A265;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0 8px 8px 0;
+    transition: background 0.2s;
+}
+.article:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 .article-title {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     line-height: 1.35;
     margin-bottom: 0.2rem;
 }
 .article-title a {
-    color: #1A1A1A;
+    color: #1B2838;
     text-decoration: none;
     transition: color 0.15s;
 }
 .article-title a:hover,
 .article-title a:active {
-    color: #8B4513;
+    color: #B8944F;
 }
 .article-meta {
     font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
-    font-size: 0.75rem;
-    color: #8E8E8E;
+    font-size: 0.73rem;
+    color: #9B8B6E;
     margin-bottom: 0.3rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 .article-meta .source {
-    color: #5C5C5C;
+    color: #6B5B3E;
     font-weight: 600;
 }
+.article-meta .dot {
+    color: #C4A265;
+}
 .article-summary {
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     line-height: 1.6;
-    color: #5C5C5C;
+    color: #4A4A4A;
 }
 
 /* Category border colors */
@@ -163,7 +247,7 @@ body {
 /* === EMPTY STATE === */
 .empty-category {
     font-size: 0.9rem;
-    color: #8E8E8E;
+    color: #9B8B6E;
     font-style: italic;
     padding: 0.5rem 0;
 }
@@ -172,41 +256,12 @@ body {
 .footer {
     margin-top: 2.5rem;
     padding-top: 1rem;
-    border-top: 1px solid #C4A265;
+    border-top: 1px solid rgba(196, 162, 101, 0.3);
     text-align: center;
-    font-size: 0.75rem;
-    color: #8E8E8E;
+    font-size: 0.73rem;
+    color: #9B8B6E;
     font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
     line-height: 1.7;
-}
-
-/* === QUICK NAV === */
-.quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
-}
-.quick-nav a {
-    font-size: 0.72rem;
-    font-family: 'SF Mono', 'Menlo', 'Consolas', monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #5C5C5C;
-    text-decoration: none;
-    padding: 0.35rem 0.6rem;
-    border-radius: 4px;
-    background: #F0EDE6;
-    transition: background 0.15s, color 0.15s;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-}
-.quick-nav a:hover,
-.quick-nav a:active {
-    background: #E8E3D9;
-    color: #1A1A1A;
 }
 
 /* === RESPONSIVE === */
@@ -218,6 +273,9 @@ body {
         font-size: 2.5rem;
     }
     .article-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+    .weather-card {
+        padding: 1.25rem 1.5rem;
     }
 }

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#2C3E50">
+    <meta name="theme-color" content="#1B2838">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="manifest" href="manifest.json">
@@ -17,27 +17,35 @@
 
     <!-- MASTHEAD -->
     <header class="masthead">
+        <div class="masthead-rule"></div>
         <h1 class="masthead-title">The Daily Briefing</h1>
         <div class="masthead-date">{{ date_str }}</div>
         <div class="masthead-edition">Personal Edition &middot; Berlin</div>
+        <div class="masthead-rule"></div>
     </header>
 
     <!-- WEATHER -->
     {% if weather %}
-    <div class="weather">
-        <div class="weather-main">
-            <span class="weather-emoji">{{ weather.emoji }}</span>
-            <span class="weather-temp">{{ weather.temp }}&deg;C</span>
-            <span class="weather-city">Berlin</span>
+    <div class="weather-card">
+        <div class="weather-today">
+            <div class="weather-icon">{{ weather.emoji }}</div>
+            <div class="weather-now">
+                <span class="weather-temp">{{ weather.temp }}&deg;</span>
+                <span class="weather-label">Berlin &middot; {{ weather.description }}</span>
+            </div>
         </div>
-        <div class="weather-details">
+        <div class="weather-forecast">
             {% if weather.today_high is not none %}
-                {{ weather.today_high }}&deg; / {{ weather.today_low }}&deg; &middot; {{ weather.description }}
-            {% else %}
-                {{ weather.description }}
+            <div class="weather-day">
+                <span class="weather-day-label">Today</span>
+                <span class="weather-day-range">{{ weather.today_low }}&deg; <span class="weather-bar"></span> {{ weather.today_high }}&deg;</span>
+            </div>
             {% endif %}
             {% if weather.tomorrow_high is not none %}
-                <br>Tomorrow: {{ weather.tomorrow_high }}&deg; / {{ weather.tomorrow_low }}&deg;
+            <div class="weather-day">
+                <span class="weather-day-label">Tomorrow</span>
+                <span class="weather-day-range">{{ weather.tomorrow_low }}&deg; <span class="weather-bar"></span> {{ weather.tomorrow_high }}&deg;</span>
+            </div>
             {% endif %}
         </div>
     </div>
@@ -65,7 +73,7 @@
                 </h3>
                 <div class="article-meta">
                     <span class="source">{{ article.source }}</span>
-                    <span>&middot;</span>
+                    <span class="dot">&middot;</span>
                     <span>{{ article.time_ago }}</span>
                 </div>
                 {% if article.summary %}
