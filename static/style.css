@@ -1,5 +1,5 @@
 /* ============================================
-   THE DAILY BRIEFING — v7 WARM & COLORFUL
+   THE DAILY BRIEFING — v8 SAGE & SAND
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -9,33 +9,33 @@
     --f-body: 'Outfit', system-ui, sans-serif;
     --f-mono: 'JetBrains Mono', monospace;
 
-    /* Warm colorful palette */
-    --bg-top: #FFF6ED;
-    --bg-mid: #FDE8D0;
-    --bg-bot: #F6D8B8;
-    --surface: #FFFCF9;
-    --surface-border: rgba(160, 100, 40, 0.08);
-    --text: #2C1810;
-    --text-2: #3D2B1F;
-    --text-3: #7A5C48;
-    --text-4: #AA8E7A;
+    /* Sage & Sand palette */
+    --bg-top: #EDEAD8;
+    --bg-mid: #E3DDCC;
+    --bg-bot: #D6CFBC;
+    --surface: #FAF9F4;
+    --surface-border: rgba(90, 80, 60, 0.10);
+    --text: #26231E;
+    --text-2: #3A362E;
+    --text-3: #635C4F;
+    --text-4: #908779;
 
-    --accent: #E8922A;
-    --accent-soft: rgba(232, 146, 42, 0.12);
+    --accent: #C07A38;
+    --accent-soft: rgba(192, 122, 56, 0.12);
 
-    /* Category colors — vivid on warm bg */
-    --cat-international: #2E6EA6;
-    --cat-international-soft: rgba(46, 110, 166, 0.10);
-    --cat-environment: #1E8C50;
-    --cat-environment-soft: rgba(30, 140, 80, 0.10);
-    --cat-tech: #7C3AED;
-    --cat-tech-soft: rgba(124, 58, 237, 0.10);
-    --cat-economy: #C26B09;
-    --cat-economy-soft: rgba(194, 107, 9, 0.10);
-    --cat-science: #2563EB;
-    --cat-science-soft: rgba(37, 99, 235, 0.10);
-    --cat-germany: #D03030;
-    --cat-germany-soft: rgba(208, 48, 48, 0.10);
+    /* Category colors — earthy vibrant */
+    --cat-international: #2C6E8A;
+    --cat-international-soft: rgba(44, 110, 138, 0.10);
+    --cat-environment: #2E7A4E;
+    --cat-environment-soft: rgba(46, 122, 78, 0.10);
+    --cat-tech: #6D3DC7;
+    --cat-tech-soft: rgba(109, 61, 199, 0.10);
+    --cat-economy: #B06510;
+    --cat-economy-soft: rgba(176, 101, 16, 0.10);
+    --cat-science: #2558C2;
+    --cat-science-soft: rgba(37, 88, 194, 0.10);
+    --cat-germany: #C03030;
+    --cat-germany-soft: rgba(192, 48, 48, 0.10);
 
     --r: 14px;
     --r-sm: 10px;
@@ -46,7 +46,7 @@ html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth;
 body {
     font-family: var(--f-body);
     font-weight: 400;
-    background: linear-gradient(175deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bot) 100%);
+    background: linear-gradient(175deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bot) 100%);
     background-attachment: fixed;
     color: var(--text);
     max-width: 640px;
@@ -58,19 +58,18 @@ body {
 }
 
 /* ==============================
-   HERO — Greeting + Masthead + Weather
+   HERO — deep forest on sage
    ============================== */
 .hero {
-    background: linear-gradient(160deg, #1E1428 0%, #1B2845 40%, #173552 100%);
-    color: #F5EDE4;
+    background: linear-gradient(160deg, #1A2019 0%, #212D22 40%, #283526 100%);
+    color: #EDE9DD;
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
     border-radius: 0 0 28px 28px;
     position: relative;
     overflow: hidden;
 }
-/* Warm glow overlays */
 .hero::before {
     content: '';
     position: absolute;
@@ -78,7 +77,7 @@ body {
     right: -15%;
     width: 55%;
     height: 75%;
-    background: radial-gradient(ellipse, rgba(232, 146, 42, 0.10) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(192, 122, 56, 0.08) 0%, transparent 65%);
     pointer-events: none;
 }
 .hero::after {
@@ -88,7 +87,7 @@ body {
     left: -10%;
     width: 40%;
     height: 50%;
-    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.05) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(46, 122, 78, 0.05) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -115,7 +114,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #F5EDE4;
+    color: #EDE9DD;
 }
 .hero-weather {
     display: flex;
@@ -137,16 +136,16 @@ body {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(245,237,228,0.45);
+    color: rgba(237,233,221,0.45);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(245,237,228,0.2); }
+.hero-sep { color: rgba(237,233,221,0.2); }
 
-/* Hero hourly weather */
+/* Hourly weather */
 .hero-hourly-wrap {
     overflow-x: auto;
     margin: 0 -1.25rem;
@@ -170,12 +169,12 @@ body {
     border-radius: var(--r-sm);
     gap: 0.12rem;
 }
-.hh-now { background: rgba(232, 146, 42, 0.15); }
+.hh-now { background: rgba(192, 122, 56, 0.15); }
 .hh-t {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(245,237,228,0.3);
+    color: rgba(237,233,221,0.3);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -183,64 +182,65 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(245,237,228,0.8);
+    color: rgba(237,233,221,0.8);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
-    color: #6CB4EE;
-    background: rgba(108, 180, 238, 0.15);
+    color: #7DBCE0;
+    background: rgba(125, 188, 224, 0.12);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.22);
+    background: rgba(147, 197, 253, 0.18);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(245,237,228,0.25);
+    color: rgba(237,233,221,0.25);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(245,237,228,0.06);
+    border-top: 1px solid rgba(237,233,221,0.06);
 }
 
 /* ==============================
-   QUICK NAV — colored pills on warm bg
+   NAV — minimal text links
    ============================== */
 .nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    padding: 0 1rem;
-    margin-bottom: 1.5rem;
+    align-items: center;
+    gap: 0.15rem 0.5rem;
+    padding: 0.4rem 1.15rem;
+    margin-bottom: 1.25rem;
 }
 .nav-pill {
-    font-family: var(--f-body);
-    font-size: 0.73rem;
-    font-weight: 600;
+    font-family: var(--f-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border-radius: 100px;
-    border: 1px solid transparent;
+    padding: 0.2rem 0;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
     transition: all 0.12s ease;
-    min-height: 36px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.2rem;
     white-space: nowrap;
 }
-.nav-pill:active { transform: scale(0.96); }
+.nav-pill:active { opacity: 0.7; }
 
-.nav-pill[data-cat="international"] { color: var(--cat-international); background: var(--surface); border-color: rgba(46, 110, 166, 0.18); }
-.nav-pill[data-cat="environment"]   { color: var(--cat-environment); background: var(--surface); border-color: rgba(30, 140, 80, 0.18); }
-.nav-pill[data-cat="tech"]          { color: var(--cat-tech); background: var(--surface); border-color: rgba(124, 58, 237, 0.18); }
-.nav-pill[data-cat="economy"]       { color: var(--cat-economy); background: var(--surface); border-color: rgba(194, 107, 9, 0.18); }
-.nav-pill[data-cat="science"]       { color: var(--cat-science); background: var(--surface); border-color: rgba(37, 99, 235, 0.18); }
-.nav-pill[data-cat="germany"]       { color: var(--cat-germany); background: var(--surface); border-color: rgba(208, 48, 48, 0.18); }
+.nav-pill[data-cat="international"] { color: var(--cat-international); }
+.nav-pill[data-cat="environment"]   { color: var(--cat-environment); }
+.nav-pill[data-cat="tech"]          { color: var(--cat-tech); }
+.nav-pill[data-cat="economy"]       { color: var(--cat-economy); }
+.nav-pill[data-cat="science"]       { color: var(--cat-science); }
+.nav-pill[data-cat="germany"]       { color: var(--cat-germany); }
 
 /* ==============================
    CATEGORY SECTION
@@ -284,7 +284,7 @@ body {
 }
 
 /* ==============================
-   SUMMARY — expandable "what's happening"
+   SUMMARY — expandable overview
    ============================== */
 .tldr {
     background: var(--surface);
@@ -406,7 +406,7 @@ body {
 .story-head::-webkit-details-marker { display: none; }
 .story-head::marker { display: none; content: ''; }
 .story-head:active {
-    background: rgba(160, 100, 40, 0.03);
+    background: rgba(90, 80, 60, 0.03);
 }
 .story-row {
     display: flex;
@@ -457,7 +457,7 @@ body {
     text-decoration: none;
     padding: 0.35rem 0.65rem;
     border-radius: 100px;
-    background: rgba(255,255,255,0.6);
+    background: rgba(250,249,244,0.7);
     border: 1px solid var(--surface-border);
     display: inline-flex;
     align-items: center;
@@ -466,7 +466,7 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
-    background: rgba(255,255,255,0.8);
+    background: rgba(250,249,244,0.9);
 }
 
 /* ==============================
@@ -481,7 +481,7 @@ body {
 
 .foot {
     padding: 1.25rem 1rem 0;
-    border-top: 1px solid rgba(160, 100, 40, 0.08);
+    border-top: 1px solid var(--surface-border);
     text-align: center;
     font-family: var(--f-mono);
     font-size: 0.62rem;
@@ -498,16 +498,16 @@ body {
     .hero-title { font-size: 3.5rem; }
     .hw-temp { font-size: 2.5rem; }
     .section { padding: 0 1.5rem; }
-    .nav { padding: 0 1.5rem; }
+    .nav { padding: 0.4rem 1.65rem; }
     .story-title { font-size: 1rem; }
     .foot { margin: 2.5rem 1.5rem 0; }
 }
 
 @media (hover: hover) {
-    .story:hover { border-color: rgba(160, 100, 40, 0.12); }
-    .story-head:hover { background: rgba(160, 100, 40, 0.02); }
-    .tldr:hover { border-color: rgba(160, 100, 40, 0.12); }
-    .tldr-head:hover { background: rgba(160, 100, 40, 0.02); }
-    .nav-pill:hover { filter: brightness(0.97); }
-    .story-link:hover { background: rgba(255,255,255,0.9); color: var(--text-2); }
+    .story:hover { border-color: rgba(90, 80, 60, 0.15); }
+    .story-head:hover { background: rgba(90, 80, 60, 0.02); }
+    .tldr:hover { border-color: rgba(90, 80, 60, 0.15); }
+    .tldr-head:hover { background: rgba(90, 80, 60, 0.02); }
+    .nav-pill:hover { border-bottom-color: currentColor; }
+    .story-link:hover { background: var(--surface); color: var(--text-2); }
 }
