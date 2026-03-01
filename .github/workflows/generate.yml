@@ -24,8 +24,6 @@ jobs:
 
       - name: Generate newspaper
         run: python -m generator.main
-        env:
-          OPENWEATHERMAP_API_KEY: ${{ secrets.OPENWEATHERMAP_API_KEY }}
 
       - name: Commit and push
         run: |
