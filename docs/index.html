@@ -11,80 +11,130 @@
     <meta name="apple-mobile-web-app-title" content="Briefing">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="manifest" href="manifest.json">
-    <style>/* === RESET &amp; BASE === */
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>/* ============================================
+   THE DAILY BRIEFING — Design System v3
+   ============================================ */
+
+/* === RESET === */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* === CUSTOM PROPERTIES === */
+:root {
+    --font-display: &#39;DM Serif Display&#39;, &#39;Georgia&#39;, serif;
+    --font-body: &#39;Source Serif 4&#39;, &#39;Georgia&#39;, serif;
+    --font-mono: &#39;IBM Plex Mono&#39;, &#39;Menlo&#39;, monospace;
+
+    --bg: #F8F4ED;
+    --bg-card: #FFFFFF;
+    --bg-warm: #F2ECE0;
+
+    --ink: #1C1917;
+    --ink-soft: #44403C;
+    --ink-muted: #78716C;
+    --ink-faint: #A8A29E;
+
+    --gold: #B8944F;
+    --gold-light: rgba(184, 148, 79, 0.12);
+    --gold-line: rgba(184, 148, 79, 0.25);
+
+    --cat-international: #334155;
+    --cat-environment: #15803D;
+    --cat-tech: #7E22CE;
+    --cat-economy: #C2410C;
+    --cat-science: #1D4ED8;
+    --cat-germany: #B91C1C;
+
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/* === BASE === */
 html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
 }
 body {
-    font-family: &#39;Charter&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;
-    background: linear-gradient(180deg, #F5EEE3 0%, #FAF7F2 8%, #FAF7F2 100%);
-    color: #1A1A1A;
+    font-family: var(--font-body);
+    font-weight: 400;
+    background: var(--bg);
+    color: var(--ink);
     max-width: 680px;
     margin: 0 auto;
-    padding: 1.5rem 1.25rem;
-    padding: max(1.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
-    line-height: 1.6;
+    padding: 1.25rem 1rem;
+    padding: max(1.25rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1.25rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
 }
 
 /* === MASTHEAD === */
 .masthead {
     text-align: center;
-    padding: 1.25rem 0 1rem;
+    padding: 1rem 0 0.75rem;
     margin-bottom: 1.25rem;
 }
-.masthead-rule {
-    height: 3px;
-    background: linear-gradient(90deg, transparent 0%, #B8944F 20%, #D4AF65 50%, #B8944F 80%, transparent 100%);
-    border-radius: 2px;
+.masthead-ornament {
+    font-size: 0.5rem;
+    letter-spacing: 0.5em;
+    color: var(--gold);
+    margin: 0.25rem 0;
 }
 .masthead-title {
-    font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
-    font-size: 2rem;
+    font-family: var(--font-display);
+    font-size: 2.1rem;
     font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #1B2838;
-    line-height: 1.2;
-    margin: 0.75rem 0 0.3rem;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0.4rem 0 0.35rem;
+    letter-spacing: 0.01em;
 }
 .masthead-date {
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    font-size: 0.82rem;
-    color: #6B5B3E;
-    letter-spacing: 0.04em;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--ink-muted);
+    letter-spacing: 0.03em;
 }
 .masthead-edition {
-    font-size: 0.72rem;
-    color: #9B8B6E;
-    margin-top: 0.1rem;
-    margin-bottom: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.73rem;
+    color: var(--ink-faint);
+    margin-top: 0.05rem;
     font-style: italic;
 }
 
 /* === WEATHER CARD === */
 .weather-card {
-    background: linear-gradient(135deg, #1B2838 0%, #2C3E50 60%, #34495E 100%);
-    border-radius: 14px;
-    padding: 1.1rem 1.25rem;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem 0.75rem;
     margin-bottom: 1.5rem;
-    color: #FFFFFF;
-    box-shadow: 0 2px 12px rgba(27, 40, 56, 0.15);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.04);
+    overflow: hidden;
 }
-.weather-today {
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--gold-line);
+}
+.weather-current {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    gap: 0.6rem;
 }
 .weather-icon {
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 1;
 }
 .weather-now {
@@ -92,47 +142,134 @@ body {
     flex-direction: column;
 }
 .weather-temp {
-    font-size: 1.8rem;
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--ink);
 }
-.weather-label {
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    letter-spacing: 0.02em;
+.weather-desc {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-muted);
+    margin-top: 0.1rem;
 }
-.weather-forecast {
-    display: flex;
-    gap: 1.5rem;
-}
-.weather-day {
+.weather-summary {
+    text-align: right;
     display: flex;
     flex-direction: column;
-    gap: 0.15rem;
+    gap: 0.1rem;
 }
-.weather-day-label {
-    font-size: 0.7rem;
+.weather-city {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--ink-muted);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(255, 255, 255, 0.5);
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
 }
-.weather-day-range {
-    font-size: 0.88rem;
+.weather-range {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
     font-weight: 500;
+    color: var(--ink-soft);
+}
+
+/* Hourly forecast scroll */
+.weather-hourly-scroll {
+    overflow-x: auto;
+    margin: 0 -1.1rem;
+    padding: 0 1.1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+.weather-hourly-scroll::-webkit-scrollbar { display: none; }
+.weather-hourly {
+    display: flex;
+    gap: 0;
+    padding-bottom: 0.5rem;
+    min-width: max-content;
+}
+.weather-hour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3.2rem;
+    padding: 0.35rem 0.25rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+}
+.weather-hour:first-child {
+    background: var(--gold-light);
+}
+.wh-time {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+}
+.wh-icon {
+    font-size: 1.1rem;
+    margin: 0.2rem 0;
+    line-height: 1;
+}
+.wh-temp {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--ink);
+}
+.wh-rain {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    color: #2563EB;
+    margin-top: 0.1rem;
+    background: rgba(37, 99, 235, 0.08);
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+}
+.wh-rain-high {
+    background: rgba(37, 99, 235, 0.15);
+    color: #1D4ED8;
+    font-weight: 500;
+}
+.wh-rain-none {
+    color: var(--ink-faint);
+    background: none;
+    font-size: 0.6rem;
+}
+
+.weather-legend {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.15rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--gold-line);
+    margin-bottom: 0.5rem;
+}
+.wl-item {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--ink-faint);
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.3rem;
 }
-.weather-bar {
+.wl-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
     display: inline-block;
-    width: 24px;
-    height: 3px;
-    background: linear-gradient(90deg, #5DADE2, #E74C3C);
-    border-radius: 2px;
-    vertical-align: middle;
+}
+.wl-dot-rain { background: #2563EB; }
+
+.weather-tomorrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-align: center;
+    padding-top: 0.15rem;
 }
 
 /* === QUICK NAV === */
@@ -140,141 +277,151 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.35rem;
     margin-bottom: 1.75rem;
 }
 .quick-nav a {
-    font-size: 0.72rem;
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #6B5B3E;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: var(--ink-muted);
     text-decoration: none;
-    padding: 0.35rem 0.65rem;
-    border-radius: 6px;
-    background: rgba(184, 148, 79, 0.1);
-    border: 1px solid rgba(184, 148, 79, 0.15);
+    padding: 0.4rem 0.65rem;
+    border-radius: 20px;
+    background: var(--bg-card);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: var(--shadow-sm);
     transition: all 0.2s;
     min-height: 44px;
     display: flex;
     align-items: center;
+    gap: 0.3rem;
+}
+.quick-nav a span {
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 .quick-nav a:hover,
 .quick-nav a:active {
-    background: rgba(184, 148, 79, 0.2);
-    border-color: rgba(184, 148, 79, 0.3);
-    color: #1B2838;
+    background: var(--bg-warm);
+    border-color: var(--gold-line);
+    color: var(--ink-soft);
+    box-shadow: var(--shadow-md);
 }
 
-/* === CATEGORY SECTION === */
+/* === CATEGORY === */
 .category {
-    margin-bottom: 2.25rem;
+    margin-bottom: 2rem;
 }
 .category-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-    padding-top: 0.25rem;
+    gap: 0.6rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid var(--gold-line);
 }
-.category-header::before,
-.category-header::after {
-    content: &#39;&#39;;
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #C4A265, transparent);
+.cat-icon {
+    font-size: 1.15rem;
+    line-height: 1;
 }
-.category-header::before {
-    background: linear-gradient(90deg, transparent, #C4A265);
+.cat-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.01em;
 }
-.category-header::after {
-    background: linear-gradient(90deg, #C4A265, transparent);
-}
-.category-name {
-    font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #1B2838;
-    white-space: nowrap;
-    flex-shrink: 0;
-    font-weight: 600;
-}
+/* Category accent border colors */
+.category-header[data-cat=&#34;international&#34;] { border-bottom-color: var(--cat-international); }
+.category-header[data-cat=&#34;environment&#34;]   { border-bottom-color: var(--cat-environment); }
+.category-header[data-cat=&#34;tech&#34;]          { border-bottom-color: var(--cat-tech); }
+.category-header[data-cat=&#34;economy&#34;]       { border-bottom-color: var(--cat-economy); }
+.category-header[data-cat=&#34;science&#34;]       { border-bottom-color: var(--cat-science); }
+.category-header[data-cat=&#34;germany&#34;]       { border-bottom-color: var(--cat-germany); }
 
-/* === ARTICLE CARD === */
+/* === ARTICLE === */
 .article {
-    margin-bottom: 1.2rem;
-    padding: 0.85rem 0.85rem 0.85rem 1rem;
-    border-left: 3px solid #C4A265;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 0 8px 8px 0;
-    transition: background 0.2s;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.65rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0,0,0,0.03);
+    border-left: 3px solid var(--gold-line);
+    transition: box-shadow 0.2s, border-color 0.2s;
 }
 .article:hover {
-    background: rgba(255, 255, 255, 0.8);
+    box-shadow: var(--shadow-md);
 }
+.article[data-cat=&#34;international&#34;] { border-left-color: var(--cat-international); }
+.article[data-cat=&#34;environment&#34;]   { border-left-color: var(--cat-environment); }
+.article[data-cat=&#34;tech&#34;]          { border-left-color: var(--cat-tech); }
+.article[data-cat=&#34;economy&#34;]       { border-left-color: var(--cat-economy); }
+.article[data-cat=&#34;science&#34;]       { border-left-color: var(--cat-science); }
+.article[data-cat=&#34;germany&#34;]       { border-left-color: var(--cat-germany); }
+
 .article-title {
-    font-size: 1.08rem;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
     line-height: 1.35;
     margin-bottom: 0.2rem;
 }
 .article-title a {
-    color: #1B2838;
+    color: var(--ink);
     text-decoration: none;
     transition: color 0.15s;
 }
 .article-title a:hover,
 .article-title a:active {
-    color: #B8944F;
+    color: var(--gold);
 }
 .article-meta {
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    font-size: 0.73rem;
-    color: #9B8B6E;
-    margin-bottom: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    margin-bottom: 0.35rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 .article-meta .source {
-    color: #6B5B3E;
-    font-weight: 600;
+    color: var(--ink-muted);
+    font-weight: 500;
 }
 .article-meta .dot {
-    color: #C4A265;
+    color: var(--gold);
 }
 .article-summary {
-    font-size: 0.93rem;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     line-height: 1.6;
-    color: #4A4A4A;
+    color: var(--ink-soft);
 }
-
-/* Category border colors */
-.article[data-cat=&#34;international&#34;] { border-left-color: #2C3E50; }
-.article[data-cat=&#34;environment&#34;]   { border-left-color: #27AE60; }
-.article[data-cat=&#34;tech&#34;]          { border-left-color: #8E44AD; }
-.article[data-cat=&#34;economy&#34;]       { border-left-color: #E67E22; }
-.article[data-cat=&#34;science&#34;]       { border-left-color: #2980B9; }
-.article[data-cat=&#34;germany&#34;]       { border-left-color: #C0392B; }
 
 /* === EMPTY STATE === */
 .empty-category {
-    font-size: 0.9rem;
-    color: #9B8B6E;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
     font-style: italic;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
 }
 
 /* === FOOTER === */
 .footer {
     margin-top: 2.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(196, 162, 101, 0.3);
+    padding-top: 0.75rem;
     text-align: center;
-    font-size: 0.73rem;
-    color: #9B8B6E;
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--ink-faint);
     line-height: 1.7;
+}
+.footer-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-line), transparent);
+    margin-bottom: 0.75rem;
 }
 
 /* === RESPONSIVE === */
@@ -283,13 +430,16 @@ body {
         padding: 2.5rem 2rem;
     }
     .masthead-title {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
     }
     .article-title {
-        font-size: 1.15rem;
+        font-size: 1.12rem;
+    }
+    .cat-title {
+        font-size: 1.25rem;
     }
     .weather-card {
-        padding: 1.25rem 1.5rem;
+        padding: 1.15rem 1.35rem 0.85rem;
     }
 }
 </style>
@@ -298,62 +448,209 @@ body {
 
     <!-- MASTHEAD -->
     <header class="masthead">
-        <div class="masthead-rule"></div>
+        <div class="masthead-ornament">&loz; &loz; &loz;</div>
         <h1 class="masthead-title">The Daily Briefing</h1>
         <div class="masthead-date">Sunday, 1 March 2026</div>
         <div class="masthead-edition">Personal Edition &middot; Berlin</div>
-        <div class="masthead-rule"></div>
+        <div class="masthead-ornament">&loz; &loz; &loz;</div>
     </header>
 
     <!-- WEATHER -->
     
-    <div class="weather-card">
-        <div class="weather-today">
-            <div class="weather-icon">☀️</div>
-            <div class="weather-now">
-                <span class="weather-temp">7&deg;</span>
-                <span class="weather-label">Berlin &middot; Clear sky</span>
+    <section class="weather-card">
+        <div class="weather-header">
+            <div class="weather-current">
+                <span class="weather-icon">☀️</span>
+                <div class="weather-now">
+                    <span class="weather-temp">7&deg;</span>
+                    <span class="weather-desc">Clear</span>
+                </div>
+            </div>
+            <div class="weather-summary">
+                <span class="weather-city">Berlin</span>
+                
+                <span class="weather-range">&uarr; 12&deg; &darr; 6&deg;</span>
+                
             </div>
         </div>
-        <div class="weather-forecast">
-            
-            <div class="weather-day">
-                <span class="weather-day-label">Today</span>
-                <span class="weather-day-range">6&deg; <span class="weather-bar"></span> 12&deg;</span>
+
+        
+        <div class="weather-hourly-scroll">
+            <div class="weather-hourly">
+                
+                <div class="weather-hour">
+                    <span class="wh-time">22:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">7&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">23:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">6&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">00:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">6&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">01:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">6&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">02:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">6&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">03:00</span>
+                    <span class="wh-icon">🌤️</span>
+                    <span class="wh-temp">5&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">04:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">5&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">05:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">4&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">06:00</span>
+                    <span class="wh-icon">🌤️</span>
+                    <span class="wh-temp">4&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">07:00</span>
+                    <span class="wh-icon">🌤️</span>
+                    <span class="wh-temp">4&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">08:00</span>
+                    <span class="wh-icon">☀️</span>
+                    <span class="wh-temp">4&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">09:00</span>
+                    <span class="wh-icon">🌤️</span>
+                    <span class="wh-temp">5&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">10:00</span>
+                    <span class="wh-icon">⛅</span>
+                    <span class="wh-temp">7&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">11:00</span>
+                    <span class="wh-icon">🌤️</span>
+                    <span class="wh-temp">9&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
+                <div class="weather-hour">
+                    <span class="wh-time">12:00</span>
+                    <span class="wh-icon">☁️</span>
+                    <span class="wh-temp">11&deg;</span>
+                    
+                    <span class="wh-rain wh-rain-none">&ndash;</span>
+                    
+                </div>
+                
             </div>
-            
-            
-            <div class="weather-day">
-                <span class="weather-day-label">Tomorrow</span>
-                <span class="weather-day-range">4&deg; <span class="weather-bar"></span> 15&deg;</span>
-            </div>
-            
         </div>
-    </div>
+        <div class="weather-legend">
+            <span class="wl-item"><span class="wl-dot wl-dot-rain"></span> Rain probability</span>
+        </div>
+        
+
+        
+        <div class="weather-tomorrow">
+            Tomorrow &rarr; 4&deg; / 15&deg;
+        </div>
+        
+    </section>
     
 
     <!-- QUICK NAV -->
     <nav class="quick-nav">
         
-        <a href="#international">🌐 International</a>
+        <a href="#international">🌐<span>International</span></a>
         
-        <a href="#environment">🌿 Environment</a>
+        <a href="#environment">🌿<span>Environment</span></a>
         
-        <a href="#tech">💻 Tech</a>
+        <a href="#tech">💻<span>Tech</span></a>
         
-        <a href="#economy">📈 Economy</a>
+        <a href="#economy">📈<span>Economy</span></a>
         
-        <a href="#science">🔬 Science</a>
+        <a href="#science">🔬<span>Science</span></a>
         
-        <a href="#germany">🇩🇪 Deutschland</a>
+        <a href="#germany">🇩🇪<span>Deutschland</span></a>
         
     </nav>
 
     <!-- CATEGORIES -->
     
     <section class="category" id="international">
-        <div class="category-header">
-            <span class="category-name">🌐 International &amp; Geopolitics</span>
+        <div class="category-header" data-cat="international">
+            <div class="cat-icon">🌐</div>
+            <h2 class="cat-title">International &amp; Geopolitics</h2>
         </div>
 
         
@@ -393,7 +690,7 @@ body {
                 <div class="article-meta">
                     <span class="source">The Guardian</span>
                     <span class="dot">&middot;</span>
-                    <span>33m ago</span>
+                    <span>49m ago</span>
                 </div>
                 
                 <p class="article-summary">US president signals willingness to engage with Tehran’s surviving leadership as strikes and retaliatory attacks intensify across regionUS-Israel war on Iran – latest updatesDonald Trump said on Sunday he was prepared to talk to what was left of t...</p>
@@ -407,7 +704,7 @@ body {
                 <div class="article-meta">
                     <span class="source">NPR World</span>
                     <span class="dot">&middot;</span>
-                    <span>35m ago</span>
+                    <span>52m ago</span>
                 </div>
                 
                 <p class="article-summary">Here&#39;s a look at Iran, Israel and reactions from around the world after the U.S. and Israel launched strikes against Iran.</p>
@@ -421,7 +718,7 @@ body {
                 <div class="article-meta">
                     <span class="source">BBC World</span>
                     <span class="dot">&middot;</span>
-                    <span>41m ago</span>
+                    <span>58m ago</span>
                 </div>
                 
                 <p class="article-summary">Several deaths are reported across the Middle East as Tehran retaliates for massive strikes by the US and Israel.</p>
@@ -432,8 +729,9 @@ body {
     </section>
     
     <section class="category" id="environment">
-        <div class="category-header">
-            <span class="category-name">🌿 Environment &amp; Climate</span>
+        <div class="category-header" data-cat="environment">
+            <div class="cat-icon">🌿</div>
+            <h2 class="cat-title">Environment &amp; Climate</h2>
         </div>
 
         
@@ -512,8 +810,9 @@ body {
     </section>
     
     <section class="category" id="tech">
-        <div class="category-header">
-            <span class="category-name">💻 Tech &amp; AI</span>
+        <div class="category-header" data-cat="tech">
+            <div class="cat-icon">💻</div>
+            <h2 class="cat-title">Tech &amp; AI</h2>
         </div>
 
         
@@ -525,10 +824,10 @@ body {
                 <div class="article-meta">
                     <span class="source">Hacker News</span>
                     <span class="dot">&middot;</span>
-                    <span>32m ago</span>
+                    <span>48m ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 8 # Comments: 0</p>
+                <p class="article-summary">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 16 # Comments: 0</p>
                 
             </article>
             
@@ -542,7 +841,7 @@ body {
                     <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: https://maurycyz.com/misc/c_files/ Comments URL: https://news.ycombinator.com/item?id=47209788 Points: 3 # Comments: 1</p>
+                <p class="article-summary">Article URL: https://maurycyz.com/misc/c_files/ Comments URL: https://news.ycombinator.com/item?id=47209788 Points: 11 # Comments: 2</p>
                 
             </article>
             
@@ -556,7 +855,7 @@ body {
                     <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: https://health.aws.amazon.com/health/status Comments URL: https://news.ycombinator.com/item?id=47209781 Points: 107 # Comments: 42</p>
+                <p class="article-summary">Article URL: https://health.aws.amazon.com/health/status Comments URL: https://news.ycombinator.com/item?id=47209781 Points: 117 # Comments: 43</p>
                 
             </article>
             
@@ -592,11 +891,26 @@ body {
     </section>
     
     <section class="category" id="economy">
-        <div class="category-header">
-            <span class="category-name">📈 Economy &amp; Markets</span>
+        <div class="category-header" data-cat="economy">
+            <div class="cat-icon">📈</div>
+            <h2 class="cat-title">Economy &amp; Markets</h2>
         </div>
 
         
+            
+            <article class="article" data-cat="economy">
+                <h3 class="article-title">
+                    <a href="https://www.cnbc.com/2026/03/01/us-iran-live-updates-khamenei-death-trump-gulf-strikes.html" target="_blank" rel="noopener">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">CNBC Top News</span>
+                    <span class="dot">&middot;</span>
+                    <span>2m ago</span>
+                </div>
+                
+                <p class="article-summary">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei.</p>
+                
+            </article>
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
@@ -605,24 +919,10 @@ body {
                 <div class="article-meta">
                     <span class="source">CNBC Top News</span>
                     <span class="dot">&middot;</span>
-                    <span>31m ago</span>
+                    <span>48m ago</span>
                 </div>
                 
                 <p class="article-summary">It is unclear who is governing Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei.</p>
-                
-            </article>
-            
-            <article class="article" data-cat="economy">
-                <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/03/01/us-iran-live-updates-khamenei-death-trump-gulf-strikes.html" target="_blank" rel="noopener">Live updates: Trump tells CNBC that Iran military operations are &#39;ahead of schedule&#39;</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">CNBC Top News</span>
-                    <span class="dot">&middot;</span>
-                    <span>1h ago</span>
-                </div>
-                
-                <p class="article-summary">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that reportedly killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei.</p>
                 
             </article>
             
@@ -672,11 +972,26 @@ body {
     </section>
     
     <section class="category" id="science">
-        <div class="category-header">
-            <span class="category-name">🔬 Science</span>
+        <div class="category-header" data-cat="science">
+            <div class="cat-icon">🔬</div>
+            <h2 class="cat-title">Science</h2>
         </div>
 
         
+            
+            <article class="article" data-cat="science">
+                <h3 class="article-title">
+                    <a href="https://phys.org/news/2026-02-women-wine-female-winemakers.html" target="_blank" rel="noopener">Women more likely to choose wine from female winemakers</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Phys.org</span>
+                    <span class="dot">&middot;</span>
+                    <span>13m ago</span>
+                </div>
+                
+                <p class="article-summary">Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S. wine consumers, who happen to be women. Messages like &#34;proudly made by a woman winemaker&#34; increased women&#39;s intentions of purchasing wines, particularly when t...</p>
+                
+            </article>
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
@@ -685,7 +1000,7 @@ body {
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
                     <span class="dot">&middot;</span>
-                    <span>27m ago</span>
+                    <span>43m ago</span>
                 </div>
                 
                 <p class="article-summary">New geological data indicate that marine life is somewhat resilient to warming in the tropics. Chris Fokkema, Earth scientist at Utrecht University, discovered that tropical algae were largely unaffected by a number of periods of global warming of...</p>
@@ -699,7 +1014,7 @@ body {
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
                     <span class="dot">&middot;</span>
-                    <span>57m ago</span>
+                    <span>1h ago</span>
                 </div>
                 
                 <p class="article-summary">What do you envision when you think of meekness? You probably see a mousy doormat, someone sheepishly acquiescing to the will of the stronger. When Jesus says, &#34;Blessed are the meek, for they shall inherit the earth,&#34; you might think that those wi...</p>
@@ -713,7 +1028,7 @@ body {
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
                     <span class="dot">&middot;</span>
-                    <span>1h ago</span>
+                    <span>2h ago</span>
                 </div>
                 
                 <p class="article-summary">Artificial intelligence is rapidly making intellectual work and social interaction easier, but that ease may come at a substantial psychological cost, according to researchers from the University of Toronto. In an article published in Communicatio...</p>
@@ -734,41 +1049,42 @@ body {
                 
             </article>
             
-            <article class="article" data-cat="science">
-                <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-simulations-path-ideal-glass-crystal.html" target="_blank" rel="noopener">Simulations show a path to &#39;ideal glass&#39; with crystal-like entropy</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">Phys.org</span>
-                    <span class="dot">&middot;</span>
-                    <span>3h ago</span>
-                </div>
-                
-                <p class="article-summary">The types of glass that we encounter in everyday life, such as window glass or smartphone screens, are disordered solids. This means that they consist of particles locked in place, like those in solids, but arranged randomly, similarly to how they...</p>
-                
-            </article>
-            
         
     </section>
     
     <section class="category" id="germany">
-        <div class="category-header">
-            <span class="category-name">🇩🇪 Deutschland &amp; EU</span>
+        <div class="category-header" data-cat="germany">
+            <div class="cat-icon">🇩🇪</div>
+            <h2 class="cat-title">Deutschland &amp; EU</h2>
         </div>
 
         
             
             <article class="article" data-cat="germany">
                 <h3 class="article-title">
-                    <a href="https://www.tagesschau.de/newsticker/liveblog-israel-usa-angriffe-iran-102.html" target="_blank" rel="noopener">Nahost-Liveblog: ++ Krieg könnte laut Trump vier Wochen dauern ++</a>
+                    <a href="https://www.tagesschau.de/newsticker/liveblog-israel-usa-angriffe-iran-102.html" target="_blank" rel="noopener">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Tagesschau</span>
                     <span class="dot">&middot;</span>
-                    <span>7m ago</span>
+                    <span>8m ago</span>
                 </div>
                 
-                <p class="article-summary">Der Krieg mit Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden.</p>
+                <p class="article-summary">Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.spiegel.de/ausland/iran-israel-hat-fuehrungsspitze-der-achse-des-terrors-ausgeschaltet-a-2a230de8-fc0e-4c28-817f-5650829caf74#ref=rss" target="_blank" rel="noopener">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Spiegel</span>
+                    <span class="dot">&middot;</span>
+                    <span>17m ago</span>
+                </div>
+                
+                <p class="article-summary">Israel hat nach dem Massaker vom 7. Oktober 2023 einen Feldzug gegen die Hamas, die Hisbollah, die Huthis und Irans Führungselite begonnen. Nun meldet die Armee Vollzug – mit einer beispiellosen Liste gezielter Tötungen.</p>
                 
             </article>
             
@@ -779,7 +1095,7 @@ body {
                 <div class="article-meta">
                     <span class="source">ZEIT Online</span>
                     <span class="dot">&middot;</span>
-                    <span>15m ago</span>
+                    <span>32m ago</span>
                 </div>
                 
                 <p class="article-summary">Die Angriffe auf den Iran könnten sich laut dem US-Präsidenten über vier Wochen ziehen. Die USA haben bislang mehr als 1.000 iranische Ziele attackiert. Das Liveblog</p>
@@ -793,7 +1109,7 @@ body {
                 <div class="article-meta">
                     <span class="source">ZEIT Online</span>
                     <span class="dot">&middot;</span>
-                    <span>26m ago</span>
+                    <span>43m ago</span>
                 </div>
                 
             </article>
@@ -805,24 +1121,10 @@ body {
                 <div class="article-meta">
                     <span class="source">ZEIT Online</span>
                     <span class="dot">&middot;</span>
-                    <span>35m ago</span>
+                    <span>51m ago</span>
                 </div>
                 
                 <p class="article-summary">Der neue &#34;Tatort&#34; aus Ludwigshafen erzählt von üblen Machenschaften im Fahrradkurier-Business. Die Story ist hanebüchen und das Drehbuch schlecht geölt.</p>
-                
-            </article>
-            
-            <article class="article" data-cat="germany">
-                <h3 class="article-title">
-                    <a href="https://www.spiegel.de/sport/fussball/fussball-bundesliga-rb-leipzig-gewinnt-auswaerts-beim-hamburger-sv-a-e64923b3-4238-4b55-b2d9-23935bfe70ff#ref=rss" target="_blank" rel="noopener">Fußball-Bundesliga: RB Leipzig gewinnt auswärts beim Hamburger SV</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">Spiegel</span>
-                    <span class="dot">&middot;</span>
-                    <span>56m ago</span>
-                </div>
-                
-                <p class="article-summary">Im Volksparkstadion hatte sich der Hamburger SV bislang als Favoritenschreck hervorgetan. Anfangs sah es gegen Leipzig nach einer Fortsetzung aus, dann machte der HSV zu viele Fehler.</p>
                 
             </article>
             
@@ -832,7 +1134,8 @@ body {
 
     <!-- FOOTER -->
     <footer class="footer">
-        Generated 21:27 UTC &middot; 01.03.2026<br>
+        <div class="footer-rule"></div>
+        Generated 21:43 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
