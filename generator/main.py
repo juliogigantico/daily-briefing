@@ -1,4 +1,3 @@
-import os
 from datetime import datetime, timezone
 
 from generator.feeds import CATEGORIES
@@ -14,8 +13,7 @@ def main():
     print(f"{'=' * 50}")
 
     print("\nFetching weather...")
-    api_key = os.environ.get("OPENWEATHERMAP_API_KEY", "")
-    weather = get_berlin_weather(api_key)
+    weather = get_berlin_weather()
 
     print("\nFetching feeds...")
     categories_data = {}
