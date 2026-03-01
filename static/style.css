@@ -1,5 +1,5 @@
 /* ============================================
-   THE DAILY BRIEFING — v5 NEXT GEN
+   THE DAILY BRIEFING — v6 COLOR REMASTER
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -9,27 +9,33 @@
     --f-body: 'Outfit', system-ui, sans-serif;
     --f-mono: 'JetBrains Mono', monospace;
 
-    --bg: #F5F3EF;
+    --bg: #F4F1EB;
     --surface: #FFFFFF;
-    --text: #0F0F0F;
-    --text-2: #2D2D2D;
-    --text-3: #6B6B6B;
-    --text-4: #9E9E9E;
+    --text: #1A1A1A;
+    --text-2: #333333;
+    --text-3: #666666;
+    --text-4: #999999;
 
     --accent: #E8A838;
-    --accent-soft: rgba(232, 168, 56, 0.10);
+    --accent-soft: rgba(232, 168, 56, 0.12);
 
     --rain: #4A90D9;
-    --rain-soft: rgba(74, 144, 217, 0.08);
 
-    --cat-international: #3D5A80;
-    --cat-environment: #2D8B56;
+    /* Category colors — vibrant */
+    --cat-international: #3D6B99;
+    --cat-international-soft: rgba(61, 107, 153, 0.08);
+    --cat-environment: #2D9B5E;
+    --cat-environment-soft: rgba(45, 155, 94, 0.08);
     --cat-tech: #8B5CF6;
+    --cat-tech-soft: rgba(139, 92, 246, 0.08);
     --cat-economy: #D97706;
+    --cat-economy-soft: rgba(217, 119, 6, 0.08);
     --cat-science: #3B82F6;
-    --cat-germany: #E53E3E;
+    --cat-science-soft: rgba(59, 130, 246, 0.08);
+    --cat-germany: #DC4545;
+    --cat-germany-soft: rgba(220, 69, 69, 0.08);
 
-    --r: 16px;
+    --r: 14px;
     --r-sm: 10px;
 }
 
@@ -51,18 +57,32 @@ body {
    HERO — Masthead + Weather
    ============================== */
 .hero {
-    background: #0F0F0F;
-    color: #FAFAFA;
+    background: linear-gradient(160deg, #171525 0%, #1B2340 40%, #1A3050 100%);
+    color: #F0EDE8;
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
     margin-bottom: 1.25rem;
     border-radius: 0 0 24px 24px;
+    position: relative;
+    overflow: hidden;
+}
+/* Subtle warm glow overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(232, 168, 56, 0.08) 0%, transparent 70%);
+    pointer-events: none;
 }
 .hero-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 0.65rem;
+    position: relative;
 }
 .hero-title {
     font-family: var(--f-display);
@@ -70,7 +90,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #FAFAFA;
+    color: #F0EDE8;
 }
 .hero-weather {
     display: flex;
@@ -85,20 +105,21 @@ body {
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
+    color: var(--accent);
 }
 
 .hero-meta {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(255,255,255,0.5);
+    color: rgba(240,237,232,0.45);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(255,255,255,0.2); }
+.hero-sep { color: rgba(240,237,232,0.2); }
 
 /* Hero hourly weather */
 .hero-hourly-wrap {
@@ -129,7 +150,7 @@ body {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.35);
+    color: rgba(240,237,232,0.3);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -137,51 +158,49 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.85);
+    color: rgba(240,237,232,0.8);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
     color: #6CB4EE;
-    background: rgba(108, 180, 238, 0.12);
+    background: rgba(108, 180, 238, 0.15);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.2);
+    background: rgba(147, 197, 253, 0.22);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(255,255,255,0.3);
+    color: rgba(240,237,232,0.25);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(240,237,232,0.06);
 }
 
 /* ==============================
-   QUICK NAV
+   QUICK NAV — category-colored pills
    ============================== */
 .nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
     padding: 0 1rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 .nav-pill {
     font-family: var(--f-body);
     font-size: 0.73rem;
     font-weight: 600;
-    color: var(--text-3);
     text-decoration: none;
     padding: 0.4rem 0.75rem;
     border-radius: 100px;
-    background: var(--surface);
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid transparent;
     transition: all 0.12s ease;
     min-height: 36px;
     display: flex;
@@ -189,9 +208,15 @@ body {
     gap: 0.25rem;
     white-space: nowrap;
 }
-.nav-pill:active {
-    transform: scale(0.96);
-}
+.nav-pill:active { transform: scale(0.96); }
+
+/* Nav pill colors by category */
+.nav-pill[data-cat="international"] { color: var(--cat-international); background: var(--cat-international-soft); border-color: rgba(61, 107, 153, 0.12); }
+.nav-pill[data-cat="environment"]   { color: var(--cat-environment); background: var(--cat-environment-soft); border-color: rgba(45, 155, 94, 0.12); }
+.nav-pill[data-cat="tech"]          { color: var(--cat-tech); background: var(--cat-tech-soft); border-color: rgba(139, 92, 246, 0.12); }
+.nav-pill[data-cat="economy"]       { color: var(--cat-economy); background: var(--cat-economy-soft); border-color: rgba(217, 119, 6, 0.12); }
+.nav-pill[data-cat="science"]       { color: var(--cat-science); background: var(--cat-science-soft); border-color: rgba(59, 130, 246, 0.12); }
+.nav-pill[data-cat="germany"]       { color: var(--cat-germany); background: var(--cat-germany-soft); border-color: rgba(220, 69, 69, 0.12); }
 
 /* ==============================
    CATEGORY SECTION
@@ -206,7 +231,7 @@ body {
     align-items: baseline;
     margin-bottom: 0.45rem;
     padding-bottom: 0.4rem;
-    border-bottom: 2px solid var(--text);
+    border-bottom: 2.5px solid var(--text);
 }
 .sec-head[data-cat="international"] { border-color: var(--cat-international); }
 .sec-head[data-cat="environment"]   { border-color: var(--cat-environment); }
@@ -219,9 +244,16 @@ body {
     font-family: var(--f-display);
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--text);
     letter-spacing: -0.01em;
 }
+/* Section label picks up category color */
+.sec-head[data-cat="international"] .sec-label { color: var(--cat-international); }
+.sec-head[data-cat="environment"]   .sec-label { color: var(--cat-environment); }
+.sec-head[data-cat="tech"]          .sec-label { color: var(--cat-tech); }
+.sec-head[data-cat="economy"]       .sec-label { color: var(--cat-economy); }
+.sec-head[data-cat="science"]       .sec-label { color: var(--cat-science); }
+.sec-head[data-cat="germany"]       .sec-label { color: var(--cat-germany); }
+
 .sec-count {
     font-family: var(--f-mono);
     font-size: 0.62rem;
@@ -229,77 +261,122 @@ body {
 }
 
 /* ==============================
-   TL;DR SUMMARY
+   TL;DR SUMMARY — expandable
    ============================== */
 .tldr {
     background: var(--surface);
     border-radius: var(--r);
-    padding: 0.7rem 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
     border: 1px solid rgba(0,0,0,0.04);
+    border-left: 3px solid var(--text-4);
+    overflow: hidden;
+    transition: border-color 0.15s;
 }
-.tldr-tag {
+.tldr[open] { border-color: rgba(0,0,0,0.08); }
+
+/* Category-colored left border */
+.tldr[data-cat="international"] { border-left-color: var(--cat-international); }
+.tldr[data-cat="environment"]   { border-left-color: var(--cat-environment); }
+.tldr[data-cat="tech"]          { border-left-color: var(--cat-tech); }
+.tldr[data-cat="economy"]       { border-left-color: var(--cat-economy); }
+.tldr[data-cat="science"]       { border-left-color: var(--cat-science); }
+.tldr[data-cat="germany"]       { border-left-color: var(--cat-germany); }
+
+.tldr-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.tldr-head::-webkit-details-marker { display: none; }
+.tldr-head::marker { display: none; content: ''; }
+
+.tldr-label {
     font-family: var(--f-mono);
-    font-size: 0.55rem;
+    font-size: 0.62rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    background: var(--accent-soft);
-    padding: 0.12rem 0.4rem;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 0.35rem;
+    letter-spacing: 0.06em;
+    color: var(--text-3);
 }
-.tldr-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-.tldr-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    line-height: 1.35;
-}
-.tldr-item::before {
-    content: '›';
-    font-family: var(--f-mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-.tldr-title {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--text-2);
-}
-.tldr-src {
+.tldr-count {
     font-family: var(--f-mono);
     font-size: 0.58rem;
     color: var(--text-4);
-    flex-shrink: 0;
-    white-space: nowrap;
+    margin-left: auto;
+}
+.tldr-chevron {
+    font-size: 0.55rem;
+    color: var(--text-4);
+    transition: transform 0.2s;
+}
+.tldr[open] .tldr-chevron {
+    transform: rotate(90deg);
+}
+
+.tldr-body {
+    padding: 0 0.85rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.tldr-bullet {
+    padding-left: 0.7rem;
+    border-left: 2px solid rgba(0,0,0,0.06);
+}
+.tldr-title {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.1rem;
+}
+.tldr-excerpt {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--text-3);
+    margin-bottom: 0.1rem;
+}
+.tldr-src {
+    font-family: var(--f-mono);
+    font-size: 0.55rem;
+    color: var(--text-4);
 }
 
 /* ==============================
-   STORY (expandable article)
+   STORY — expandable article card
    ============================== */
 .story {
     background: var(--surface);
     border-radius: var(--r-sm);
     margin-bottom: 0.3rem;
     border: 1px solid rgba(0,0,0,0.04);
+    border-left: 3px solid transparent;
     transition: border-color 0.15s;
 }
 .story[open] {
     border-color: rgba(0,0,0,0.08);
     border-radius: var(--r);
 }
+
+/* Category-colored left border on cards */
+.story[data-cat="international"] { border-left-color: var(--cat-international); }
+.story[data-cat="environment"]   { border-left-color: var(--cat-environment); }
+.story[data-cat="tech"]          { border-left-color: var(--cat-tech); }
+.story[data-cat="economy"]       { border-left-color: var(--cat-economy); }
+.story[data-cat="science"]       { border-left-color: var(--cat-science); }
+.story[data-cat="germany"]       { border-left-color: var(--cat-germany); }
+
 .story-head {
     display: block;
-    padding: 0.6rem 0.85rem;
+    padding: 0.55rem 0.85rem;
     cursor: pointer;
     list-style: none;
     -webkit-tap-highlight-color: transparent;
@@ -326,8 +403,7 @@ body {
     flex: 1;
 }
 .story-chevron {
-    font-family: var(--f-mono);
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: var(--text-4);
     flex-shrink: 0;
     transition: transform 0.2s;
@@ -411,7 +487,9 @@ body {
 
 @media (hover: hover) {
     .story:hover { border-color: rgba(0,0,0,0.08); }
-    .story-head:hover { background: rgba(0,0,0,0.01); }
-    .nav-pill:hover { background: var(--bg); color: var(--text-2); }
+    .story-head:hover { background: rgba(0,0,0,0.015); }
+    .tldr:hover { border-color: rgba(0,0,0,0.08); }
+    .tldr-head:hover { background: rgba(0,0,0,0.015); }
+    .nav-pill:hover { filter: brightness(0.95); }
     .story-link:hover { background: rgba(0,0,0,0.04); color: var(--text-2); }
 }

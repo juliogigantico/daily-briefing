@@ -28,19 +28,45 @@ def time_ago(published: datetime | None) -> str:
     return f"{days}d ago"
 
 
-def make_tldr(articles: list[dict]) -> list[dict]:
-    """Return a list of {title, source} dicts for the top headlines in a category."""
-    if not articles:
-        return []
+def first_sentence(text: str, max_len: int = 140) -> str:
+    """Extract the first sentence from a text, truncated to max_len."""
+    if not text:
+        return ""
+    # Split on sentence-ending punctuation
+    for sep in (". ", "! ", "? "):
+        idx = text.find(sep)
+        if 0 < idx < max_len:
+            return text[: idx + 1]
+    # No sentence boundary found — truncate cleanly
+    if len(text) > max_len:
+        space = text.rfind(" ", 0, max_len)
+        return text[: space if space > 40 else max_len] + "…"
+    return text
 
-    items = []
+
+def make_tldr(articles: list[dict]) -> dict:
+    """Build a summary dict with bullet points (title + excerpt) for a category."""
+    if not articles:
+        return {}
+
+    bullets = []
     for article in articles[:4]:
         title = article.get("title", "").strip()
+        summary = article.get("summary", "").strip()
         source = article.get("source", "").strip()
-        if title:
-            items.append({"title": title, "source": source})
+        if not title:
+            continue
+        excerpt = first_sentence(summary)
+        bullets.append({
+            "title": title,
+            "excerpt": excerpt,
+            "source": source,
+        })
 
-    return items
+    if not bullets:
+        return {}
+
+    return {"bullets": bullets, "count": len(articles)}
 
 
 def render_newspaper(categories_data: dict, weather: dict | None, category_config: dict):

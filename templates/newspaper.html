@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#0F0F0F">
+    <meta name="theme-color" content="#171525">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -79,17 +79,24 @@
         </div>
 
         {% if category_tldrs.get(key) %}
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
-                {% for item in category_tldrs[key] %}
-                <li class="tldr-item">
+        <details class="tldr" data-cat="{{ key }}">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">{{ category_tldrs[key].count }} stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
+                {% for item in category_tldrs[key].bullets %}
+                <div class="tldr-bullet">
                     <span class="tldr-title">{{ item.title }}</span>
+                    {% if item.excerpt %}
+                    <span class="tldr-excerpt">{{ item.excerpt }}</span>
+                    {% endif %}
                     <span class="tldr-src">{{ item.source }}</span>
-                </li>
+                </div>
                 {% endfor %}
-            </ul>
-        </div>
+            </div>
+        </details>
         {% endif %}
 
         {% if categories.get(key) %}
