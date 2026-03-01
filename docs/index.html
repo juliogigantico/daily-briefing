@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#2C3E50">
+    <meta name="theme-color" content="#1B2838">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
     <link rel="apple-touch-icon" href="icons/icon-192.png">
     <link rel="manifest" href="manifest.json">
@@ -20,7 +20,7 @@ html {
 }
 body {
     font-family: &#39;Charter&#39;, &#39;Georgia&#39;, &#39;Times New Roman&#39;, serif;
-    background: #FAF7F2;
+    background: linear-gradient(180deg, #F5EEE3 0%, #FAF7F2 8%, #FAF7F2 100%);
     color: #1A1A1A;
     max-width: 680px;
     margin: 0 auto;
@@ -28,15 +28,19 @@ body {
     padding: max(1.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
 }
 
 /* === MASTHEAD === */
 .masthead {
     text-align: center;
-    padding: 1.5rem 0 1rem;
-    border-top: 3px double #C4A265;
-    border-bottom: 3px double #C4A265;
+    padding: 1.25rem 0 1rem;
     margin-bottom: 1.25rem;
+}
+.masthead-rule {
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #B8944F 20%, #D4AF65 50%, #B8944F 80%, transparent 100%);
+    border-radius: 2px;
 }
 .masthead-title {
     font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
@@ -44,125 +48,205 @@ body {
     font-weight: 400;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #1A1A1A;
+    color: #1B2838;
     line-height: 1.2;
+    margin: 0.75rem 0 0.3rem;
 }
 .masthead-date {
     font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
     font-size: 0.82rem;
-    color: #5C5C5C;
-    margin-top: 0.4rem;
+    color: #6B5B3E;
     letter-spacing: 0.04em;
 }
 .masthead-edition {
     font-size: 0.72rem;
-    color: #8E8E8E;
-    margin-top: 0.15rem;
+    color: #9B8B6E;
+    margin-top: 0.1rem;
+    margin-bottom: 0.6rem;
     font-style: italic;
 }
 
-/* === WEATHER === */
-.weather {
-    background: #F0EDE6;
-    border-radius: 10px;
-    padding: 0.85rem 1.1rem;
-    margin-bottom: 1.75rem;
+/* === WEATHER CARD === */
+.weather-card {
+    background: linear-gradient(135deg, #1B2838 0%, #2C3E50 60%, #34495E 100%);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    box-shadow: 0 2px 12px rgba(27, 40, 56, 0.15);
+}
+.weather-today {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-.weather-main {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-.weather-emoji {
-    font-size: 1.6rem;
+.weather-icon {
+    font-size: 2.2rem;
     line-height: 1;
 }
-.weather-temp {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #1A1A1A;
+.weather-now {
+    display: flex;
+    flex-direction: column;
 }
-.weather-city {
-    font-size: 0.82rem;
-    color: #8E8E8E;
+.weather-temp {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+.weather-label {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    letter-spacing: 0.02em;
+}
+.weather-forecast {
+    display: flex;
+    gap: 1.5rem;
+}
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+.weather-day-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.5);
     font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
 }
-.weather-details {
-    text-align: right;
-    font-size: 0.82rem;
-    color: #5C5C5C;
-    line-height: 1.5;
+.weather-day-range {
+    font-size: 0.88rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.weather-bar {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, #5DADE2, #E74C3C);
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+/* === QUICK NAV === */
+.quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.75rem;
+}
+.quick-nav a {
+    font-size: 0.72rem;
+    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6B5B3E;
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(184, 148, 79, 0.1);
+    border: 1px solid rgba(184, 148, 79, 0.15);
+    transition: all 0.2s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+.quick-nav a:hover,
+.quick-nav a:active {
+    background: rgba(184, 148, 79, 0.2);
+    border-color: rgba(184, 148, 79, 0.3);
+    color: #1B2838;
 }
 
 /* === CATEGORY SECTION === */
 .category {
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
 }
 .category-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1rem;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
 }
 .category-header::before,
 .category-header::after {
     content: &#39;&#39;;
     flex: 1;
     height: 1px;
-    background: #C4A265;
+    background: linear-gradient(90deg, transparent, #C4A265, transparent);
+}
+.category-header::before {
+    background: linear-gradient(90deg, transparent, #C4A265);
+}
+.category-header::after {
+    background: linear-gradient(90deg, #C4A265, transparent);
 }
 .category-name {
     font-family: &#39;Palatino Linotype&#39;, &#39;Palatino&#39;, &#39;Book Antiqua&#39;, serif;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #2C3E50;
+    color: #1B2838;
     white-space: nowrap;
     flex-shrink: 0;
+    font-weight: 600;
 }
 
 /* === ARTICLE CARD === */
 .article {
-    margin-bottom: 1.15rem;
-    padding-left: 0.85rem;
+    margin-bottom: 1.2rem;
+    padding: 0.85rem 0.85rem 0.85rem 1rem;
     border-left: 3px solid #C4A265;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0 8px 8px 0;
+    transition: background 0.2s;
+}
+.article:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 .article-title {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     line-height: 1.35;
     margin-bottom: 0.2rem;
 }
 .article-title a {
-    color: #1A1A1A;
+    color: #1B2838;
     text-decoration: none;
     transition: color 0.15s;
 }
 .article-title a:hover,
 .article-title a:active {
-    color: #8B4513;
+    color: #B8944F;
 }
 .article-meta {
     font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    font-size: 0.75rem;
-    color: #8E8E8E;
+    font-size: 0.73rem;
+    color: #9B8B6E;
     margin-bottom: 0.3rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 .article-meta .source {
-    color: #5C5C5C;
+    color: #6B5B3E;
     font-weight: 600;
 }
+.article-meta .dot {
+    color: #C4A265;
+}
 .article-summary {
-    font-size: 0.95rem;
+    font-size: 0.93rem;
     line-height: 1.6;
-    color: #5C5C5C;
+    color: #4A4A4A;
 }
 
 /* Category border colors */
@@ -176,7 +260,7 @@ body {
 /* === EMPTY STATE === */
 .empty-category {
     font-size: 0.9rem;
-    color: #8E8E8E;
+    color: #9B8B6E;
     font-style: italic;
     padding: 0.5rem 0;
 }
@@ -185,41 +269,12 @@ body {
 .footer {
     margin-top: 2.5rem;
     padding-top: 1rem;
-    border-top: 1px solid #C4A265;
+    border-top: 1px solid rgba(196, 162, 101, 0.3);
     text-align: center;
-    font-size: 0.75rem;
-    color: #8E8E8E;
+    font-size: 0.73rem;
+    color: #9B8B6E;
     font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
     line-height: 1.7;
-}
-
-/* === QUICK NAV === */
-.quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
-}
-.quick-nav a {
-    font-size: 0.72rem;
-    font-family: &#39;SF Mono&#39;, &#39;Menlo&#39;, &#39;Consolas&#39;, monospace;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #5C5C5C;
-    text-decoration: none;
-    padding: 0.35rem 0.6rem;
-    border-radius: 4px;
-    background: #F0EDE6;
-    transition: background 0.15s, color 0.15s;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-}
-.quick-nav a:hover,
-.quick-nav a:active {
-    background: #E8E3D9;
-    color: #1A1A1A;
 }
 
 /* === RESPONSIVE === */
@@ -231,7 +286,10 @@ body {
         font-size: 2.5rem;
     }
     .article-title {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+    .weather-card {
+        padding: 1.25rem 1.5rem;
     }
 }
 </style>
@@ -240,25 +298,35 @@ body {
 
     <!-- MASTHEAD -->
     <header class="masthead">
+        <div class="masthead-rule"></div>
         <h1 class="masthead-title">The Daily Briefing</h1>
         <div class="masthead-date">Sunday, 1 March 2026</div>
         <div class="masthead-edition">Personal Edition &middot; Berlin</div>
+        <div class="masthead-rule"></div>
     </header>
 
     <!-- WEATHER -->
     
-    <div class="weather">
-        <div class="weather-main">
-            <span class="weather-emoji">☁️</span>
-            <span class="weather-temp">7&deg;C</span>
-            <span class="weather-city">Berlin</span>
+    <div class="weather-card">
+        <div class="weather-today">
+            <div class="weather-icon">☀️</div>
+            <div class="weather-now">
+                <span class="weather-temp">7&deg;</span>
+                <span class="weather-label">Berlin &middot; Clear sky</span>
+            </div>
         </div>
-        <div class="weather-details">
+        <div class="weather-forecast">
             
-                12&deg; / 7&deg; &middot; Overcast
+            <div class="weather-day">
+                <span class="weather-day-label">Today</span>
+                <span class="weather-day-range">6&deg; <span class="weather-bar"></span> 12&deg;</span>
+            </div>
             
             
-                <br>Tomorrow: 15&deg; / 4&deg;
+            <div class="weather-day">
+                <span class="weather-day-label">Tomorrow</span>
+                <span class="weather-day-range">4&deg; <span class="weather-bar"></span> 15&deg;</span>
+            </div>
             
         </div>
     </div>
@@ -292,71 +360,71 @@ body {
             
             <article class="article" data-cat="international">
                 <h3 class="article-title">
-                    <a href="https://www.theguardian.com/us-news/live/2026/mar/01/us-israel-war-on-iran-ayatollah-ali-khamenei-i-dead-latest-reports" target="_blank" rel="noopener">US-Israel war on Iran: Ayatollah Ali Khamenei confirmed dead by state media – latest reports</a>
+                    <a href="https://www.theguardian.com/us-news/live/2026/mar/01/us-israel-war-on-iran-ayatollah-ali-khamenei-i-dead-latest-reports" target="_blank" rel="noopener">US-Israel war on Iran live: Trump says attack could last four weeks as death tolls rise across Middle East</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">The Guardian</span>
-                    <span>&middot;</span>
+                    <span class="dot">&middot;</span>
                     <span>10m ago</span>
                 </div>
                 
-                <p class="article-summary">US president says Khamenei’s death is ‘justice for the people of Iran’ as he repeats call for regime changeFull report: Ayatollah Ali Khamenei killedA visual guide to the US-Israeli strikes on Iran – and Tehran’s responseWar on Iran: how the US-Is...</p>
+                <p class="article-summary">US president says ‘it’s always been about a four-week process so - as strong as it is, it’s a big country, it’ll take four weeks - or less’ and that he’s agreed to talk with IranPodcast: The assassination of Iran’s ayatollah – and fears for a wide...</p>
                 
             </article>
             
             <article class="article" data-cat="international">
                 <h3 class="article-title">
-                    <a href="https://www.theguardian.com/australia-news/live/2026/mar/01/australia-news-live-sunday-iran-illegal-war-reaction-labor-coalition" target="_blank" rel="noopener">Flights from Australia to Middle East cancelled – as it happened</a>
+                    <a href="https://www.theguardian.com/australia-news/live/2026/mar/02/politics-updates-federal-parliament-anthony-albanese-labor-angus-taylor-coalition-nsw-budget-estimates-iran-war-reactions-ntwnfb" target="_blank" rel="noopener">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">The Guardian</span>
-                    <span>&middot;</span>
-                    <span>43m ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>11m ago</span>
                 </div>
                 
-                <p class="article-summary">This blog is now closedPenny Wong backs Israeli and US strikes on Iran as Labor group decries ‘sycophantic capitulation to militarism’Get our breaking news email, free app or daily news podcastThe foreign minister, Penny Wong, says Australia was n...</p>
+                <p class="article-summary">Travel changes likely at short notice, including on routes to Europe. Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with Tanya Plibersek o...</p>
                 
             </article>
             
             <article class="article" data-cat="international">
                 <h3 class="article-title">
-                    <a href="https://www.theguardian.com/world/2026/mar/01/sicily-mondello-beach-mafia" target="_blank" rel="noopener">Sicily revokes century-old Mondello beach concession over mafia links</a>
+                    <a href="https://www.theguardian.com/world/2026/mar/01/trump-open-to-talks-with-iran-as-conflict-deepens-in-middle-east" target="_blank" rel="noopener">Trump open to talks with Iran as conflict deepens in Middle East</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">The Guardian</span>
-                    <span>&middot;</span>
-                    <span>44m ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>33m ago</span>
                 </div>
                 
-                <p class="article-summary">Regional authorities withdraw permit after citing risk of organised crime infiltration linked to a subcontractorIt is one of Europe’s most celebrated shorelines, framed by mountains and 19th-century villas and famed for its Caribbean-blue water an...</p>
+                <p class="article-summary">US president signals willingness to engage with Tehran’s surviving leadership as strikes and retaliatory attacks intensify across regionUS-Israel war on Iran – latest updatesDonald Trump said on Sunday he was prepared to talk to what was left of t...</p>
                 
             </article>
             
             <article class="article" data-cat="international">
                 <h3 class="article-title">
-                    <a href="https://www.theguardian.com/world/2026/feb/28/dubais-famous-fairmont-hotel-in-flames-after-iranian-air-strike" target="_blank" rel="noopener">Explosions rock Dubai, Bahrain, Jordan and Kuwait as war spreads across Middle East</a>
+                    <a href="https://www.npr.org/2026/03/01/g-s1-112094/iran-war-trump-israel-attack-photos-bahrain" target="_blank" rel="noopener">Photos: U.S.-Israeli strikes in Iran and reactions from around the world</a>
                 </h3>
                 <div class="article-meta">
-                    <span class="source">The Guardian</span>
-                    <span>&middot;</span>
-                    <span>1h ago</span>
+                    <span class="source">NPR World</span>
+                    <span class="dot">&middot;</span>
+                    <span>35m ago</span>
                 </div>
                 
-                <p class="article-summary">War launched by US and Israel on Iran has quickly escalated prompting anxiety and concern in whole regionFull reportUS-Israeli attack on Iran – live updatesIran struck the world-famous Fairmont hotel in Dubai, setting the hotel alight, as the war ...</p>
+                <p class="article-summary">Here&#39;s a look at Iran, Israel and reactions from around the world after the U.S. and Israel launched strikes against Iran.</p>
                 
             </article>
             
             <article class="article" data-cat="international">
                 <h3 class="article-title">
-                    <a href="https://www.bbc.com/news/articles/c5yj9kr31y7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">How the world has reacted to US and Israeli strikes on Iran</a>
+                    <a href="https://www.bbc.com/news/articles/c363zkp1pgxo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Nine dead in missile attack on Israel as Iran strikes region</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">BBC World</span>
-                    <span>&middot;</span>
-                    <span>1h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>41m ago</span>
                 </div>
                 
-                <p class="article-summary">World leaders are responding to the attacks on several Iranian cities and Tehran&#39;s retaliation.</p>
+                <p class="article-summary">Several deaths are reported across the Middle East as Tehran retaliates for massive strikes by the US and Israel.</p>
                 
             </article>
             
@@ -372,71 +440,71 @@ body {
             
             <article class="article" data-cat="environment">
                 <h3 class="article-title">
-                    <a href="https://www.bbc.com/news/articles/cj32l7kmkmko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">I went to rural Wales to bathe in starlight and the Milky Way blew me away</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">BBC Environment</span>
-                    <span>&middot;</span>
-                    <span>7h ago</span>
-                </div>
-                
-                <p class="article-summary">I join two tourists in the mountains to immerse ourselves in the wonders of the night sky with a star guide.</p>
-                
-            </article>
-            
-            <article class="article" data-cat="environment">
-                <h3 class="article-title">
-                    <a href="https://www.theguardian.com/commentisfree/2026/mar/01/a-scorching-summer-has-left-australian-wildlife-on-the-brink-but-it-doesnt-have-to-be-this-way" target="_blank" rel="noopener">A scorching summer has left Australian wildlife on the brink, but it doesn’t have to be this way | Euan Ritchie and Jess Harwood</a>
+                    <a href="https://www.theguardian.com/technology/2026/mar/01/datacentre-developers-energy-greenhouse-gas-emissions" target="_blank" rel="noopener">Datacentre developers face calls to disclose effect on UK’s net emissions</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">The Guardian</span>
-                    <span>&middot;</span>
-                    <span>10h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>5h ago</span>
                 </div>
                 
-                <p class="article-summary">Unsettling predictions are now our catastrophic reality, but a brighter future is still within reach if our political leaders change courseSoaring, scorching, record temperatures, yet again. Distressing, protracted droughts. Raging fires and devas...</p>
+                <p class="article-summary">Campaign groups write to technology secretary amid concerns that sites could double overall electricity demandDatacentre developers are facing pressure to reveal whether their projects will increase the UK’s net greenhouse gas emissions, amid conc...</p>
                 
             </article>
             
             <article class="article" data-cat="environment">
                 <h3 class="article-title">
-                    <a href="https://www.bbc.com/news/articles/cx284ljnv31o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">New fungal research to support woodland creation</a>
+                    <a href="https://www.bbc.com/news/articles/cn4gwel9l7jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Young trees planted to expand temperate rainforest</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">BBC Environment</span>
-                    <span>&middot;</span>
-                    <span>14h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>9h ago</span>
                 </div>
                 
-                <p class="article-summary">The project&#39;s aim is to understand how underground fungal networks adapt to environments.</p>
+                <p class="article-summary">The saplings have been planted at Dartmoor&#39;s Wistman&#39;s Wood National Nature Reserve.</p>
                 
             </article>
             
             <article class="article" data-cat="environment">
                 <h3 class="article-title">
-                    <a href="https://insideclimatenews.org/news/28022026/epa-rolls-back-coal-pollution-standards/" target="_blank" rel="noopener">Without Weighing Costs to Public Health, EPA Rolls Back Air Pollution Standards for Coal Plants</a>
+                    <a href="https://insideclimatenews.org/news/01032026/assisted-migration-trees-climate-change/" target="_blank" rel="noopener">Helping Trees—and a City—Outrace Climate Change</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Inside Climate News</span>
-                    <span>&middot;</span>
-                    <span>19h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>11h ago</span>
                 </div>
                 
-                <p class="article-summary">Last week, when the Environmental Protection Agency finalized its repeal of tightened 2024 air pollution standards for power plants, the agency claimed the rollback would save $670 million. Environmental and legal experts said that claim is just t...</p>
+                <p class="article-summary">LOUISVILLE, Ky.—Nearly a foot of snow has melted. The deep freeze that sent temperatures across the region plummeting to below zero has warmed to a balmy 55 degrees on a sunny February day.&amp;#160; As Matt Thomas augers a three-foot-wide hole into t...</p>
                 
             </article>
             
             <article class="article" data-cat="environment">
                 <h3 class="article-title">
-                    <a href="https://insideclimatenews.org/news/28022026/precision-agriculture-and-ai/" target="_blank" rel="noopener">The Farming Industry Has Embraced ‘Precision Agriculture’ and AI, but Critics Question Its Environmental Benefits</a>
+                    <a href="https://insideclimatenews.org/news/01032026/iowa-county-data-center-ordinance/" target="_blank" rel="noopener">Facing Its Third Data Center, an Iowa County Rolls Out Extensive Zoning Rules</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Inside Climate News</span>
-                    <span>&middot;</span>
-                    <span>19h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>11h ago</span>
                 </div>
                 
-                <p class="article-summary">Picture an American farm in your mind.&amp;#160; You might envision a red barn. Some cows. A field of corn. You might even see a tractor in this idealized landscape. Maybe a classic John Deere, its kelly green cab atop giant yellow-hubbed tires. Now t...</p>
+                <p class="article-summary">PALO, Iowa—There are two restaurants in Palo, not counting the chicken wings and pizza sold at the only gas station in town. All three establishments, including the gas station, stand on the same half-mile stretch of First Street, an artery that d...</p>
+                
+            </article>
+            
+            <article class="article" data-cat="environment">
+                <h3 class="article-title">
+                    <a href="https://insideclimatenews.org/news/01032026/climate-hushing-in-the-democratic-party/" target="_blank" rel="noopener">Are ‘Climate Hushers’ Lurking in the Democratic Party?</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">Inside Climate News</span>
+                    <span class="dot">&middot;</span>
+                    <span>11h ago</span>
+                </div>
+                
+                <p class="article-summary">In late January, U.S. Sen. Sheldon Whitehouse of Rhode Island, a long-time climate hawk, said in a thread on X that Democrats should ignore calls to stop talking about climate. “There’s a thing out there called a ‘climate husher,’” he wrote. “Anyo...</p>
                 
             </article>
             
@@ -452,71 +520,71 @@ body {
             
             <article class="article" data-cat="tech">
                 <h3 class="article-title">
-                    <a href="https://dl.acm.org/doi/10.1145/3624725" target="_blank" rel="noopener">The Science of Detecting LLM-Generated Text</a>
+                    <a href="https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived" target="_blank" rel="noopener">How the Government Deceived Congress in the Debate over Surveillance Powers (2013)</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Hacker News</span>
-                    <span>&middot;</span>
-                    <span>3h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>32m ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: https://dl.acm.org/doi/10.1145/3624725 Comments URL: https://news.ycombinator.com/item?id=47202864 Points: 5 # Comments: 0</p>
+                <p class="article-summary">Article URL: https://www.eff.org/deeplinks/2013/06/director-national-intelligences-word-games-explained-how-government-deceived Comments URL: https://news.ycombinator.com/item?id=47210572 Points: 8 # Comments: 0</p>
                 
             </article>
             
             <article class="article" data-cat="tech">
                 <h3 class="article-title">
-                    <a href="https://9to5google.com/2026/02/27/samsung-galaxy-update-android-recovery-menu-removed/" target="_blank" rel="noopener">Samsung Galaxy update removes Android recovery menu tools, including sideloading</a>
+                    <a href="https://maurycyz.com/misc/c_files/" target="_blank" rel="noopener">Why does C have the best file API</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Hacker News</span>
-                    <span>&middot;</span>
-                    <span>3h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: https://9to5google.com/2026/02/27/samsung-galaxy-update-android-recovery-menu-removed/ Comments URL: https://news.ycombinator.com/item?id=47202808 Points: 63 # Comments: 11</p>
+                <p class="article-summary">Article URL: https://maurycyz.com/misc/c_files/ Comments URL: https://news.ycombinator.com/item?id=47209788 Points: 3 # Comments: 1</p>
                 
             </article>
             
             <article class="article" data-cat="tech">
                 <h3 class="article-title">
-                    <a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank" rel="noopener">Microgpt</a>
+                    <a href="https://health.aws.amazon.com/health/status" target="_blank" rel="noopener">Operational issue – Multiple services (UAE)</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Hacker News</span>
-                    <span>&middot;</span>
-                    <span>4h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Article URL: http://karpathy.github.io/2026/02/12/microgpt/ Comments URL: https://news.ycombinator.com/item?id=47202708 Points: 393 # Comments: 74</p>
+                <p class="article-summary">Article URL: https://health.aws.amazon.com/health/status Comments URL: https://news.ycombinator.com/item?id=47209781 Points: 107 # Comments: 42</p>
                 
             </article>
             
             <article class="article" data-cat="tech">
                 <h3 class="article-title">
-                    <a href="https://www.amd.com/en/developer/resources/technical-articles/2026/how-to-run-a-one-trillion-parameter-llm-locally-an-amd.html" target="_blank" rel="noopener">Running a One Trillion-Parameter LLM Locally on AMD Ryzen AI Max+ Cluster</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">Hacker News</span>
-                    <span>&middot;</span>
-                    <span>4h ago</span>
-                </div>
-                
-                <p class="article-summary">Article URL: https://www.amd.com/en/developer/resources/technical-articles/2026/how-to-run-a-one-trillion-parameter-llm-locally-an-amd.html Comments URL: https://news.ycombinator.com/item?id=47202614 Points: 45 # Comments: 6</p>
-                
-            </article>
-            
-            <article class="article" data-cat="tech">
-                <h3 class="article-title">
-                    <a href="https://techcrunch.com/2026/02/28/the-trap-anthropic-built-for-itself/" target="_blank" rel="noopener">The trap Anthropic built for itself</a>
+                    <a href="https://techcrunch.com/2026/03/01/polymarket-saw-529m-traded-on-bets-tied-to-bombing-of-iran/" target="_blank" rel="noopener">Polymarket saw $529M traded on bets tied to bombing of Iran</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">TechCrunch</span>
-                    <span>&middot;</span>
-                    <span>5h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Anthropic, OpenAI, Google DeepMind and others have long promised to govern themselves responsibly. Now, in the absence of rules, there&#39;s not a lot to protect them.</p>
+                <p class="article-summary">Six newly-created accounts made a profit of $1 million by correctly betting that the U.S. would strike Iran by February 28.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="tech">
+                <h3 class="article-title">
+                    <a href="https://techcrunch.com/2026/03/01/best-discord-alternatives-age-verification-identity-privacy/" target="_blank" rel="noopener">Let’s explore the best alternatives to Discord</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">TechCrunch</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
+                </div>
+                
+                <p class="article-summary">With many users feeling uneasy about Discord&#39;s new age verification requirement, here are some alternatives that could be worth exploring.</p>
                 
             </article>
             
@@ -532,71 +600,71 @@ body {
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/03/01/iran-khamenei-dead-us-israel-strike-trump-netanyahu.html" target="_blank" rel="noopener">Iran after Khamenei: What&#39;s next and what it means for the country?</a>
+                    <a href="https://www.cnbc.com/2026/03/01/crude-oil-futures-iran.html" target="_blank" rel="noopener">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">CNBC Top News</span>
-                    <span>&middot;</span>
-                    <span>5m ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>31m ago</span>
                 </div>
                 
-                <p class="article-summary">Khamenei assumed power following the death of Ayatollah Ruhollah Khomeini in 1989, inheriting a revolutionary state still consolidating itself.</p>
+                <p class="article-summary">It is unclear who is governing Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei.</p>
                 
             </article>
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/02/28/trump-iran-strikes-live-updates.html" target="_blank" rel="noopener">Iran live updates: Ayatollah Ali Khamenei is dead, state news media confirms</a>
+                    <a href="https://www.cnbc.com/2026/03/01/us-iran-live-updates-khamenei-death-trump-gulf-strikes.html" target="_blank" rel="noopener">Live updates: Trump tells CNBC that Iran military operations are &#39;ahead of schedule&#39;</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">CNBC Top News</span>
-                    <span>&middot;</span>
+                    <span class="dot">&middot;</span>
                     <span>1h ago</span>
                 </div>
                 
-                <p class="article-summary">The attacks began Saturday morning with Iran following with retaliatory strikes across the Middle East.</p>
+                <p class="article-summary">Follow the latest news after the U.S. and Israel launched a massive attack on Iran that reportedly killed Iran&#39;s Supreme Leader Ayatollah Ali Khamenei.</p>
                 
             </article>
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/02/28/iran-us-attack-oil-market-economy.html" target="_blank" rel="noopener">How the attack on Iran could impact the global oil market and economy</a>
+                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</a>
                 </h3>
                 <div class="article-meta">
-                    <span class="source">CNBC Top News</span>
-                    <span>&middot;</span>
-                    <span>5h ago</span>
+                    <span class="source">BBC Business</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">The U.S.-Israeli attack raises the risk of major oil supply disruption. Iran is the fourth-largest OPEC producer and sits on the critical Strait of Hormuz.</p>
+                <p class="article-summary">International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices.</p>
                 
             </article>
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/02/28/markets-brace-for-impact-following-us-military-strikes-against-iran.html" target="_blank" rel="noopener">&#39;Bigger ramifications than Venezuela&#39;: Markets brace for impact after U.S. strikes Iran</a>
+                    <a href="https://www.cnbc.com/2026/03/01/ai-artificial-intelligence-economy-business-risks.html" target="_blank" rel="noopener">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">CNBC Top News</span>
-                    <span>&middot;</span>
-                    <span>5h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">Investors are bracing for impact after the U.S.&#39;s attacks on Iran, a move they see as carrying far larger market consequences than the Venezuela campaign.</p>
+                <p class="article-summary">As AI systems become more complex the risk of surpassing human comprehension, not intelligence, could lead to chaos, artificial intelligence experts warn.</p>
                 
             </article>
             
             <article class="article" data-cat="economy">
                 <h3 class="article-title">
-                    <a href="https://www.cnbc.com/2026/02/28/anthropics-claude-apple-apps.html" target="_blank" rel="noopener">Anthropic&#39;s Claude hits No. 1 on Apple&#39;s top free apps list after Pentagon rejection</a>
+                    <a href="https://www.bbc.com/news/articles/c0rjpr575g9o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener">Flights cancelled and new travel warnings issued after Iran strikes</a>
                 </h3>
                 <div class="article-meta">
-                    <span class="source">CNBC Top News</span>
-                    <span>&middot;</span>
-                    <span>6h ago</span>
+                    <span class="source">BBC Business</span>
+                    <span class="dot">&middot;</span>
+                    <span>3h ago</span>
                 </div>
                 
-                <p class="article-summary">Claude has surpassed OpenAI&#39;s ChatGPT as the top free app in the U.S. on Apple&#39;s rankings.</p>
+                <p class="article-summary">BA and Virgin Atlantic are among major airlines to ground services to the Middle East in light of the attacks.</p>
                 
             </article>
             
@@ -612,71 +680,71 @@ body {
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-bronze-age-spain-scandinavian.html" target="_blank" rel="noopener">Bronze Age mines in Spain may explain origin of Scandinavian bronze</a>
+                    <a href="https://phys.org/news/2026-02-climate-indicators-resilience-tropical-life.html" target="_blank" rel="noopener">Past climate change: First indicators show resilience in tropical life—up to 1.5°C</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
-                    <span>&middot;</span>
-                    <span>4h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>27m ago</span>
                 </div>
                 
-                <p class="article-summary">During an archaeological survey conducted in February, researchers from the Maritime Encounters program at the University of Gothenburg, Sweden, identified six previously unregistered Bronze Age mines in Extremadura, southwestern Spain. The discov...</p>
+                <p class="article-summary">New geological data indicate that marine life is somewhat resilient to warming in the tropics. Chris Fokkema, Earth scientist at Utrecht University, discovered that tropical algae were largely unaffected by a number of periods of global warming of...</p>
                 
             </article>
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-genetic-rice-bug-aids-crop.html" target="_blank" rel="noopener">Genetic mapping of rice stink bug aids crop pest control</a>
+                    <a href="https://phys.org/news/2026-02-meekness-isnt-weakness-positive-undersung.html" target="_blank" rel="noopener">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
-                    <span>&middot;</span>
-                    <span>4h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>57m ago</span>
                 </div>
                 
-                <p class="article-summary">Even though farmers have been dealing with rice stink bugs as pests since the 1880s, entomologists are still getting to know them at the genetic level. A first-of-its-kind study published on the genetics of rice stink bugs offers clues that could ...</p>
+                <p class="article-summary">What do you envision when you think of meekness? You probably see a mousy doormat, someone sheepishly acquiescing to the will of the stronger. When Jesus says, &#34;Blessed are the meek, for they shall inherit the earth,&#34; you might think that those wi...</p>
                 
             </article>
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-aging-mitochondrial-circular-rnas.html" target="_blank" rel="noopener">Study identifies aging-associated mitochondrial circular RNAs</a>
+                    <a href="https://phys.org/news/2026-02-frictionless-ai-human-growth.html" target="_blank" rel="noopener">Frictionless AI comes at a human cost to learning, growth and connection</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
-                    <span>&middot;</span>
-                    <span>5h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>1h ago</span>
                 </div>
                 
-                <p class="article-summary">New research profiles mitochondrial circular RNAs in Peripheral Blood Mononuclear Cells (PBMCs) from young and old human cohorts and probes how mitochondrial circRNAs and the mitochondrial RNA-binding protein GRSF1 relate to mitochondrial metaboli...</p>
+                <p class="article-summary">Artificial intelligence is rapidly making intellectual work and social interaction easier, but that ease may come at a substantial psychological cost, according to researchers from the University of Toronto. In an article published in Communicatio...</p>
                 
             </article>
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-daisies-buffet.html" target="_blank" rel="noopener">The wonders of daisies: The buffet we walk on</a>
+                    <a href="https://phys.org/news/2026-02-ai-roman-era-board-game.html" target="_blank" rel="noopener">AI cracks Roman-era board game</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
-                    <span>&middot;</span>
-                    <span>6h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>2h ago</span>
                 </div>
                 
-                <p class="article-summary">A yellow disk with rays of white—an icon of childhood drawings and a flower with healing properties. We have picnics on it, play football on it and make daisy chains out of it.</p>
+                <p class="article-summary">A smooth, white stone dating from the Roman era and unearthed in the Netherlands has long baffled researchers.</p>
                 
             </article>
             
             <article class="article" data-cat="science">
                 <h3 class="article-title">
-                    <a href="https://phys.org/news/2026-02-satellite-imaging-vital-disaster-dangerous.html" target="_blank" rel="noopener">Satellite imaging is now vital for disaster management: But there are dangerous gaps</a>
+                    <a href="https://phys.org/news/2026-02-simulations-path-ideal-glass-crystal.html" target="_blank" rel="noopener">Simulations show a path to &#39;ideal glass&#39; with crystal-like entropy</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Phys.org</span>
-                    <span>&middot;</span>
-                    <span>7h ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>3h ago</span>
                 </div>
                 
-                <p class="article-summary">The extreme weather events and resulting destruction that have hit New Zealand this summer are not only signs of a changing climate. They also highlight the now indispensable role of remote sensing satellite technology.</p>
+                <p class="article-summary">The types of glass that we encounter in everyday life, such as window glass or smartphone screens, are disordered solids. This means that they consist of particles locked in place, like those in solids, but arranged randomly, similarly to how they...</p>
                 
             </article>
             
@@ -692,67 +760,69 @@ body {
             
             <article class="article" data-cat="germany">
                 <h3 class="article-title">
-                    <a href="https://www.zeit.de/politik/ausland/2026-01/israel-iran-angriff-usa-liveblog" target="_blank" rel="noopener">Angriffe auf den Iran: Iranische Staatsmedien bestätigen Tod Chameneis</a>
+                    <a href="https://www.tagesschau.de/newsticker/liveblog-israel-usa-angriffe-iran-102.html" target="_blank" rel="noopener">Nahost-Liveblog: ++ Krieg könnte laut Trump vier Wochen dauern ++</a>
                 </h3>
                 <div class="article-meta">
-                    <span class="source">ZEIT Online</span>
-                    <span>&middot;</span>
-                    <span>5m ago</span>
+                    <span class="source">Tagesschau</span>
+                    <span class="dot">&middot;</span>
+                    <span>7m ago</span>
                 </div>
                 
-                <p class="article-summary">Ajatollah Chamenei sei als &#34;Märtyrer&#34; gestorben, melden iranische Staatsmedien. US-Präsident Trump nennt ihn &#34;einen der bösesten Menschen in der Geschichte&#34;. Das Liveblog</p>
+                <p class="article-summary">Der Krieg mit Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden.</p>
                 
             </article>
             
             <article class="article" data-cat="germany">
                 <h3 class="article-title">
-                    <a href="https://www.zeit.de/news/2026-03/01/stall-und-geraete-niedergebrannt-rund-200-000-euro-schaden" target="_blank" rel="noopener">Brände: Stall und Geräte niedergebrannt - rund 200.000 Euro Schaden</a>
+                    <a href="https://www.zeit.de/politik/ausland/2026-01/israel-iran-angriff-usa-liveblog" target="_blank" rel="noopener">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">ZEIT Online</span>
-                    <span>&middot;</span>
-                    <span>5m ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>15m ago</span>
+                </div>
+                
+                <p class="article-summary">Die Angriffe auf den Iran könnten sich laut dem US-Präsidenten über vier Wochen ziehen. Die USA haben bislang mehr als 1.000 iranische Ziele attackiert. Das Liveblog</p>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.zeit.de/news/2026-03/01/angriff-an-afd-stand-kandidat-fuer-kommunalwahl-verletzt" target="_blank" rel="noopener">Kommunalwahl: Angriff an AfD-Stand – Kandidat für Kommunalwahl verletzt</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span class="dot">&middot;</span>
+                    <span>26m ago</span>
                 </div>
                 
             </article>
             
             <article class="article" data-cat="germany">
                 <h3 class="article-title">
-                    <a href="https://www.spiegel.de/kultur/tv/esc-2026-sarah-engels-gewinnt-den-deutschen-vorentscheid-a-22d52a4d-d72d-44a0-83e9-3e9fe7bc0edf#ref=rss" target="_blank" rel="noopener">ESC 2026: Sarah Engels gewinnt den deutschen Vorentscheid</a>
+                    <a href="https://www.zeit.de/feuilleton/film/2026-03/tatort-ludwigshafen-fahrradkurier-ard-krimi" target="_blank" rel="noopener">&#34;Tatort&#34; Ludwigshafen: Der war so manchem Autofahrer ein Dorn im Auge</a>
+                </h3>
+                <div class="article-meta">
+                    <span class="source">ZEIT Online</span>
+                    <span class="dot">&middot;</span>
+                    <span>35m ago</span>
+                </div>
+                
+                <p class="article-summary">Der neue &#34;Tatort&#34; aus Ludwigshafen erzählt von üblen Machenschaften im Fahrradkurier-Business. Die Story ist hanebüchen und das Drehbuch schlecht geölt.</p>
+                
+            </article>
+            
+            <article class="article" data-cat="germany">
+                <h3 class="article-title">
+                    <a href="https://www.spiegel.de/sport/fussball/fussball-bundesliga-rb-leipzig-gewinnt-auswaerts-beim-hamburger-sv-a-e64923b3-4238-4b55-b2d9-23935bfe70ff#ref=rss" target="_blank" rel="noopener">Fußball-Bundesliga: RB Leipzig gewinnt auswärts beim Hamburger SV</a>
                 </h3>
                 <div class="article-meta">
                     <span class="source">Spiegel</span>
-                    <span>&middot;</span>
-                    <span>13m ago</span>
+                    <span class="dot">&middot;</span>
+                    <span>56m ago</span>
                 </div>
                 
-                <p class="article-summary">Das »deutsche Finale« zum ESC schwelgt in Erinnerungen, und das TV-Publikum wählt einen Auftritt, der wie aus einem 70-Jahre-Eurovision-Highlight-Video ausgekoppelt wirkt. »Aufgefresht« wurde die Liveshow von einer Moderatorin.</p>
-                
-            </article>
-            
-            <article class="article" data-cat="germany">
-                <h3 class="article-title">
-                    <a href="https://www.zeit.de/news/2026-02/28/wie-geht-es-nach-beginn-eines-neuen-iran-kriegs-weiter" target="_blank" rel="noopener">Nahost: Wie geht es im Iran nach Chameneis Tod weiter?</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">ZEIT Online</span>
-                    <span>&middot;</span>
-                    <span>14m ago</span>
-                </div>
-                
-            </article>
-            
-            <article class="article" data-cat="germany">
-                <h3 class="article-title">
-                    <a href="https://www.spiegel.de/ausland/us-angriff-auf-iran-so-reagieren-die-amerikaner-auf-donald-trumps-enthauptungsschlag-a-575f1130-7ae4-4819-b220-912a32ddce4b#ref=rss" target="_blank" rel="noopener">US-Angriff auf Iran: So reagieren die Amerikaner auf Donald Trumps Enthauptungsschlag</a>
-                </h3>
-                <div class="article-meta">
-                    <span class="source">Spiegel</span>
-                    <span>&middot;</span>
-                    <span>14m ago</span>
-                </div>
-                
-                <p class="article-summary">Trump gibt sich nach seinem Militärschlag mächtig wie nie. Doch innenpolitisch hat er viel zu verlieren. Worauf es jetzt ankommt.</p>
+                <p class="article-summary">Im Volksparkstadion hatte sich der Hamburger SV bislang als Favoritenschreck hervorgetan. Anfangs sah es gegen Leipzig nach einer Fortsetzung aus, dann machte der HSV zu viele Fehler.</p>
                 
             </article>
             
@@ -762,7 +832,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="footer">
-        Generated 05:44 UTC &middot; 01.03.2026<br>
+        Generated 21:27 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
