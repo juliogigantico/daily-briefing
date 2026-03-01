@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#0F0F0F">
+    <meta name="theme-color" content="#171525">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>/* ============================================
-   THE DAILY BRIEFING — v5 NEXT GEN
+   THE DAILY BRIEFING — v6 COLOR REMASTER
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,27 +25,33 @@
     --f-body: &#39;Outfit&#39;, system-ui, sans-serif;
     --f-mono: &#39;JetBrains Mono&#39;, monospace;
 
-    --bg: #F5F3EF;
+    --bg: #F4F1EB;
     --surface: #FFFFFF;
-    --text: #0F0F0F;
-    --text-2: #2D2D2D;
-    --text-3: #6B6B6B;
-    --text-4: #9E9E9E;
+    --text: #1A1A1A;
+    --text-2: #333333;
+    --text-3: #666666;
+    --text-4: #999999;
 
     --accent: #E8A838;
-    --accent-soft: rgba(232, 168, 56, 0.10);
+    --accent-soft: rgba(232, 168, 56, 0.12);
 
     --rain: #4A90D9;
-    --rain-soft: rgba(74, 144, 217, 0.08);
 
-    --cat-international: #3D5A80;
-    --cat-environment: #2D8B56;
+    /* Category colors — vibrant */
+    --cat-international: #3D6B99;
+    --cat-international-soft: rgba(61, 107, 153, 0.08);
+    --cat-environment: #2D9B5E;
+    --cat-environment-soft: rgba(45, 155, 94, 0.08);
     --cat-tech: #8B5CF6;
+    --cat-tech-soft: rgba(139, 92, 246, 0.08);
     --cat-economy: #D97706;
+    --cat-economy-soft: rgba(217, 119, 6, 0.08);
     --cat-science: #3B82F6;
-    --cat-germany: #E53E3E;
+    --cat-science-soft: rgba(59, 130, 246, 0.08);
+    --cat-germany: #DC4545;
+    --cat-germany-soft: rgba(220, 69, 69, 0.08);
 
-    --r: 16px;
+    --r: 14px;
     --r-sm: 10px;
 }
 
@@ -67,18 +73,32 @@ body {
    HERO — Masthead + Weather
    ============================== */
 .hero {
-    background: #0F0F0F;
-    color: #FAFAFA;
+    background: linear-gradient(160deg, #171525 0%, #1B2340 40%, #1A3050 100%);
+    color: #F0EDE8;
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
     margin-bottom: 1.25rem;
     border-radius: 0 0 24px 24px;
+    position: relative;
+    overflow: hidden;
+}
+/* Subtle warm glow overlay */
+.hero::before {
+    content: &#39;&#39;;
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(232, 168, 56, 0.08) 0%, transparent 70%);
+    pointer-events: none;
 }
 .hero-top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 0.65rem;
+    position: relative;
 }
 .hero-title {
     font-family: var(--f-display);
@@ -86,7 +106,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #FAFAFA;
+    color: #F0EDE8;
 }
 .hero-weather {
     display: flex;
@@ -101,20 +121,21 @@ body {
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
+    color: var(--accent);
 }
 
 .hero-meta {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(255,255,255,0.5);
+    color: rgba(240,237,232,0.45);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(255,255,255,0.2); }
+.hero-sep { color: rgba(240,237,232,0.2); }
 
 /* Hero hourly weather */
 .hero-hourly-wrap {
@@ -145,7 +166,7 @@ body {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.35);
+    color: rgba(240,237,232,0.3);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -153,51 +174,49 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.85);
+    color: rgba(240,237,232,0.8);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
     color: #6CB4EE;
-    background: rgba(108, 180, 238, 0.12);
+    background: rgba(108, 180, 238, 0.15);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.2);
+    background: rgba(147, 197, 253, 0.22);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(255,255,255,0.3);
+    color: rgba(240,237,232,0.25);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(240,237,232,0.06);
 }
 
 /* ==============================
-   QUICK NAV
+   QUICK NAV — category-colored pills
    ============================== */
 .nav {
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
     padding: 0 1rem;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 .nav-pill {
     font-family: var(--f-body);
     font-size: 0.73rem;
     font-weight: 600;
-    color: var(--text-3);
     text-decoration: none;
     padding: 0.4rem 0.75rem;
     border-radius: 100px;
-    background: var(--surface);
-    border: 1px solid rgba(0,0,0,0.06);
+    border: 1px solid transparent;
     transition: all 0.12s ease;
     min-height: 36px;
     display: flex;
@@ -205,9 +224,15 @@ body {
     gap: 0.25rem;
     white-space: nowrap;
 }
-.nav-pill:active {
-    transform: scale(0.96);
-}
+.nav-pill:active { transform: scale(0.96); }
+
+/* Nav pill colors by category */
+.nav-pill[data-cat=&#34;international&#34;] { color: var(--cat-international); background: var(--cat-international-soft); border-color: rgba(61, 107, 153, 0.12); }
+.nav-pill[data-cat=&#34;environment&#34;]   { color: var(--cat-environment); background: var(--cat-environment-soft); border-color: rgba(45, 155, 94, 0.12); }
+.nav-pill[data-cat=&#34;tech&#34;]          { color: var(--cat-tech); background: var(--cat-tech-soft); border-color: rgba(139, 92, 246, 0.12); }
+.nav-pill[data-cat=&#34;economy&#34;]       { color: var(--cat-economy); background: var(--cat-economy-soft); border-color: rgba(217, 119, 6, 0.12); }
+.nav-pill[data-cat=&#34;science&#34;]       { color: var(--cat-science); background: var(--cat-science-soft); border-color: rgba(59, 130, 246, 0.12); }
+.nav-pill[data-cat=&#34;germany&#34;]       { color: var(--cat-germany); background: var(--cat-germany-soft); border-color: rgba(220, 69, 69, 0.12); }
 
 /* ==============================
    CATEGORY SECTION
@@ -222,7 +247,7 @@ body {
     align-items: baseline;
     margin-bottom: 0.45rem;
     padding-bottom: 0.4rem;
-    border-bottom: 2px solid var(--text);
+    border-bottom: 2.5px solid var(--text);
 }
 .sec-head[data-cat=&#34;international&#34;] { border-color: var(--cat-international); }
 .sec-head[data-cat=&#34;environment&#34;]   { border-color: var(--cat-environment); }
@@ -235,9 +260,16 @@ body {
     font-family: var(--f-display);
     font-size: 1.15rem;
     font-weight: 700;
-    color: var(--text);
     letter-spacing: -0.01em;
 }
+/* Section label picks up category color */
+.sec-head[data-cat=&#34;international&#34;] .sec-label { color: var(--cat-international); }
+.sec-head[data-cat=&#34;environment&#34;]   .sec-label { color: var(--cat-environment); }
+.sec-head[data-cat=&#34;tech&#34;]          .sec-label { color: var(--cat-tech); }
+.sec-head[data-cat=&#34;economy&#34;]       .sec-label { color: var(--cat-economy); }
+.sec-head[data-cat=&#34;science&#34;]       .sec-label { color: var(--cat-science); }
+.sec-head[data-cat=&#34;germany&#34;]       .sec-label { color: var(--cat-germany); }
+
 .sec-count {
     font-family: var(--f-mono);
     font-size: 0.62rem;
@@ -245,77 +277,122 @@ body {
 }
 
 /* ==============================
-   TL;DR SUMMARY
+   TL;DR SUMMARY — expandable
    ============================== */
 .tldr {
     background: var(--surface);
     border-radius: var(--r);
-    padding: 0.7rem 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
     border: 1px solid rgba(0,0,0,0.04);
+    border-left: 3px solid var(--text-4);
+    overflow: hidden;
+    transition: border-color 0.15s;
 }
-.tldr-tag {
+.tldr[open] { border-color: rgba(0,0,0,0.08); }
+
+/* Category-colored left border */
+.tldr[data-cat=&#34;international&#34;] { border-left-color: var(--cat-international); }
+.tldr[data-cat=&#34;environment&#34;]   { border-left-color: var(--cat-environment); }
+.tldr[data-cat=&#34;tech&#34;]          { border-left-color: var(--cat-tech); }
+.tldr[data-cat=&#34;economy&#34;]       { border-left-color: var(--cat-economy); }
+.tldr[data-cat=&#34;science&#34;]       { border-left-color: var(--cat-science); }
+.tldr[data-cat=&#34;germany&#34;]       { border-left-color: var(--cat-germany); }
+
+.tldr-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.85rem;
+    cursor: pointer;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.tldr-head::-webkit-details-marker { display: none; }
+.tldr-head::marker { display: none; content: &#39;&#39;; }
+
+.tldr-label {
     font-family: var(--f-mono);
-    font-size: 0.55rem;
+    font-size: 0.62rem;
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    background: var(--accent-soft);
-    padding: 0.12rem 0.4rem;
-    border-radius: 4px;
-    display: inline-block;
-    margin-bottom: 0.35rem;
+    letter-spacing: 0.06em;
+    color: var(--text-3);
 }
-.tldr-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-.tldr-item {
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    line-height: 1.35;
-}
-.tldr-item::before {
-    content: &#39;›&#39;;
-    font-family: var(--f-mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-    flex-shrink: 0;
-}
-.tldr-title {
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--text-2);
-}
-.tldr-src {
+.tldr-count {
     font-family: var(--f-mono);
     font-size: 0.58rem;
     color: var(--text-4);
-    flex-shrink: 0;
-    white-space: nowrap;
+    margin-left: auto;
+}
+.tldr-chevron {
+    font-size: 0.55rem;
+    color: var(--text-4);
+    transition: transform 0.2s;
+}
+.tldr[open] .tldr-chevron {
+    transform: rotate(90deg);
+}
+
+.tldr-body {
+    padding: 0 0.85rem 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.tldr-bullet {
+    padding-left: 0.7rem;
+    border-left: 2px solid rgba(0,0,0,0.06);
+}
+.tldr-title {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 0.1rem;
+}
+.tldr-excerpt {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--text-3);
+    margin-bottom: 0.1rem;
+}
+.tldr-src {
+    font-family: var(--f-mono);
+    font-size: 0.55rem;
+    color: var(--text-4);
 }
 
 /* ==============================
-   STORY (expandable article)
+   STORY — expandable article card
    ============================== */
 .story {
     background: var(--surface);
     border-radius: var(--r-sm);
     margin-bottom: 0.3rem;
     border: 1px solid rgba(0,0,0,0.04);
+    border-left: 3px solid transparent;
     transition: border-color 0.15s;
 }
 .story[open] {
     border-color: rgba(0,0,0,0.08);
     border-radius: var(--r);
 }
+
+/* Category-colored left border on cards */
+.story[data-cat=&#34;international&#34;] { border-left-color: var(--cat-international); }
+.story[data-cat=&#34;environment&#34;]   { border-left-color: var(--cat-environment); }
+.story[data-cat=&#34;tech&#34;]          { border-left-color: var(--cat-tech); }
+.story[data-cat=&#34;economy&#34;]       { border-left-color: var(--cat-economy); }
+.story[data-cat=&#34;science&#34;]       { border-left-color: var(--cat-science); }
+.story[data-cat=&#34;germany&#34;]       { border-left-color: var(--cat-germany); }
+
 .story-head {
     display: block;
-    padding: 0.6rem 0.85rem;
+    padding: 0.55rem 0.85rem;
     cursor: pointer;
     list-style: none;
     -webkit-tap-highlight-color: transparent;
@@ -342,8 +419,7 @@ body {
     flex: 1;
 }
 .story-chevron {
-    font-family: var(--f-mono);
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     color: var(--text-4);
     flex-shrink: 0;
     transition: transform 0.2s;
@@ -427,8 +503,10 @@ body {
 
 @media (hover: hover) {
     .story:hover { border-color: rgba(0,0,0,0.08); }
-    .story-head:hover { background: rgba(0,0,0,0.01); }
-    .nav-pill:hover { background: var(--bg); color: var(--text-2); }
+    .story-head:hover { background: rgba(0,0,0,0.015); }
+    .tldr:hover { border-color: rgba(0,0,0,0.08); }
+    .tldr-head:hover { background: rgba(0,0,0,0.015); }
+    .nav-pill:hover { filter: brightness(0.95); }
     .story-link:hover { background: rgba(0,0,0,0.04); color: var(--text-2); }
 }
 </style>
@@ -469,7 +547,7 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">00:00</span>
-                    <span class="hh-i">☀️</span>
+                    <span class="hh-i">🌤️</span>
                     <span class="hh-d">6&deg;</span>
                     
                 </div>
@@ -477,14 +555,14 @@ body {
                 <div class="hh">
                     <span class="hh-t">01:00</span>
                     <span class="hh-i">☀️</span>
-                    <span class="hh-d">6&deg;</span>
+                    <span class="hh-d">5&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">02:00</span>
                     <span class="hh-i">☀️</span>
-                    <span class="hh-d">6&deg;</span>
+                    <span class="hh-d">5&deg;</span>
                     
                 </div>
                 
@@ -497,8 +575,8 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">04:00</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">5&deg;</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">4&deg;</span>
                     
                 </div>
                 
@@ -512,55 +590,55 @@ body {
                 <div class="hh">
                     <span class="hh-t">06:00</span>
                     <span class="hh-i">🌤️</span>
-                    <span class="hh-d">4&deg;</span>
+                    <span class="hh-d">3&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">07:00</span>
                     <span class="hh-i">🌤️</span>
-                    <span class="hh-d">4&deg;</span>
+                    <span class="hh-d">3&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">08:00</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">4&deg;</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">3&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">09:00</span>
                     <span class="hh-i">🌤️</span>
-                    <span class="hh-d">5&deg;</span>
+                    <span class="hh-d">4&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">10:00</span>
-                    <span class="hh-i">⛅</span>
-                    <span class="hh-d">7&deg;</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">6&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">11:00</span>
-                    <span class="hh-i">🌤️</span>
+                    <span class="hh-i">☀️</span>
                     <span class="hh-d">9&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">12:00</span>
-                    <span class="hh-i">☁️</span>
+                    <span class="hh-i">🌤️</span>
                     <span class="hh-d">11&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">13:00</span>
-                    <span class="hh-i">⛅</span>
+                    <span class="hh-i">☁️</span>
                     <span class="hh-d">13&deg;</span>
                     
                 </div>
@@ -571,7 +649,7 @@ body {
 
         
         <div class="hero-tmrw">
-            Tomorrow &nbsp;4&deg; &ndash; 15&deg;
+            Tomorrow &nbsp;3&deg; &ndash; 14&deg;
         </div>
         
     </header>
@@ -602,35 +680,72 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="international">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
+                    <span class="tldr-title">Nine dead in missile attack on Israel as Iran strikes region</span>
+                    
+                    <span class="tldr-excerpt">Several deaths are reported across the Middle East as Tehran retaliates for massive strikes by the US and Israel.</span>
+                    
+                    <span class="tldr-src">BBC World</span>
+                </div>
+                
+                <div class="tldr-bullet">
                     <span class="tldr-title">What is the U.S. military&#39;s capacity to carry out extended strikes in Iran?</span>
+                    
+                    <span class="tldr-excerpt">Seth Jones of the center for Strategic and International Studies talks about the U.S military&#39;s capacity to carry out extended strikes in…</span>
+                    
                     <span class="tldr-src">NPR World</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Iranian spokesperson says country has &#39;no other choice&#39; but to fight back</span>
+                    
+                    <span class="tldr-excerpt">Esmail Baghaei, spokeman for Iran&#39;s Foreign Ministry, talks about his country&#39;s response to U.S.</span>
+                    
                     <span class="tldr-src">NPR World</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
-                    <span class="tldr-title">U.S.-Israeli war with Iran continues as 3 American troops are killed</span>
-                    <span class="tldr-src">NPR World</span>
-                </li>
+                <div class="tldr-bullet">
+                    <span class="tldr-title">Allies of US in the Gulf bear brunt of Iran attacks</span>
+                    
+                    <span class="tldr-excerpt">Iran&#39;s attacks on Gulf Arab states suggest the Islamic Republic is targeting not just the US military but also civilian infrastructure.</span>
+                    
+                    <span class="tldr-src">BBC World</span>
+                </div>
                 
-                <li class="tldr-item">
-                    <span class="tldr-title">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</span>
-                    <span class="tldr-src">The Guardian</span>
-                </li>
-                
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Nine dead in missile attack on Israel as Iran strikes region</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC World</span>
+                        <span>5m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Several deaths are reported across the Middle East as Tehran retaliates for massive strikes by the US and Israel.</p>
+                    
+                    <a href="https://www.bbc.com/news/articles/c363zkp1pgxo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
             
             <details class="story" data-cat="international">
                 <summary class="story-head">
@@ -640,7 +755,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">NPR World</span>
-                        <span>2m ago</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -661,7 +776,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">NPR World</span>
-                        <span>2m ago</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -677,40 +792,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">U.S.-Israeli war with Iran continues as 3 American troops are killed</span>
+                        <span class="story-title">Allies of US in the Gulf bear brunt of Iran attacks</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">NPR World</span>
-                        <span>7m ago</span>
+                        <span class="story-src">BBC World</span>
+                        <span>10m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Three U.S. service members have been killed in ongoing operations in the Middle East, as U.S. and Israeli strikes continue to hit Iran and Iran responds with waves of missiles and drones across the region.</p>
+                    <p class="story-text">Iran&#39;s attacks on Gulf Arab states suggest the Islamic Republic is targeting not just the US military but also civilian infrastructure.</p>
                     
-                    <a href="https://www.npr.org/2026/03/01/nx-s1-5731467/u-s-israeli-war-with-iran-continues-as-3-american-troops-are-killed" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Politics live: Marles confirms Australia not involved in Iran strikes; Wong says 115,000 Australians in region as flights cancelled</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>19m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Travel changes likely at short notice, including on routes to Europe. Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with Tanya Plibersek on a Sunrise panel this morning, One Nation MP Barnaby Joyce says Australia should focus on building up fuel supplies under risk due to conflict in the Middle EastIt’s a shame in a crisis like this that we’ve got ourselves down to two oil refineries, ...</p>
-                    
-                    <a href="https://www.theguardian.com/australia-news/live/2026/mar/02/politics-updates-federal-parliament-anthony-albanese-labor-angus-taylor-coalition-nsw-budget-estimates-iran-war-reactions-ntwnfb" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/c1jk922dgjgo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -724,7 +818,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>20m ago</span>
+                        <span>12m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -747,32 +841,48 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="environment">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Datacentre developers face calls to disclose effect on UK’s net emissions</span>
+                    
+                    <span class="tldr-excerpt">Campaign groups write to technology secretary amid concerns that sites could double overall electricity demandDatacentre developers are…</span>
+                    
                     <span class="tldr-src">The Guardian</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Young trees planted to expand temperate rainforest</span>
+                    
+                    <span class="tldr-excerpt">The saplings have been planted at Dartmoor&#39;s Wistman&#39;s Wood National Nature Reserve.</span>
+                    
                     <span class="tldr-src">BBC Environment</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Helping Trees—and a City—Outrace Climate Change</span>
+                    
+                    <span class="tldr-excerpt">LOUISVILLE, Ky.—Nearly a foot of snow has melted.</span>
+                    
                     <span class="tldr-src">Inside Climate News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Facing Its Third Data Center, an Iowa County Rolls Out Extensive Zoning Rules</span>
+                    
+                    <span class="tldr-excerpt">PALO, Iowa—There are two restaurants in Palo, not counting the chicken wings and pizza sold at the only gas station in town.</span>
+                    
                     <span class="tldr-src">Inside Climate News</span>
-                </li>
+                </div>
                 
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
@@ -892,32 +1002,48 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="tech">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Big Breakfast Alters Appetite, Gut Health</span>
+                    
+                    <span class="tldr-excerpt">Article URL: https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite…</span>
+                    
                     <span class="tldr-src">Hacker News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">South Korean Police Lose Seized Crypto by Posting Password Online</span>
+                    
+                    <span class="tldr-excerpt">Article URL: https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191 Comments URL:…</span>
+                    
                     <span class="tldr-src">Hacker News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Working with memories can reduce fear of failure</span>
+                    
+                    <span class="tldr-excerpt">Article URL: https://medicalxpress.com/news/2026-02-memories-failure.html Comments URL: https://news.ycombinator.com/item?id=47211040…</span>
+                    
                     <span class="tldr-src">Hacker News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Are the Mysteries of Quantum Mechanics Beginning to Dissolve?</span>
+                    
+                    <span class="tldr-excerpt">Article URL: https://www.quantamagazine.org/are-the-mysteries-of-quantum-mechanics-beginning-to-dissolve-20260213/ Comments URL:…</span>
+                    
                     <span class="tldr-src">Hacker News</span>
-                </li>
+                </div>
                 
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
@@ -930,7 +1056,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>26m ago</span>
+                        <span>33m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -951,7 +1077,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>30m ago</span>
+                        <span>37m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -972,7 +1098,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>33m ago</span>
+                        <span>40m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -993,7 +1119,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>49m ago</span>
+                        <span>56m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1037,32 +1163,48 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="economy">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</span>
+                    
+                    <span class="tldr-excerpt">It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali…</span>
+                    
                     <span class="tldr-src">CNBC Top News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue</span>
+                    
+                    <span class="tldr-excerpt">Follow the latest news after the U.S.</span>
+                    
                     <span class="tldr-src">CNBC Top News</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</span>
+                    
+                    <span class="tldr-excerpt">International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global…</span>
+                    
                     <span class="tldr-src">BBC Business</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
+                    
+                    <span class="tldr-excerpt">As AI systems become more complex the risk of surpassing human comprehension, not intelligence, could lead to chaos, artificial…</span>
+                    
                     <span class="tldr-src">CNBC Top News</span>
-                </li>
+                </div>
                 
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
@@ -1075,7 +1217,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>3m ago</span>
+                        <span>10m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1096,7 +1238,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>9m ago</span>
+                        <span>16m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1182,32 +1324,48 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="science">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Women more likely to choose wine from female winemakers</span>
+                    
+                    <span class="tldr-excerpt">Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S.</span>
+                    
                     <span class="tldr-src">Phys.org</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Past climate change: First indicators show resilience in tropical life—up to 1.5°C</span>
+                    
+                    <span class="tldr-excerpt">New geological data indicate that marine life is somewhat resilient to warming in the tropics.</span>
+                    
                     <span class="tldr-src">Phys.org</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</span>
+                    
+                    <span class="tldr-excerpt">What do you envision when you think of meekness?</span>
+                    
                     <span class="tldr-src">Phys.org</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Frictionless AI comes at a human cost to learning, growth and connection</span>
+                    
+                    <span class="tldr-excerpt">Artificial intelligence is rapidly making intellectual work and social interaction easier, but that ease may come at a substantial…</span>
+                    
                     <span class="tldr-src">Phys.org</span>
-                </li>
+                </div>
                 
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
@@ -1220,7 +1378,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>52m ago</span>
+                        <span>59m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1327,35 +1485,72 @@ body {
         </div>
 
         
-        <div class="tldr">
-            <span class="tldr-tag">Top stories</span>
-            <ul class="tldr-list">
+        <details class="tldr" data-cat="germany">
+            <summary class="tldr-head">
+                <span class="tldr-label">Summary</span>
+                <span class="tldr-count">5 stories</span>
+                <span class="tldr-chevron">&#9654;</span>
+            </summary>
+            <div class="tldr-body">
                 
-                <li class="tldr-item">
-                    <span class="tldr-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
-                    <span class="tldr-src">Tagesschau</span>
-                </li>
-                
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
+                    
+                    <span class="tldr-excerpt">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident.</span>
+                    
                     <span class="tldr-src">ZEIT Online</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
+                    <span class="tldr-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
+                    
+                    <span class="tldr-excerpt">Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern.</span>
+                    
+                    <span class="tldr-src">Tagesschau</span>
+                </div>
+                
+                <div class="tldr-bullet">
                     <span class="tldr-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</span>
+                    
+                    <span class="tldr-excerpt">Israel hat nach dem Massaker vom 7.</span>
+                    
                     <span class="tldr-src">Spiegel</span>
-                </li>
+                </div>
                 
-                <li class="tldr-item">
+                <div class="tldr-bullet">
                     <span class="tldr-title">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</span>
+                    
+                    <span class="tldr-excerpt">Die Angriffe auf den Iran könnten sich laut dem US-Präsidenten über vier Wochen ziehen.</span>
+                    
                     <span class="tldr-src">ZEIT Online</span>
-                </li>
+                </div>
                 
-            </ul>
-        </div>
+            </div>
+        </details>
         
 
         
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>7m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident. Dabei stelle er sich auch auf weitere tote US-Soldaten ein.</p>
+                    
+                    <a href="https://www.zeit.de/politik/ausland/2026-03/donald-trump-iran-vergeltung-us-soldaten-centcom" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
             
             <details class="story" data-cat="germany">
                 <summary class="story-head">
@@ -1365,7 +1560,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Tagesschau</span>
-                        <span>6m ago</span>
+                        <span>14m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1381,33 +1576,12 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>12m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident. Dabei stelle er sich auf wahrscheinlich weitere US-Tote ein.</p>
-                    
-                    <a href="https://www.zeit.de/politik/ausland/2026-03/donald-trump-iran-vergeltung-us-soldaten-centcom" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
                         <span class="story-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Spiegel</span>
-                        <span>56m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1466,7 +1640,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 22:22 UTC &middot; 01.03.2026<br>
+        Generated 22:29 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
