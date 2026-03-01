@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#171525">
+    <meta name="theme-color" content="#1A2019">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>/* ============================================
-   THE DAILY BRIEFING — v7 WARM &amp; COLORFUL
+   THE DAILY BRIEFING — v8 SAGE &amp; SAND
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,33 +25,33 @@
     --f-body: &#39;Outfit&#39;, system-ui, sans-serif;
     --f-mono: &#39;JetBrains Mono&#39;, monospace;
 
-    /* Warm colorful palette */
-    --bg-top: #FFF6ED;
-    --bg-mid: #FDE8D0;
-    --bg-bot: #F6D8B8;
-    --surface: #FFFCF9;
-    --surface-border: rgba(160, 100, 40, 0.08);
-    --text: #2C1810;
-    --text-2: #3D2B1F;
-    --text-3: #7A5C48;
-    --text-4: #AA8E7A;
+    /* Sage &amp; Sand palette */
+    --bg-top: #EDEAD8;
+    --bg-mid: #E3DDCC;
+    --bg-bot: #D6CFBC;
+    --surface: #FAF9F4;
+    --surface-border: rgba(90, 80, 60, 0.10);
+    --text: #26231E;
+    --text-2: #3A362E;
+    --text-3: #635C4F;
+    --text-4: #908779;
 
-    --accent: #E8922A;
-    --accent-soft: rgba(232, 146, 42, 0.12);
+    --accent: #C07A38;
+    --accent-soft: rgba(192, 122, 56, 0.12);
 
-    /* Category colors — vivid on warm bg */
-    --cat-international: #2E6EA6;
-    --cat-international-soft: rgba(46, 110, 166, 0.10);
-    --cat-environment: #1E8C50;
-    --cat-environment-soft: rgba(30, 140, 80, 0.10);
-    --cat-tech: #7C3AED;
-    --cat-tech-soft: rgba(124, 58, 237, 0.10);
-    --cat-economy: #C26B09;
-    --cat-economy-soft: rgba(194, 107, 9, 0.10);
-    --cat-science: #2563EB;
-    --cat-science-soft: rgba(37, 99, 235, 0.10);
-    --cat-germany: #D03030;
-    --cat-germany-soft: rgba(208, 48, 48, 0.10);
+    /* Category colors — earthy vibrant */
+    --cat-international: #2C6E8A;
+    --cat-international-soft: rgba(44, 110, 138, 0.10);
+    --cat-environment: #2E7A4E;
+    --cat-environment-soft: rgba(46, 122, 78, 0.10);
+    --cat-tech: #6D3DC7;
+    --cat-tech-soft: rgba(109, 61, 199, 0.10);
+    --cat-economy: #B06510;
+    --cat-economy-soft: rgba(176, 101, 16, 0.10);
+    --cat-science: #2558C2;
+    --cat-science-soft: rgba(37, 88, 194, 0.10);
+    --cat-germany: #C03030;
+    --cat-germany-soft: rgba(192, 48, 48, 0.10);
 
     --r: 14px;
     --r-sm: 10px;
@@ -62,7 +62,7 @@ html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth;
 body {
     font-family: var(--f-body);
     font-weight: 400;
-    background: linear-gradient(175deg, var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bot) 100%);
+    background: linear-gradient(175deg, var(--bg-top) 0%, var(--bg-mid) 50%, var(--bg-bot) 100%);
     background-attachment: fixed;
     color: var(--text);
     max-width: 640px;
@@ -74,19 +74,18 @@ body {
 }
 
 /* ==============================
-   HERO — Greeting + Masthead + Weather
+   HERO — deep forest on sage
    ============================== */
 .hero {
-    background: linear-gradient(160deg, #1E1428 0%, #1B2845 40%, #173552 100%);
-    color: #F5EDE4;
+    background: linear-gradient(160deg, #1A2019 0%, #212D22 40%, #283526 100%);
+    color: #EDE9DD;
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
     border-radius: 0 0 28px 28px;
     position: relative;
     overflow: hidden;
 }
-/* Warm glow overlays */
 .hero::before {
     content: &#39;&#39;;
     position: absolute;
@@ -94,7 +93,7 @@ body {
     right: -15%;
     width: 55%;
     height: 75%;
-    background: radial-gradient(ellipse, rgba(232, 146, 42, 0.10) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(192, 122, 56, 0.08) 0%, transparent 65%);
     pointer-events: none;
 }
 .hero::after {
@@ -104,7 +103,7 @@ body {
     left: -10%;
     width: 40%;
     height: 50%;
-    background: radial-gradient(ellipse, rgba(124, 58, 237, 0.05) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(46, 122, 78, 0.05) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -131,7 +130,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #F5EDE4;
+    color: #EDE9DD;
 }
 .hero-weather {
     display: flex;
@@ -153,16 +152,16 @@ body {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(245,237,228,0.45);
+    color: rgba(237,233,221,0.45);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(245,237,228,0.2); }
+.hero-sep { color: rgba(237,233,221,0.2); }
 
-/* Hero hourly weather */
+/* Hourly weather */
 .hero-hourly-wrap {
     overflow-x: auto;
     margin: 0 -1.25rem;
@@ -186,12 +185,12 @@ body {
     border-radius: var(--r-sm);
     gap: 0.12rem;
 }
-.hh-now { background: rgba(232, 146, 42, 0.15); }
+.hh-now { background: rgba(192, 122, 56, 0.15); }
 .hh-t {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(245,237,228,0.3);
+    color: rgba(237,233,221,0.3);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -199,64 +198,65 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(245,237,228,0.8);
+    color: rgba(237,233,221,0.8);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
-    color: #6CB4EE;
-    background: rgba(108, 180, 238, 0.15);
+    color: #7DBCE0;
+    background: rgba(125, 188, 224, 0.12);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.22);
+    background: rgba(147, 197, 253, 0.18);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(245,237,228,0.25);
+    color: rgba(237,233,221,0.25);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(245,237,228,0.06);
+    border-top: 1px solid rgba(237,233,221,0.06);
 }
 
 /* ==============================
-   QUICK NAV — colored pills on warm bg
+   NAV — minimal text links
    ============================== */
 .nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    padding: 0 1rem;
-    margin-bottom: 1.5rem;
+    align-items: center;
+    gap: 0.15rem 0.5rem;
+    padding: 0.4rem 1.15rem;
+    margin-bottom: 1.25rem;
 }
 .nav-pill {
-    font-family: var(--f-body);
-    font-size: 0.73rem;
-    font-weight: 600;
+    font-family: var(--f-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
     text-decoration: none;
-    padding: 0.4rem 0.75rem;
-    border-radius: 100px;
-    border: 1px solid transparent;
+    padding: 0.2rem 0;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
     transition: all 0.12s ease;
-    min-height: 36px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.2rem;
     white-space: nowrap;
 }
-.nav-pill:active { transform: scale(0.96); }
+.nav-pill:active { opacity: 0.7; }
 
-.nav-pill[data-cat=&#34;international&#34;] { color: var(--cat-international); background: var(--surface); border-color: rgba(46, 110, 166, 0.18); }
-.nav-pill[data-cat=&#34;environment&#34;]   { color: var(--cat-environment); background: var(--surface); border-color: rgba(30, 140, 80, 0.18); }
-.nav-pill[data-cat=&#34;tech&#34;]          { color: var(--cat-tech); background: var(--surface); border-color: rgba(124, 58, 237, 0.18); }
-.nav-pill[data-cat=&#34;economy&#34;]       { color: var(--cat-economy); background: var(--surface); border-color: rgba(194, 107, 9, 0.18); }
-.nav-pill[data-cat=&#34;science&#34;]       { color: var(--cat-science); background: var(--surface); border-color: rgba(37, 99, 235, 0.18); }
-.nav-pill[data-cat=&#34;germany&#34;]       { color: var(--cat-germany); background: var(--surface); border-color: rgba(208, 48, 48, 0.18); }
+.nav-pill[data-cat=&#34;international&#34;] { color: var(--cat-international); }
+.nav-pill[data-cat=&#34;environment&#34;]   { color: var(--cat-environment); }
+.nav-pill[data-cat=&#34;tech&#34;]          { color: var(--cat-tech); }
+.nav-pill[data-cat=&#34;economy&#34;]       { color: var(--cat-economy); }
+.nav-pill[data-cat=&#34;science&#34;]       { color: var(--cat-science); }
+.nav-pill[data-cat=&#34;germany&#34;]       { color: var(--cat-germany); }
 
 /* ==============================
    CATEGORY SECTION
@@ -300,7 +300,7 @@ body {
 }
 
 /* ==============================
-   SUMMARY — expandable &#34;what&#39;s happening&#34;
+   SUMMARY — expandable overview
    ============================== */
 .tldr {
     background: var(--surface);
@@ -422,7 +422,7 @@ body {
 .story-head::-webkit-details-marker { display: none; }
 .story-head::marker { display: none; content: &#39;&#39;; }
 .story-head:active {
-    background: rgba(160, 100, 40, 0.03);
+    background: rgba(90, 80, 60, 0.03);
 }
 .story-row {
     display: flex;
@@ -473,7 +473,7 @@ body {
     text-decoration: none;
     padding: 0.35rem 0.65rem;
     border-radius: 100px;
-    background: rgba(255,255,255,0.6);
+    background: rgba(250,249,244,0.7);
     border: 1px solid var(--surface-border);
     display: inline-flex;
     align-items: center;
@@ -482,7 +482,7 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
-    background: rgba(255,255,255,0.8);
+    background: rgba(250,249,244,0.9);
 }
 
 /* ==============================
@@ -497,7 +497,7 @@ body {
 
 .foot {
     padding: 1.25rem 1rem 0;
-    border-top: 1px solid rgba(160, 100, 40, 0.08);
+    border-top: 1px solid var(--surface-border);
     text-align: center;
     font-family: var(--f-mono);
     font-size: 0.62rem;
@@ -514,18 +514,18 @@ body {
     .hero-title { font-size: 3.5rem; }
     .hw-temp { font-size: 2.5rem; }
     .section { padding: 0 1.5rem; }
-    .nav { padding: 0 1.5rem; }
+    .nav { padding: 0.4rem 1.65rem; }
     .story-title { font-size: 1rem; }
     .foot { margin: 2.5rem 1.5rem 0; }
 }
 
 @media (hover: hover) {
-    .story:hover { border-color: rgba(160, 100, 40, 0.12); }
-    .story-head:hover { background: rgba(160, 100, 40, 0.02); }
-    .tldr:hover { border-color: rgba(160, 100, 40, 0.12); }
-    .tldr-head:hover { background: rgba(160, 100, 40, 0.02); }
-    .nav-pill:hover { filter: brightness(0.97); }
-    .story-link:hover { background: rgba(255,255,255,0.9); color: var(--text-2); }
+    .story:hover { border-color: rgba(90, 80, 60, 0.15); }
+    .story-head:hover { background: rgba(90, 80, 60, 0.02); }
+    .tldr:hover { border-color: rgba(90, 80, 60, 0.15); }
+    .tldr-head:hover { background: rgba(90, 80, 60, 0.02); }
+    .nav-pill:hover { border-bottom-color: currentColor; }
+    .story-link:hover { background: var(--surface); color: var(--text-2); }
 }
 </style>
 </head>
@@ -538,7 +538,7 @@ body {
             <h1 class="hero-title">Daily<br>Briefing</h1>
             
             <div class="hero-weather">
-                <span class="hw-icon">☀️</span>
+                <span class="hw-icon">🌤️</span>
                 <span class="hw-temp">6&deg;</span>
             </div>
             
@@ -549,7 +549,7 @@ body {
             <span>Berlin</span>
             
             <span class="hero-sep">/</span>
-            <span>6&deg;&ndash;12&deg;</span>
+            <span>3&deg;&ndash;14&deg;</span>
             
         </div>
 
@@ -559,13 +559,6 @@ body {
                 
                 <div class="hh hh-now">
                     <span class="hh-t">Now</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">6&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">00:00</span>
                     <span class="hh-i">🌤️</span>
                     <span class="hh-d">6&deg;</span>
                     
@@ -662,13 +655,20 @@ body {
                     
                 </div>
                 
+                <div class="hh">
+                    <span class="hh-t">14:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">14&deg;</span>
+                    
+                </div>
+                
             </div>
         </div>
         
 
         
         <div class="hero-tmrw">
-            Tomorrow &nbsp;3&deg; &ndash; 14&deg;
+            Tomorrow &nbsp;4&deg; &ndash; 15&deg;
         </div>
         
     </header>
@@ -707,15 +707,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">In many ways, the conflict between Iran and the U.S. US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday… Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with…</p>
+                <p class="tldr-para">Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with… Royal College of Psychiatrists says impact on mental health often overlooked and calls for improvements in careNearly three-quarters of UK women do not know… US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Hundreds of UK teenagers to pilot social media bans and restrictions · </span>
+                    <span class="tldr-also-item">Trump vows to continue attacks on Iran, says more US troops ‘likely’ to die · </span>
                     
-                    <span class="tldr-also-item">Nine dead in missile attack on Israel as Iran strikes region</span>
+                    <span class="tldr-also-item">Looking to the history of U.S.-Iran relations to understand the future</span>
                     
                 </div>
                 
@@ -728,54 +728,12 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Looking to the history of U.S.-Iran relations to understand the future</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">NPR World</span>
-                        <span>2m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">In many ways, the conflict between Iran and the U.S. and Israel has been decades in the making. Ramtin Arablouei, host of NPR&#39;s podcast &#34;Throughline,&#34; explains how.</p>
-                    
-                    <a href="https://www.npr.org/2026/03/01/nx-s1-5730672/looking-to-the-history-of-u-s-iran-relations-to-understand-the-future" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">US-Israel war on Iran live: Trump says attack ‘will continue until all of our objectives are achieved’</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>11m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday eveningPodcast: The assassination of Iran’s ayatollah – and fears for a wider conflictHow have you been affected by events in the Middle East?Loud explosions were heard early on Sunday near Erbil airport, which hosts US-led coalition troops in Iraq’s autonomous Kurdistan region, AFP reported. Thick black smoke was rising from the airport area.O...</p>
-                    
-                    <a href="https://www.theguardian.com/us-news/live/2026/mar/01/us-israel-war-on-iran-ayatollah-ali-khamenei-i-dead-latest-reports" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
                         <span class="story-title">Politics live: Australia does not ‘anticipate participating’ in Iran conflict, Wong says; Marles ‘concerned but confident’ about defence forces in the region</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>12m ago</span>
+                        <span>11m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -791,19 +749,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Hundreds of UK teenagers to pilot social media bans and restrictions</span>
+                        <span class="story-title">Three in four women unaware menopause can trigger new mental illness, poll finds</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>15m ago</span>
+                        <span>13m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Trials to form part of three-month consultation on Keir Starmer’s plans to tackle negative effects of smartphone useHundreds of teenagers will be enlisted to trial social media bans in the coming months with overnight digital curfews and daily screen time limits also tested as part of Keir Starmer’s plan to crack down on the negative effects of smartphone use.The trials will be part of a three-month consultation launched this week that could lead to an outright ban on social media for under-1...</p>
+                    <p class="story-text">Royal College of Psychiatrists says impact on mental health often overlooked and calls for improvements in careNearly three-quarters of UK women do not know menopause can trigger a new mental illness, polling shows.This lack of understanding is so acute that the Royal College of Psychiatrists has launched its first targeted “position statement” to raise awareness about menopause and mental health. Continue reading...</p>
                     
-                    <a href="https://www.theguardian.com/uk-news/2026/mar/01/uk-teenagers-pilot-social-media-ban-smartphone-restrictions" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/society/2026/mar/01/menopause-mental-illness-royal-college-of-psychiatrists-poll" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -812,19 +770,61 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Nine dead in missile attack on Israel as Iran strikes region</span>
+                        <span class="story-title">US-Israel war on Iran live: Trump says attack ‘will continue until all of our objectives are achieved’</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC World</span>
-                        <span>22m ago</span>
+                        <span class="story-src">The Guardian</span>
+                        <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Several deaths are reported across the Middle East as Tehran retaliates for massive strikes by the US and Israel.</p>
+                    <p class="story-text">US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday eveningPodcast: The assassination of Iran’s ayatollah – and fears for a wider conflictHow have you been affected by events in the Middle East?Loud explosions were heard early on Sunday near Erbil airport, which hosts US-led coalition troops in Iraq’s autonomous Kurdistan region, AFP reported. Thick black smoke was rising from the airport area.O...</p>
                     
-                    <a href="https://www.bbc.com/news/articles/c363zkp1pgxo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/us-news/live/2026/mar/01/us-israel-war-on-iran-ayatollah-ali-khamenei-i-dead-latest-reports" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Trump vows to continue attacks on Iran, says more US troops ‘likely’ to die</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Al Jazeera</span>
+                        <span>23m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">US president says attacks will continue until &amp;#039;all objectives&amp;#039; are met, despite earlier floating diplomatic off-ramps.</p>
+                    
+                    <a href="https://www.aljazeera.com/news/2026/3/1/trump-vows-to-continue-attacks-on-iran-says-more-us-troops-likely-to-die?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Looking to the history of U.S.-Iran relations to understand the future</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">NPR World</span>
+                        <span>30m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">In many ways, the conflict between Iran and the U.S. and Israel has been decades in the making. Ramtin Arablouei, host of NPR&#39;s podcast &#34;Throughline,&#34; explains how.</p>
+                    
+                    <a href="https://www.npr.org/2026/03/01/nx-s1-5730672/looking-to-the-history-of-u-s-iran-relations-to-understand-the-future" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -874,7 +874,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>6h ago</span>
+                        <span>7h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -895,7 +895,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Environment</span>
-                        <span>10h ago</span>
+                        <span>11h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -916,7 +916,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>12h ago</span>
+                        <span>13h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -937,7 +937,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>12h ago</span>
+                        <span>13h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -958,7 +958,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>12h ago</span>
+                        <span>13h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -989,7 +989,7 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Discussions over what measures to implement to protect children&#39;s wellbeing will last for three months. Article URL: https://www.bolde.com/psychology-says-people-who-dont-maintain-many-close-friends-often-learned-independence-too-early/ Comments URL:… Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145…</p>
+                <p class="tldr-para">Discussions over what measures to implement to protect children&#39;s wellbeing will last for three months. Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 11 # Comments: 3 Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145…</p>
                 
                 
                 <div class="tldr-also">
@@ -1015,7 +1015,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Technology</span>
-                        <span>11m ago</span>
+                        <span>39m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1031,19 +1031,19 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Psychology: Who dont maintain many close friends, learned independence too early</span>
+                        <span class="story-title">WebMCP is available for early preview</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>25m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.bolde.com/psychology-says-people-who-dont-maintain-many-close-friends-often-learned-independence-too-early/ Comments URL: https://news.ycombinator.com/item?id=47211313 Points: 10 # Comments: 4</p>
+                    <p class="story-text">Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 11 # Comments: 3</p>
                     
-                    <a href="https://www.bolde.com/psychology-says-people-who-dont-maintain-many-close-friends-often-learned-independence-too-early/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1057,12 +1057,12 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>47m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145 Points: 19 # Comments: 3</p>
+                    <p class="story-text">Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145 Points: 51 # Comments: 58</p>
                     
                     <a href="https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -1078,12 +1078,12 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>50m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA Comments URL: https://news.ycombinator.com/item?id=47211112 Points: 17 # Comments: 3</p>
+                    <p class="story-text">Article URL: https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA Comments URL: https://news.ycombinator.com/item?id=47211112 Points: 25 # Comments: 15</p>
                     
                     <a href="https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -1099,12 +1099,12 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>54m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191 Comments URL: https://news.ycombinator.com/item?id=47211081 Points: 12 # Comments: 1</p>
+                    <p class="story-text">Article URL: https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191 Comments URL: https://news.ycombinator.com/item?id=47211081 Points: 19 # Comments: 4</p>
                     
                     <a href="https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -1130,15 +1130,17 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei. Follow the latest news after the U.S. International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices.</p>
+                <p class="tldr-para">It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei. Follow the latest news after the U.S.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder · </span>
+                    <span class="tldr-also-item">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue · </span>
                     
-                    <span class="tldr-also-item">Flights cancelled and new travel warnings issued after Iran strikes</span>
+                    <span class="tldr-also-item">Three ships attacked near Strait of Hormuz as fears grow of oil price rises · </span>
+                    
+                    <span class="tldr-also-item">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
                     
                 </div>
                 
@@ -1151,12 +1153,33 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">U.S. crude oil set to top $70 a barrel when trading begins on fears of Iran supply disruption</span>
+                        <span class="story-title">Dow futures drop 500 points as oil prices spike following U.S. attack on Iran: Live updates</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>27m ago</span>
+                        <span>2m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">The war between the U.S. and Iran is threatening to widen and jolt global energy supplies.</p>
+                    
+                    <a href="https://www.cnbc.com/2026/03/01/stock-market-today-live-update.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">U.S. crude oil jumps more than 7%, topping $72 a barrel on fears of Iran supply disruption</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">CNBC Top News</span>
+                        <span>4m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1177,7 +1200,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>33m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1219,7 +1242,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>3h ago</span>
+                        <span>4h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1227,27 +1250,6 @@ body {
                     <p class="story-text">As AI systems become more complex the risk of surpassing human comprehension, not intelligence, could lead to chaos, artificial intelligence experts warn.</p>
                     
                     <a href="https://www.cnbc.com/2026/03/01/ai-artificial-intelligence-economy-business-risks.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="economy">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Flights cancelled and new travel warnings issued after Iran strikes</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC Business</span>
-                        <span>4h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">BA and Virgin Atlantic are among major airlines to ground services to the Middle East in light of the attacks.</p>
-                    
-                    <a href="https://www.bbc.com/news/articles/c0rjpr575g9o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1297,7 +1299,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>16m ago</span>
+                        <span>44m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1339,7 +1341,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>1h ago</span>
+                        <span>2h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1412,17 +1414,19 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident. Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern.</p>
-                
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++ · </span>
+                    <span class="tldr-also-item">Motorsport: Frühes Unfall-Aus für Mick Schumacher beim IndyCar-Debüt · </span>
                     
-                    <span class="tldr-also-item">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet · </span>
+                    <span class="tldr-also-item">Bundesstraße 14: Motorrad stürzt in Tunnel – Beifahrer schwer verletzt · </span>
                     
-                    <span class="tldr-also-item">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</span>
+                    <span class="tldr-also-item">Krieg im Nahen Osten: Deutschland behält sich &#34;militärische Defensivmaßnahmen&#34; vor · </span>
+                    
+                    <span class="tldr-also-item">Debatte um Kreuzberger Park: Trotz Protesten: Görlitzer Park nachts geschlossen · </span>
+                    
+                    <span class="tldr-also-item">EU-Reaktionen auf Iran-Konflikt: Überwiegend Zuschauer</span>
                     
                 </div>
                 
@@ -1435,19 +1439,17 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">USA-Iran-Krieg: Trump geht von etwa vierwöchigem Militäreinsatz gegen Iran aus</span>
+                        <span class="story-title">Motorsport: Frühes Unfall-Aus für Mick Schumacher beim IndyCar-Debüt</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>3m ago</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Der Militäreinsatz im Iran werde so lange fortgesetzt, bis alle Ziele erreicht seien, sagt der US-Präsident. Dabei stelle er sich auch auf weitere tote US-Soldaten ein.</p>
-                    
-                    <a href="https://www.zeit.de/politik/ausland/2026-03/donald-trump-iran-vergeltung-us-soldaten-centcom" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/news/2026-03/01/fruehes-unfall-aus-fuer-mick-schumacher-beim-indycar-debuet" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1456,17 +1458,17 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Feuer in Köln: Schwer verletzte Person aus brennender Wohnung gerettet</span>
+                        <span class="story-title">Bundesstraße 14: Motorrad stürzt in Tunnel – Beifahrer schwer verletzt</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>3m ago</span>
+                        <span>12m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <a href="https://www.zeit.de/news/2026-03/01/schwer-verletzte-person-aus-brennender-wohnung-gerettet" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/news/2026-03/02/motorrad-stuerzt-in-tunnel-beifahrer-schwer-verletzt" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1475,61 +1477,57 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
+                        <span class="story-title">Krieg im Nahen Osten: Deutschland behält sich &#34;militärische Defensivmaßnahmen&#34; vor</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>13m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <a href="https://www.zeit.de/news/2026-03/02/deutschland-behaelt-sich-militaerische-defensivmassnahmen-vor" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Debatte um Kreuzberger Park: Trotz Protesten: Görlitzer Park nachts geschlossen</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>14m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <a href="https://www.zeit.de/news/2026-03/01/protest-gegen-naechtliche-schliessung-des-goerlitzer-parks" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">EU-Reaktionen auf Iran-Konflikt: Überwiegend Zuschauer</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Tagesschau</span>
-                        <span>31m ago</span>
+                        <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden.</p>
+                    <p class="story-text">Die EU-Außenbeauftragte Kallas hat ihre Amtskollegen wegen des Iran-Konflikts zu einer Sondersitzung eingeladen. Schon zuvor zeichnet sich ab: Der Einfluss der EU auf Krieg und Frieden im Nahen Osten ist eher limitiert. Von C. Feld.</p>
                     
-                    <a href="https://www.tagesschau.de/newsticker/liveblog-israel-usa-angriffe-iran-102.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Iran: Israel hat Führungsspitze der &#34;Achse des Terrors&#34; ausgeschaltet</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Spiegel</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Israel hat nach dem Massaker vom 7. Oktober 2023 einen Feldzug gegen die Hamas, die Hisbollah, die Huthis und Irans Führungselite begonnen. Nun meldet die Armee Vollzug – mit einer beispiellosen Liste gezielter Tötungen.</p>
-                    
-                    <a href="https://www.spiegel.de/ausland/iran-israel-hat-fuehrungsspitze-der-achse-des-terrors-ausgeschaltet-a-2a230de8-fc0e-4c28-817f-5650829caf74#ref=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Krieg gegen den Iran: Trump rechnet mit vierwöchigem Militäreinsatz</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Die Angriffe auf den Iran könnten sich laut dem US-Präsidenten über vier Wochen ziehen. Die USA haben bislang mehr als 1.000 iranische Ziele attackiert. Das Liveblog</p>
-                    
-                    <a href="https://www.zeit.de/politik/ausland/2026-01/israel-iran-angriff-usa-liveblog" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.tagesschau.de/ausland/europa/nahost-iran-krieg-reaktionen-eu-100.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1541,7 +1539,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 22:46 UTC &middot; 01.03.2026<br>
+        Generated 23:14 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
