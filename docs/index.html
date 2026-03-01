@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#1A2019">
+    <meta name="theme-color" content="#0E120D">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>/* ============================================
-   THE DAILY BRIEFING — v8 SAGE &amp; SAND
+   THE DAILY BRIEFING — v9 SAGE &amp; SAND DARK
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,33 +25,34 @@
     --f-body: &#39;Outfit&#39;, system-ui, sans-serif;
     --f-mono: &#39;JetBrains Mono&#39;, monospace;
 
-    /* Sage &amp; Sand palette */
-    --bg-top: #EDEAD8;
-    --bg-mid: #E3DDCC;
-    --bg-bot: #D6CFBC;
-    --surface: #FAF9F4;
-    --surface-border: rgba(90, 80, 60, 0.10);
-    --text: #26231E;
-    --text-2: #3A362E;
-    --text-3: #635C4F;
-    --text-4: #908779;
+    /* Dark Sage &amp; Sand */
+    --bg-top: #171A13;
+    --bg-mid: #1A1D16;
+    --bg-bot: #141710;
+    --surface: #22261E;
+    --surface-hi: #2A2E25;
+    --surface-border: rgba(200, 190, 160, 0.08);
+    --text: #E4DED0;
+    --text-2: #C4BCA8;
+    --text-3: #8A8272;
+    --text-4: #5E584C;
 
-    --accent: #C07A38;
-    --accent-soft: rgba(192, 122, 56, 0.12);
+    --accent: #D49040;
+    --accent-soft: rgba(212, 144, 64, 0.14);
 
-    /* Category colors — earthy vibrant */
-    --cat-international: #2C6E8A;
-    --cat-international-soft: rgba(44, 110, 138, 0.10);
-    --cat-environment: #2E7A4E;
-    --cat-environment-soft: rgba(46, 122, 78, 0.10);
-    --cat-tech: #6D3DC7;
-    --cat-tech-soft: rgba(109, 61, 199, 0.10);
-    --cat-economy: #B06510;
-    --cat-economy-soft: rgba(176, 101, 16, 0.10);
-    --cat-science: #2558C2;
-    --cat-science-soft: rgba(37, 88, 194, 0.10);
-    --cat-germany: #C03030;
-    --cat-germany-soft: rgba(192, 48, 48, 0.10);
+    /* Category colors — brightened for dark */
+    --cat-international: #5A9EC4;
+    --cat-international-soft: rgba(90, 158, 196, 0.12);
+    --cat-environment: #4EAA72;
+    --cat-environment-soft: rgba(78, 170, 114, 0.12);
+    --cat-tech: #A07EF4;
+    --cat-tech-soft: rgba(160, 126, 244, 0.12);
+    --cat-economy: #D99A3A;
+    --cat-economy-soft: rgba(217, 154, 58, 0.12);
+    --cat-science: #5E9CF5;
+    --cat-science-soft: rgba(94, 156, 245, 0.12);
+    --cat-germany: #E85858;
+    --cat-germany-soft: rgba(232, 88, 88, 0.12);
 
     --r: 14px;
     --r-sm: 10px;
@@ -74,17 +75,18 @@ body {
 }
 
 /* ==============================
-   HERO — deep forest on sage
+   HERO — deepest layer
    ============================== */
 .hero {
-    background: linear-gradient(160deg, #1A2019 0%, #212D22 40%, #283526 100%);
-    color: #EDE9DD;
+    background: linear-gradient(160deg, #0E120D 0%, #131A14 40%, #111810 100%);
+    color: #E4DED0;
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
     margin-bottom: 0.75rem;
     border-radius: 0 0 28px 28px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid rgba(200, 190, 160, 0.06);
 }
 .hero::before {
     content: &#39;&#39;;
@@ -93,7 +95,7 @@ body {
     right: -15%;
     width: 55%;
     height: 75%;
-    background: radial-gradient(ellipse, rgba(192, 122, 56, 0.08) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(212, 144, 64, 0.06) 0%, transparent 65%);
     pointer-events: none;
 }
 .hero::after {
@@ -103,7 +105,7 @@ body {
     left: -10%;
     width: 40%;
     height: 50%;
-    background: radial-gradient(ellipse, rgba(46, 122, 78, 0.05) 0%, transparent 65%);
+    background: radial-gradient(ellipse, rgba(78, 170, 114, 0.04) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -130,7 +132,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #EDE9DD;
+    color: #E4DED0;
 }
 .hero-weather {
     display: flex;
@@ -152,14 +154,14 @@ body {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(237,233,221,0.45);
+    color: rgba(228,222,208,0.35);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(237,233,221,0.2); }
+.hero-sep { color: rgba(228,222,208,0.15); }
 
 /* Hourly weather */
 .hero-hourly-wrap {
@@ -185,12 +187,12 @@ body {
     border-radius: var(--r-sm);
     gap: 0.12rem;
 }
-.hh-now { background: rgba(192, 122, 56, 0.15); }
+.hh-now { background: rgba(212, 144, 64, 0.12); }
 .hh-t {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(237,233,221,0.3);
+    color: rgba(228,222,208,0.25);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -198,29 +200,29 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(237,233,221,0.8);
+    color: rgba(228,222,208,0.75);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
     color: #7DBCE0;
-    background: rgba(125, 188, 224, 0.12);
+    background: rgba(125, 188, 224, 0.10);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.18);
+    background: rgba(147, 197, 253, 0.15);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(237,233,221,0.25);
+    color: rgba(228,222,208,0.2);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(237,233,221,0.06);
+    border-top: 1px solid rgba(228,222,208,0.05);
 }
 
 /* ==============================
@@ -271,7 +273,7 @@ body {
     align-items: baseline;
     margin-bottom: 0.45rem;
     padding-bottom: 0.4rem;
-    border-bottom: 2.5px solid var(--text);
+    border-bottom: 2.5px solid var(--text-4);
 }
 .sec-head[data-cat=&#34;international&#34;] { border-color: var(--cat-international); }
 .sec-head[data-cat=&#34;environment&#34;]   { border-color: var(--cat-environment); }
@@ -311,7 +313,7 @@ body {
     overflow: hidden;
     transition: border-color 0.15s;
 }
-.tldr[open] { border-color: var(--surface-border); }
+.tldr[open] { border-color: rgba(200, 190, 160, 0.12); }
 
 .tldr[data-cat=&#34;international&#34;] { border-left-color: var(--cat-international); }
 .tldr[data-cat=&#34;environment&#34;]   { border-left-color: var(--cat-environment); }
@@ -398,7 +400,8 @@ body {
     transition: border-color 0.15s;
 }
 .story[open] {
-    border-color: var(--surface-border);
+    background: var(--surface-hi);
+    border-color: rgba(200, 190, 160, 0.12);
     border-radius: var(--r);
 }
 
@@ -422,7 +425,7 @@ body {
 .story-head::-webkit-details-marker { display: none; }
 .story-head::marker { display: none; content: &#39;&#39;; }
 .story-head:active {
-    background: rgba(90, 80, 60, 0.03);
+    background: rgba(200, 190, 160, 0.03);
 }
 .story-row {
     display: flex;
@@ -473,7 +476,7 @@ body {
     text-decoration: none;
     padding: 0.35rem 0.65rem;
     border-radius: 100px;
-    background: rgba(250,249,244,0.7);
+    background: rgba(200, 190, 160, 0.06);
     border: 1px solid var(--surface-border);
     display: inline-flex;
     align-items: center;
@@ -482,7 +485,7 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
-    background: rgba(250,249,244,0.9);
+    background: rgba(200, 190, 160, 0.10);
 }
 
 /* ==============================
@@ -520,12 +523,12 @@ body {
 }
 
 @media (hover: hover) {
-    .story:hover { border-color: rgba(90, 80, 60, 0.15); }
-    .story-head:hover { background: rgba(90, 80, 60, 0.02); }
-    .tldr:hover { border-color: rgba(90, 80, 60, 0.15); }
-    .tldr-head:hover { background: rgba(90, 80, 60, 0.02); }
+    .story:hover { border-color: rgba(200, 190, 160, 0.12); }
+    .story-head:hover { background: rgba(200, 190, 160, 0.03); }
+    .tldr:hover { border-color: rgba(200, 190, 160, 0.12); }
+    .tldr-head:hover { background: rgba(200, 190, 160, 0.03); }
     .nav-pill:hover { border-bottom-color: currentColor; }
-    .story-link:hover { background: var(--surface); color: var(--text-2); }
+    .story-link:hover { background: rgba(200, 190, 160, 0.10); color: var(--text-2); }
 }
 </style>
 </head>
@@ -539,7 +542,7 @@ body {
             
             <div class="hero-weather">
                 <span class="hw-icon">🌤️</span>
-                <span class="hw-temp">6&deg;</span>
+                <span class="hw-temp">5&deg;</span>
             </div>
             
         </div>
@@ -707,15 +710,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with… Royal College of Psychiatrists says impact on mental health often overlooked and calls for improvements in careNearly three-quarters of UK women do not know… US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday…</p>
+                <p class="tldr-para">Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with… US president says ‘an Iranian regime armed with long range missiles would be a dire threat to every American’ in video released on Truth Social Sunday… Suspect fired from SUV, then got out of the vehicle and opened fire with a rifle before being killed by officers.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Trump vows to continue attacks on Iran, says more US troops ‘likely’ to die · </span>
+                    <span class="tldr-also-item">Watch: Retaliations continue on day two of US-Israel attacks on Iran · </span>
                     
-                    <span class="tldr-also-item">Looking to the history of U.S.-Iran relations to understand the future</span>
+                    <span class="tldr-also-item">Deadly Texas bar shooting &#39;potentially act of terrorism&#39;, FBI says</span>
                     
                 </div>
                 
@@ -728,12 +731,12 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Politics live: Australia does not ‘anticipate participating’ in Iran conflict, Wong says; Marles ‘concerned but confident’ about defence forces in the region</span>
+                        <span class="story-title">Australia politics live: Pauline Hanson to face censure motion over Muslim comments; Marles ‘concerned but confident’ about troops in Middle East</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>11m ago</span>
+                        <span>8m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -749,33 +752,12 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Three in four women unaware menopause can trigger new mental illness, poll finds</span>
+                        <span class="story-title">US-Israel war on Iran live: Oil price soars by 13% in early trading; Trump says attack will continue until ‘objectives are achieved’</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>13m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Royal College of Psychiatrists says impact on mental health often overlooked and calls for improvements in careNearly three-quarters of UK women do not know menopause can trigger a new mental illness, polling shows.This lack of understanding is so acute that the Royal College of Psychiatrists has launched its first targeted “position statement” to raise awareness about menopause and mental health. Continue reading...</p>
-                    
-                    <a href="https://www.theguardian.com/society/2026/mar/01/menopause-mental-illness-royal-college-of-psychiatrists-poll" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">US-Israel war on Iran live: Trump says attack ‘will continue until all of our objectives are achieved’</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>18m ago</span>
+                        <span>15m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -791,19 +773,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Trump vows to continue attacks on Iran, says more US troops ‘likely’ to die</span>
+                        <span class="story-title">Gunman kills two in Texas bar shooting, FBI probing ‘terrorism’ link</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Al Jazeera</span>
-                        <span>23m ago</span>
+                        <span>28m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">US president says attacks will continue until &amp;#039;all objectives&amp;#039; are met, despite earlier floating diplomatic off-ramps.</p>
+                    <p class="story-text">Suspect fired from SUV, then got out of the vehicle and opened fire with a rifle before being killed by officers.</p>
                     
-                    <a href="https://www.aljazeera.com/news/2026/3/1/trump-vows-to-continue-attacks-on-iran-says-more-us-troops-likely-to-die?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.aljazeera.com/news/2026/3/1/gunman-kills-two-in-texas-nightlife-shooting-fbi-probing-terrorism-link?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -812,19 +794,40 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Looking to the history of U.S.-Iran relations to understand the future</span>
+                        <span class="story-title">Watch: Retaliations continue on day two of US-Israel attacks on Iran</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">NPR World</span>
-                        <span>30m ago</span>
+                        <span class="story-src">BBC World</span>
+                        <span>39m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">In many ways, the conflict between Iran and the U.S. and Israel has been decades in the making. Ramtin Arablouei, host of NPR&#39;s podcast &#34;Throughline,&#34; explains how.</p>
+                    <p class="story-text">Donald Trump warned of more US deaths after three US service members have been killed in action on the second day of US-Israel attack on Iran.</p>
                     
-                    <a href="https://www.npr.org/2026/03/01/nx-s1-5730672/looking-to-the-history-of-u-s-iran-relations-to-understand-the-future" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/videos/cvgk8vj56v1o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Deadly Texas bar shooting &#39;potentially act of terrorism&#39;, FBI says</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC World</span>
+                        <span>40m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Two people were killed and 14 injured, with the suspected gunman, identified by some media outlets, also shot dead.</p>
+                    
+                    <a href="https://www.bbc.com/news/articles/cgjznzgly0po?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -937,7 +940,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>13h ago</span>
+                        <span>14h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -958,7 +961,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>13h ago</span>
+                        <span>14h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -989,15 +992,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Discussions over what measures to implement to protect children&#39;s wellbeing will last for three months. Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 11 # Comments: 3 Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145…</p>
+                <p class="tldr-para">Article URL: https://www.morningstar.com/news/marketwatch/20260301140/allegations-of-insider-trading-over-prediction-market-bets-tied-to-iran-conflict Comments… Discussions over what measures to implement to protect children&#39;s wellbeing will last for three months. Article URL: https://littlefreelibrary.org/ Comments URL: https://news.ycombinator.com/item?id=47211280 Points: 11 # Comments: 2</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Big Breakfast Alters Appetite, Gut Health · </span>
+                    <span class="tldr-also-item">WebMCP is available for early preview · </span>
                     
-                    <span class="tldr-also-item">South Korean Police Lose Seized Crypto by Posting Password Online</span>
+                    <span class="tldr-also-item">Waymo blocking ambulance during deadly Austin shooting</span>
                     
                 </div>
                 
@@ -1010,12 +1013,33 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
+                        <span class="story-title">Allegations of insider trading over prediction-market bets tied to Iran conflict</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://www.morningstar.com/news/marketwatch/20260301140/allegations-of-insider-trading-over-prediction-market-bets-tied-to-iran-conflict Comments URL: https://news.ycombinator.com/item?id=47211476 Points: 7 # Comments: 1</p>
+                    
+                    <a href="https://www.morningstar.com/news/marketwatch/20260301140/allegations-of-insider-trading-over-prediction-market-bets-tied-to-iran-conflict" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
                         <span class="story-title">Consultation on social media ban for under-16s to begin</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Technology</span>
-                        <span>39m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1023,6 +1047,27 @@ body {
                     <p class="story-text">Discussions over what measures to implement to protect children&#39;s wellbeing will last for three months.</p>
                     
                     <a href="https://www.bbc.com/news/articles/cvg3vjkx9d7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Little Free Library Books</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Hacker News</span>
+                        <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Article URL: https://littlefreelibrary.org/ Comments URL: https://news.ycombinator.com/item?id=47211280 Points: 11 # Comments: 2</p>
+                    
+                    <a href="https://littlefreelibrary.org/" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1041,7 +1086,7 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 11 # Comments: 3</p>
+                    <p class="story-text">Article URL: https://developer.chrome.com/blog/webmcp-epp Comments URL: https://news.ycombinator.com/item?id=47211249 Points: 43 # Comments: 30</p>
                     
                     <a href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -1062,51 +1107,9 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145 Points: 51 # Comments: 58</p>
+                    <p class="story-text">Article URL: https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php Comments URL: https://news.ycombinator.com/item?id=47211145 Points: 71 # Comments: 99</p>
                     
                     <a href="https://www.mysanantonio.com/news/austin/article/waymo-austin-shooting-21948947.php" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Big Breakfast Alters Appetite, Gut Health</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Article URL: https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA Comments URL: https://news.ycombinator.com/item?id=47211112 Points: 25 # Comments: 15</p>
-                    
-                    <a href="https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/big-breakfast-diet-composition-impacts-on-appetite-control-and-gut-health-a-randomized-weight-loss-trial-in-adults-with-overweight-or-obesity/69D4E150EAE7D9632D33904D7A4AE5FA" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">South Korean Police Lose Seized Crypto by Posting Password Online</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Article URL: https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191 Comments URL: https://news.ycombinator.com/item?id=47211081 Points: 19 # Comments: 4</p>
-                    
-                    <a href="https://gizmodo.com/south-korean-police-lose-seized-crypto-by-posting-password-online-2000728191" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1130,17 +1133,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei. Follow the latest news after the U.S.</p>
+                <p class="tldr-para">International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices. It is unclear who will ultimately govern Iran, the fourth-largest oil producer in OPEC, after U.S.-Israel strikes killed Ayatollah Ali Khamenei. Follow the latest news after the U.S.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Live updates: Trump vows to &#39;avenge&#39; the deaths of U.S. service members, says combat operations continue · </span>
+                    <span class="tldr-also-item">Dow futures drop 500 points as oil prices spike following U.S. attack on Iran: Live updates · </span>
                     
-                    <span class="tldr-also-item">Three ships attacked near Strait of Hormuz as fears grow of oil price rises · </span>
-                    
-                    <span class="tldr-also-item">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
+                    <span class="tldr-also-item">How to think about everything presumably wrong with stocks and what to do about it</span>
                     
                 </div>
                 
@@ -1153,19 +1154,19 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Dow futures drop 500 points as oil prices spike following U.S. attack on Iran: Live updates</span>
+                        <span class="story-title">Three ships attacked near Strait of Hormuz as oil prices surge</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">CNBC Top News</span>
-                        <span>2m ago</span>
+                        <span class="story-src">BBC Business</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The war between the U.S. and Iran is threatening to widen and jolt global energy supplies.</p>
+                    <p class="story-text">International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices.</p>
                     
-                    <a href="https://www.cnbc.com/2026/03/01/stock-market-today-live-update.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1174,12 +1175,12 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">U.S. crude oil jumps more than 7%, topping $72 a barrel on fears of Iran supply disruption</span>
+                        <span class="story-title">U.S. crude oil jumps more than 8%, topping $72 a barrel on fears of Iran supply disruption</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>4m ago</span>
+                        <span>15m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1200,7 +1201,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>1h ago</span>
+                        <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1216,19 +1217,19 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Three ships attacked near Strait of Hormuz as fears grow of oil price rises</span>
+                        <span class="story-title">Dow futures drop 500 points as oil prices spike following U.S. attack on Iran: Live updates</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC Business</span>
-                        <span>3h ago</span>
+                        <span class="story-src">CNBC Top News</span>
+                        <span>34m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">International shipping is said to have come to a standstill at the strait&#39;s entrance, with fears of disruption already pushing up global oil prices.</p>
+                    <p class="story-text">The war between the U.S. and Iran is threatening to widen and jolt global energy supplies.</p>
                     
-                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.cnbc.com/2026/03/01/stock-market-today-live-update.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1237,19 +1238,19 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">&#39;Silent failure at scale&#39;: The AI risk that can tip the business world into disorder</span>
+                        <span class="story-title">How to think about everything presumably wrong with stocks and what to do about it</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>4h ago</span>
+                        <span>37m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">As AI systems become more complex the risk of surpassing human comprehension, not intelligence, could lead to chaos, artificial intelligence experts warn.</p>
+                    <p class="story-text">So, what&#39;s the plan?</p>
                     
-                    <a href="https://www.cnbc.com/2026/03/01/ai-artificial-intelligence-economy-business-risks.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.cnbc.com/2026/03/01/cramer-how-to-think-about-whats-presumably-wrong-with-stocks-and-what-to-do-about-it.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1273,15 +1274,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">NASA&#39;s Curiosity Mars rover discovered these bumpy, pea-sized nodules while exploring a region filled with boxwork formations—low ridges standing roughly 3 to… Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S. New geological data indicate that marine life is somewhat resilient to warming in the tropics.</p>
+                <p class="tldr-para">An office job calls for a &#34;fast-paced, fit and energetic&#34; person who can &#34;stand out&#34; in a crowd. NASA&#39;s Curiosity Mars rover discovered these bumpy, pea-sized nodules while exploring a region filled with boxwork formations—low ridges standing roughly 3 to… Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today · </span>
+                    <span class="tldr-also-item">Past climate change: First indicators show resilience in tropical life—up to 1.5°C · </span>
                     
-                    <span class="tldr-also-item">Frictionless AI comes at a human cost to learning, growth and connection</span>
+                    <span class="tldr-also-item">Meekness isn&#39;t weakness. Once considered positive, it&#39;s one of the &#39;undersung virtues&#39; that deserve defense today</span>
                     
                 </div>
                 
@@ -1294,12 +1295,33 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
+                        <span class="story-title">&#39;Fast-paced, fit, agile&#39;: Ableist words in job ads decrease applicants</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Phys.org</span>
+                        <span>28m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">An office job calls for a &#34;fast-paced, fit and energetic&#34; person who can &#34;stand out&#34; in a crowd. How likely are you to apply? A new University of Guelph study, led by Dr. Melissa Walker as part of her Ph.D., says that more neutral language might be key to drawing in more applicants of all ability levels.</p>
+                    
+                    <a href="https://phys.org/news/2026-02-fast-paced-agile-ableist-words.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="science">
+                <summary class="story-head">
+                    <span class="story-row">
                         <span class="story-title">Curiosity studies nodules on Mars boxwork formations</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>44m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1320,7 +1342,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>1h ago</span>
+                        <span>2h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1362,7 +1384,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>2h ago</span>
+                        <span>3h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1370,27 +1392,6 @@ body {
                     <p class="story-text">What do you envision when you think of meekness? You probably see a mousy doormat, someone sheepishly acquiescing to the will of the stronger. When Jesus says, &#34;Blessed are the meek, for they shall inherit the earth,&#34; you might think that those wimps will hand it over without a whimper or word of objection to stronger, more ambitious people. The philosopher Friedrich Nietzsche called meekness &#34;craven baseness.&#34;</p>
                     
                     <a href="https://phys.org/news/2026-02-meekness-isnt-weakness-positive-undersung.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Frictionless AI comes at a human cost to learning, growth and connection</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Phys.org</span>
-                        <span>3h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Artificial intelligence is rapidly making intellectual work and social interaction easier, but that ease may come at a substantial psychological cost, according to researchers from the University of Toronto. In an article published in Communications Psychology, the authors argue that AI&#39;s greatest strength, namely removing friction from work and relationships, is also a liability.</p>
-                    
-                    <a href="https://phys.org/news/2026-02-frictionless-ai-human-growth.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1414,19 +1415,17 @@ body {
             </summary>
             <div class="tldr-body">
                 
+                <p class="tldr-para">Die Golfstaaten haben Iran gedroht, falls Teheran weitere Angriffe durchführen sollte. Wo wurde das iranische Regime getroffen?</p>
+                
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Motorsport: Frühes Unfall-Aus für Mick Schumacher beim IndyCar-Debüt · </span>
+                    <span class="tldr-also-item">Angriff auf den Iran: Grafiken und Karten zum Angriff auf den Iran · </span>
                     
-                    <span class="tldr-also-item">Bundesstraße 14: Motorrad stürzt in Tunnel – Beifahrer schwer verletzt · </span>
+                    <span class="tldr-also-item">Krieg in Nahost: Johann Wadephul schließt Rückholung deutscher Staatsbürger aus · </span>
                     
-                    <span class="tldr-also-item">Krieg im Nahen Osten: Deutschland behält sich &#34;militärische Defensivmaßnahmen&#34; vor · </span>
-                    
-                    <span class="tldr-also-item">Debatte um Kreuzberger Park: Trotz Protesten: Görlitzer Park nachts geschlossen · </span>
-                    
-                    <span class="tldr-also-item">EU-Reaktionen auf Iran-Konflikt: Überwiegend Zuschauer</span>
+                    <span class="tldr-also-item">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
                     
                 </div>
                 
@@ -1439,17 +1438,19 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Motorsport: Frühes Unfall-Aus für Mick Schumacher beim IndyCar-Debüt</span>
+                        <span class="story-title">Nahost-Liveblog: ++ Golfstaaten drohen Iran mit Gegenangriffen ++</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>9m ago</span>
+                        <span class="story-src">Tagesschau</span>
+                        <span>6m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <a href="https://www.zeit.de/news/2026-03/01/fruehes-unfall-aus-fuer-mick-schumacher-beim-indycar-debuet" target="_blank" rel="noopener" class="story-link">
+                    <p class="story-text">Die Golfstaaten haben Iran gedroht, falls Teheran weitere Angriffe durchführen sollte. Als Reaktion auf die Eskalation in Nahost will die EU offenbar ihre Marinemission im Roten Meer verstärken.</p>
+                    
+                    <a href="https://www.tagesschau.de/newsticker/liveblog-nahost-iran-100.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1458,26 +1459,7 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Bundesstraße 14: Motorrad stürzt in Tunnel – Beifahrer schwer verletzt</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>12m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <a href="https://www.zeit.de/news/2026-03/02/motorrad-stuerzt-in-tunnel-beifahrer-schwer-verletzt" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Krieg im Nahen Osten: Deutschland behält sich &#34;militärische Defensivmaßnahmen&#34; vor</span>
+                        <span class="story-title">Nahost: Israels Armee meldet Angriff aus dem Libanon</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1487,7 +1469,7 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <a href="https://www.zeit.de/news/2026-03/02/deutschland-behaelt-sich-militaerische-defensivmassnahmen-vor" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/news/2026-03/02/israels-armee-meldet-angriff-aus-dem-libanon" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1496,17 +1478,19 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Debatte um Kreuzberger Park: Trotz Protesten: Görlitzer Park nachts geschlossen</span>
+                        <span class="story-title">Angriff auf den Iran: Grafiken und Karten zum Angriff auf den Iran</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>14m ago</span>
+                        <span>15m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <a href="https://www.zeit.de/news/2026-03/01/protest-gegen-naechtliche-schliessung-des-goerlitzer-parks" target="_blank" rel="noopener" class="story-link">
+                    <p class="story-text">Wo wurde das iranische Regime getroffen? Wie viele Luftangriffe sind bekannt? Ein aktueller Überblick in Karten und Visualisierungen</p>
+                    
+                    <a href="https://www.zeit.de/politik/ausland/2026-02/angriff-usa-iran-krieg-karte-ueberblick" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1515,19 +1499,40 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">EU-Reaktionen auf Iran-Konflikt: Überwiegend Zuschauer</span>
+                        <span class="story-title">Krieg in Nahost: Johann Wadephul schließt Rückholung deutscher Staatsbürger aus</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>18m ago</span>
+                        <span class="story-src">ZEIT Online</span>
+                        <span>23m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Die EU-Außenbeauftragte Kallas hat ihre Amtskollegen wegen des Iran-Konflikts zu einer Sondersitzung eingeladen. Schon zuvor zeichnet sich ab: Der Einfluss der EU auf Krieg und Frieden im Nahen Osten ist eher limitiert. Von C. Feld.</p>
+                    <p class="story-text">Außenminister Johann Wadephul rechnet nicht damit, dass gestrandete Deutsche aus dem Nahen Osten geholt werden können. Er weist auf die Schließung des Luftraums hin.</p>
                     
-                    <a href="https://www.tagesschau.de/ausland/europa/nahost-iran-krieg-reaktionen-eu-100.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/politik/deutschland/2026-03/evakuierung-nahost-bundesbuerger-johann-wadephul-absage" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Nahost-Liveblog: ++ Militäreinsatz könnte laut Trump vier Wochen dauern ++</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Tagesschau</span>
+                        <span>24m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Der Militäreinsatz gegen Iran könnte nach Einschätzung von US-Präsident Trump etwa vier Wochen dauern. Die iranische Hauptstadt Teheran ist erneut von schweren Explosionen erschüttert worden.</p>
+                    
+                    <a href="https://www.tagesschau.de/newsticker/liveblog-israel-usa-angriffe-iran-102.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1539,7 +1544,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 23:14 UTC &middot; 01.03.2026<br>
+        Generated 23:58 UTC &middot; 01.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
