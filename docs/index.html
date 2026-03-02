@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#0E120D">
+    <meta name="theme-color" content="#1A2019">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -15,17 +15,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>/* ============================================
-   THE DAILY BRIEFING — v9 SAGE &amp; SAND DARK
+   THE DAILY BRIEFING — v10 LIGHT/DARK + NAV
    ============================================ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ==============================
+   LIGHT THEME (default)
+   ============================== */
 :root {
     --f-display: &#39;Bricolage Grotesque&#39;, system-ui, sans-serif;
     --f-body: &#39;Outfit&#39;, system-ui, sans-serif;
     --f-mono: &#39;JetBrains Mono&#39;, monospace;
 
-    /* Dark Sage &amp; Sand */
+    --bg-top: #EDEAD8;
+    --bg-mid: #E3DDCC;
+    --bg-bot: #D6CFBC;
+    --surface: #FAF9F4;
+    --surface-hi: #F2F0E8;
+    --surface-border: rgba(90, 80, 60, 0.10);
+    --text: #26231E;
+    --text-2: #3A362E;
+    --text-3: #635C4F;
+    --text-4: #908779;
+
+    --accent: #C07A38;
+    --accent-soft: rgba(192, 122, 56, 0.12);
+
+    --hero-bg: linear-gradient(160deg, #1A2019 0%, #212D22 40%, #283526 100%);
+    --hero-text: #EDE9DD;
+    --hero-dim: rgba(237,233,221,0.45);
+    --hero-faint: rgba(237,233,221,0.2);
+    --hero-glow1: rgba(192, 122, 56, 0.08);
+    --hero-glow2: rgba(46, 122, 78, 0.05);
+    --hero-hour-bg: rgba(192, 122, 56, 0.15);
+    --hero-hour-dim: rgba(237,233,221,0.3);
+    --hero-hour-text: rgba(237,233,221,0.8);
+    --hero-border: rgba(237,233,221,0.06);
+
+    --nav-glass: rgba(250, 249, 244, 0.82);
+    --nav-border: rgba(90, 80, 60, 0.10);
+    --nav-shadow: 0 -2px 20px rgba(0,0,0,0.06);
+
+    --cat-international: #2C6E8A;
+    --cat-environment: #2E7A4E;
+    --cat-tech: #6D3DC7;
+    --cat-economy: #B06510;
+    --cat-science: #2558C2;
+    --cat-germany: #C03030;
+
+    --r: 14px;
+    --r-sm: 10px;
+}
+
+/* ==============================
+   DARK THEME
+   ============================== */
+[data-theme=&#34;dark&#34;] {
     --bg-top: #171A13;
     --bg-mid: #1A1D16;
     --bg-bot: #141710;
@@ -40,24 +86,32 @@
     --accent: #D49040;
     --accent-soft: rgba(212, 144, 64, 0.14);
 
-    /* Category colors — brightened for dark */
-    --cat-international: #5A9EC4;
-    --cat-international-soft: rgba(90, 158, 196, 0.12);
-    --cat-environment: #4EAA72;
-    --cat-environment-soft: rgba(78, 170, 114, 0.12);
-    --cat-tech: #A07EF4;
-    --cat-tech-soft: rgba(160, 126, 244, 0.12);
-    --cat-economy: #D99A3A;
-    --cat-economy-soft: rgba(217, 154, 58, 0.12);
-    --cat-science: #5E9CF5;
-    --cat-science-soft: rgba(94, 156, 245, 0.12);
-    --cat-germany: #E85858;
-    --cat-germany-soft: rgba(232, 88, 88, 0.12);
+    --hero-bg: linear-gradient(160deg, #0E120D 0%, #131A14 40%, #111810 100%);
+    --hero-text: #E4DED0;
+    --hero-dim: rgba(228,222,208,0.35);
+    --hero-faint: rgba(228,222,208,0.15);
+    --hero-glow1: rgba(212, 144, 64, 0.06);
+    --hero-glow2: rgba(78, 170, 114, 0.04);
+    --hero-hour-bg: rgba(212, 144, 64, 0.12);
+    --hero-hour-dim: rgba(228,222,208,0.25);
+    --hero-hour-text: rgba(228,222,208,0.75);
+    --hero-border: rgba(228,222,208,0.05);
 
-    --r: 14px;
-    --r-sm: 10px;
+    --nav-glass: rgba(22, 26, 19, 0.82);
+    --nav-border: rgba(200, 190, 160, 0.08);
+    --nav-shadow: 0 -2px 20px rgba(0,0,0,0.25);
+
+    --cat-international: #5A9EC4;
+    --cat-environment: #4EAA72;
+    --cat-tech: #A07EF4;
+    --cat-economy: #D99A3A;
+    --cat-science: #5E9CF5;
+    --cat-germany: #E85858;
 }
 
+/* ==============================
+   BASE
+   ============================== */
 html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 
 body {
@@ -68,25 +122,25 @@ body {
     color: var(--text);
     max-width: 640px;
     margin: 0 auto;
-    padding: 0 0 3rem;
+    padding: 0 0 5rem;
     line-height: 1.6;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
 }
 
 /* ==============================
-   HERO — deepest layer
+   HERO
    ============================== */
 .hero {
-    background: linear-gradient(160deg, #0E120D 0%, #131A14 40%, #111810 100%);
-    color: #E4DED0;
+    background: var(--hero-bg);
+    color: var(--hero-text);
     padding: 2.5rem 1.25rem 1rem;
     padding-top: max(2.5rem, calc(env(safe-area-inset-top) + 1.5rem));
     margin-bottom: 0.75rem;
     border-radius: 0 0 28px 28px;
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid rgba(200, 190, 160, 0.06);
+    border-bottom: 1px solid var(--hero-border);
 }
 .hero::before {
     content: &#39;&#39;;
@@ -95,7 +149,7 @@ body {
     right: -15%;
     width: 55%;
     height: 75%;
-    background: radial-gradient(ellipse, rgba(212, 144, 64, 0.06) 0%, transparent 65%);
+    background: radial-gradient(ellipse, var(--hero-glow1) 0%, transparent 65%);
     pointer-events: none;
 }
 .hero::after {
@@ -105,7 +159,7 @@ body {
     left: -10%;
     width: 40%;
     height: 50%;
-    background: radial-gradient(ellipse, rgba(78, 170, 114, 0.04) 0%, transparent 65%);
+    background: radial-gradient(ellipse, var(--hero-glow2) 0%, transparent 65%);
     pointer-events: none;
 }
 
@@ -116,7 +170,6 @@ body {
     color: var(--accent);
     margin-bottom: 0.35rem;
     position: relative;
-    letter-spacing: 0.01em;
 }
 
 .hero-top {
@@ -132,7 +185,7 @@ body {
     font-weight: 800;
     line-height: 0.95;
     letter-spacing: -0.03em;
-    color: #E4DED0;
+    color: var(--hero-text);
 }
 .hero-weather {
     display: flex;
@@ -154,14 +207,14 @@ body {
     font-family: var(--f-mono);
     font-size: 0.7rem;
     font-weight: 400;
-    color: rgba(228,222,208,0.35);
+    color: var(--hero-dim);
     display: flex;
     align-items: center;
     gap: 0.4rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
 }
-.hero-sep { color: rgba(228,222,208,0.15); }
+.hero-sep { color: var(--hero-faint); }
 
 /* Hourly weather */
 .hero-hourly-wrap {
@@ -187,12 +240,12 @@ body {
     border-radius: var(--r-sm);
     gap: 0.12rem;
 }
-.hh-now { background: rgba(212, 144, 64, 0.12); }
+.hh-now { background: var(--hero-hour-bg); }
 .hh-t {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
-    color: rgba(228,222,208,0.25);
+    color: var(--hero-hour-dim);
 }
 .hh-now .hh-t { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
@@ -200,65 +253,99 @@ body {
     font-family: var(--f-mono);
     font-size: 0.75rem;
     font-weight: 500;
-    color: rgba(228,222,208,0.75);
+    color: var(--hero-hour-text);
 }
 .hh-r {
     font-family: var(--f-mono);
     font-size: 0.55rem;
     font-weight: 500;
     color: #7DBCE0;
-    background: rgba(125, 188, 224, 0.10);
+    background: rgba(125, 188, 224, 0.12);
     padding: 0.05rem 0.25rem;
     border-radius: 3px;
 }
 .hh-r-hi {
     color: #93C5FD;
-    background: rgba(147, 197, 253, 0.15);
+    background: rgba(147, 197, 253, 0.18);
 }
 
 .hero-tmrw {
     font-family: var(--f-mono);
     font-size: 0.68rem;
-    color: rgba(228,222,208,0.2);
+    color: var(--hero-faint);
     text-align: center;
     padding-top: 0.4rem;
-    border-top: 1px solid rgba(228,222,208,0.05);
+    border-top: 1px solid var(--hero-border);
 }
 
 /* ==============================
-   NAV — minimal text links
+   FLOATING BOTTOM NAV
    ============================== */
 .nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.15rem 0.5rem;
-    padding: 0.4rem 1.15rem;
-    margin-bottom: 1.25rem;
+    align-items: stretch;
+    gap: 0;
+    max-width: 640px;
+    width: 100%;
+    padding: 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--nav-glass);
+    backdrop-filter: blur(24px) saturate(1.5);
+    -webkit-backdrop-filter: blur(24px) saturate(1.5);
+    border-top: 1px solid var(--nav-border);
+    box-shadow: var(--nav-shadow);
 }
 .nav-pill {
-    font-family: var(--f-mono);
-    font-size: 0.62rem;
-    font-weight: 500;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    padding: 0.45rem 0 0.4rem;
     text-decoration: none;
-    padding: 0.2rem 0;
     background: none;
     border: none;
-    border-bottom: 1.5px solid transparent;
+    border-top: 2px solid transparent;
     transition: all 0.12s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
 }
-.nav-pill:active { opacity: 0.7; }
+.nav-pill:active { opacity: 0.6; }
+.nav-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+}
+.nav-label {
+    font-family: var(--f-mono);
+    font-size: 0.48rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
 
-.nav-pill[data-cat=&#34;international&#34;] { color: var(--cat-international); }
-.nav-pill[data-cat=&#34;environment&#34;]   { color: var(--cat-environment); }
-.nav-pill[data-cat=&#34;tech&#34;]          { color: var(--cat-tech); }
-.nav-pill[data-cat=&#34;economy&#34;]       { color: var(--cat-economy); }
-.nav-pill[data-cat=&#34;science&#34;]       { color: var(--cat-science); }
-.nav-pill[data-cat=&#34;germany&#34;]       { color: var(--cat-germany); }
+/* Nav category colors */
+.nav-pill[data-cat=&#34;international&#34;] .nav-label { color: var(--cat-international); }
+.nav-pill[data-cat=&#34;environment&#34;]   .nav-label { color: var(--cat-environment); }
+.nav-pill[data-cat=&#34;tech&#34;]          .nav-label { color: var(--cat-tech); }
+.nav-pill[data-cat=&#34;economy&#34;]       .nav-label { color: var(--cat-economy); }
+.nav-pill[data-cat=&#34;science&#34;]       .nav-label { color: var(--cat-science); }
+.nav-pill[data-cat=&#34;germany&#34;]       .nav-label { color: var(--cat-germany); }
+
+/* Active state via scroll spy */
+.nav-pill.active {
+    border-top-color: currentColor;
+}
+.nav-pill.active[data-cat=&#34;international&#34;] { border-top-color: var(--cat-international); }
+.nav-pill.active[data-cat=&#34;environment&#34;]   { border-top-color: var(--cat-environment); }
+.nav-pill.active[data-cat=&#34;tech&#34;]          { border-top-color: var(--cat-tech); }
+.nav-pill.active[data-cat=&#34;economy&#34;]       { border-top-color: var(--cat-economy); }
+.nav-pill.active[data-cat=&#34;science&#34;]       { border-top-color: var(--cat-science); }
+.nav-pill.active[data-cat=&#34;germany&#34;]       { border-top-color: var(--cat-germany); }
 
 /* ==============================
    CATEGORY SECTION
@@ -313,7 +400,7 @@ body {
     overflow: hidden;
     transition: border-color 0.15s;
 }
-.tldr[open] { border-color: rgba(200, 190, 160, 0.12); }
+.tldr[open] { border-color: var(--surface-border); }
 
 .tldr[data-cat=&#34;international&#34;] { border-left-color: var(--cat-international); }
 .tldr[data-cat=&#34;environment&#34;]   { border-left-color: var(--cat-environment); }
@@ -355,9 +442,7 @@ body {
     color: var(--text-4);
     transition: transform 0.2s;
 }
-.tldr[open] .tldr-chevron {
-    transform: rotate(90deg);
-}
+.tldr[open] .tldr-chevron { transform: rotate(90deg); }
 
 .tldr-body {
     padding: 0 0.85rem 0.75rem;
@@ -384,9 +469,7 @@ body {
     color: var(--text-4);
     margin-right: 0.3rem;
 }
-.tldr-also-item {
-    color: var(--text-3);
-}
+.tldr-also-item { color: var(--text-3); }
 
 /* ==============================
    STORY — expandable article card
@@ -401,7 +484,7 @@ body {
 }
 .story[open] {
     background: var(--surface-hi);
-    border-color: rgba(200, 190, 160, 0.12);
+    border-color: var(--surface-border);
     border-radius: var(--r);
 }
 
@@ -424,9 +507,8 @@ body {
 }
 .story-head::-webkit-details-marker { display: none; }
 .story-head::marker { display: none; content: &#39;&#39;; }
-.story-head:active {
-    background: rgba(200, 190, 160, 0.03);
-}
+.story-head:active { background: var(--accent-soft); }
+
 .story-row {
     display: flex;
     align-items: baseline;
@@ -446,9 +528,7 @@ body {
     flex-shrink: 0;
     transition: transform 0.2s;
 }
-.story[open] .story-chevron {
-    transform: rotate(90deg);
-}
+.story[open] .story-chevron { transform: rotate(90deg); }
 .story-meta {
     font-family: var(--f-mono);
     font-size: 0.58rem;
@@ -459,9 +539,7 @@ body {
 }
 .story-src { color: var(--text-3); font-weight: 500; }
 
-.story-body {
-    padding: 0 0.85rem 0.75rem;
-}
+.story-body { padding: 0 0.85rem 0.75rem; }
 .story-text {
     font-size: 0.82rem;
     line-height: 1.55;
@@ -476,7 +554,7 @@ body {
     text-decoration: none;
     padding: 0.35rem 0.65rem;
     border-radius: 100px;
-    background: rgba(200, 190, 160, 0.06);
+    background: var(--accent-soft);
     border: 1px solid var(--surface-border);
     display: inline-flex;
     align-items: center;
@@ -485,7 +563,6 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
-    background: rgba(200, 190, 160, 0.10);
 }
 
 /* ==============================
@@ -497,7 +574,6 @@ body {
     font-style: italic;
     padding: 1rem 0;
 }
-
 .foot {
     padding: 1.25rem 1rem 0;
     border-top: 1px solid var(--surface-border);
@@ -506,7 +582,7 @@ body {
     font-size: 0.62rem;
     color: var(--text-4);
     line-height: 1.8;
-    margin: 2.5rem 1rem 0;
+    margin: 2rem 1rem 0;
 }
 
 /* ==============================
@@ -517,20 +593,30 @@ body {
     .hero-title { font-size: 3.5rem; }
     .hw-temp { font-size: 2.5rem; }
     .section { padding: 0 1.5rem; }
-    .nav { padding: 0.4rem 1.65rem; }
     .story-title { font-size: 1rem; }
-    .foot { margin: 2.5rem 1.5rem 0; }
+    .foot { margin: 2rem 1.5rem 0; }
 }
 
 @media (hover: hover) {
-    .story:hover { border-color: rgba(200, 190, 160, 0.12); }
-    .story-head:hover { background: rgba(200, 190, 160, 0.03); }
-    .tldr:hover { border-color: rgba(200, 190, 160, 0.12); }
-    .tldr-head:hover { background: rgba(200, 190, 160, 0.03); }
-    .nav-pill:hover { border-bottom-color: currentColor; }
-    .story-link:hover { background: rgba(200, 190, 160, 0.10); color: var(--text-2); }
+    .story:hover { border-color: var(--surface-border); }
+    .story-head:hover { background: var(--accent-soft); }
+    .tldr:hover { border-color: var(--surface-border); }
+    .tldr-head:hover { background: var(--accent-soft); }
+    .nav-pill:hover { opacity: 0.8; }
+    .story-link:hover { color: var(--text-2); }
 }
 </style>
+    <script>
+    // Auto light/dark — dark mode 19:00–06:59, light mode 07:00–18:59
+    (function(){
+        var h = new Date().getHours();
+        var t = (h >= 19 || h < 7) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        // Update theme-color meta for status bar
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = t === 'dark' ? '#0E120D' : '#1A2019';
+    })();
+    </script>
 </head>
 <body>
 
@@ -541,8 +627,8 @@ body {
             <h1 class="hero-title">Daily<br>Briefing</h1>
             
             <div class="hero-weather">
-                <span class="hw-icon">🌤️</span>
-                <span class="hw-temp">2&deg;</span>
+                <span class="hw-icon">☀️</span>
+                <span class="hw-temp">7&deg;</span>
             </div>
             
         </div>
@@ -562,34 +648,6 @@ body {
                 
                 <div class="hh hh-now">
                     <span class="hh-t">Now</span>
-                    <span class="hh-i">🌤️</span>
-                    <span class="hh-d">3&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">07:00</span>
-                    <span class="hh-i">🌤️</span>
-                    <span class="hh-d">2&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">08:00</span>
-                    <span class="hh-i">🌤️</span>
-                    <span class="hh-d">2&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">09:00</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">4&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">10:00</span>
                     <span class="hh-i">☀️</span>
                     <span class="hh-d">6&deg;</span>
                     
@@ -597,28 +655,28 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">11:00</span>
-                    <span class="hh-i">☀️</span>
+                    <span class="hh-i">🌤️</span>
                     <span class="hh-d">8&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">12:00</span>
-                    <span class="hh-i">🌤️</span>
+                    <span class="hh-i">☀️</span>
                     <span class="hh-d">11&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">13:00</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">12&deg;</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">13&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">14:00</span>
-                    <span class="hh-i">⛅</span>
+                    <span class="hh-i">🌤️</span>
                     <span class="hh-d">14&deg;</span>
                     
                 </div>
@@ -639,14 +697,14 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">17:00</span>
-                    <span class="hh-i">☁️</span>
+                    <span class="hh-i">⛅</span>
                     <span class="hh-d">13&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
                     <span class="hh-t">18:00</span>
-                    <span class="hh-i">⛅</span>
+                    <span class="hh-i">☁️</span>
                     <span class="hh-d">12&deg;</span>
                     
                 </div>
@@ -665,6 +723,34 @@ body {
                     
                 </div>
                 
+                <div class="hh">
+                    <span class="hh-t">21:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">9&deg;</span>
+                    
+                </div>
+                
+                <div class="hh">
+                    <span class="hh-t">22:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                </div>
+                
+                <div class="hh">
+                    <span class="hh-t">23:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                </div>
+                
+                <div class="hh">
+                    <span class="hh-t">00:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                </div>
+                
             </div>
         </div>
         
@@ -675,23 +761,6 @@ body {
         </div>
         
     </header>
-
-    <!-- QUICK NAV -->
-    <nav class="nav">
-        
-        <a href="#international" class="nav-pill" data-cat="international">🌐 International</a>
-        
-        <a href="#environment" class="nav-pill" data-cat="environment">🌿 Environment</a>
-        
-        <a href="#tech" class="nav-pill" data-cat="tech">💻 Tech</a>
-        
-        <a href="#economy" class="nav-pill" data-cat="economy">📈 Economy</a>
-        
-        <a href="#science" class="nav-pill" data-cat="science">🔬 Science</a>
-        
-        <a href="#germany" class="nav-pill" data-cat="germany">🇩🇪 Deutschland</a>
-        
-    </nav>
 
     <!-- CATEGORIES -->
     
@@ -710,15 +779,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Iran-backed Hezbollah says it launched rockets and drones at Israel in retaliation for the killing of Ayatollah Ali KhameneiPodcast: The assassination of… Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with… Apparent attack on RAF Akrotiri took place hours after the UK agreed to let the US use British military bases to attack Iran’s missile sitesNon-essential…</p>
+                <p class="tldr-para">Israeli military says fighting Iran-backed Hezbollah could take ‘many’ more days; US crew bailed out safely after crash-landing, says KuwaitPodcast: The… EU’s top diplomat, Kaja Kallas, warns against further escalation following US and Israel strikes on IranMeanwhile, the Irish European affairs and defence… Experts have warned that a prolonged conflict could push global energy prices even higher.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Taylor snaps at journalist as Liberals ramp up rhetoric against Australian children in Syrian camp · </span>
+                    <span class="tldr-also-item">‘Not again’: Gaza rushes to stockpile amid Iran war, crossing closures · </span>
                     
-                    <span class="tldr-also-item">Michael B Jordan upends Oscars race as Sinners wins big at Actor Awards</span>
+                    <span class="tldr-also-item">Labour council accuses minister of ‘moral bankruptcy’ over social care dispute</span>
                     
                 </div>
                 
@@ -731,17 +800,17 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">US-Israel war on Iran live updates: conflict spreads to Lebanon as IDF strikes Hezbollah after attack on Israel</span>
+                        <span class="story-title">US-Israel war on Iran live: conflict spreads to Lebanon and wider region, as Kuwait reports ‘several’ US warplanes crashing</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>10m ago</span>
+                        <span>16m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Iran-backed Hezbollah says it launched rockets and drones at Israel in retaliation for the killing of Ayatollah Ali KhameneiPodcast: The assassination of Iran’s ayatollah – and fears for a wider conflictFull report: Trump open to talks with Iran as conflict deepens in Middle EastHow have you been affected by events in the Middle East?Bahrain has said that one person was killed by shrapnel from an intercepted missile. The death of a foreign worker at Salman Industrial City, working on a boat t...</p>
+                    <p class="story-text">Israeli military says fighting Iran-backed Hezbollah could take ‘many’ more days; US crew bailed out safely after crash-landing, says KuwaitPodcast: The assassination of Iran’s ayatollahHave you been affected by events in the Middle East?Bahrain has said that one person was killed by shrapnel from an intercepted missile. The death of a foreign worker at Salman Industrial City, working on a boat there, marks the kingdom’s first reported fatality in the war.Bahrain, home to the US navy’s 5th fl...</p>
                     
                     <a href="https://www.theguardian.com/world/live/2026/mar/02/us-israel-war-iran-live-updates-attacks-strikes-tehran-lebanon-beirut-hezbollah-dubai-latest-news" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -752,19 +821,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Australia politics live: Senate censures Pauline Hanson over Muslim comments as all but two Coalition senators oppose motion</span>
+                        <span class="story-title">EU considers response to Middle East conflict as countries prepare to evacuate citizens – Europe live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>13m ago</span>
+                        <span>21m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Follow today’s latest new updatesGet our breaking news email, free app or daily news podcastJoyce says petrol prices will increase due to conflictSpeaking with Tanya Plibersek on a Sunrise panel this morning, One Nation MP Barnaby Joyce says Australia should focus on building up fuel supplies under risk due to conflict in the Middle EastIt’s a shame in a crisis like this that we’ve got ourselves down to two oil refineries, so that if there’s a crisis in the production of fuel, we’re in a bad ...</p>
+                    <p class="story-text">EU’s top diplomat, Kaja Kallas, warns against further escalation following US and Israel strikes on IranMeanwhile, the Irish European affairs and defence minister Thomas Byrne said that the advice for Irish people in the Gulf region remains to stay sheltered and not attempt to leave the area via land routes.He said land routes are not recommended, “because of the sheer number of Irish people that are there,” RTÉ said. Continue reading...</p>
                     
-                    <a href="https://www.theguardian.com/australia-news/live/2026/mar/02/politics-updates-federal-parliament-anthony-albanese-labor-angus-taylor-coalition-nsw-budget-estimates-iran-war-reactions-ntwnfb" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/world/live/2026/mar/02/eu-response-middle-east-conflict-evacuate-citizens-europe-live-latest-news" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -773,19 +842,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Non-essential personnel to leave UK airbase in Cyprus after suspected drone strike</span>
+                        <span class="story-title">Oil prices jump after attack on Iran threatens crucial Strait of Hormuz</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>31m ago</span>
+                        <span class="story-src">BBC World</span>
+                        <span>32m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Apparent attack on RAF Akrotiri took place hours after the UK agreed to let the US use British military bases to attack Iran’s missile sitesNon-essential personnel will leave the UK’s RAF Akrotiri base in Cyprus after it was hit by a suspected drone strike, causing limited damage and no casualties, Cypriot authorities and the Ministry of Defence (MoD) said.A security alert put out to residents in the vicinity of Akrotiri by the British base’s administration advised residents to shelter in pla...</p>
+                    <p class="story-text">Experts have warned that a prolonged conflict could push global energy prices even higher.</p>
                     
-                    <a href="https://www.theguardian.com/world/2026/mar/02/uk-airbase-raf-akrotiri-cyprus-suspected-drone-strike" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -794,19 +863,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Taylor snaps at journalist as Liberals ramp up rhetoric against Australian children in Syrian camp</span>
+                        <span class="story-title">‘Not again’: Gaza rushes to stockpile amid Iran war, crossing closures</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
+                        <span class="story-src">Al Jazeera</span>
                         <span>33m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Opposition leader suggests 23 children and 11 women attempting to leave al-Roj are ‘ISIS sympathisers’Angus Taylor has suggested the Australian children remaining in a Syrian detention camp are “ISIS sympathisers” as the Liberal party ramps up its rhetoric against the families of dead or jailed Islamic State fighters.The opposition leader also chided a member of the press for attempting to force his response on why the group of 23 children and 11 women should be another country’s responsibili...</p>
+                    <p class="story-text">Crossing closures following US-Israel war with Iran spark panic buying in Gaza, where residents fear food shortages.</p>
                     
-                    <a href="https://www.theguardian.com/australia-news/2026/mar/02/angus-taylor-islamic-state-syria-comments-ntwnfb" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.aljazeera.com/features/2026/3/2/not-again-gaza-rushes-to-stockpile-amid-iran-war-crossing-closures?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -815,19 +884,19 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Michael B Jordan upends Oscars race as Sinners wins big at Actor Awards</span>
+                        <span class="story-title">Labour council accuses minister of ‘moral bankruptcy’ over social care dispute</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC World</span>
+                        <span class="story-src">The Guardian</span>
                         <span>36m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The US star&#39;s best actor win for Sinners leaves the Oscars race too close to call.</p>
+                    <p class="story-text">Hartlepool leaders ‘furious and appalled’ after meeting with Steve Reed about growing cost of social careThe housing, communities and local government secretary has been accused by a Labour council of showing “arrogance, indifference and moral bankruptcy” towards children in social care.In an unusually forthright attack, Labour leaders of Hartlepool council said they were “furious and appalled” at Steve Reed after a meeting with him last week. A cross-party delegation had asked the secretary ...</p>
                     
-                    <a href="https://www.bbc.com/news/articles/clyzklvk79yo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/society/2026/mar/02/labour-council-minister-steve-reed-moral-bankruptcy-social-care-dispute" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -851,15 +920,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Authorities say capture of bull and tiger sharks necessary to protect lives as environmentalists launch urgent legal challengeSome beaches in areas of New… Long-nosed fur seal seen on banks of waterway in city’s inner west similar to those occasionally found outside Sydney Opera HouseFollow our Australia news live… The juvenile freshwater crocodile was first spotted by a group of teenagers in Ironbark Creek in the Australian city on SaturdayAn Australian freshwater…</p>
+                <p class="tldr-para">Insect taxonomist Art Borkent has described and named more than 300 species of midges but fears his field of science is dying out, despite millions of insects,… The Butterfly Conservation charity hopes to open 40 habitats for wildlife during the two-year project. Authorities say capture of bull and tiger sharks necessary to protect lives as environmentalists launch urgent legal challengeSome beaches in areas of New…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Datacentre developers face calls to disclose effect on UK’s net emissions · </span>
+                    <span class="tldr-also-item">Concerns for ‘declining’ fur seal spotted at Cooks River in inner Sydney · </span>
                     
-                    <span class="tldr-also-item">Young trees planted to expand temperate rainforest</span>
+                    <span class="tldr-also-item">Disbelief as crocodile captured in Newcastle creek thousands of kilometres from natural habitat</span>
                     
                 </div>
                 
@@ -872,12 +941,54 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Shark culls brought in after fatal attack cause division and anger in New Caledonia</span>
+                        <span class="story-title">‘I love midges because I know what their hearts look like’: is the passion for taxonomy in danger of dying out?</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
                         <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Insect taxonomist Art Borkent has described and named more than 300 species of midges but fears his field of science is dying out, despite millions of insects, fungi and other organisms waiting to be discoveredOnce Art Borkent starts speaking about biting midges, he rarely pauses for breath. Holding up a picture of a gnat trapped in amber from the time of the dinosaurs, the 72-year-old taxonomist explains that there are more than 6,000 ceratopogonidae species known to science. He has describe...</p>
+                    
+                    <a href="https://www.theguardian.com/environment/2026/mar/02/identify-species-taxonomists-crisis-art-borkent" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Wild spaces for butterflies to be created in Glasgow</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC Environment</span>
+                        <span>3h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">The Butterfly Conservation charity hopes to open 40 habitats for wildlife during the two-year project.</p>
+                    
+                    <a href="https://www.bbc.com/news/articles/c5yrdd4nepjo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Shark culls brought in after fatal attack cause division and anger in New Caledonia</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">The Guardian</span>
+                        <span>5h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -898,7 +1009,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>2h ago</span>
+                        <span>6h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -919,7 +1030,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>4h ago</span>
+                        <span>8h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -927,48 +1038,6 @@ body {
                     <p class="story-text">The juvenile freshwater crocodile was first spotted by a group of teenagers in Ironbark Creek in the Australian city on SaturdayAn Australian freshwater crocodile has been captured in a city creek thousands of kilometres south of its normal range, after sightings shocked onlookers at a suburban park.The crocodile was first spotted in Ironbark Creek in Newcastle – about 100km north of Sydney – around midday on Saturday, by a group of teenagers. Continue reading...</p>
                     
                     <a href="https://www.theguardian.com/environment/2026/mar/02/crocodile-captured-newcastle-creek-australia" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Datacentre developers face calls to disclose effect on UK’s net emissions</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>13h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Campaign groups write to technology secretary amid concerns that sites could double overall electricity demandDatacentre developers are facing pressure to reveal whether their projects will increase the UK’s net greenhouse gas emissions, amid concerns the sites could double national electricity demand.Campaign groups have written to the UK technology secretary, Liz Kendall, warning that the energy required by new AI infrastructure poses a “serious threat to efforts to decarbonise the electric...</p>
-                    
-                    <a href="https://www.theguardian.com/technology/2026/mar/01/datacentre-developers-energy-greenhouse-gas-emissions" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Young trees planted to expand temperate rainforest</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC Environment</span>
-                        <span>17h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">The saplings have been planted at Dartmoor&#39;s Wistman&#39;s Wood National Nature Reserve.</p>
-                    
-                    <a href="https://www.bbc.com/news/articles/cn4gwel9l7jo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -992,15 +1061,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Article URL: https://deadlime.hu/en/2026/02/22/computer-generated-dream-world/ Comments URL: https://news.ycombinator.com/item?id=47213866 Points: 24 #… Article URL: https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae Comments URL:… Article URL: https://github.com/kossisoroyce/timber Comments URL: https://news.ycombinator.com/item?id=47212576 Points: 76 # Comments: 8</p>
+                <p class="tldr-para">Hey HN!Over the past few months, I&#39;ve been working on building Omni - a workplace search and chat platform that connects to apps like Google Drive/Gmail,… First wave of Ryzen AI desktop CPUs targets business PCs rather than DIYers. Article URL: https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should Comments URL:…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">If AI writes code, should the session be part of the commit? · </span>
+                    <span class="tldr-also-item">Motorola announces a partnership with GrapheneOS Foundation · </span>
                     
-                    <span class="tldr-also-item">Show HN: Logira – eBPF runtime auditing for AI agent runs</span>
+                    <span class="tldr-also-item">An interactive intro to Elliptic Curve Cryptography</span>
                     
                 </div>
                 
@@ -1013,19 +1082,40 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Computer-generated dream world: Virtual reality for a 286 processor</span>
+                        <span class="story-title">Show HN: Omni – Open-source workplace search and chat, built on Postgres</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
+                        <span>38m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Hey HN!Over the past few months, I&#39;ve been working on building Omni - a workplace search and chat platform that connects to apps like Google Drive/Gmail, Slack, Confluence, etc. Essentially an open-source alternative to Glean, fully self-hosted.I noticed that some orgs find Glean to be expensive and not very extensible. I wanted to build something that small to mid-size teams could run themselves, so I decided to build it all on Postgres (ParadeDB to be precise) and pgvector. No Elasticsearch...</p>
+                    
+                    <a href="https://github.com/getomnico/omni" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">AMD will bring its &#34;Ryzen AI&#34; processors to standard desktop PCs for the first time</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Ars Technica</span>
                         <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://deadlime.hu/en/2026/02/22/computer-generated-dream-world/ Comments URL: https://news.ycombinator.com/item?id=47213866 Points: 24 # Comments: 0</p>
+                    <p class="story-text">First wave of Ryzen AI desktop CPUs targets business PCs rather than DIYers.</p>
                     
-                    <a href="https://deadlime.hu/en/2026/02/22/computer-generated-dream-world/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://arstechnica.com/gadgets/2026/03/amd-ryzen-ai-400-cpus-will-bring-upgraded-graphics-to-socket-am5-desktops/" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1034,19 +1124,19 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Everett shuts down Flock camera network after judge rules footage public record</span>
+                        <span class="story-title">How to talk to anyone and why you should</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>1h ago</span>
+                        <span>2h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae Comments URL: https://news.ycombinator.com/item?id=47213764 Points: 89 # Comments: 15</p>
+                    <p class="story-text">Article URL: https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should Comments URL: https://news.ycombinator.com/item?id=47214864 Points: 13 # Comments: 256</p>
                     
-                    <a href="https://www.wltx.com/article/news/nation-world/281-53d8693e-77a4-42ad-86e4-3426a30d25ae" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/lifeandstyle/2026/feb/24/stranger-secret-how-to-talk-to-anyone-why-you-should" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1055,19 +1145,19 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Show HN: Timber – Ollama for classical ML models, 336x faster than Python</span>
+                        <span class="story-title">Motorola announces a partnership with GrapheneOS Foundation</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>4h ago</span>
+                        <span>2h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://github.com/kossisoroyce/timber Comments URL: https://news.ycombinator.com/item?id=47212576 Points: 76 # Comments: 8</p>
+                    <p class="story-text">Article URL: https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/ Comments URL: https://news.ycombinator.com/item?id=47214645 Points: 407 # Comments: 128</p>
                     
-                    <a href="https://github.com/kossisoroyce/timber" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://motorolanews.com/motorola-three-new-b2b-solutions-at-mwc-2026/" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1076,40 +1166,19 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">If AI writes code, should the session be part of the commit?</span>
+                        <span class="story-title">An interactive intro to Elliptic Curve Cryptography</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Hacker News</span>
-                        <span>5h ago</span>
+                        <span>3h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Article URL: https://github.com/mandel-macaque/memento Comments URL: https://news.ycombinator.com/item?id=47212355 Points: 105 # Comments: 126</p>
+                    <p class="story-text">Article URL: https://growingswe.com/blog/elliptic-curve-cryptography Comments URL: https://news.ycombinator.com/item?id=47214367 Points: 15 # Comments: 7</p>
                     
-                    <a href="https://github.com/mandel-macaque/memento" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Show HN: Logira – eBPF runtime auditing for AI agent runs</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>6h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">I started using Claude Code (claude --dangerously-skip-permissions) and Codex (codex --yolo) and realized I had no reliable way to know what they actually did. The agent&#39;s own output tells you a story, but it&#39;s the agent&#39;s story.logira records exec, file, and network events at the OS level via eBPF, scoped per run. Events are saved locally in JSONL and SQLite. It ships with default detection rules for credential access, persistence changes, suspicious exec patterns, and more. Observe-only – i...</p>
-                    
-                    <a href="https://github.com/melonattacker/logira" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://growingswe.com/blog/elliptic-curve-cryptography" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1133,17 +1202,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Follow the latest news after the U.S. The U.S.-Israel conflict with Iran is extending into its third day with each side pledging escalation.</p>
+                <p class="tldr-para">Iran is facing widespread internet disruptions following the U.S.-Israeli airstrikes over the weekend. Follow the latest news after the U.S. European stocks started the new trading week firmly in negative territory.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Dow futures drop over 300 points as oil prices spike following U.S. attack on Iran: Live updates · </span>
+                    <span class="tldr-also-item">Oil prices jump after attack on Iran threatens crucial Strait of Hormuz · </span>
                     
-                    <span class="tldr-also-item">Asia airline stocks drop while energy shares rise as Iran conflict escalates · </span>
-                    
-                    <span class="tldr-also-item">Global week ahead: Operation Epic Fury means new risks for markets</span>
+                    <span class="tldr-also-item">Asia airline stocks drop while energy shares rise as Iran conflict escalates</span>
                     
                 </div>
                 
@@ -1156,12 +1223,33 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Live updates: Iran security chief Ali Larijani rejects U.S. talks, blames Trump for &#39;chaos&#39;</span>
+                        <span class="story-title">The digital front: Iran’s internet down for second day amid reports of U.S.-Israel cyberattacks</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>just now</span>
+                        <span>9m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Iran is facing widespread internet disruptions following the U.S.-Israeli airstrikes over the weekend.</p>
+                    
+                    <a href="https://www.cnbc.com/2026/03/02/irans-internet-down-amid-reports-of-us-israel-cyberattacks.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Live updates: Saudi Aramco refinery hit; Iran security chief rejects U.S. talks</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">CNBC Top News</span>
+                        <span>14m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1177,19 +1265,19 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Iran conflict: Where things stand, global responses — and what comes next</span>
+                        <span class="story-title">European stocks fall sharply markets react to U.S., Israeli strikes on Iran</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC Top News</span>
-                        <span>16m ago</span>
+                        <span>25m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The U.S.-Israel conflict with Iran is extending into its third day with each side pledging escalation.</p>
+                    <p class="story-text">European stocks started the new trading week firmly in negative territory.</p>
                     
-                    <a href="https://www.cnbc.com/2026/03/02/iran-israel-us-conflict-oil-jumps-trump-netanyahu-what-is-next.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.cnbc.com/2026/03/02/european-markets-stoxx-600-ftse-dax-cac-iran-strikes-reaction.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1198,19 +1286,19 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Dow futures drop over 300 points as oil prices spike following U.S. attack on Iran: Live updates</span>
+                        <span class="story-title">Oil prices jump after attack on Iran threatens crucial Strait of Hormuz</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">CNBC Top News</span>
-                        <span>1h ago</span>
+                        <span class="story-src">BBC Business</span>
+                        <span>32m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The war between the U.S. and Iran is threatening to widen and jolt global energy supplies.</p>
+                    <p class="story-text">Experts have warned that a prolonged conflict could push global energy prices even higher.</p>
                     
-                    <a href="https://www.cnbc.com/2026/03/01/stock-market-today-live-update.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1237,27 +1325,6 @@ body {
                 </div>
             </details>
             
-            <details class="story" data-cat="economy">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Global week ahead: Operation Epic Fury means new risks for markets</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">CNBC Top News</span>
-                        <span>3h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Investors will grapple with how to trade the fallout of the U.S. and Israel&#39;s joint action in Iran.</p>
-                    
-                    <a href="https://www.cnbc.com/2026/03/02/global-week-ahead-operation-epic-fury-us-israel-iran-strikes-oil-shipping-markets-volatility.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
         
     </section>
     
@@ -1276,15 +1343,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">There have been plenty of attempts to resolve the &#34;Hubble Tension&#34; in cosmology. Nature, Published online: 02 March 2026; doi:10.1038/d41586-026-00516-wWeak shock waves triggered by micro-cracks in the adhesive layer of tape cause it to… An office job calls for a &#34;fast-paced, fit and energetic&#34; person who can &#34;stand out&#34; in a crowd.</p>
+                <p class="tldr-para">The warming El Niño weather phenomenon could form later this year, potentially pushing global temperatures to record heights. There have been plenty of attempts to resolve the &#34;Hubble Tension&#34; in cosmology. Nature, Published online: 02 March 2026; doi:10.1038/d41586-026-00516-wWeak shock waves triggered by micro-cracks in the adhesive layer of tape cause it to…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Curiosity studies nodules on Mars boxwork formations · </span>
+                    <span class="tldr-also-item">&#39;Fast-paced, fit, agile&#39;: Ableist words in job ads decrease applicants · </span>
                     
-                    <span class="tldr-also-item">Women more likely to choose wine from female winemakers</span>
+                    <span class="tldr-also-item">Curiosity studies nodules on Mars boxwork formations</span>
                     
                 </div>
                 
@@ -1297,12 +1364,33 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
+                        <span class="story-title">El Nino may return in 2026 and make planet even hotter</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Phys.org</span>
+                        <span>2h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">The warming El Niño weather phenomenon could form later this year, potentially pushing global temperatures to record heights.</p>
+                    
+                    <a href="https://phys.org/news/2026-03-el-nino-planet-hotter.html" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="science">
+                <summary class="story-head">
+                    <span class="story-row">
                         <span class="story-title">A &#39;Cosmic Positioning System&#39; in the outer solar system</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>5h ago</span>
+                        <span>9h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1323,7 +1411,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Nature</span>
-                        <span>5h ago</span>
+                        <span>9h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1344,7 +1432,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>6h ago</span>
+                        <span>10h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1365,7 +1453,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Phys.org</span>
-                        <span>7h ago</span>
+                        <span>11h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1373,27 +1461,6 @@ body {
                     <p class="story-text">NASA&#39;s Curiosity Mars rover discovered these bumpy, pea-sized nodules while exploring a region filled with boxwork formations—low ridges standing roughly 3 to 6 feet (1 to 2 meters) tall with sandy hollows in between. This mosaic is made up of 50 individual images taken by Curiosity&#39;s Mars Hand Lens Imager (MAHLI), a camera on the end of the rover&#39;s robotic arm, on Aug. 21, 2025, the 4,636th Martian day (sol) of the mission. Ten images at different focus settings were taken at each of five lo...</p>
                     
                     <a href="https://phys.org/news/2026-02-curiosity-nodules-mars-boxwork-formations.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Women more likely to choose wine from female winemakers</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Phys.org</span>
-                        <span>8h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Promoting women&#39;s ownership in wineries can boost sales among the largest group of U.S. wine consumers, who happen to be women. Messages like &#34;proudly made by a woman winemaker&#34; increased women&#39;s intentions of purchasing wines, particularly when the label&#39;s artwork reinforced the point with feminine gender cues such as flowers. Women were also willing to pay higher prices for those wines, according to the research from Washington State University and Auburn University.</p>
-                    
-                    <a href="https://phys.org/news/2026-02-women-wine-female-winemakers.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1417,19 +1484,19 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Die SPD warnt vor einem Bürgerkrieg in Iran.</p>
-                
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Kriminalität: Mann mit Schusswaffe überfällt Tankstelle · </span>
+                    <span class="tldr-also-item">Berlins Senatorin Badenberg: Iranstämmige Justizsenatorin zwischen Hoffnung und Sorge · </span>
                     
-                    <span class="tldr-also-item">37. Prozesstag: Zeugenliste noch lang - Block-Prozess geht nach Pause weiter · </span>
+                    <span class="tldr-also-item">Kriminalität: Mehr Angriffe auf Polizisten und Politiker · </span>
                     
-                    <span class="tldr-also-item">Entscheiden jetzt die Revolutionsgarden über Irans Zukunft? · </span>
+                    <span class="tldr-also-item">Energie: Iran-Krieg lässt Erdgas-Preis nach oben schnellen · </span>
                     
-                    <span class="tldr-also-item">11KM-Podcast: Birkenholz aus Russland trotz Sanktionen</span>
+                    <span class="tldr-also-item">Nahost-Liveblog: ++ Kuwait meldet Absturz mehrerer US-Kampfflugzeuge ++ · </span>
+                    
+                    <span class="tldr-also-item">Innere Sicherheit: Landes-Geheimdienstchef: Verdeckte Operationen Irans möglich</span>
                     
                 </div>
                 
@@ -1442,17 +1509,74 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Nahost-Liveblog: ++ SPD warnt vor Bürgerkrieg und Flüchtlingen ++</span>
+                        <span class="story-title">Berlins Senatorin Badenberg: Iranstämmige Justizsenatorin zwischen Hoffnung und Sorge</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>4m ago</span>
+                        <span class="story-src">ZEIT Online</span>
+                        <span>5m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Die SPD warnt vor einem Bürgerkrieg in Iran. Die derzeitige Eskalation könne zu vielen Flüchtlingen führen. Auch die Börsen reagieren auf die Kämpfe. China kritisiert die Angriffe auf Iran.</p>
+                    <a href="https://www.zeit.de/news/2026-03/02/iranstaemmige-justizsenatorin-zwischen-hoffnung-und-sorge" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Kriminalität: Mehr Angriffe auf Polizisten und Politiker</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>6m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <a href="https://www.zeit.de/news/2026-03/02/politische-kriminalitaet-nimmt-zu-vor-allem-links" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Energie: Iran-Krieg lässt Erdgas-Preis nach oben schnellen</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>8m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <a href="https://www.zeit.de/news/2026-03/02/sprit-so-teuer-wie-seit-fast-zwei-jahren-nicht-mehr" target="_blank" rel="noopener" class="story-link">
+                        Read full article &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Nahost-Liveblog: ++ Kuwait meldet Absturz mehrerer US-Kampfflugzeuge ++</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Tagesschau</span>
+                        <span>8m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Mehrere US-Kampfflugzeuge sind laut kuwaitischen Angaben abgestürzt. Bei israelischen Angriffen auf Ziele im Libanon nach Hisbollah-Attacken sind laut libanesischen Angaben mindestens 31 Menschen getötet worden. Die Entwicklungen im Liveblog.</p>
                     
                     <a href="https://www.tagesschau.de/newsticker/liveblog-nahost-iran-100.html" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
@@ -1463,78 +1587,17 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Kriminalität: Mann mit Schusswaffe überfällt Tankstelle</span>
+                        <span class="story-title">Innere Sicherheit: Landes-Geheimdienstchef: Verdeckte Operationen Irans möglich</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>10m ago</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <a href="https://www.zeit.de/news/2026-03/02/mann-mit-schusswaffe-ueberfaellt-tankstelle" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">37. Prozesstag: Zeugenliste noch lang - Block-Prozess geht nach Pause weiter</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>14m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <a href="https://www.zeit.de/news/2026-03/02/zeugenliste-noch-lang-block-prozess-geht-nach-pause-weiter" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Entscheiden jetzt die Revolutionsgarden über Irans Zukunft?</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">DW Deutsch</span>
-                        <span>14m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Nach der Tötung des obersten Führers Ali Chamenei ringt der Iran um eine neue Ordnung. Droht eine weitere Machtkonzentration bei den Revolutionsgarden? Zwei Expertinnen ordnen ein.</p>
-                    
-                    <a href="https://www.dw.com/de/entscheiden-jetzt-die-revolutionsgarden-über-irans-zukunft/a-76175481?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">11KM-Podcast: Birkenholz aus Russland trotz Sanktionen</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>16m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Russisches Birkenholz gelangt trotz Sanktionen gegen Russland weiterhin nach Europa. Der Podcast 11KM über illegale Geschäfte in Milliardenhöhe und wie diese gestoppt werden könnten.</p>
-                    
-                    <a href="https://www.tagesschau.de/ausland/europa/podcast-11km-montag-russland-holz-100.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/news/2026-03/02/landes-geheimdienstchef-verdeckte-operationen-irans-moeglich" target="_blank" rel="noopener" class="story-link">
                         Read full article &rarr;
                     </a>
                 </div>
@@ -1544,9 +1607,44 @@ body {
     </section>
     
 
+    <!-- FLOATING BOTTOM NAV -->
+    <nav class="nav">
+        
+        <a href="#international" class="nav-pill" data-cat="international">
+            <span class="nav-icon">🌐</span>
+            <span class="nav-label">Inter</span>
+        </a>
+        
+        <a href="#environment" class="nav-pill" data-cat="environment">
+            <span class="nav-icon">🌿</span>
+            <span class="nav-label">Envir</span>
+        </a>
+        
+        <a href="#tech" class="nav-pill" data-cat="tech">
+            <span class="nav-icon">💻</span>
+            <span class="nav-label">Tech</span>
+        </a>
+        
+        <a href="#economy" class="nav-pill" data-cat="economy">
+            <span class="nav-icon">📈</span>
+            <span class="nav-label">Econo</span>
+        </a>
+        
+        <a href="#science" class="nav-pill" data-cat="science">
+            <span class="nav-icon">🔬</span>
+            <span class="nav-label">Scien</span>
+        </a>
+        
+        <a href="#germany" class="nav-pill" data-cat="germany">
+            <span class="nav-icon">🇩🇪</span>
+            <span class="nav-label">Deuts</span>
+        </a>
+        
+    </nav>
+
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 05:44 UTC &middot; 02.03.2026<br>
+        Generated 09:36 UTC &middot; 02.03.2026<br>
         Next edition tomorrow morning
     </footer>
 
@@ -1554,6 +1652,23 @@ body {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
     }
+    // Scroll spy — highlight active nav item
+    (function(){
+        var sections = document.querySelectorAll('.section');
+        var pills = document.querySelectorAll('.nav-pill');
+        if (!sections.length || !pills.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    pills.forEach(function(p) { p.classList.remove('active'); });
+                    var id = e.target.id;
+                    var active = document.querySelector('.nav-pill[data-cat="' + id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        sections.forEach(function(s) { observer.observe(s); });
+    })();
     </script>
 </body>
 </html>
