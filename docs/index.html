@@ -13,7 +13,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
     <style>/* ============================================
    THE DAILY BRIEFING — v10 LIGHT/DARK + NAV
    ============================================ */
@@ -26,7 +26,7 @@
 :root {
     --f-display: &#39;Bricolage Grotesque&#39;, system-ui, sans-serif;
     --f-body: &#39;Outfit&#39;, system-ui, sans-serif;
-    --f-mono: &#39;JetBrains Mono&#39;, monospace;
+    --f-mono: ui-monospace, &#39;SF Mono&#39;, &#39;Cascadia Mono&#39;, &#39;Segoe UI Mono&#39;, monospace;
 
     --bg-top: #EDEAD8;
     --bg-mid: #E3DDCC;
@@ -225,6 +225,10 @@ body {
     scrollbar-width: none;
 }
 .hero-hourly-wrap::-webkit-scrollbar { display: none; }
+.hero-hourly-wrap {
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
 .hero-hourly {
     display: flex;
     gap: 0.1rem;
@@ -269,14 +273,7 @@ body {
     background: rgba(147, 197, 253, 0.18);
 }
 
-.hero-tmrw {
-    font-family: var(--f-mono);
-    font-size: 0.68rem;
-    color: var(--hero-faint);
-    text-align: center;
-    padding-top: 0.4rem;
-    border-top: 1px solid var(--hero-border);
-}
+/* .hero-tmrw removed — tomorrow forecast now in hero-meta line */
 
 /* ==============================
    FLOATING BOTTOM NAV
@@ -321,11 +318,10 @@ body {
     line-height: 1;
 }
 .nav-label {
-    font-family: var(--f-mono);
-    font-size: 0.48rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+    font-family: var(--f-body);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 /* Nav category colors */
@@ -547,15 +543,16 @@ body {
     margin-bottom: 0.5rem;
 }
 .story-link {
-    font-family: var(--f-mono);
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: var(--text-3);
+    font-family: var(--f-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
     text-decoration: none;
-    padding: 0.35rem 0.65rem;
+    padding: 0.4rem 0.75rem;
     border-radius: 100px;
     background: var(--accent-soft);
-    border: 1px solid var(--surface-border);
+    border: 1px solid var(--accent);
+    border-color: rgba(192, 122, 56, 0.3);
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -563,6 +560,16 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
+}
+
+/* Visited article — dim the title */
+.story-head:has(+ .story-body) ~ .story-head,
+.story:visited .story-title { opacity: 1; }
+.story.visited .story-title {
+    color: var(--text-3);
+}
+.story.visited .story-head {
+    opacity: 0.7;
 }
 
 /* ==============================
@@ -603,7 +610,7 @@ body {
     .tldr:hover { border-color: var(--surface-border); }
     .tldr-head:hover { background: var(--accent-soft); }
     .nav-pill:hover { opacity: 0.8; }
-    .story-link:hover { color: var(--text-2); }
+    .story-link:hover { color: var(--text); background: rgba(192, 122, 56, 0.18); }
 }
 </style>
     <script>
@@ -622,13 +629,13 @@ body {
 
     <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
-        <div class="hero-greeting">📋 Afternoon check-in</div>
+        <div class="hero-greeting">🌆 Evening edition</div>
         <div class="hero-top">
-            <h1 class="hero-title">Daily<br>Briefing</h1>
+            <h1 class="hero-title">my<br>news</h1>
             
             <div class="hero-weather">
                 <span class="hw-icon">☁️</span>
-                <span class="hw-temp">14&deg;</span>
+                <span class="hw-temp">13&deg;</span>
             </div>
             
         </div>
@@ -640,6 +647,10 @@ body {
             <span class="hero-sep">/</span>
             <span>2&deg;&ndash;15&deg;</span>
             
+            
+            <span class="hero-sep">/</span>
+            <span>Tmrw 4&deg;&ndash;16&deg;</span>
+            
         </div>
 
         
@@ -649,20 +660,6 @@ body {
                 <div class="hh hh-now">
                     <span class="hh-t">Now</span>
                     <span class="hh-i">☁️</span>
-                    <span class="hh-d">15&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">17:00</span>
-                    <span class="hh-i">☀️</span>
-                    <span class="hh-d">14&deg;</span>
-                    
-                </div>
-                
-                <div class="hh">
-                    <span class="hh-t">18:00</span>
-                    <span class="hh-i">⛅</span>
                     <span class="hh-d">13&deg;</span>
                     
                 </div>
@@ -684,7 +681,7 @@ body {
                 <div class="hh">
                     <span class="hh-t">21:00</span>
                     <span class="hh-i">☁️</span>
-                    <span class="hh-d">9&deg;</span>
+                    <span class="hh-d">10&deg;</span>
                     
                 </div>
                 
@@ -711,7 +708,7 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">01:00</span>
-                    <span class="hh-i">⛅</span>
+                    <span class="hh-i">☁️</span>
                     <span class="hh-d">7&deg;</span>
                     
                 </div>
@@ -725,28 +722,42 @@ body {
                 
                 <div class="hh">
                     <span class="hh-t">03:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                </div>
+                
+                <div class="hh">
+                    <span class="hh-t">04:00</span>
                     <span class="hh-i">🌤️</span>
                     <span class="hh-d">5&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
-                    <span class="hh-t">04:00</span>
-                    <span class="hh-i">☁️</span>
+                    <span class="hh-t">05:00</span>
+                    <span class="hh-i">⛅</span>
                     <span class="hh-d">5&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
-                    <span class="hh-t">05:00</span>
+                    <span class="hh-t">06:00</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                </div>
+                
+                <div class="hh">
+                    <span class="hh-t">07:00</span>
                     <span class="hh-i">☁️</span>
                     <span class="hh-d">4&deg;</span>
                     
                 </div>
                 
                 <div class="hh">
-                    <span class="hh-t">06:00</span>
-                    <span class="hh-i">☁️</span>
+                    <span class="hh-t">08:00</span>
+                    <span class="hh-i">🌤️</span>
                     <span class="hh-d">4&deg;</span>
                     
                 </div>
@@ -754,24 +765,19 @@ body {
             </div>
         </div>
         
-
-        
-        <div class="hero-tmrw">
-            Tomorrow &nbsp;4&deg; &ndash; 16&deg;
-        </div>
-        
     </header>
 
+    <main>
     <!-- CATEGORIES -->
     
-    <section class="section" id="international">
+    <section class="section" id="international" aria-label="International &amp; Geopolitics">
         <div class="sec-head" data-cat="international">
             <span class="sec-label">International &amp; Geopolitics</span>
             <span class="sec-count">5 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="international">
+        <details class="tldr" data-cat="international" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">5 stories</span>
@@ -779,15 +785,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Iranian strikes hit Saudi and Qatar energy sites; US crew bailed out safely after crash-landing, says Kuwait Podcast: The assassination of Iran’s ayatollah… Pakistan on Monday deployed troops and imposed a three-day curfew in two northern cities following deadly protests sparked by the US-Israeli strikes that… Qatar is halting liquid natural gas (LNG) production because of Iranian attacks on key facilities.</p>
+                <p class="tldr-para">US president tells New York Post, ‘I don’t have the yips with respect to boots on the ground’ after telling CNN, ‘we’re knocking the crap out of them’ Hegseth… As US and Israeli airstrikes hit Iran, African capitals are divided — some denounce the attacks, others stay neutral, and many warn Iran against retaliating… ✈️❌ Thousands of flights have been canceled around the world on the third day of war in the Middle East.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Scores of civilians killed in attacks in South Sudan · </span>
+                    <span class="tldr-also-item">Lost Rembrandt painting rediscovered after 65 years · </span>
                     
-                    <span class="tldr-also-item">Oil and gas prices jump as conflict escalates</span>
+                    <span class="tldr-also-item">Starmer lets US use bases for Iran clash: UK’s military, legal quagmire</span>
                     
                 </div>
                 
@@ -800,20 +806,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Middle East crisis live: Israel launches new attacks on ‘heart of Tehran’; US fighter planes mistakenly shot down in Kuwait</span>
+                        <span class="story-title">Trump says ‘the big wave’ of strikes against Iran is yet to come and doesn’t rule out US boots on ground – live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>11m ago</span>
+                        <span>14m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Iranian strikes hit Saudi and Qatar energy sites; US crew bailed out safely after crash-landing, says Kuwait Podcast: The assassination of Iran’s ayatollah Have you been affected by events in the Middle East? Bahrain has said that one person was killed by shrapnel from an intercepted missile. The death of a foreign worker at Salman Industrial City , working on a boat there, marks the kingdom’s first reported fatality in the war. Bahrain, home to the US navy’s 5th fleet, said it intercepted 61 mi</p>
+                    <p class="story-text">US president tells New York Post, ‘I don’t have the yips with respect to boots on the ground’ after telling CNN, ‘we’re knocking the crap out of them’ Hegseth says US won’t get ‘bogged down’ in Iran</p>
                     
-                    <a href="https://www.theguardian.com/world/live/2026/mar/02/us-israel-war-iran-live-updates-attacks-strikes-tehran-lebanon-beirut-hezbollah-dubai-latest-news" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.theguardian.com/us-news/live/2026/mar/02/democrats-to-force-vote-in-congress-to-limit-trumps-war-powers-against-iran-us-politics-live" target="_blank" rel="noopener" class="story-link">
+                        Read at The Guardian &rarr;
                     </a>
                 </div>
             </details>
@@ -821,20 +827,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Pakistan deploys troops and imposes curfew after deadly Iran protests</span>
+                        <span class="story-title">Africa urges restraint as US-Israel strikes escalate tensions in Iran</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">France 24</span>
+                        <span class="story-src">DW English</span>
                         <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Pakistan on Monday deployed troops and imposed a three-day curfew in two northern cities following deadly protests sparked by the US-Israeli strikes that killed Iran&#39;s supreme leader Ayatollah Ali Khamenei. Several people were killed in violent protests that targeted UN buildings and US diplomatic missions.</p>
+                    <p class="story-text">As US and Israeli airstrikes hit Iran, African capitals are divided — some denounce the attacks, others stay neutral, and many warn Iran against retaliating against key Gulf partners.</p>
                     
-                    <a href="https://www.france24.com/en/asia-pacific/20260302-pakistan-deploys-troops-and-imposes-curfew-after-deadly-iran-protests" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.dw.com/en/africa-urges-restraint-as-us-israel-strikes-escalate-tensions-in-iran/a-76185930?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
+                        Read at DW English &rarr;
                     </a>
                 </div>
             </details>
@@ -842,20 +848,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Qatar halts natural gas production after Iranian attacks</span>
+                        <span class="story-title">War in the Middle East: Thousands of flights cancelled… across the globe</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Al Jazeera</span>
-                        <span>30m ago</span>
+                        <span class="story-src">France 24</span>
+                        <span>22m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Qatar is halting liquid natural gas (LNG) production because of Iranian attacks on key facilities.</p>
+                    <p class="story-text">✈️❌ Thousands of flights have been canceled around the world on the third day of war in the Middle East. ➡️ Australia, Indonesia, and Vietnam... hundreds of thousands of travelers are still stranded. #MiddleEast #Iran #UnitedStates #Israel #Plane #Aviation</p>
                     
-                    <a href="https://www.aljazeera.com/video/newsfeed/2026/3/2/qatar-halts-natural-gas-production-after-iranian-attacks?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.france24.com/en/video/20260302-war-in-the-middle-east-thousands-of-flights-cancelled-across-the-globe" target="_blank" rel="noopener" class="story-link">
+                        Read at France 24 &rarr;
                     </a>
                 </div>
             </details>
@@ -863,41 +869,41 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Scores of civilians killed in attacks in South Sudan</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">DW English</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Intensifying violence in the country has led the United Nations to warn that it could be returning to a civil war. Children, elderly people and women were among the victims of the recent attacks.</p>
-                    
-                    <a href="https://www.dw.com/en/scores-of-civilians-killed-in-attacks-in-south-sudan/a-76186219?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Oil and gas prices jump as conflict escalates</span>
+                        <span class="story-title">Lost Rembrandt painting rediscovered after 65 years</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC World</span>
-                        <span>1h ago</span>
+                        <span>23m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Experts have warned that a prolonged conflict could push global energy prices even higher.</p>
+                    <p class="story-text">The painting, created by the Dutch master in 1633, had disappeared after being sold in 1961.</p>
                     
-                    <a href="https://www.bbc.com/news/articles/c75evve6l63o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.bbc.com/news/articles/c1kgln0yg3po?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC World &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Starmer lets US use bases for Iran clash: UK’s military, legal quagmire</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Al Jazeera</span>
+                        <span>29m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">A drone strike at a British base in Cyprus has highlighted the UK’s precarious in US attacks on Iran.</p>
+                    
+                    <a href="https://www.aljazeera.com/features/2026/3/2/starmer-lets-us-use-bases-for-iran-clash-uks-military-legal-quagmire?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at Al Jazeera &rarr;
                     </a>
                 </div>
             </details>
@@ -905,23 +911,30 @@ body {
         
     </section>
     
-    <section class="section" id="environment">
+    <section class="section" id="environment" aria-label="Environment &amp; Climate">
         <div class="sec-head" data-cat="environment">
             <span class="sec-label">Environment &amp; Climate</span>
-            <span class="sec-count">3 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="environment">
+        <details class="tldr" data-cat="environment" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">3 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">As Maryland lawmakers weigh proposals aimed at reining in utility companies, lowering electricity prices and expanding the state’s low-carbon energy system, a… Controversial proposals to turn land near HMP Kilmarnock into a technology hub are being advanced by energy company ILI Group. Hydrolysis process, using alkaline and water to break down body in a few hours, responds to demand for more sustainable funerals Scotland has become the first…</p>
+                <p class="tldr-para">As Maryland lawmakers weigh proposals aimed at reining in utility companies, lowering electricity prices and expanding the state’s low-carbon energy system, a… Exclusive: Schemes worth hundreds of millions of pounds to protect biodiversity and oceans likely to be substantially reduced UK programmes to protect nature… Half of nations have met a UN deadline to report on how they are tackling...</p>
                 
+                
+                <div class="tldr-also">
+                    <span class="tldr-also-label">Also:</span>
+                    
+                    <span class="tldr-also-item">Could a huge data centre revitalise Ayrshire - or ruin it?</span>
+                    
+                </div>
                 
             </div>
         </details>
@@ -937,7 +950,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>6h ago</span>
+                        <span>7h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -945,7 +958,49 @@ body {
                     <p class="story-text">As Maryland lawmakers weigh proposals aimed at reining in utility companies, lowering electricity prices and expanding the state’s low-carbon energy system, a new audit report has found that the lobbyists who want to influence those decisions have largely operated in the dark—and done so legally. The audit, conducted by the nonprofit research group F Minus, [&amp;#8230;]</p>
                     
                     <a href="https://insideclimatenews.org/news/02032026/maryland-lobbyist-disclosure-laws-climate-advocates/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at Inside Climate News &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">UK slashes climate aid programmes for developing countries</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">The Guardian</span>
+                        <span>40m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Exclusive: Schemes worth hundreds of millions of pounds to protect biodiversity and oceans likely to be substantially reduced UK programmes to protect nature and the climate in developing countries are suffering swingeing budget cuts despite ministers’ promises, the Guardian has learned. The cuts belie the government’s claims to be fulfilling international obligations on climate finance and are veiled behind a system that experts have criticised as opaque. The cutting and partial closure of the</p>
+                    
+                    <a href="https://www.theguardian.com/environment/2026/mar/02/uk-slashes-climate-aid-developing-countries" target="_blank" rel="noopener" class="story-link">
+                        Read at The Guardian &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Analysis: Half of nations meet UN deadline for nature-loss reporting</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Carbon Brief</span>
+                        <span>40m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Half of nations have met a UN deadline to report on how they are tackling... The post Analysis: Half of nations meet UN deadline for nature-loss reporting appeared first on Carbon Brief .</p>
+                    
+                    <a href="https://www.carbonbrief.org/analysis-half-of-nations-meet-un-deadline-for-nature-loss-reporting/" target="_blank" rel="noopener" class="story-link">
+                        Read at Carbon Brief &rarr;
                     </a>
                 </div>
             </details>
@@ -966,28 +1021,7 @@ body {
                     <p class="story-text">Controversial proposals to turn land near HMP Kilmarnock into a technology hub are being advanced by energy company ILI Group.</p>
                     
                     <a href="https://www.bbc.com/news/articles/c2d1ny161yyo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Scotland becomes first UK country to legalise water cremations</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>35m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Hydrolysis process, using alkaline and water to break down body in a few hours, responds to demand for more sustainable funerals Scotland has become the first part of the UK to legalise hydrolysis, an environmentally friendly alternative to cremation or burial, reflecting increasing demand for more sustainable funeral arrangements. Also known as water cremation or aquamation, the process is already available in many parts of the world, and new regulations approved by the Scottish parliament on M</p>
-                    
-                    <a href="https://www.theguardian.com/society/2026/mar/02/scotland-becomes-first-uk-country-to-legalise-water-cremations" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at BBC Environment &rarr;
                     </a>
                 </div>
             </details>
@@ -995,14 +1029,14 @@ body {
         
     </section>
     
-    <section class="section" id="tech">
+    <section class="section" id="tech" aria-label="Tech &amp; AI">
         <div class="sec-head" data-cat="tech">
             <span class="sec-label">Tech &amp; AI</span>
             <span class="sec-count">5 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="tech">
+        <details class="tldr" data-cat="tech" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">5 stories</span>
@@ -1010,7 +1044,7 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Apple refreshes the iPad Air with the M4 chip and more memory to make it better for AI use cases. Today, I’m talking with Zillow CEO Jeremy Wacksman.</p>
+                <p class="tldr-para">Nvidia announced on Monday that it&#39;s investing $2 billion each into Lumentum and Coherent, which are both developing photonics technology for data centers,… MIT Press Publishes EFF Executive Director’s Book As She Prepares to Depart Organization After 25 Years SAN FRANCISCO – Electronic Frontier Foundation… Apple refreshes the iPad Air with the M4 chip and more memory to make it better for AI use cases.</p>
                 
                 
                 <div class="tldr-also">
@@ -1018,9 +1052,7 @@ body {
                     
                     <span class="tldr-also-item">I checked out one of the biggest anti-AI protests ever · </span>
                     
-                    <span class="tldr-also-item">Apple&#39;s new iPhone 17e has an A19 chip, MagSafe, and 256GB of storage for $599 · </span>
-                    
-                    <span class="tldr-also-item">Show HN: Omni – Open-source workplace search and chat, built on Postgres</span>
+                    <span class="tldr-also-item">Iowa county adopts strict zoning rules for data centers, but residents still worry</span>
                     
                 </div>
                 
@@ -1033,20 +1065,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Apple speeds up the iPad Air with an M4 upgrade, starting at $599</span>
+                        <span class="story-title">Nvidia&amp;#8217;s spending $4 billion on photonics to stay ahead of the curve in AI</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">TechCrunch</span>
-                        <span>54m ago</span>
+                        <span class="story-src">The Verge</span>
+                        <span>21m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Apple refreshes the iPad Air with the M4 chip and more memory to make it better for AI use cases.</p>
+                    <p class="story-text">Nvidia announced on Monday that it&#39;s investing $2 billion each into Lumentum and Coherent, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future [&amp;#8230;]</p>
                     
-                    <a href="https://techcrunch.com/2026/03/02/apple-speeds-up-the-ipad-air-with-an-m4-upgrade-starting-at-599/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent" target="_blank" rel="noopener" class="story-link">
+                        Read at The Verge &rarr;
                     </a>
                 </div>
             </details>
@@ -1054,20 +1086,41 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Zillow&amp;#8217;s CEO on growing the company during a housing crisis</span>
+                        <span class="story-title">National Book Tour for Cindy Cohn’s Memoir, ‘Privacy’s Defender’</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">The Verge</span>
+                        <span class="story-src">EFF Deeplinks</span>
                         <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Today, I’m talking with Zillow CEO Jeremy Wacksman. Zillow is one of those apps that really exemplifies what you might call the smartphone era of software: the company built a great mobile app for looking at real estate listings, and it turned into not just entertainment for so many of us, but what has become [&amp;#8230;]</p>
+                    <p class="story-text">MIT Press Publishes EFF Executive Director’s Book As She Prepares to Depart Organization After 25 Years SAN FRANCISCO – Electronic Frontier Foundation Executive Director Cindy Cohn will launch her memoir, Privacy’s Defender: My Thirty-Year Fight Against Digital Surveillance (MIT Press, March 10), with events in San Francisco and Berkeley before embarking on a national book tour . In Privacy’s Defender , Cohn weaves her own personal story with her role as a leading legal voice representing the ri</p>
                     
-                    <a href="https://www.theverge.com/podcast/887414/zillow-jeremy-wacksman-interview-ai-slop-housing-crisis" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.eff.org/press/releases/national-book-tour-cindy-cohns-memoir-privacys-defender" target="_blank" rel="noopener" class="story-link">
+                        Read at EFF Deeplinks &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Apple speeds up the iPad Air with an M4 upgrade, starting at $599</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">TechCrunch</span>
+                        <span>2h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Apple refreshes the iPad Air with the M4 chip and more memory to make it better for AI use cases.</p>
+                    
+                    <a href="https://techcrunch.com/2026/03/02/apple-speeds-up-the-ipad-air-with-an-m4-upgrade-starting-at-599/" target="_blank" rel="noopener" class="story-link">
+                        Read at TechCrunch &rarr;
                     </a>
                 </div>
             </details>
@@ -1080,7 +1133,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">MIT Tech Review</span>
-                        <span>3h ago</span>
+                        <span>4h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1088,7 +1141,7 @@ body {
                     <p class="story-text">Pull the plug! Pull the plug! Stop the slop! Stop the slop! For a few hours this Saturday, February 28, I watched as a couple of hundred anti-AI protesters marched through London’s King’s Cross tech hub, home to the UK headquarters of OpenAI, Meta, and Google DeepMind, chanting slogans and waving signs. The march was&amp;#8230;</p>
                     
                     <a href="https://www.technologyreview.com/2026/03/02/1133814/i-checked-out-londons-biggest-ever-anti-ai-protest/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at MIT Tech Review &rarr;
                     </a>
                 </div>
             </details>
@@ -1096,7 +1149,7 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Apple&#39;s new iPhone 17e has an A19 chip, MagSafe, and 256GB of storage for $599</span>
+                        <span class="story-title">Iowa county adopts strict zoning rules for data centers, but residents still worry</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1106,31 +1159,10 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">New just-the-basics phone replaces the year-old iPhone 16e at the same price.</p>
+                    <p class="story-text">Though the rules are among the strictest in the US, locals say they aren&#39;t enough.</p>
                     
-                    <a href="https://arstechnica.com/gadgets/2026/03/apples-new-iphone-17e-has-an-a19-chip-magsafe-and-256gb-of-storage-for-599/" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Show HN: Omni – Open-source workplace search and chat, built on Postgres</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>7h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Hey HN! Over the past few months, I&#39;ve been working on building Omni - a workplace search and chat platform that connects to apps like Google Drive/Gmail, Slack, Confluence, etc. Essentially an open-source alternative to Glean, fully self-hosted. I noticed that some orgs find Glean to be expensive and not very extensible. I wanted to build something that small to mid-size teams could run themselves, so I decided to build it all on Postgres (ParadeDB to be precise) and pgvector. No Elasticsearch,</p>
-                    
-                    <a href="https://github.com/getomnico/omni" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://arstechnica.com/ai/2026/03/iowa-county-adopts-strict-zoning-rules-for-data-centers-but-residents-still-worry/" target="_blank" rel="noopener" class="story-link">
+                        Read at Ars Technica &rarr;
                     </a>
                 </div>
             </details>
@@ -1138,14 +1170,14 @@ body {
         
     </section>
     
-    <section class="section" id="economy">
+    <section class="section" id="economy" aria-label="Economy &amp; Markets">
         <div class="sec-head" data-cat="economy">
             <span class="sec-label">Economy &amp; Markets</span>
             <span class="sec-count">4 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="economy">
+        <details class="tldr" data-cat="economy" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">4 stories</span>
@@ -1153,7 +1185,7 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Generative AI is set to transform the way credit traders do their jobs, as the technology is well suited to handling the unstructured data produced by the… The stock market can accept a short war with a limited oil price impact, not a long one where oil runs hot. The boss of the Bombay Stock Exchange was recently targeted in what is a growing global problem.</p>
+                <p class="tldr-para">When asked by CNBC&#39;s Joe Kernen whether he would change anything because of the conflict, the investor of &#34;The Big Short&#34; fame responded with, &#39;Not a single… Generative AI is set to transform the way credit traders do their jobs, as the technology is well suited to handling the unstructured data produced by the… Beverage and cannabis company Tilray acquires the Aberdeenshire brewery, the brand and 11 bars for £33m.</p>
                 
                 
                 <div class="tldr-also">
@@ -1172,28 +1204,7 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">AI to Transform How Credit Market Works, JPMorgan Banker Says</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Bloomberg</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Generative AI is set to transform the way credit traders do their jobs, as the technology is well suited to handling the unstructured data produced by the asset class, according to JPMorgan Chase &amp;amp; Co.’s global head of credit trading.</p>
-                    
-                    <a href="https://www.bloomberg.com/news/articles/2026-03-02/ai-to-transform-how-credit-market-works-jpmorgan-s-jhamna-says" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="economy">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Jim Cramer&#39;s top 10 things to watch in the stock market Monday</span>
+                        <span class="story-title">Steve Eisman says investors should ignore U.S.-Iran war, will be long-term &#39;positive&#39;</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1203,10 +1214,10 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The stock market can accept a short war with a limited oil price impact, not a long one where oil runs hot.</p>
+                    <p class="story-text">When asked by CNBC&#39;s Joe Kernen whether he would change anything because of the conflict, the investor of &#34;The Big Short&#34; fame responded with, &#39;Not a single trade.&#39;</p>
                     
-                    <a href="https://www.cnbc.com/2026/03/02/jim-cramers-top-10-things-to-watch-in-the-stock-market-monday.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.cnbc.com/2026/03/02/steve-eisman-says-investors-should-ignore-us-iran-war-will-be-long-term-positive.html" target="_blank" rel="noopener" class="story-link">
+                        Read at CNBC &rarr;
                     </a>
                 </div>
             </details>
@@ -1214,20 +1225,41 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Deepfake attack: &#39;Many people could have been cheated&#39;</span>
+                        <span class="story-title">AI to Transform How Credit Market Works, JPMorgan Banker Says</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC Business</span>
-                        <span>9h ago</span>
+                        <span class="story-src">Bloomberg</span>
+                        <span>2h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">The boss of the Bombay Stock Exchange was recently targeted in what is a growing global problem.</p>
+                    <p class="story-text">Generative AI is set to transform the way credit traders do their jobs, as the technology is well suited to handling the unstructured data produced by the asset class, according to JPMorgan Chase &amp;amp; Co.’s global head of credit trading.</p>
                     
-                    <a href="https://www.bbc.com/news/articles/c0j59vydxj9o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.bloomberg.com/news/articles/2026-03-02/ai-to-transform-how-credit-market-works-jpmorgan-s-jhamna-says" target="_blank" rel="noopener" class="story-link">
+                        Read at Bloomberg &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Bars close and hundreds lose jobs as US firm buys Brewdog in £33m deal</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC Business</span>
+                        <span>12m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Beverage and cannabis company Tilray acquires the Aberdeenshire brewery, the brand and 11 bars for £33m.</p>
+                    
+                    <a href="https://www.bbc.com/news/articles/c05v0p1d0peo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC Business &rarr;
                     </a>
                 </div>
             </details>
@@ -1248,7 +1280,7 @@ body {
                     <p class="story-text">Prices have surged—and may stay high for a while</p>
                     
                     <a href="https://www.economist.com/finance-and-economics/2026/03/01/war-in-iran-could-cause-the-biggest-oil-shock-in-years" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at The Economist &rarr;
                     </a>
                 </div>
             </details>
@@ -1256,14 +1288,14 @@ body {
         
     </section>
     
-    <section class="section" id="science">
+    <section class="section" id="science" aria-label="Science">
         <div class="sec-head" data-cat="science">
             <span class="sec-label">Science</span>
             <span class="sec-count">4 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="science">
+        <details class="tldr" data-cat="science" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">4 stories</span>
@@ -1295,7 +1327,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Space.com</span>
-                        <span>2h ago</span>
+                        <span>3h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1303,7 +1335,7 @@ body {
                     <p class="story-text">NASA&#39;s Chandra X-ray Observatory has transformed new views of Jupiter, Saturn and Uranus into immersive soundscapes, turning planetary data into audio you can hear.</p>
                     
                     <a href="https://www.space.com/astronomy/solar-system/real-nasa-space-telescope-data-creates-soundtracks-for-jupiter-saturn-and-uranus" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at Space.com &rarr;
                     </a>
                 </div>
             </details>
@@ -1316,7 +1348,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">New Scientist</span>
-                        <span>5h ago</span>
+                        <span>6h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1324,7 +1356,7 @@ body {
                     <p class="story-text">The most comprehensive study to date has revealed what we need to eat throughout the day to sleep well that night</p>
                     
                     <a href="https://www.newscientist.com/article/2517458-people-who-eat-a-lot-of-fibre-spend-more-time-in-deep-sleep/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at New Scientist &rarr;
                     </a>
                 </div>
             </details>
@@ -1337,7 +1369,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Nature</span>
-                        <span>16h ago</span>
+                        <span>17h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1345,7 +1377,7 @@ body {
                     <p class="story-text">Nature, Published online: 02 March 2026; doi:10.1038/d41586-026-00626-5 People with aphantasia are offering brain scientists a window into consciousness.</p>
                     
                     <a href="https://www.nature.com/articles/d41586-026-00626-5" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at Nature &rarr;
                     </a>
                 </div>
             </details>
@@ -1358,7 +1390,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Science</span>
-                        <span>9h ago</span>
+                        <span>11h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1366,7 +1398,7 @@ body {
                     <p class="story-text">The Butterfly Conservation charity hopes to open 40 habitats for wildlife during the two-year project.</p>
                     
                     <a href="https://www.bbc.com/news/articles/c5yrdd4nepjo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at BBC Science &rarr;
                     </a>
                 </div>
             </details>
@@ -1374,14 +1406,14 @@ body {
         
     </section>
     
-    <section class="section" id="germany">
+    <section class="section" id="germany" aria-label="Deutschland &amp; EU">
         <div class="sec-head" data-cat="germany">
             <span class="sec-label">Deutschland &amp; EU</span>
             <span class="sec-count">5 stories</span>
         </div>
 
         
-        <details class="tldr" data-cat="germany">
+        <details class="tldr" data-cat="germany" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">5 stories</span>
@@ -1389,15 +1421,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Die Luftfahrtbehörde der Vereinigten Arabischen Emirate hat angekündigt, dass spezielle Flüge zur Rückführung von Touristen möglich seien. Der Starlink-Konkurrent wird schon bald sein Satelliteninternet anbieten. In Berlin-Marzahn ist ein kleines Kind aus der 15.</p>
+                <p class="tldr-para">In Baden-Württemberg läuft der Wahlkampf von Cem Özdemir überraschend fulminant. Auch viele deutsche Influencer leben in Dubai und wurden dort von dem Krieg überrascht. In Peking warb Friedrich Merz um eine Wiederbelebung der strategischen Partnerschaft, in Washington muss er um eine solche bangen.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Energiepreise: Preise für Öl und Gas steigen deutlich · </span>
+                    <span class="tldr-also-item">Wie &#34;Kidfluencer&#34; in Sozialen Medien ausgebeutet werden · </span>
                     
-                    <span class="tldr-also-item">Krieg im nahen Osten: „Das war wohl die Drohne, die nebenan eingeschlagen ist“</span>
+                    <span class="tldr-also-item">Warum Frauen in Armenien nicht zum Wehrdienst eilen</span>
                     
                 </div>
                 
@@ -1410,20 +1442,20 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Nahost-Liveblog: ++ Erste Flüge von Dubai und Abu Dhabi sollen abheben ++</span>
+                        <span class="story-title">Cem Özdemir: Plötzlich viben sie</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>4m ago</span>
+                        <span class="story-src">ZEIT Online</span>
+                        <span>3m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Die Luftfahrtbehörde der Vereinigten Arabischen Emirate hat angekündigt, dass spezielle Flüge zur Rückführung von Touristen möglich seien. Die USA brachten laut Generalstabschef Caine Irans Luftraum unter ihre Kontrolle. Die Entwicklungen im Liveblog.</p>
+                    <p class="story-text">In Baden-Württemberg läuft der Wahlkampf von Cem Özdemir überraschend fulminant. Was haben die Grünen, was der CDU gerade fehlt?</p>
                     
-                    <a href="https://www.tagesschau.de/newsticker/liveblog-nahost-iran-100.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.zeit.de/politik/deutschland/2026-02/cem-oezdemir-wahlkampf-baden-wuerttemberg-die-gruenen-cdu-heidelberg" target="_blank" rel="noopener" class="story-link">
+                        Read at ZEIT Online &rarr;
                     </a>
                 </div>
             </details>
@@ -1431,7 +1463,28 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Satelliteninternet: Mit Satelliten die Funklöcher schließen – Starlink-Konkurrent Amazon Leo kommt im Mai nach Deutschland</span>
+                        <span class="story-title">Stimmen aus Dubai: „Auf einmal macht es boom!“</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">FAZ</span>
+                        <span>5m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <p class="story-text">Auch viele deutsche Influencer leben in Dubai und wurden dort von dem Krieg überrascht. Während einige besorgt sind, loben andere die Sicherheit in der Stadt.</p>
+                    
+                    <a href="https://www.faz.net/aktuell/gesellschaft/menschen/iran-krieg-wie-sehen-influencer-die-lage-in-dubai-110846575.html" target="_blank" rel="noopener" class="story-link">
+                        Read at FAZ &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Kommentar: Der Kanzler als Zaungast beim Kriegspräsidenten</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1441,10 +1494,10 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Der Starlink-Konkurrent wird schon bald sein Satelliteninternet anbieten. Einen ersten Kooperationspartner gibt es bereits: Vodafone.</p>
+                    <p class="story-text">In Peking warb Friedrich Merz um eine Wiederbelebung der strategischen Partnerschaft, in Washington muss er um eine solche bangen. Selten war ein Besuch im Weißen Haus brisanter.</p>
                     
-                    <a href="https://www.handelsblatt.com/technik/it-internet/technologie-amazon-leo-kommt-im-mai-nach-deutschland/100204680.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-der-kanzler-als-zaungast-beim-kriegspraesidenten/100204508.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Handelsblatt &rarr;
                     </a>
                 </div>
             </details>
@@ -1452,20 +1505,20 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Berlin-Marzahn: Kind stürzt aus 15. Stock</span>
+                        <span class="story-title">Wie &#34;Kidfluencer&#34; in Sozialen Medien ausgebeutet werden</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Spiegel</span>
-                        <span>19m ago</span>
+                        <span class="story-src">Tagesschau</span>
+                        <span>8m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">In Berlin-Marzahn ist ein kleines Kind aus der 15. Etage eines Hochhauses gefallen. Es wurde unter Reanimationsbedingungen in ein Krankenhaus transportiert. Die Polizei geht nach erstem Stand von einem Unfall aus.</p>
+                    <p class="story-text">Intime Momente im Leben von Minderjährigen: &#34;Kidfluencer&#34;-Kanäle zeigen alles - Geburt und Trotzphase, Kindergeburtstage und Kummer in der Pubertät. Ein lukratives Geschäft, vor allem für die Eltern.</p>
                     
-                    <a href="https://www.spiegel.de/panorama/berlin-marzahn-kind-stuerzt-aus-15-stock-a-435551a5-6b4b-4714-b7c8-c76e92a66768#ref=rss" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.tagesschau.de/kultur/kidfluencer-ausbeutung-in-social-media-100.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Tagesschau &rarr;
                     </a>
                 </div>
             </details>
@@ -1473,41 +1526,20 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Energiepreise: Preise für Öl und Gas steigen deutlich</span>
+                        <span class="story-title">Warum Frauen in Armenien nicht zum Wehrdienst eilen</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>25m ago</span>
+                        <span class="story-src">DW Deutsch</span>
+                        <span>12m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <p class="story-text">Der Krieg gegen den Iran und die Lage an der Straße von Hormus sorgen für deutlich teureres Öl und Gas. Die Spritpreise in Deutschland sind auf einem Zweijahreshoch.</p>
+                    <p class="story-text">Seit bald drei Jahren versucht die armenische Regierung, Frauen für den Militärdienst zu gewinnen. Die Ergebnisse sind bislang bescheiden, es gibt nur ein Frauenbataillon im Land. Ein DW-Korrespondent hat es besucht.</p>
                     
-                    <a href="https://www.zeit.de/wirtschaft/2026-03/oel-gas-preise-nahost-iran-krieg-strasse-von-hormus-gxe" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Krieg im nahen Osten: „Das war wohl die Drohne, die nebenan eingeschlagen ist“</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">FAZ</span>
-                        <span>25m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <p class="story-text">Tausende Kreuzfahrtpassagiere sitzen auf Schiffen fest – mit ungewissen Aussichten. Eine Bordfotografin berichtet aus dem Hafen von Abu Dhabi.</p>
-                    
-                    <a href="https://www.faz.net/aktuell/gesellschaft/menschen/iran-krieg-so-geht-es-den-passagieren-auf-der-mein-schiff-4-110846569.html" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                    <a href="https://www.dw.com/de/warum-frauen-in-armenien-nicht-zum-wehrdienst-eilen/a-76109855?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
+                        Read at DW Deutsch &rarr;
                     </a>
                 </div>
             </details>
@@ -1516,45 +1548,48 @@ body {
     </section>
     
 
+    </main>
+
     <!-- FLOATING BOTTOM NAV -->
-    <nav class="nav">
+    <nav class="nav" aria-label="Category navigation">
         
-        <a href="#international" class="nav-pill" data-cat="international">
+        
+        <a href="#international" class="nav-pill" data-cat="international" aria-label="International &amp; Geopolitics">
             <span class="nav-icon">🌐</span>
-            <span class="nav-label">Inter</span>
+            <span class="nav-label">World</span>
         </a>
         
-        <a href="#environment" class="nav-pill" data-cat="environment">
+        <a href="#environment" class="nav-pill" data-cat="environment" aria-label="Environment &amp; Climate">
             <span class="nav-icon">🌿</span>
-            <span class="nav-label">Envir</span>
+            <span class="nav-label">Climate</span>
         </a>
         
-        <a href="#tech" class="nav-pill" data-cat="tech">
+        <a href="#tech" class="nav-pill" data-cat="tech" aria-label="Tech &amp; AI">
             <span class="nav-icon">💻</span>
             <span class="nav-label">Tech</span>
         </a>
         
-        <a href="#economy" class="nav-pill" data-cat="economy">
+        <a href="#economy" class="nav-pill" data-cat="economy" aria-label="Economy &amp; Markets">
             <span class="nav-icon">📈</span>
-            <span class="nav-label">Econo</span>
+            <span class="nav-label">Econ</span>
         </a>
         
-        <a href="#science" class="nav-pill" data-cat="science">
+        <a href="#science" class="nav-pill" data-cat="science" aria-label="Science">
             <span class="nav-icon">🔬</span>
-            <span class="nav-label">Scien</span>
+            <span class="nav-label">Science</span>
         </a>
         
-        <a href="#germany" class="nav-pill" data-cat="germany">
+        <a href="#germany" class="nav-pill" data-cat="germany" aria-label="Deutschland &amp; EU">
             <span class="nav-icon">🇩🇪</span>
-            <span class="nav-label">Deuts</span>
+            <span class="nav-label">DE</span>
         </a>
         
     </nav>
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated 16:00 UTC &middot; 02.03.2026<br>
-        Next edition tomorrow morning
+        Updated 17:18 UTC &middot; 02.03.2026<br>
+        New edition daily at 06:00 Berlin
     </footer>
 
     <script>
@@ -1577,6 +1612,31 @@ body {
             });
         }, { rootMargin: '-30% 0px -60% 0px' });
         sections.forEach(function(s) { observer.observe(s); });
+    })();
+
+    // Visited articles — dim stories the user already read
+    (function(){
+        var KEY = 'mynews_visited';
+        var visited = {};
+        try { visited = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+        // Clean entries older than 3 days
+        var now = Date.now();
+        Object.keys(visited).forEach(function(k) {
+            if (now - visited[k] > 3 * 86400000) delete visited[k];
+        });
+        // Mark already-visited stories
+        document.querySelectorAll('.story-link').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (visited[href]) {
+                link.closest('.story').classList.add('visited');
+            }
+            // Track click
+            link.addEventListener('click', function() {
+                visited[href] = Date.now();
+                try { localStorage.setItem(KEY, JSON.stringify(visited)); } catch(e) {}
+                link.closest('.story').classList.add('visited');
+            });
+        });
     })();
     </script>
 </body>
