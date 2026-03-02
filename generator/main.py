@@ -5,12 +5,16 @@ from generator.fetcher import fetch_feed
 from generator.processor import process_articles
 from generator.weather import get_berlin_weather
 from generator.renderer import render_newspaper
+from generator.make_icons import main as generate_icons
 
 
 def main():
     print(f"\n{'=' * 50}")
-    print(f"Daily Briefing — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
+    print(f"my news — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}")
     print(f"{'=' * 50}")
+
+    print("\nGenerating icons...")
+    generate_icons()
 
     print("\nFetching weather...")
     weather = get_berlin_weather()
