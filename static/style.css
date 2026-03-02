@@ -10,7 +10,7 @@
 :root {
     --f-display: 'Bricolage Grotesque', system-ui, sans-serif;
     --f-body: 'Outfit', system-ui, sans-serif;
-    --f-mono: 'JetBrains Mono', monospace;
+    --f-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', monospace;
 
     --bg-top: #EDEAD8;
     --bg-mid: #E3DDCC;
@@ -209,6 +209,10 @@ body {
     scrollbar-width: none;
 }
 .hero-hourly-wrap::-webkit-scrollbar { display: none; }
+.hero-hourly-wrap {
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+}
 .hero-hourly {
     display: flex;
     gap: 0.1rem;
@@ -253,14 +257,7 @@ body {
     background: rgba(147, 197, 253, 0.18);
 }
 
-.hero-tmrw {
-    font-family: var(--f-mono);
-    font-size: 0.68rem;
-    color: var(--hero-faint);
-    text-align: center;
-    padding-top: 0.4rem;
-    border-top: 1px solid var(--hero-border);
-}
+/* .hero-tmrw removed — tomorrow forecast now in hero-meta line */
 
 /* ==============================
    FLOATING BOTTOM NAV
@@ -305,11 +302,10 @@ body {
     line-height: 1;
 }
 .nav-label {
-    font-family: var(--f-mono);
-    font-size: 0.48rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
+    font-family: var(--f-body);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 /* Nav category colors */
@@ -531,15 +527,16 @@ body {
     margin-bottom: 0.5rem;
 }
 .story-link {
-    font-family: var(--f-mono);
-    font-size: 0.68rem;
-    font-weight: 500;
-    color: var(--text-3);
+    font-family: var(--f-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--accent);
     text-decoration: none;
-    padding: 0.35rem 0.65rem;
+    padding: 0.4rem 0.75rem;
     border-radius: 100px;
     background: var(--accent-soft);
-    border: 1px solid var(--surface-border);
+    border: 1px solid var(--accent);
+    border-color: rgba(192, 122, 56, 0.3);
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -547,6 +544,16 @@ body {
 }
 .story-link:active {
     transform: scale(0.97);
+}
+
+/* Visited article — dim the title */
+.story-head:has(+ .story-body) ~ .story-head,
+.story:visited .story-title { opacity: 1; }
+.story.visited .story-title {
+    color: var(--text-3);
+}
+.story.visited .story-head {
+    opacity: 0.7;
 }
 
 /* ==============================
@@ -587,5 +594,5 @@ body {
     .tldr:hover { border-color: var(--surface-border); }
     .tldr-head:hover { background: var(--accent-soft); }
     .nav-pill:hover { opacity: 0.8; }
-    .story-link:hover { color: var(--text-2); }
+    .story-link:hover { color: var(--text); background: rgba(192, 122, 56, 0.18); }
 }

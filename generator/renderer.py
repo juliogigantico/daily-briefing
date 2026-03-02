@@ -1,6 +1,7 @@
 import shutil
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -10,8 +11,7 @@ TEMPLATES_DIR = PROJECT_ROOT / "templates"
 STATIC_DIR = PROJECT_ROOT / "static"
 OUTPUT_DIR = PROJECT_ROOT / "docs"
 
-# Berlin is UTC+1 (CET) or UTC+2 (CEST). Good-enough approximation.
-BERLIN_OFFSET = timedelta(hours=1)
+BERLIN_TZ = ZoneInfo("Europe/Berlin")
 
 GREETINGS = {
     "morning": [
@@ -43,7 +43,7 @@ GREETINGS = {
 def get_greeting() -> str:
     """Return a greeting with emoji that changes every day."""
     now_utc = datetime.now(timezone.utc)
-    berlin_hour = (now_utc + BERLIN_OFFSET).hour
+    berlin_hour = now_utc.astimezone(BERLIN_TZ).hour
 
     if 5 <= berlin_hour < 12:
         pool = GREETINGS["morning"]
@@ -138,10 +138,11 @@ def render_newspaper(categories_data: dict, weather: dict | None, category_confi
             article["time_ago"] = time_ago(article.get("published"))
         category_tldrs[key] = make_tldr(articles)
 
-    now = datetime.now(timezone.utc)
-    date_str = f"{now.strftime('%A')}, {now.day} {now.strftime('%B %Y')}"
-    time_str = now.strftime("%H:%M UTC")
-    date_short = now.strftime("%d.%m.%Y")
+    now_utc = datetime.now(timezone.utc)
+    now_berlin = now_utc.astimezone(BERLIN_TZ)
+    date_str = f"{now_berlin.strftime('%A')}, {now_berlin.day} {now_berlin.strftime('%B %Y')}"
+    time_str = now_utc.strftime("%H:%M UTC")
+    date_short = now_berlin.strftime("%d.%m.%Y")
 
     html = template.render(
         categories=categories_data,

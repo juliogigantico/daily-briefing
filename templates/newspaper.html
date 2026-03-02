@@ -13,7 +13,7 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&display=swap" rel="stylesheet">
     <style>{{ css }}</style>
     <script>
     // Auto light/dark — dark mode 19:00–06:59, light mode 07:00–18:59
@@ -33,7 +33,7 @@
     <header class="hero">
         <div class="hero-greeting">{{ greeting }}</div>
         <div class="hero-top">
-            <h1 class="hero-title">Daily<br>Briefing</h1>
+            <h1 class="hero-title">my<br>news</h1>
             {% if weather %}
             <div class="hero-weather">
                 <span class="hw-icon">{{ weather.emoji }}</span>
@@ -48,6 +48,10 @@
             {% if weather and weather.today_high is not none %}
             <span class="hero-sep">/</span>
             <span>{{ weather.today_low }}&deg;&ndash;{{ weather.today_high }}&deg;</span>
+            {% endif %}
+            {% if weather and weather.tomorrow_high is not none %}
+            <span class="hero-sep">/</span>
+            <span>Tmrw {{ weather.tomorrow_low }}&deg;&ndash;{{ weather.tomorrow_high }}&deg;</span>
             {% endif %}
         </div>
 
@@ -67,24 +71,19 @@
             </div>
         </div>
         {% endif %}
-
-        {% if weather and weather.tomorrow_high is not none %}
-        <div class="hero-tmrw">
-            Tomorrow &nbsp;{{ weather.tomorrow_low }}&deg; &ndash; {{ weather.tomorrow_high }}&deg;
-        </div>
-        {% endif %}
     </header>
 
+    <main>
     <!-- CATEGORIES -->
     {% for key, config in category_config.items() %}
-    <section class="section" id="{{ key }}">
+    <section class="section" id="{{ key }}" aria-label="{{ config.title }}">
         <div class="sec-head" data-cat="{{ key }}">
             <span class="sec-label">{{ config.title }}</span>
             <span class="sec-count">{{ categories.get(key, [])|length }} stories</span>
         </div>
 
         {% if category_tldrs.get(key) %}
-        <details class="tldr" data-cat="{{ key }}">
+        <details class="tldr" data-cat="{{ key }}" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
                 <span class="tldr-count">{{ category_tldrs[key].count }} stories</span>
@@ -124,7 +123,7 @@
                     <p class="story-text">{{ article.summary }}</p>
                     {% endif %}
                     <a href="{{ article.link }}" target="_blank" rel="noopener" class="story-link">
-                        Read full article &rarr;
+                        Read at {{ article.source }} &rarr;
                     </a>
                 </div>
             </details>
@@ -135,20 +134,23 @@
     </section>
     {% endfor %}
 
+    </main>
+
     <!-- FLOATING BOTTOM NAV -->
-    <nav class="nav">
+    <nav class="nav" aria-label="Category navigation">
+        {% set nav_labels = {"international": "World", "environment": "Climate", "tech": "Tech", "economy": "Econ", "science": "Science", "germany": "DE"} %}
         {% for key, config in category_config.items() %}
-        <a href="#{{ key }}" class="nav-pill" data-cat="{{ key }}">
+        <a href="#{{ key }}" class="nav-pill" data-cat="{{ key }}" aria-label="{{ config.title }}">
             <span class="nav-icon">{{ config.icon }}</span>
-            <span class="nav-label">{{ config.title.split(' ')[0][:5] }}</span>
+            <span class="nav-label">{{ nav_labels.get(key, config.title.split(' ')[0][:6]) }}</span>
         </a>
         {% endfor %}
     </nav>
 
     <!-- FOOTER -->
     <footer class="foot">
-        Generated {{ time_str }} &middot; {{ date_short }}<br>
-        Next edition tomorrow morning
+        Updated {{ time_str }} &middot; {{ date_short }}<br>
+        New edition daily at 06:00 Berlin
     </footer>
 
     <script>
@@ -171,6 +173,31 @@
             });
         }, { rootMargin: '-30% 0px -60% 0px' });
         sections.forEach(function(s) { observer.observe(s); });
+    })();
+
+    // Visited articles — dim stories the user already read
+    (function(){
+        var KEY = 'mynews_visited';
+        var visited = {};
+        try { visited = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e) {}
+        // Clean entries older than 3 days
+        var now = Date.now();
+        Object.keys(visited).forEach(function(k) {
+            if (now - visited[k] > 3 * 86400000) delete visited[k];
+        });
+        // Mark already-visited stories
+        document.querySelectorAll('.story-link').forEach(function(link) {
+            var href = link.getAttribute('href');
+            if (visited[href]) {
+                link.closest('.story').classList.add('visited');
+            }
+            // Track click
+            link.addEventListener('click', function() {
+                visited[href] = Date.now();
+                try { localStorage.setItem(KEY, JSON.stringify(visited)); } catch(e) {}
+                link.closest('.story').classList.add('visited');
+            });
+        });
     })();
     </script>
 </body>
