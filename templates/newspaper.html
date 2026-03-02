@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>The Daily Briefing</title>
     <meta name="description" content="Your personal morning newspaper">
-    <meta name="theme-color" content="#0E120D">
+    <meta name="theme-color" content="#1A2019">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Briefing">
@@ -15,6 +15,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Outfit:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>{{ css }}</style>
+    <script>
+    // Auto light/dark — dark mode 19:00–06:59, light mode 07:00–18:59
+    (function(){
+        var h = new Date().getHours();
+        var t = (h >= 19 || h < 7) ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+        // Update theme-color meta for status bar
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.content = t === 'dark' ? '#0E120D' : '#1A2019';
+    })();
+    </script>
 </head>
 <body>
 
@@ -63,13 +74,6 @@
         </div>
         {% endif %}
     </header>
-
-    <!-- QUICK NAV -->
-    <nav class="nav">
-        {% for key, config in category_config.items() %}
-        <a href="#{{ key }}" class="nav-pill" data-cat="{{ key }}">{{ config.icon }} {{ config.title.split(' ')[0] }}</a>
-        {% endfor %}
-    </nav>
 
     <!-- CATEGORIES -->
     {% for key, config in category_config.items() %}
@@ -131,6 +135,16 @@
     </section>
     {% endfor %}
 
+    <!-- FLOATING BOTTOM NAV -->
+    <nav class="nav">
+        {% for key, config in category_config.items() %}
+        <a href="#{{ key }}" class="nav-pill" data-cat="{{ key }}">
+            <span class="nav-icon">{{ config.icon }}</span>
+            <span class="nav-label">{{ config.title.split(' ')[0][:5] }}</span>
+        </a>
+        {% endfor %}
+    </nav>
+
     <!-- FOOTER -->
     <footer class="foot">
         Generated {{ time_str }} &middot; {{ date_short }}<br>
@@ -141,6 +155,23 @@
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
     }
+    // Scroll spy — highlight active nav item
+    (function(){
+        var sections = document.querySelectorAll('.section');
+        var pills = document.querySelectorAll('.nav-pill');
+        if (!sections.length || !pills.length) return;
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) {
+                    pills.forEach(function(p) { p.classList.remove('active'); });
+                    var id = e.target.id;
+                    var active = document.querySelector('.nav-pill[data-cat="' + id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-30% 0px -60% 0px' });
+        sections.forEach(function(s) { observer.observe(s); });
+    })();
     </script>
 </body>
 </html>
