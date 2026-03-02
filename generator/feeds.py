@@ -12,14 +12,16 @@ CATEGORIES = {
             {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml"},
             # France — continental European, centrist
             {"name": "France 24", "url": "https://www.france24.com/en/rss"},
-            # Japan — Asian perspective, moderate
-            {"name": "NHK World", "url": "https://www3.nhk.or.jp/rss/news/cat0.xml"},
             # Germany — international edition, EU perspective
             {"name": "DW English", "url": "https://rss.dw.com/rdf/rss-en-all"},
             # US — public radio, center-left
             {"name": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml"},
             # UK — left-liberal, strong investigative
             {"name": "The Guardian", "url": "https://www.theguardian.com/world/rss"},
+            # US — deep geopolitical analysis, expert essays
+            {"name": "Foreign Policy", "url": "https://foreignpolicy.com/feed/"},
+            # US — security & defense analysis, realist lens
+            {"name": "War on the Rocks", "url": "https://warontherocks.com/feed/"},
         ],
     },
     "environment": {

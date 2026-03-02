@@ -82,6 +82,28 @@ def _extract_hn_article_url(entry) -> str | None:
     return None
 
 
+def _is_latin_text(text: str) -> bool:
+    """Check if text is primarily Latin-script (English/German/French/etc).
+
+    Returns False for CJK, Arabic, Cyrillic, Thai, etc.
+    """
+    if not text:
+        return True
+    latin_count = 0
+    non_latin_count = 0
+    for ch in text:
+        if ch.isalpha():
+            # Latin letters (including accented: ä, ö, ü, é, etc.)
+            if ("\u0000" <= ch <= "\u024F") or ("\u1E00" <= ch <= "\u1EFF"):
+                latin_count += 1
+            else:
+                non_latin_count += 1
+    total = latin_count + non_latin_count
+    if total == 0:
+        return True
+    return (latin_count / total) >= 0.7
+
+
 def parse_date(entry) -> datetime | None:
     """Parse publication date from an RSS entry."""
     for attr in ("published_parsed", "updated_parsed"):
@@ -112,6 +134,10 @@ def fetch_feed(url: str, source_name: str, category_key: str) -> list[dict]:
     for entry in d.entries:
         title = strip_html(getattr(entry, "title", "")) or ""
         if not title:
+            continue
+
+        # Skip non-Latin articles (Chinese, Japanese, Arabic, etc.)
+        if not _is_latin_text(title):
             continue
 
         # For HN: prefer the actual article URL over the HN discussion link
