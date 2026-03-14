@@ -146,22 +146,19 @@ def process_articles(
 
     # 4. Select articles with source diversity enforcement
     result = []
-    cat_counts = {}       # category -> total count
-    source_counts = {}    # (category, source) -> count
+    source_counts = {}    # source name -> count
 
     for a in articles:
-        cat = a.get("category", "")
         source = a.get("source", "")
         relevance = a.get("_relevance", 0)
 
-        cat_counts.setdefault(cat, 0)
-        source_counts.setdefault((cat, source), 0)
+        source_counts.setdefault(source, 0)
 
-        # Skip if category is full
-        if cat_counts[cat] >= max_articles:
-            continue
+        # Skip if we have enough articles
+        if len(result) >= max_articles:
+            break
 
-        times_used = source_counts[(cat, source)]
+        times_used = source_counts[source]
 
         # Hard cap: never more than 2 from the same source
         if times_used >= 2:
@@ -174,7 +171,27 @@ def process_articles(
         # Clean up internal scoring field
         a.pop("_relevance", None)
         result.append(a)
-        cat_counts[cat] += 1
-        source_counts[(cat, source)] += 1
+        source_counts[source] += 1
 
+    return result
+
+
+def deduplicate_across(
+    raw_articles: dict[str, list[dict]],
+    threshold: float = 0.65,
+) -> dict[str, list[dict]]:
+    """Remove duplicate articles across categories. Keeps first occurrence."""
+    seen_titles = []
+    result = {key: [] for key in raw_articles}
+    for key in raw_articles:
+        for article in raw_articles[key]:
+            title = article.get("title", "")
+            is_dup = False
+            for seen in seen_titles:
+                if SequenceMatcher(None, title.lower(), seen.lower()).ratio() > threshold:
+                    is_dup = True
+                    break
+            if not is_dup:
+                result[key].append(article)
+                seen_titles.append(title)
     return result

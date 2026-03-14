@@ -2,8 +2,6 @@ CATEGORIES = {
     "international": {
         "title": "International & Geopolitics",
         "icon": "\U0001F310",
-        "language": "en",
-        "color": "#2C3E50",
         "max_articles": 5,
         "feeds": [
             # UK — public broadcaster, centrist
@@ -27,8 +25,6 @@ CATEGORIES = {
     "environment": {
         "title": "Environment & Climate",
         "icon": "\U0001F33F",
-        "language": "en",
-        "color": "#27AE60",
         "max_articles": 5,
         "feeds": [
             # UK — climate science specialist, data-driven
@@ -48,8 +44,6 @@ CATEGORIES = {
     "tech": {
         "title": "Tech & AI",
         "icon": "\U0001F4BB",
-        "language": "en",
-        "color": "#8E44AD",
         "max_articles": 5,
         "feeds": [
             # US — VC/startup ecosystem, pro-industry
@@ -71,8 +65,6 @@ CATEGORIES = {
     "economy": {
         "title": "Economy & Markets",
         "icon": "\U0001F4C8",
-        "language": "en",
-        "color": "#E67E22",
         "max_articles": 5,
         "feeds": [
             # UK — public broadcaster, centrist
@@ -92,8 +84,6 @@ CATEGORIES = {
     "science": {
         "title": "Science",
         "icon": "\U0001F52C",
-        "language": "en",
-        "color": "#2980B9",
         "max_articles": 5,
         "feeds": [
             # UK — top academic journal, peer-reviewed focus
@@ -102,8 +92,8 @@ CATEGORIES = {
             {"name": "Science (AAAS)", "url": "https://www.science.org/rss/news_current.xml"},
             # US — accessible science journalism
             {"name": "Scientific American", "url": "https://rss.sciam.com/ScientificAmerican-Global"},
-            # UK — public broadcaster, mainstream
-            {"name": "BBC Science", "url": "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml"},
+            # US — deep science journalism, accessible, no paywall
+            {"name": "Quanta Magazine", "url": "https://quantamagazine.org/feed/"},
             # US — space and physics focused
             {"name": "Space.com", "url": "https://www.space.com/feeds/all"},
             # UK — accessible, broad science
@@ -113,8 +103,6 @@ CATEGORIES = {
     "germany": {
         "title": "Deutschland & EU",
         "icon": "\U0001F1E9\U0001F1EA",
-        "language": "de",
-        "color": "#C0392B",
         "max_articles": 5,
         "feeds": [
             # Public broadcaster — centrist, factual

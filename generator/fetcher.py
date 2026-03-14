@@ -116,6 +116,39 @@ def parse_date(entry) -> datetime | None:
     return None
 
 
+def _extract_image(entry) -> str | None:
+    """Extract thumbnail image URL from RSS entry (HTTPS only)."""
+    # media:thumbnail (most common for news feeds)
+    for thumb in getattr(entry, "media_thumbnail", []):
+        url = thumb.get("url", "")
+        if url.startswith("https://"):
+            return url
+
+    # media:content with type=image
+    for m in getattr(entry, "media_content", []):
+        if m.get("medium") == "image" or m.get("type", "").startswith("image/"):
+            url = m.get("url", "")
+            if url.startswith("https://"):
+                return url
+
+    # Enclosures
+    for enc in getattr(entry, "enclosures", []):
+        if enc.get("type", "").startswith("image/"):
+            url = enc.get("href", "") or enc.get("url", "")
+            if url.startswith("https://"):
+                return url
+
+    # Extract from summary HTML (last resort)
+    summary_raw = getattr(entry, "summary", "") or ""
+    img_match = re.search(r'<img[^>]+src=["\']([^"\']+)["\']', summary_raw)
+    if img_match:
+        url = img_match.group(1)
+        if url.startswith("https://"):
+            return url
+
+    return None
+
+
 def fetch_feed(url: str, source_name: str, category_key: str) -> list[dict]:
     """Fetch and parse a single RSS feed. Returns list of article dicts."""
     is_hn = "hacker news" in source_name.lower()
@@ -155,6 +188,7 @@ def fetch_feed(url: str, source_name: str, category_key: str) -> list[dict]:
             summary = ""
 
         published = parse_date(entry)
+        image = _extract_image(entry)
 
         articles.append({
             "title": title,
@@ -163,6 +197,7 @@ def fetch_feed(url: str, source_name: str, category_key: str) -> list[dict]:
             "published": published,
             "source": source_name,
             "category": category_key,
+            "image": image,
         })
 
     print(f"  [OK]   {source_name}: {len(articles)} articles")

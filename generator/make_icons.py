@@ -1,7 +1,7 @@
 """Generate PWA icons in Sage & Sand color scheme."""
 
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 
 
 # Sage & Sand palette

@@ -1,6 +1,4 @@
-/* ============================================
-   THE DAILY BRIEFING — v10 LIGHT/DARK + NAV
-   ============================================ */
+/* my news — styles */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -25,6 +23,8 @@
 
     --accent: #C07A38;
     --accent-soft: rgba(192, 122, 56, 0.12);
+    --accent-border: rgba(192, 122, 56, 0.3);
+    --accent-hover: rgba(192, 122, 56, 0.18);
 
     --hero-bg: linear-gradient(160deg, #1A2019 0%, #212D22 40%, #283526 100%);
     --hero-text: #EDE9DD;
@@ -65,10 +65,12 @@
     --text: #E4DED0;
     --text-2: #C4BCA8;
     --text-3: #8A8272;
-    --text-4: #5E584C;
+    --text-4: #7A7466;
 
     --accent: #D49040;
     --accent-soft: rgba(212, 144, 64, 0.14);
+    --accent-border: rgba(212, 144, 64, 0.3);
+    --accent-hover: rgba(212, 144, 64, 0.18);
 
     --hero-bg: linear-gradient(160deg, #0E120D 0%, #131A14 40%, #111810 100%);
     --hero-text: #E4DED0;
@@ -170,6 +172,9 @@ body {
     line-height: 0.95;
     letter-spacing: -0.03em;
     color: var(--hero-text);
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .hero-weather {
     display: flex;
@@ -228,14 +233,19 @@ body {
     border-radius: var(--r-sm);
     gap: 0.12rem;
 }
-.hh-now { background: var(--hero-hour-bg); }
+.hh-now {
+    background: var(--hero-hour-bg);
+    outline: 1.5px solid var(--accent);
+    outline-offset: -1.5px;
+}
 .hh-t {
     font-family: var(--f-mono);
     font-size: 0.6rem;
     font-weight: 500;
     color: var(--hero-hour-dim);
 }
-.hh-now .hh-t { color: var(--accent); }
+.hh-now .hh-t { color: var(--accent); font-weight: 700; }
+.hh-now .hh-d { color: var(--accent); }
 .hh-i { font-size: 1rem; line-height: 1; }
 .hh-d {
     font-family: var(--f-mono);
@@ -256,8 +266,6 @@ body {
     color: #93C5FD;
     background: rgba(147, 197, 253, 0.18);
 }
-
-/* .hero-tmrw removed — tomorrow forecast now in hero-meta line */
 
 /* ==============================
    FLOATING BOTTOM NAV
@@ -519,6 +527,13 @@ body {
 }
 .story-src { color: var(--text-3); font-weight: 500; }
 
+.story-img {
+    width: 100%;
+    max-height: 12rem;
+    object-fit: cover;
+    border-radius: var(--r-sm);
+    margin-bottom: 0.5rem;
+}
 .story-body { padding: 0 0.85rem 0.75rem; }
 .story-text {
     font-size: 0.82rem;
@@ -535,8 +550,7 @@ body {
     padding: 0.4rem 0.75rem;
     border-radius: 100px;
     background: var(--accent-soft);
-    border: 1px solid var(--accent);
-    border-color: rgba(192, 122, 56, 0.3);
+    border: 1px solid var(--accent-border);
     display: inline-flex;
     align-items: center;
     gap: 0.25rem;
@@ -547,8 +561,6 @@ body {
 }
 
 /* Visited article — dim the title */
-.story-head:has(+ .story-body) ~ .story-head,
-.story:visited .story-title { opacity: 1; }
 .story.visited .story-title {
     color: var(--text-3);
 }
@@ -594,5 +606,5 @@ body {
     .tldr:hover { border-color: var(--surface-border); }
     .tldr-head:hover { background: var(--accent-soft); }
     .nav-pill:hover { opacity: 0.8; }
-    .story-link:hover { color: var(--text); background: rgba(192, 122, 56, 0.18); }
+    .story-link:hover { color: var(--text); background: var(--accent-hover); }
 }

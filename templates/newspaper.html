@@ -47,11 +47,11 @@
             <span>Berlin</span>
             {% if weather and weather.today_high is not none %}
             <span class="hero-sep">/</span>
-            <span>{{ weather.today_low }}&deg;&ndash;{{ weather.today_high }}&deg;</span>
+            <span id="hw-today">{{ weather.today_low }}&deg;&ndash;{{ weather.today_high }}&deg;</span>
             {% endif %}
             {% if weather and weather.tomorrow_high is not none %}
             <span class="hero-sep">/</span>
-            <span>Tmrw {{ weather.tomorrow_low }}&deg;&ndash;{{ weather.tomorrow_high }}&deg;</span>
+            <span id="hw-tmrw">Tmrw {{ weather.tomorrow_low }}&deg;&ndash;{{ weather.tomorrow_high }}&deg;</span>
             {% endif %}
         </div>
 
@@ -59,8 +59,8 @@
         <div class="hero-hourly-wrap">
             <div class="hero-hourly">
                 {% for h in weather.hours %}
-                <div class="hh{% if loop.first %} hh-now{% endif %}">
-                    <span class="hh-t">{% if loop.first %}Now{% else %}{{ h.hour }}{% endif %}</span>
+                <div class="hh" data-hour="{{ h.hour }}">
+                    <span class="hh-t">{{ h.hour }}</span>
                     <span class="hh-i">{{ h.emoji }}</span>
                     <span class="hh-d">{{ h.temp }}&deg;</span>
                     {% if h.rain and h.rain > 0 %}
@@ -76,9 +76,9 @@
     <main>
     <!-- CATEGORIES -->
     {% for key, config in category_config.items() %}
-    <section class="section" id="{{ key }}" aria-label="{{ config.title }}">
+    <section class="section" id="{{ key }}" aria-label="{{ config.title }}"{% if key == "germany" %} lang="de"{% endif %}>
         <div class="sec-head" data-cat="{{ key }}">
-            <span class="sec-label">{{ config.title }}</span>
+            <h2 class="sec-label">{{ config.title }}</h2>
             <span class="sec-count">{{ categories.get(key, [])|length }} stories</span>
         </div>
 
@@ -119,6 +119,9 @@
                     </span>
                 </summary>
                 <div class="story-body">
+                    {% if article.image %}
+                    <img src="{{ article.image }}" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    {% endif %}
                     {% if article.summary %}
                     <p class="story-text">{{ article.summary }}</p>
                     {% endif %}
@@ -150,13 +153,37 @@
     <!-- FOOTER -->
     <footer class="foot">
         Updated {{ time_str }} &middot; {{ date_short }}<br>
-        New edition daily at 06:00 Berlin
+        New edition every morning
     </footer>
 
     <script>
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js');
     }
+    // Sync: hide past hours and highlight current Berlin hour
+    (function(){
+        var hh = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', hour12: false, timeZone: 'Europe/Berlin'
+        }).format(new Date()) + ':00';
+        var wrap = document.querySelector('.hero-hourly-wrap');
+        var cells = document.querySelectorAll('.hh');
+        var found = false;
+        cells.forEach(function(cell) {
+            var hour = cell.getAttribute('data-hour');
+            cell.classList.remove('hh-now');
+            if (!found) {
+                if (hour === hh) {
+                    found = true;
+                    cell.classList.add('hh-now');
+                    cell.querySelector('.hh-t').textContent = 'Now';
+                } else {
+                    cell.style.display = 'none';
+                }
+            }
+        });
+        if (!found && wrap) wrap.style.opacity = '0.3';
+    })();
+
     // Scroll spy — highlight active nav item
     (function(){
         var sections = document.querySelectorAll('.section');
@@ -173,6 +200,101 @@
             });
         }, { rootMargin: '-30% 0px -60% 0px' });
         sections.forEach(function(s) { observer.observe(s); });
+    })();
+
+    // Tap title to collapse all & scroll to top
+    document.querySelector('.hero-title').addEventListener('click', function() {
+        document.querySelectorAll('details[open]').forEach(function(d) {
+            d.removeAttribute('open');
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll position memory (within same session)
+    (function(){
+        var KEY = 'mynews_scroll';
+        var saved = sessionStorage.getItem(KEY);
+        if (saved) window.scrollTo(0, parseInt(saved));
+        var timer;
+        window.addEventListener('scroll', function() {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                sessionStorage.setItem(KEY, window.scrollY);
+            }, 200);
+        });
+    })();
+
+    // Live weather — refresh to current time on each page view
+    (function(){
+        var WMO = {
+            0:'\u2600\uFE0F',1:'\uD83C\uDF24\uFE0F',2:'\u26C5',3:'\u2601\uFE0F',
+            45:'\uD83C\uDF2B\uFE0F',48:'\uD83C\uDF2B\uFE0F',
+            51:'\uD83C\uDF26\uFE0F',53:'\uD83C\uDF26\uFE0F',55:'\uD83C\uDF27\uFE0F',
+            61:'\uD83C\uDF27\uFE0F',63:'\uD83C\uDF27\uFE0F',65:'\uD83C\uDF27\uFE0F',
+            71:'\uD83C\uDF28\uFE0F',73:'\u2744\uFE0F',75:'\u2744\uFE0F',
+            80:'\uD83C\uDF26\uFE0F',81:'\uD83C\uDF27\uFE0F',82:'\uD83C\uDF27\uFE0F',
+            85:'\uD83C\uDF28\uFE0F',86:'\u2744\uFE0F',
+            95:'\u26C8\uFE0F',96:'\u26C8\uFE0F',99:'\u26C8\uFE0F'
+        };
+        var url = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41'
+            + '&current=temperature_2m,weather_code'
+            + '&daily=temperature_2m_max,temperature_2m_min,weather_code'
+            + '&hourly=temperature_2m,precipitation_probability,weather_code'
+            + '&timezone=Europe/Berlin&forecast_days=2';
+
+        fetch(url).then(function(r) { return r.json(); }).then(function(data) {
+            var c = data.current || {};
+            var d = data.daily || {};
+            var h = data.hourly || {};
+
+            // Update current temp + icon
+            var code = c.weather_code != null ? c.weather_code : 3;
+            var iconEl = document.querySelector('.hw-icon');
+            var tempEl = document.querySelector('.hw-temp');
+            if (iconEl) iconEl.textContent = WMO[code] || '\u2601\uFE0F';
+            if (tempEl) tempEl.innerHTML = Math.round(c.temperature_2m) + '&deg;';
+
+            // Update today/tomorrow hi-lo
+            var todayEl = document.getElementById('hw-today');
+            if (todayEl && d.temperature_2m_min) {
+                todayEl.innerHTML = Math.round(d.temperature_2m_min[0])
+                    + '&deg;&ndash;' + Math.round(d.temperature_2m_max[0]) + '&deg;';
+            }
+            var tmrwEl = document.getElementById('hw-tmrw');
+            if (tmrwEl && d.temperature_2m_min && d.temperature_2m_min.length > 1) {
+                tmrwEl.innerHTML = 'Tmrw ' + Math.round(d.temperature_2m_min[1])
+                    + '&deg;&ndash;' + Math.round(d.temperature_2m_max[1]) + '&deg;';
+            }
+
+            // Rebuild hourly forecast from current time
+            var wrap = document.querySelector('.hero-hourly');
+            if (!wrap || !h.time) return;
+            var nowStr = c.time.substring(0, 13);
+            var si = 0;
+            for (var i = 0; i < h.time.length; i++) {
+                if (h.time[i].substring(0, 13) >= nowStr) { si = i; break; }
+            }
+            var html = '';
+            for (var i = si; i < Math.min(si + 15, h.time.length); i++) {
+                var label = h.time[i].substring(11, 13) + ':00';
+                var e = WMO[h.weather_code[i]] || '\u2601\uFE0F';
+                var t = Math.round(h.temperature_2m[i]);
+                var r = h.precipitation_probability[i] || 0;
+                var isNow = (i === si);
+                html += '<div class="hh' + (isNow ? ' hh-now' : '') + '" data-hour="' + label + '">';
+                html += '<span class="hh-t">' + (isNow ? 'Now' : label) + '</span>';
+                html += '<span class="hh-i">' + e + '</span>';
+                html += '<span class="hh-d">' + t + '&deg;</span>';
+                if (r > 0) {
+                    html += '<span class="hh-r' + (r >= 50 ? ' hh-r-hi' : '') + '">'
+                        + r + '%</span>';
+                }
+                html += '</div>';
+            }
+            wrap.innerHTML = html;
+            var outer = document.querySelector('.hero-hourly-wrap');
+            if (outer) outer.style.opacity = '1';
+        }).catch(function() { /* keep server-rendered fallback */ });
     })();
 
     // Visited articles — dim stories the user already read
