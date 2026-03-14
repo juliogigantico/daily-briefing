@@ -4,12 +4,20 @@ on:
   schedule:
     - cron: '0 4 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'generator/**'
+      - 'templates/**'
+      - 'static/style.css'
+      - 'requirements.txt'
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      issues: write
 
     steps:
       - uses: actions/checkout@v4
@@ -32,3 +40,14 @@ jobs:
           git add docs/
           git diff --staged --quiet || git commit -m "Edition $(date +%Y-%m-%d)"
           git push
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          gh label create bug --color d73a4a --description "Build failure" 2>/dev/null || true
+          gh issue create \
+            --title "Build failed — $(date +%Y-%m-%d)" \
+            --body "The daily newspaper generation failed. Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})." \
+            --label "bug"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

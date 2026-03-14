@@ -1,0 +1,49 @@
+name: Deploy Static Assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'static/sw.js'
+      - 'static/manifest.json'
+      - 'static/icons/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Skip if full generate will run
+        id: check
+        run: |
+          changed=$(git diff --name-only HEAD~1 HEAD)
+          if echo "$changed" | grep -qE '^(generator/|templates/|static/style\.css|requirements\.txt)'; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Copy static assets to docs/
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          cp static/sw.js docs/sw.js
+          cp static/manifest.json docs/manifest.json
+          if [ -d static/icons ]; then
+            rm -rf docs/icons
+            cp -r static/icons docs/icons
+          fi
+
+      - name: Commit and push
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          git config user.name "Daily Briefing Bot"
+          git config user.email "bot@noreply.github.com"
+          git add docs/
+          git diff --staged --quiet || git commit -m "Update static assets"
+          git push
