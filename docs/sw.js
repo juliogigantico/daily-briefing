@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mynews-v2';
+const CACHE_NAME = 'mynews-v3';
 
 self.addEventListener('install', (event) => {
     self.skipWaiting();
@@ -17,6 +17,9 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
+
+    // External requests (APIs, fonts, etc.): pass through, don't cache
+    if (url.origin !== self.location.origin) return;
 
     // HTML pages: network-first (always show latest edition, cache for offline)
     if (event.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
