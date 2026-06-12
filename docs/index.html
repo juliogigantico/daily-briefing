@@ -641,19 +641,171 @@ body {
 
     <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
-        <div class="hero-greeting">📰 Rise &amp; read</div>
+        <div class="hero-greeting">☕ Morning brew</div>
         <div class="hero-top">
             <h1 class="hero-title">my news</h1>
             
+            <div class="hero-weather">
+                <span class="hw-icon">☁️</span>
+                <span class="hw-temp">15&deg;</span>
+            </div>
+            
         </div>
         <div class="hero-meta">
-            <span>Thursday, 11 June 2026</span>
+            <span>Friday, 12 June 2026</span>
             <span class="hero-sep">/</span>
             <span>Berlin</span>
             
+            <span class="hero-sep">/</span>
+            <span id="hw-today">11&deg;&ndash;17&deg;</span>
+            
+            
+            <span class="hero-sep">/</span>
+            <span id="hw-tmrw">Tmrw 14&deg;&ndash;21&deg;</span>
             
         </div>
 
+        
+        <div class="hero-hourly-wrap">
+            <div class="hero-hourly">
+                
+                <div class="hh" data-hour="10:00">
+                    <span class="hh-t">10:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">15&deg;</span>
+                    
+                    <span class="hh-r">13%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="11:00">
+                    <span class="hh-t">11:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">13%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="12:00">
+                    <span class="hh-t">12:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">17&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="13:00">
+                    <span class="hh-t">13:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">17&deg;</span>
+                    
+                    <span class="hh-r">15%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="14:00">
+                    <span class="hh-t">14:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="15:00">
+                    <span class="hh-t">15:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="16:00">
+                    <span class="hh-t">16:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">13%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="17:00">
+                    <span class="hh-t">17:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">5%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="18:00">
+                    <span class="hh-t">18:00</span>
+                    <span class="hh-i">🌦️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">20%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="19:00">
+                    <span class="hh-t">19:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">33%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="20:00">
+                    <span class="hh-t">20:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">23%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="21:00">
+                    <span class="hh-t">21:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">17&deg;</span>
+                    
+                    <span class="hh-r">35%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="22:00">
+                    <span class="hh-t">22:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">17&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">50%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="23:00">
+                    <span class="hh-t">23:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">17&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">50%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="00:00">
+                    <span class="hh-t">00:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">16&deg;</span>
+                    
+                    <span class="hh-r">40%</span>
+                    
+                </div>
+                
+            </div>
+        </div>
         
     </header>
 
@@ -675,15 +827,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire… Bruel was released from custody under judicial supervision while an examining magistrate looks more deeply into the case. Beyond a headline-grabbing bronze, contempory artworks enter in dialogue with political power at an exhibition held at Bellevue Palace before the state…</p>
+                <p class="tldr-para">Can blatant racism and shameless greed ruin the World Cup? Both John Healey and Al Cairns resigned from their ministerial positions on Thursday over the government’s defence investment plan Good morning. Iran says reports of a deal are &#34;speculative&#34; after the US president says a &#34;great settlement&#34; to end the conflict has been reached.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">South Korea vs Czechia: World Cup group match – teams, start and lineups · </span>
+                    <span class="tldr-also-item">Three killed as Ukraine and Russia exchange cross-border attacks · </span>
                     
-                    <span class="tldr-also-item">Russia ramps up military infrastructure along Finnish and Norwegian borders</span>
+                    <span class="tldr-also-item">The Gulf Arab States Need a Shield Built for Limited Trust</span>
                     
                 </div>
                 
@@ -696,20 +848,44 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Middle East crisis live: US and Iran trade strikes again, after Trump warns Tehran will ‘pay the price’ for stalled talks</span>
+                        <span class="story-title">Trump&#39;s World Cup: More matches, higher prices, fewer foreigners</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">France 24</span>
+                        <span>6m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://s.france24.com/media/display/050dbf38-6638-11f1-9a87-005056bfb2b6/w:1024/p:16x9/capture-516688016a2bc20cb135a7-70437205.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Can blatant racism and shameless greed ruin the World Cup? Fans of the beautiful game and its history can take solace in the opening match at Mexico City’s storied Azteca Stadium, the only venue to already host two World Cup finals.</p>
+                    
+                    <a href="https://www.france24.com/en/tv-shows/the-debate/20260612-trump-s-world-cup-more-matches-higher-prices-fewer-foreigners" target="_blank" rel="noopener" class="story-link">
+                        Read at France 24 &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Starmer’s leadership under further pressure after defence ministers quit – UK politics live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>16m ago</span>
+                        <span>11m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">US launches second round of airstrikes on Iran, and Tehran responds by targeting Bahrain, Kuwait and Jordan US strikes Iran for second day, as ceasefire appears close to collapse Three Indian seafarers were killed in a US attack on an oil tanker earlier this week, India’s shipping minister, ‌Sarbananda Sonowal, said. “It is deeply unfortunate to learn of the tragic incident aboard the Palau-flagged MT Settebello. Sadly, three Indian seafarers initially reported missing are now confirmed dead aft</p>
+                    <p class="story-text">Both John Healey and Al Cairns resigned from their ministerial positions on Thursday over the government’s defence investment plan Good morning. This time yesterday Keir Starmer’s leadership was already in peril, with many in his party assuming that he will be replaced by Andy Burnham at some point later this year, but there was a consensus that, on defence and international security, his record was impressive. John Healey ’s surprise resignation as defence secretary blew that apart. Later, afte</p>
                     
-                    <a href="https://www.theguardian.com/world/live/2026/jun/11/iran-war-news-us-strikes-donald-trump-stalled-peace-talks-middle-east-crisis" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/politics/live/2026/jun/12/keir-starmer-defence-investment-plan-spending-dan-jarvis-al-cairns-john-healey-latest-news-updates" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -718,22 +894,22 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">French singer Patrick Bruel under formal investigation for rape</span>
+                        <span class="story-title">Tehran says &#39;nothing&#39; finalised after Trump claims deal to end Iran war near</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC World</span>
-                        <span>21m ago</span>
+                        <span>20m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a5fd/live/13787380-64e7-11f1-8546-8f19e4fe30f4.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/19ee/live/31485490-661b-11f1-ac3e-c1a2e88f59e9.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Bruel was released from custody under judicial supervision while an examining magistrate looks more deeply into the case.</p>
+                    <p class="story-text">Iran says reports of a deal are &#34;speculative&#34; after the US president says a &#34;great settlement&#34; to end the conflict has been reached.</p>
                     
-                    <a href="https://www.bbc.com/news/articles/c3ey8d3jwglo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/c78y6w78828o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC World &rarr;
                     </a>
                 </div>
@@ -742,29 +918,7 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">A sex doll? Art questions power at German president&#39;s residence</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">DW English</span>
-                        <span>26m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Beyond a headline-grabbing bronze, contempory artworks enter in dialogue with political power at an exhibition held at Bellevue Palace before the state building closes for renovation.</p>
-                    
-                    <a href="https://www.dw.com/en/a-sex-doll-art-questions-power-at-german-president-s-residence/a-77493241?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
-                        Read at DW English &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">South Korea vs Czechia: World Cup group match – teams, start and lineups</span>
+                        <span class="story-title">Three killed as Ukraine and Russia exchange cross-border attacks</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -775,9 +929,9 @@ body {
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Asian giants South Korea face two-time runners-up Czechia in the second match of the opening day of World Cup 2026.</p>
+                    <p class="story-text">Officials say two people were killed in Russia&amp;#039;s Bryansk, while a woman was killed in Ukraine&amp;#039;s Sumy.</p>
                     
-                    <a href="https://www.aljazeera.com/sports/2026/6/11/south-korea-vs-czechia-world-cup-group-match-teams-start-and-lineups?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.aljazeera.com/news/2026/6/12/three-killed-as-ukraine-and-russia-exchange-cross-border-attacks?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
                         Read at Al Jazeera &rarr;
                     </a>
                 </div>
@@ -786,23 +940,21 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Russia ramps up military infrastructure along Finnish and Norwegian borders</span>
+                        <span class="story-title">The Gulf Arab States Need a Shield Built for Limited Trust</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">France 24</span>
-                        <span>36m ago</span>
+                        <span class="story-src">War on the Rocks</span>
+                        <span>59m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://s.france24.com/media/display/499bce90-655e-11f1-b516-005056a90284/w:1024/p:16x9/Anglais-2026-06-11T05-21-31-564Z.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
+                    <p class="story-text">Missiles, drones, and maritime disruptions do not stop at national borders. Gulf defense architecture still too often waits for national permission to act. The Gulf Cooperation Council has spent decades building defense institutions, diplomatic forums, and a language of indivisible Gulf security. Recent crises in the Red Sea, the Strait of Hormuz, and the airspace above the Gulf have exposed a harder test: whether those institutions can move at crisis speed when a missile salvo, drone attack, or</p>
                     
-                    <p class="story-text">PRESS REVIEW – Thursday, June 11: First, the latest news from Russia. Then, how cutting-edge surveillance technology at the World Cup is fuelling privacy concerns. And finally, why American women are embracing witchcraft retreats in Ireland.</p>
-                    
-                    <a href="https://www.france24.com/en/tv-shows/press-review/20260611-russia-ramps-up-military-infrastructure-along-finnish-and-norwegian-borders" target="_blank" rel="noopener" class="story-link">
-                        Read at France 24 &rarr;
+                    <a href="https://warontherocks.com/the-gulf-arab-states-need-a-shield-built-for-limited-trust/" target="_blank" rel="noopener" class="story-link">
+                        Read at War on the Rocks &rarr;
                     </a>
                 </div>
             </details>
@@ -813,25 +965,27 @@ body {
     <section class="section" id="environment" aria-label="Environment &amp; Climate">
         <div class="sec-head" data-cat="environment">
             <h2 class="sec-label">Environment &amp; Climate</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">5 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="environment" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">5 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">The planet is heating up more quickly than ever before. US energy secretary Chris Wright featured in seminars to judges when he was a fracking executive As cities and states sue big oil for billions in damages over… China&amp;#8217;s Belt and Road Initiative, the world&amp;#8217;s largest ongoing infrastructure program, has a substantial climate impact.</p>
+                <p class="tldr-para">The planet is heating up more quickly than ever before. Meteorologists in US predict it will be the strongest of century, while UN secretary-general calls it ‘urgent climate warning’ El Niño , the climate phenomenon… Hidden underground around the world lie 110 quadrillion kilometers of arbuscular mycorrhizal fungal networks—webs of ultra-thin threads that, if connected in a…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Pollution rules criticised for raising new home costs</span>
+                    <span class="tldr-also-item">Pollution rules criticised for raising new home costs · </span>
+                    
+                    <span class="tldr-also-item">World News in Brief: Turk condemns Northern Ireland riots, jobs at risk over animal disease spread, heatwaves spark public health crisis in Europe</span>
                     
                 </div>
                 
@@ -849,7 +1003,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Carbon Brief</span>
-                        <span>10h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -866,20 +1020,20 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">The rightwing campaign to control how US judges view the climate crisis</span>
+                        <span class="story-title">El Niño forms in Pacific as experts say it will likely turbocharge extreme weather</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>20h ago</span>
+                        <span>18h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">US energy secretary Chris Wright featured in seminars to judges when he was a fracking executive As cities and states sue big oil for billions in damages over allegations that it covered up the dangers of its products, rightwing organizations are attempting to discredit the wave of litigation. They claim the lawyers behind it are teaming up with an environmentally focused legal education non-profit to bias federal judges against oil companies. But it is actually fossil fuel-backed organizations</p>
+                    <p class="story-text">Meteorologists in US predict it will be the strongest of century, while UN secretary-general calls it ‘urgent climate warning’ El Niño , the climate phenomenon that supercharges weather around the world, has officially arrived and could intensify to historic levels in the fall, US officials said on Thursday. US National Oceanic and Atmospheric Administration (Noaa) forecasters confirmed the formation of El Niño in the warmer than usual Pacific Ocean near the equator, which affects global weather</p>
                     
-                    <a href="https://www.theguardian.com/us-news/2026/jun/10/judges-climate-crisis-energy-secretary" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -888,20 +1042,20 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Driven by Steel Production, China’s Belt and Road Construction Carries a Heavy Climate Cost</span>
+                        <span class="story-title">Threads of Earth’s Underground Fungal Networks Are Long Enough to Reach Beyond the Solar System</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>1d ago</span>
+                        <span>9h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">China&amp;#8217;s Belt and Road Initiative, the world&amp;#8217;s largest ongoing infrastructure program, has a substantial climate impact. More than half its emissions stem from steel, the majority of which was produced in China. Cutting the emissions will require stronger environmental policies and major investment in cleaner manufacturing technologies, two new studies concluded. More than 130 million [&amp;#8230;]</p>
+                    <p class="story-text">Hidden underground around the world lie 110 quadrillion kilometers of arbuscular mycorrhizal fungal networks—webs of ultra-thin threads that, if connected in a single line, would stretch almost a billion times thge distance between the Earth and the sun, according to new research published in Science on Thursday. These fungal communities form intimate relationships with the [&amp;#8230;]</p>
                     
-                    <a href="https://insideclimatenews.org/news/09062026/china-belt-and-road-steel-production/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://insideclimatenews.org/news/11062026/earths-massive-underground-fungal-networks/" target="_blank" rel="noopener" class="story-link">
                         Read at Inside Climate News &rarr;
                     </a>
                 </div>
@@ -915,7 +1069,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Environment</span>
-                        <span>3h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -927,6 +1081,30 @@ body {
                     
                     <a href="https://www.bbc.com/news/articles/c5yzrpp220lo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Environment &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">World News in Brief: Turk condemns Northern Ireland riots, jobs at risk over animal disease spread, heatwaves spark public health crisis in Europe</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">UN News Climate</span>
+                        <span>20h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Libraries/Production%20Library/24-03-2022_ILO_Northern-Ireland.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Violence spread across Belfast following a shocking knife attack allegedly carried out by a Sudanese asylum seeker on Monday, triggering a wave of anti-immigration unrest. The victim suffered significant injuries to his face and back.</p>
+                    
+                    <a href="https://news.un.org/feed/view/en/story/2026/06/1167701" target="_blank" rel="noopener" class="story-link">
+                        Read at UN News Climate &rarr;
                     </a>
                 </div>
             </details>
@@ -949,15 +1127,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Backed by Alexis Ohanian’s 776 and Kindred Ventures, Zest uses transaction data and AI to generate restaurant recommendations based on users’ real dining… The Senate Judiciary Committee is set to consider and vote on the Nurture Originals, Foster Art, and Keep Entertainment Safe Act (NO FAKES). Deezer will now scan your playlists on other streaming platforms to detect AI-generated music.</p>
+                <p class="tldr-para">The new round values the physical AI startup that aims to automate heavy engineering and drug design at $41 billion. Amazon&#39;s rolling out a free software update for Echo Hub devices that gives the home screen a much-needed update to the interface it launched with in 2024. Corporations harvest and monetize ever-growing amounts of our personal data, such as our browsing history and physical location .</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Nobody needs AI to search the Internet, court says in ruling against Google · </span>
+                    <span class="tldr-also-item">AcuRite admits new app falls short, delays old app’s May shutdown to fix problems · </span>
                     
-                    <span class="tldr-also-item">Show HN: Extend UI – open-source UI kit for modern document apps</span>
+                    <span class="tldr-also-item">Google DeepMind is worried about what happens when millions of agents start to interact</span>
                     
                 </div>
                 
@@ -970,20 +1148,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Zest launches a restaurant discovery app powered by where people actually eat</span>
+                        <span class="story-title">Jeff Bezos’s Prometheus raises $12B to build an ‘artificial general engineer’ for the physical world</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">TechCrunch</span>
-                        <span>16h ago</span>
+                        <span>7h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Backed by Alexis Ohanian’s 776 and Kindred Ventures, Zest uses transaction data and AI to generate restaurant recommendations based on users’ real dining habits and the places they frequent.</p>
+                    <p class="story-text">The new round values the physical AI startup that aims to automate heavy engineering and drug design at $41 billion.</p>
                     
-                    <a href="https://techcrunch.com/2026/06/10/zest-launches-a-restaurant-discovery-app-powered-by-where-people-actually-eat/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://techcrunch.com/2026/06/11/jeff-bezoss-prometheus-raises-12b-to-build-an-artificial-general-engineer-for-the-physical-world/" target="_blank" rel="noopener" class="story-link">
                         Read at TechCrunch &rarr;
                     </a>
                 </div>
@@ -992,44 +1170,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Tell Congress: Just Say No to NO FAKES</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">EFF Deeplinks</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.eff.org/files/banner_library/icon-2019-innovation.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">The Senate Judiciary Committee is set to consider and vote on the Nurture Originals, Foster Art, and Keep Entertainment Safe Act (NO FAKES). Instead of targeting the real privacy harms posed by AI-generated replicas, this law would create another layer of internet censorship on top of the already existing legal and voluntary takedown systems. Congress should reject NO FAKES. Take action Tell Congress to Say No to NO FAKES As currently written, NO FAKES proposes to tackle the problems of misleadi</p>
-                    
-                    <a href="https://www.eff.org/deeplinks/2026/06/tell-congress-just-say-no-no-fakes" target="_blank" rel="noopener" class="story-link">
-                        Read at EFF Deeplinks &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Deezer launches an AI music detector for other streaming services</span>
+                        <span class="story-title">Amazon&amp;#8217;s Echo Hub gets a customizable new look and Ring&amp;#8217;s AI features</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Verge</span>
-                        <span>51m ago</span>
+                        <span>10h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Deezer will now scan your playlists on other streaming platforms to detect AI-generated music. Deezer was the first of the big streaming services to start labeling AI-generated music. It even offered its tech to other platforms, but it doesn&#39;t seem like it had many buyers. Qobuz launched its own detection tech, while Apple and Spotify [&amp;#8230;]</p>
+                    <p class="story-text">Amazon&#39;s rolling out a free software update for Echo Hub devices that gives the home screen a much-needed update to the interface it launched with in 2024. It had already added Alex Plus AI support, but the new interface has a cleaner, fully customizable layout that fits more smart home info and controls on the [&amp;#8230;]</p>
                     
-                    <a href="https://www.theverge.com/ai-artificial-intelligence/948153/deezer-ai-music-detector-spotify-apple" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theverge.com/tech/948814/amazon-echo-hub-homescreen-redesign" target="_blank" rel="noopener" class="story-link">
                         Read at The Verge &rarr;
                     </a>
                 </div>
@@ -1038,22 +1192,46 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Nobody needs AI to search the Internet, court says in ruling against Google</span>
+                        <span class="story-title">Yes to California&#39;s Bill to Ban Surveillance Pricing</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Ars Technica</span>
-                        <span>15h ago</span>
+                        <span class="story-src">EFF Deeplinks</span>
+                        <span>12h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2026/06/GettyImages-2277898840-500x500-1781109528.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://www.eff.org/files/banner_library/ca-privacy-general-2.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Google AI Overview court loss in Germany could spell doom for AI search industry.</p>
+                    <p class="story-text">Corporations harvest and monetize ever-growing amounts of our personal data, such as our browsing history and physical location . One bitter fruit of this poisonous tree is known as “surveillance pricing”: corporations offer the same product to two different people at two different prices, based on scrutiny of these people’s respective personal data. Surveillance pricing is bad for privacy, equity, and price transparency. So EFF supports a California bill, S.B. 2564 , which would ban this creepy</p>
                     
-                    <a href="https://arstechnica.com/tech-policy/2026/06/nobody-needs-ai-to-search-the-internet-court-says-in-ruling-against-google/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.eff.org/deeplinks/2026/06/californias-bill-ban-surveillance-pricing" target="_blank" rel="noopener" class="story-link">
+                        Read at EFF Deeplinks &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">AcuRite admits new app falls short, delays old app’s May shutdown to fix problems</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Ars Technica</span>
+                        <span>13h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2026/06/AcuRite-Optimus-500x500.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">The old app &#34;still needs to be retired,&#34; AcuRite tells us.</p>
+                    
+                    <a href="https://arstechnica.com/gadgets/2026/06/iot-gadget-firm-acurite-delays-forced-app-migration-due-to-new-apps-shortfalls/" target="_blank" rel="noopener" class="story-link">
                         Read at Ars Technica &rarr;
                     </a>
                 </div>
@@ -1062,21 +1240,21 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Show HN: Extend UI – open-source UI kit for modern document apps</span>
+                        <span class="story-title">Google DeepMind is worried about what happens when millions of agents start to interact</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Hacker News</span>
-                        <span>16h ago</span>
+                        <span class="story-src">MIT Tech Review</span>
+                        <span>21h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">We&#39;re open-sourcing 14 components &amp; examples today for PDF, DOCX, and XLSX viewers, plus bounding box citations, file upload, e-signature, and more. It&#39;s MIT licensed and fully customizable. Demo video here: https://share.extend.ai/kRmSGKRF When we started, we tried every file viewer and document component library we could find. Unfortunately, none of them had all the functionality (and polish) that we wanted, so we ended up building our own for https://extend.ai/ . It was only ever meant to be</p>
+                    <p class="story-text">Google DeepMind is funding research into the potential dangers of situations where millions of different AI agents interact with each other online. According to Rohin Shah, who directs the company’s AGI safety and alignment research, the mass-market arrival of agents that can carry out tasks without human oversight and follow instructions given to them by other&amp;#8230;</p>
                     
-                    <a href="https://www.extend.ai/ui" target="_blank" rel="noopener" class="story-link">
-                        Read at Hacker News &rarr;
+                    <a href="https://www.technologyreview.com/2026/06/11/1138794/google-deepmind-is-worried-about-what-happens-when-millions-of-agents-start-to-interact/" target="_blank" rel="noopener" class="story-link">
+                        Read at MIT Tech Review &rarr;
                     </a>
                 </div>
             </details>
@@ -1087,25 +1265,27 @@ body {
     <section class="section" id="economy" aria-label="Economy &amp; Markets">
         <div class="sec-head" data-cat="economy">
             <h2 class="sec-label">Economy &amp; Markets</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">5 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="economy" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">5 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">US equity futures advanced after Wednesday’s inflation print calmed investor fears of Federal Reserve interest-rate hikes, while a swift end to renewed… Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading. The president also revealed that the US is &#39;taking out&#39; millions of barrels of oil from Iran, saying Tehran didn&#39;t know &#39;until right now&#39;.</p>
+                <p class="tldr-para">Central banks are staring down a pivotal moment for global monetary policy as they grapple with a growing list of risks. Oil prices fell and the Dow Industrials soared more than 900 points Thursday after President Trump said the U.S. The public sale is also expected to make Elon Musk the world&#39;s first trillionaire.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">No budget deal without new EU-wide taxes, Costa tells leaders</span>
+                    <span class="tldr-also-item">ECB hikes interest rates for first time since 2023 · </span>
+                    
+                    <span class="tldr-also-item">How big are China’s emerging industries?</span>
                     
                 </div>
                 
@@ -1118,22 +1298,22 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">US Stock Futures Rise as CPI Eases Rate-Hike Fears</span>
+                        <span class="story-title">Central Banks Face Growing Pressures: Markets Snapshot</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Bloomberg</span>
-                        <span>22m ago</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iT2VWq6rzmsA/v1/1200x-1.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iNuEOBnbPReE/v3/1200x-1.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">US equity futures advanced after Wednesday’s inflation print calmed investor fears of Federal Reserve interest-rate hikes, while a swift end to renewed American strikes on Iran kept oil prices in check.</p>
+                    <p class="story-text">Central banks are staring down a pivotal moment for global monetary policy as they grapple with a growing list of risks. Incoming Fed Chair, Kevin Warsh will need to find a way to navigate the central bank’s policy path amidst a combination of higher energy prices and a surprisingly strong US jobs report. Meanwhile in Europe, the ECB and BOE face the prospect of secondary effects due to the war in Iran and a sluggish growth outlook. The Opening Trade spoke to key voices around the challenges fac</p>
                     
-                    <a href="https://www.bloomberg.com/news/articles/2026-06-11/us-stock-futures-rise-as-cpi-eases-rate-hike-fears-oracle-sinks" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bloomberg.com/news/videos/2026-06-12/central-banks-face-growing-pressures-markets-snapshot-video" target="_blank" rel="noopener" class="story-link">
                         Read at Bloomberg &rarr;
                     </a>
                 </div>
@@ -1142,20 +1322,20 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Starbucks stock is a bright spot in Wednesday&#39;s bleak market. Here&#39;s why</span>
+                        <span class="story-title">Friday&#39;s big stock stories: What’s likely to move the market in the next trading session</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC</span>
-                        <span>13h ago</span>
+                        <span>8h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Every weekday, the Investing Club releases the Homestretch; an actionable afternoon update just in time for the last hour of trading.</p>
+                    <p class="story-text">Oil prices fell and the Dow Industrials soared more than 900 points Thursday after President Trump said the U.S. will soon sign a deal with Iran.</p>
                     
-                    <a href="https://www.cnbc.com/2026/06/10/starbucks-stock-is-a-bright-spot-in-wednesdays-bleak-market-heres-why.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.cnbc.com/2026/06/11/fridays-big-stock-stories-whats-likely-to-move-the-market.html" target="_blank" rel="noopener" class="story-link">
                         Read at CNBC &rarr;
                     </a>
                 </div>
@@ -1164,22 +1344,22 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Trump: &#39;I love the inflation&#39;</span>
+                        <span class="story-title">Elon Musk&#39;s SpaceX raises $75bn ahead of world&#39;s biggest stock market launch</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Business</span>
-                        <span>15h ago</span>
+                        <span>8h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/954a/live/3f94a910-64ed-11f1-a1ac-711fb29896f6.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3644/live/45626720-6636-11f1-b1db-af71d47507d6.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">The president also revealed that the US is &#39;taking out&#39; millions of barrels of oil from Iran, saying Tehran didn&#39;t know &#39;until right now&#39;.</p>
+                    <p class="story-text">The public sale is also expected to make Elon Musk the world&#39;s first trillionaire.</p>
                     
-                    <a href="https://www.bbc.com/news/videos/c0rygjggl7zo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.com/news/articles/cwy034q89j4o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Business &rarr;
                     </a>
                 </div>
@@ -1188,23 +1368,45 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">No budget deal without new EU-wide taxes, Costa tells leaders</span>
+                        <span class="story-title">ECB hikes interest rates for first time since 2023</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">EurActiv Economy</span>
-                        <span>1h ago</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://www.euractiv.com/content/uploads/sites/2/2026/06/GettyImages-2203003474-1-1100x788.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://www.euractiv.com/content/uploads/sites/2/2026/06/GettyImages-2273231259-1.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">António Costa is convening a two-day summit in Brussels next week</p>
+                    <p class="story-text">The Bank also lifted its inflation outlook for this year to 3% and lowered its growth forecast to 0.8%</p>
                     
-                    <a href="https://www.euractiv.com/news/no-budget-deal-without-new-eu-wide-taxes-costa-tells-leaders/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.euractiv.com/news/ecb-hikes-interest-rates-for-first-time-since-2023/" target="_blank" rel="noopener" class="story-link">
                         Read at EurActiv Economy &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">How big are China’s emerging industries?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">The Economist</span>
+                        <span>21h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Probably not big enough to offset the drag from the old</p>
+                    
+                    <a href="https://www.economist.com/finance-and-economics/2026/06/11/how-big-are-chinas-emerging-industries" target="_blank" rel="noopener" class="story-link">
+                        Read at The Economist &rarr;
                     </a>
                 </div>
             </details>
@@ -1215,27 +1417,25 @@ body {
     <section class="section" id="science" aria-label="Science">
         <div class="sec-head" data-cat="science">
             <h2 class="sec-label">Science</h2>
-            <span class="sec-count">5 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="science" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">5 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">A new study analyzed how NASA&#39;s Habitable Worlds Observatory might be able to confidently spot biosignatures in the atmosphere of a distant ancient Earth. Nature, Published online: 10 June 2026; doi:10.1038/s41586-026-10629-x Analyses of brain single-cell transcriptomes from human, mouse, lizard, lamprey and… Richard Bischof’s devices aim to make telemetry research cheaper, higher quality, and more humane</p>
+                <p class="tldr-para">An experiment with a toy universe made up of extremely cold atoms shows how time can emerge from quantum interactions, instead of existing by default After clearing a spring forecasting hurdle, scientists see growing odds of a powerful climate event that could disrupt weather worldwide A “galaxy-killing” wind driven by cosmic mergers may explain why many massive galaxies in the early universe stopped forming stars far earlier than expected,…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Millions of fossil whale bones found in deep-ocean ‘necropolis’ · </span>
-                    
-                    <span class="tldr-also-item">An Early Step on the Long, Strange Road to Photosynthesis</span>
+                    <span class="tldr-also-item">What’s the Future of Gene Editing?</span>
                     
                 </div>
                 
@@ -1248,23 +1448,23 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">NASA is building a new space telescope to search for life on nearby planets. What would it see on ancient Earth?</span>
+                        <span class="story-title">Toy universe shows that time could be a quantum illusion</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Space.com</span>
-                        <span>19h ago</span>
+                        <span class="story-src">New Scientist</span>
+                        <span>17h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.mos.cms.futurecdn.net/NZLHpvt7fSKpFL7xUZgucP-1280-80.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://images.newscientist.com/wp-content/uploads/2026/06/10153059/SEI_300727952.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">A new study analyzed how NASA&#39;s Habitable Worlds Observatory might be able to confidently spot biosignatures in the atmosphere of a distant ancient Earth.</p>
+                    <p class="story-text">An experiment with a toy universe made up of extremely cold atoms shows how time can emerge from quantum interactions, instead of existing by default</p>
                     
-                    <a href="https://www.space.com/space-exploration/search-for-life/nasa-is-building-a-new-space-telescope-to-search-for-life-on-nearby-planets-what-would-it-see-on-ancient-earth" target="_blank" rel="noopener" class="story-link">
-                        Read at Space.com &rarr;
+                    <a href="https://www.newscientist.com/article/2529957-toy-universe-shows-that-time-could-be-a-quantum-illusion/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener" class="story-link">
+                        Read at New Scientist &rarr;
                     </a>
                 </div>
             </details>
@@ -1272,29 +1472,7 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Whole-genome duplication shaped cell-type evolution in the vertebrate brain</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Nature</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Nature, Published online: 10 June 2026; doi:10.1038/s41586-026-10629-x Analyses of brain single-cell transcriptomes from human, mouse, lizard, lamprey and amphioxus reveal that duplicated genes (ohnologues) played a pivotal part in early vertebrate cell-type diversification.</p>
-                    
-                    <a href="https://www.nature.com/articles/s41586-026-10629-x" target="_blank" rel="noopener" class="story-link">
-                        Read at Nature &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">This scientist is rethinking how to put GPS collars on wildlife</span>
+                        <span class="story-title">El Niño has begun. It may become the strongest this century</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1305,9 +1483,9 @@ body {
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Richard Bischof’s devices aim to make telemetry research cheaper, higher quality, and more humane</p>
+                    <p class="story-text">After clearing a spring forecasting hurdle, scientists see growing odds of a powerful climate event that could disrupt weather worldwide</p>
                     
-                    <a href="https://www.science.org/content/article/scientist-rethinking-how-put-gps-collars-wildlife" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.science.org/content/article/el-nino-has-begun-it-may-become-strongest-century" target="_blank" rel="noopener" class="story-link">
                         Read at Science (AAAS) &rarr;
                     </a>
                 </div>
@@ -1316,23 +1494,23 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Millions of fossil whale bones found in deep-ocean ‘necropolis’</span>
+                        <span class="story-title">James Webb Space Telescope discovers &#39;galaxy-killing&#39; wind that may explain why some early galaxies lived fast and died young</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">New Scientist</span>
-                        <span>16h ago</span>
+                        <span class="story-src">Space.com</span>
+                        <span>13h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://images.newscientist.com/wp-content/uploads/2026/06/10112743/SEI_300827211.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.mos.cms.futurecdn.net/PFveUsfFfvJvpYLJbNm5xB-1280-80.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Researchers diving 7 kilometres deep in a crewed submersible have discovered a vast collection of whale bones, including fossils up to 5 million years old and species new to science</p>
+                    <p class="story-text">A “galaxy-killing” wind driven by cosmic mergers may explain why many massive galaxies in the early universe stopped forming stars far earlier than expected, according to new JWST and ALMA observations.</p>
                     
-                    <a href="https://www.newscientist.com/article/2529864-millions-of-fossil-whale-bones-found-in-deep-ocean-necropolis/?utm_campaign=RSS%7CNSNS&amp;utm_source=NSNS&amp;utm_medium=RSS&amp;utm_content=news" target="_blank" rel="noopener" class="story-link">
-                        Read at New Scientist &rarr;
+                    <a href="https://www.space.com/astronomy/galaxies/james-webb-space-telescope-discovers-galaxy-killing-wind-that-may-explain-why-some-early-galaxies-lived-fast-and-died-young" target="_blank" rel="noopener" class="story-link">
+                        Read at Space.com &rarr;
                     </a>
                 </div>
             </details>
@@ -1340,22 +1518,22 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">An Early Step on the Long, Strange Road to Photosynthesis</span>
+                        <span class="story-title">What’s the Future of Gene Editing?</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Quanta Magazine</span>
-                        <span>17h ago</span>
+                        <span>18h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://www.quantamagazine.org/wp-content/uploads/2026/06/Basal-Photosynthesis-cr-Son-of-Alan-Default.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://www.quantamagazine.org/wp-content/uploads/2026/06/JOW-S5E1-Jennifer-Doudna-cr-ChanelleNibbelink-Default.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">An ancient lineage of cyanobacteria is helping biologists uncover an early evolutionary stage of the mind-boggling process that turns light into life. The post An Early Step on the Long, Strange Road to Photosynthesis first appeared on Quanta Magazine</p>
+                    <p class="story-text">In the first episode of the new season of ‘The Joy of Why,’ Nobel Laureate Jennifer Doudna discusses how she discovered CRISPR’s genome-editing power, the breakthroughs and hurdles during its explosive growth, and what lies ahead for this groundbreaking technology. The post What’s the Future of Gene Editing? first appeared on Quanta Magazine</p>
                     
-                    <a href="https://www.quantamagazine.org/an-early-step-on-the-long-strange-road-to-photosynthesis-20260610/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.quantamagazine.org/whats-the-future-of-gene-editing-20260611/" target="_blank" rel="noopener" class="story-link">
                         Read at Quanta Magazine &rarr;
                     </a>
                 </div>
@@ -1379,15 +1557,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Bundeskanzler Merz bekräftigt im Bundestag die deutsche Bereitschaft, sich bei der Sicherung der Straße von Hormus zu beteiligen. Justizministerin Hubig spricht sich für eine Verschärfung des Sexualstrafrechts aus. Niemand erwartet vom Deutschen Fußball-Bund, Weltpolitik zu betreiben.</p>
+                <p class="tldr-para">In Mexiko-Stadt hat die Fußball-Weltmeisterschaft 2026 offiziell begonnen. Am Wochenende lädt der »Sozialistische Deutsche Studentenbund« an der TU Berlin zu einem Kongress. Die deutsche Elf könnte Rekordprämien bekommen – doch noch gibt es keine Einigung mit dem DFB.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Vsquared Ventures: Deutschlands ältesten Deeptech-Investor zieht es nach Großbritannien · </span>
+                    <span class="tldr-also-item">Nahost-Liveblog: ++ Iran bestätigt mögliches Rahmenabkommen ++ · </span>
                     
-                    <span class="tldr-also-item">Regierungserklärung des Kanzlers: Jens Spahn wirft AfD »Verrat am Vaterland« vor</span>
+                    <span class="tldr-also-item">+++ Bundespolitik +++: Hitzige Debatte über Warkens Kassen-Sparpaket im Bundestag</span>
                     
                 </div>
                 
@@ -1400,68 +1578,22 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Iran-Liveblog: ++ Merz: Bereit für Sicherung der Straße von Hormus ++</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>5m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Bundeskanzler Merz bekräftigt im Bundestag die deutsche Bereitschaft, sich bei der Sicherung der Straße von Hormus zu beteiligen. Das US-Militär hat seine erneuten Angriffe auf Ziele in Iran nach eigenen Angaben eingestellt.</p>
-                    
-                    <a href="https://www.tagesschau.de/newsticker/liveblog-iran-usa-102.html" target="_blank" rel="noopener" class="story-link">
-                        Read at Tagesschau &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Vergewaltigung: Justizministerin Stefanie Hubig will Frist für Verjährung verlängern</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Spiegel</span>
-                        <span>10m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://cdn.prod.www.spiegel.de/images/9c23ced1-6400-4d7c-bfbd-f1178e5a1c9b_w520_r2.08_fpx67.34_fpy47.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Justizministerin Hubig spricht sich für eine Verschärfung des Sexualstrafrechts aus. Verjährung nach fünf Jahren bei Vergewaltigung hält die SPD-Politikerin für »zu kurz« und plädiert für eine deutliche Verlängerung der Frist.</p>
-                    
-                    <a href="https://www.spiegel.de/politik/deutschland/vergewaltigung-justizministerin-stefanie-hubig-will-frist-fuer-verjaehrung-verlaengern-a-318394a3-bc17-46a6-a09c-9c454fbdb4a2#ref=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at Spiegel &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Schweigen vor Fußball-WM: Die Selbstaufgabe des DFB</span>
+                        <span class="story-title">Mexiko feiert Sieg: WM 2026 beginnt mit Party und Platzverweisen</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">FAZ</span>
-                        <span>11m ago</span>
+                        <span>8m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://media0.faz.net/image/8f82ebbc9510/w5455h3068x168y427/202606/43601.0.2196115598/kein-widerwort-bernd-neuendorf.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://media0.faz.net/image/c477cd39f5de/w5205h2928x0y149/202606/43601.0.2207479529/dpa.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Niemand erwartet vom Deutschen Fußball-Bund, Weltpolitik zu betreiben. Aber er macht vor der Fußball-WM nicht mal den Versuch, sich dem Untragbaren zu widersetzen.</p>
+                    <p class="story-text">In Mexiko-Stadt hat die Fußball-Weltmeisterschaft 2026 offiziell begonnen. Der Gastgeber setzt im Aztekenstadion gleich ein erstes sportliches Zeichen – und sorgt im ganzen Land für Feierlaune.</p>
                     
-                    <a href="https://www.faz.net/aktuell/sport/fussball-wm/deutsches-team/fussball-wm-2026-selbstaufgabe-des-dfb-200914722.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.faz.net/video/mexiko-eroeffnet-die-wm-2026-mit-heimsieg-200923638.html" target="_blank" rel="noopener" class="story-link">
                         Read at FAZ &rarr;
                     </a>
                 </div>
@@ -1470,23 +1602,23 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Vsquared Ventures: Deutschlands ältesten Deeptech-Investor zieht es nach Großbritannien</span>
+                        <span class="story-title">TU Berlin will Vorträge bei linkem Jugendkongress beschränken – nach AfD-Beschwerde</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Handelsblatt</span>
-                        <span>12m ago</span>
+                        <span class="story-src">Spiegel</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://images.handelsblatt.com/yP27Mfpx4EMq/cover/900/506/0/0/209/209/0.5/0.5/vsquared-team.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.prod.www.spiegel.de/images/ce1d96c6-9656-41b0-b093-6878fdde56ce_w520_r2.08_fpx53.25_fpy53.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Es ist das erste Büro außerhalb Münchens: Vsquared Ventures eröffnet einen Ableger in London. In einem Bereich sieht die Standortleiterin „enormes Potenzial“.</p>
+                    <p class="story-text">Am Wochenende lädt der »Sozialistische Deutsche Studentenbund« an der TU Berlin zu einem Kongress. Die Uni will mehrere Veranstaltungen verhindern. Zuvor war ein Warnschreiben der AfD eingegangen.</p>
                     
-                    <a href="https://www.handelsblatt.com/unternehmen/start-ups/vsquared-ventures-deutscher-deeptech-investor-expandiert-in-grossbritannien/100231625.html" target="_blank" rel="noopener" class="story-link">
-                        Read at Handelsblatt &rarr;
+                    <a href="https://www.spiegel.de/politik/deutschland/tu-berlin-will-vortraege-bei-linkem-jugendkongress-beschraenken-nach-afd-beschwerde-a-d8c1d676-8430-4c15-b804-5a282586b046#ref=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at Spiegel &rarr;
                     </a>
                 </div>
             </details>
@@ -1494,7 +1626,7 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Regierungserklärung des Kanzlers: Jens Spahn wirft AfD »Verrat am Vaterland« vor</span>
+                        <span class="story-title">Fußballweltmeisterschaft 2026: Einigung zwischen DFB und Spielern über WM-Prämien steht noch aus</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1504,13 +1636,59 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://img.zeit.de/politik/deutschland/2026-06/regierungserklaerung-bundeskanzler-friedrich-merz-live-spahn-bild/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://img.zeit.de/sport/2026-06/fussball-wm-2026-liveblog-praemien-bild-3/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Die Koalition zeigt sich nach der Regierungserklärung des Kanzlers einig: Fraktionschefs von SPD und CDU stellen sich hinter Merz. Spahn attackiert Weidel. Das Liveblog</p>
+                    <p class="story-text">Die deutsche Elf könnte Rekordprämien bekommen – doch noch gibt es keine Einigung mit dem DFB. Julian Nagelsmann lobt den ersten WM-Gruppengegner Curaçao. Das Liveblog</p>
                     
-                    <a href="https://www.zeit.de/politik/deutschland/2026-06/regierungserklaerung-bundeskanzler-friedrich-merz-live" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/sport/2026-05/fussball-wm-2026-liveblog" target="_blank" rel="noopener" class="story-link">
                         Read at ZEIT Online &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Nahost-Liveblog: ++ Iran bestätigt mögliches Rahmenabkommen ++</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Tagesschau</span>
+                        <span>31m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Das Rahmenabkommen zwischen Iran und USA ist nach Angaben aus Teheran &#34;überwiegend finalisiert&#34;. Iranische Einsatzkräfte haben offenbar einen Öltanker in der Straße von Hormus gestoppt.</p>
+                    
+                    <a href="https://www.tagesschau.de/newsticker/liveblog-iran-104.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Tagesschau &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">+++ Bundespolitik +++: Hitzige Debatte über Warkens Kassen-Sparpaket im Bundestag</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Handelsblatt</span>
+                        <span>51m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://images.handelsblatt.com/DABjcTyo6qCb/cover/900/506/0/0/0/413/0.5/0.5/12.06.2026-berlin-nina-warken-cdu-bundesministerin-fuer-gesundheit-spricht-zum-gkv-beitragssatz.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Merz warnt im Bundestag vor neuen EU-Schulden +++ Bundestag verlängert Bundeswehr-Einsatz in Bosnien +++ Linke prüft Verfassungsklage gegen Heizgesetz +++ Der Newsblog.</p>
+                    
+                    <a href="https://www.handelsblatt.com/politik/deutschland/bundespolitik-bundestag-debattiert-ueber-warkens-kassen-sparpaket/100137034.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Handelsblatt &rarr;
                     </a>
                 </div>
             </details>
@@ -1559,7 +1737,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Updated 08:51 UTC &middot; 11.06.2026<br>
+        Updated 08:30 UTC &middot; 12.06.2026<br>
         New edition every morning
     </footer>
 
