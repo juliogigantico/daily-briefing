@@ -641,19 +641,157 @@ body {
 
     <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
-        <div class="hero-greeting">👋 Good afternoon</div>
+        <div class="hero-greeting">📋 Afternoon check-in</div>
         <div class="hero-top">
             <h1 class="hero-title">my news</h1>
             
+            <div class="hero-weather">
+                <span class="hw-icon">☁️</span>
+                <span class="hw-temp">7&deg;</span>
+            </div>
+            
         </div>
         <div class="hero-meta">
-            <span>Saturday, 14 November 2026</span>
+            <span>Sunday, 15 November 2026</span>
             <span class="hero-sep">/</span>
             <span>Berlin</span>
             
+            <span class="hero-sep">/</span>
+            <span id="hw-today">0&deg;&ndash;8&deg;</span>
+            
+            
+            <span class="hero-sep">/</span>
+            <span id="hw-tmrw">Tmrw 5&deg;&ndash;12&deg;</span>
             
         </div>
 
+        
+        <div class="hero-hourly-wrap">
+            <div class="hero-hourly">
+                
+                <div class="hh" data-hour="12:00">
+                    <span class="hh-t">12:00</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="13:00">
+                    <span class="hh-t">13:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="14:00">
+                    <span class="hh-t">14:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="15:00">
+                    <span class="hh-t">15:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r">45%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="16:00">
+                    <span class="hh-t">16:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">73%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="17:00">
+                    <span class="hh-t">17:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">65%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="18:00">
+                    <span class="hh-t">18:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r">10%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="19:00">
+                    <span class="hh-t">19:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="20:00">
+                    <span class="hh-t">20:00</span>
+                    <span class="hh-i">🌤️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="21:00">
+                    <span class="hh-t">21:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="22:00">
+                    <span class="hh-t">22:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="23:00">
+                    <span class="hh-t">23:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">5&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="00:00">
+                    <span class="hh-t">00:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">5&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="01:00">
+                    <span class="hh-t">01:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r">45%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="02:00">
+                    <span class="hh-t">02:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">65%</span>
+                    
+                </div>
+                
+            </div>
+        </div>
         
     </header>
 
@@ -675,15 +813,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Microsoft says it is seeing improvements in its service availability after an hours-long disruption knocked out its platforms including Outlook and Teams. At party’s ‘What’s Next’ conference, consensus is they need to act quickly, but over affordability or accountability is the question What’s next for Democrats? Prime Minister Péter Magyar promised a sweeping anti-corruption drive after ousting Orbán in April.</p>
+                <p class="tldr-para">Ten people have been convicted by the Abu Dhabi Criminal Court over a brawl in a hotel lobby. Bahrain lies directly across Persian Gulf from Iran and is home to US Navy Fifth Fleet The US thinks Iran still has between 1,500-2,500 missiles in its arsenal… The attack on funeral at a Greek Orthodox church killed nine and injured 34 others last month.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">South Sudan postpones first-ever national elections until February · </span>
+                    <span class="tldr-also-item">Pope laments poverty-stricken Inca communities as locals leave Peru · </span>
                     
-                    <span class="tldr-also-item">Wolf Biermann at 90: The singer who defied East Germany</span>
+                    <span class="tldr-also-item">Macron urges unity as Francophonie summit opens in Cambodia</span>
                     
                 </div>
                 
@@ -696,90 +834,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Microsoft&#39;s widespread outages caused global chaos, including in the healthcasre industry</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">France 24</span>
-                        <span>10m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://s.france24.com/media/display/0281a17e-e01a-11f1-bec4-f71d22e7fea9/w:1024/p:16x9/EN-20261114-080413-080559-CS.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Microsoft says it is seeing improvements in its service availability after an hours-long disruption knocked out its platforms including Outlook and Teams. The outage has affected hundreds of millions of people across the globe. The healthcare industry was among those impacted, as Ophelie Jacobson explains.</p>
-                    
-                    <a href="https://www.france24.com/en/microsoft-s-widespread-outages-caused-global-chaos-including-in-the-healthcasre-industry" target="_blank" rel="noopener" class="story-link">
-                        Read at France 24 &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">‘We must deliver’: jubilant Democrats gather in Denver to chart way forward</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Guardian</span>
-                        <span>17m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">At party’s ‘What’s Next’ conference, consensus is they need to act quickly, but over affordability or accountability is the question What’s next for Democrats? It’s the question thousands of Democrats, including lawmakers, strategists, pollsters, creators, organizers, staffers and 2028 presidential hopefuls are trying to answer at a three-day gathering in Denver, after a sweeping victory in the 2026 midterm elections.</p>
-                    
-                    <a href="https://www.theguardian.com/us-news/2026/nov/14/democrats-denver-whats-next-conference" target="_blank" rel="noopener" class="story-link">
-                        Read at The Guardian &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Hungarian authorities uncover $20m during probe of Orbán-era minister</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC World</span>
-                        <span>36m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/da9e/live/d437a0b0-e010-11f1-b884-a9f52ca7a4b1.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Prime Minister Péter Magyar promised a sweeping anti-corruption drive after ousting Orbán in April.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/ckjwj03w4w0qo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC World &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">South Sudan postpones first-ever national elections until February</span>
+                        <span class="story-title">MMA fighters jailed after Abu Dhabi hotel lobby brawl</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Al Jazeera</span>
-                        <span>47m ago</span>
+                        <span>16m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">The vote, first expected in 2022, will now be held on February 11, according to the country&amp;#039;s election commission.</p>
+                    <p class="story-text">Ten people have been convicted by the Abu Dhabi Criminal Court over a brawl in a hotel lobby.</p>
                     
-                    <a href="https://www.aljazeera.com/news/2026/11/14/south-sudan-postpones-first-ever-national-elections-until-february?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.aljazeera.com/video/newsfeed/2026/11/15/mma-fighters-jailed-after-abu-dhabi-hotel-lobby-brawl?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
                         Read at Al Jazeera &rarr;
                     </a>
                 </div>
@@ -788,20 +856,90 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Wolf Biermann at 90: The singer who defied East Germany</span>
+                        <span class="story-title">Iran targets Bahrain airbase as strikes resume in Gulf - Middle East crisis live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">DW English</span>
-                        <span>1h ago</span>
+                        <span class="story-src">The Guardian</span>
+                        <span>19m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">His life is a reflection of contemporary German history, which Biermann has addressed via his songs and sharp wit. Turning 90, he’s as feisty as ever.</p>
+                    <p class="story-text">Bahrain lies directly across Persian Gulf from Iran and is home to US Navy Fifth Fleet The US thinks Iran still has between 1,500-2,500 missiles in its arsenal despite the US-Israeli damage done this year to its production facilities, reports the Wall St Journal. That’s the “low confidence” assessment from intelligence analysts, the American paper reports, citing US officials.</p>
                     
-                    <a href="https://www.dw.com/en/wolf-biermann-at-90-the-singer-who-defied-east-germany/a-79915297?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/world/live/2026/nov/15/middle-east-crisis-live-iran-bahrain-strikes-gulf-donald-trump-us-israel-yemen-houthis" target="_blank" rel="noopener" class="story-link">
+                        Read at The Guardian &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Three men sentenced to death in Jordan over fatal church mass shooting</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC World</span>
+                        <span>43m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0fb0/live/ed275c50-e0dd-11f1-a701-fddedf244c16.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">The attack on funeral at a Greek Orthodox church killed nine and injured 34 others last month.</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/c3rrg9xgqlwpo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC World &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Pope laments poverty-stricken Inca communities as locals leave Peru</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">France 24</span>
+                        <span>54m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://s.france24.com/media/display/1e4a9246-e0e0-11f1-a218-29048b396e03/w:1024/p:16x9/000-D7HD3NR.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Pope Leo XIV on Sunday will traverse the length of Peru in what marks the penultimate day of his Latin American tour. The leader of the Catholic church – who underwent cancer surgery just a month ago – warned that Peru&#39;s remote Inca communities are under threat as poverty continues to drive locals out of their homeland in search of better futures.</p>
+                    
+                    <a href="https://www.france24.com/en/americas/20261115-pope-laments-poverty-stricken-inca-communities-as-locals-leave-peru" target="_blank" rel="noopener" class="story-link">
+                        Read at France 24 &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Macron urges unity as Francophonie summit opens in Cambodia</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">DW English</span>
+                        <span>3h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Leaders of French-speaking nations gathered in Phnom Penh as a row over who should lead the Francophonie and Congo’s threat to quit put pressure on Macron to broker consensus.</p>
+                    
+                    <a href="https://www.dw.com/en/macron-urges-unity-as-francophonie-summit-opens-in-cambodia/a-79951201?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
                         Read at DW English &rarr;
                     </a>
                 </div>
@@ -825,13 +963,13 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">ANTALYA, Turkey—Despite the lack of progress toward the goal of curbing global warming, outgoing U.N. Kai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questions Was the climate… School children gather to discuss climate issues to coincide with the COP31 conference in Turkey.</p>
+                <p class="tldr-para">Civil society campaigners form protective cordon around LGBTQ+ campaigners as they unfurl flags and placards Queer and gay protesters defied a crackdown on… Leticia Gutierrez’s upset victory in a Houston-area congressional district means an environmental-health advocate will represent part of the country’s oil… The planets of Mercury, Venus, Mars and Jupiter will align in pre-dawn sky throughout November.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">COP31: Climate finance falls short as calls grow for polluters to pay</span>
+                    <span class="tldr-also-item">When the rains fail: Preparing for drought in Central America</span>
                     
                 </div>
                 
@@ -844,42 +982,20 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">UN Leader Says People Power Is the Secret Weapon Against Global Warming</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Inside Climate News</span>
-                        <span>16h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">ANTALYA, Turkey—Despite the lack of progress toward the goal of curbing global warming, outgoing U.N. Secretary General António Guterres urged climate activists and environmental justice advocates at the United Nations COP31 climate change conference here not to give up hope. “You pushed governments to face up to the role of fossil fuels,” he said during [&amp;#8230;]</p>
-                    
-                    <a href="https://insideclimatenews.org/news/13112026/u-n-leader-says-people-power-is-the-secret-weapon-against-global-warming/" target="_blank" rel="noopener" class="story-link">
-                        Read at Inside Climate News &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Send us your questions about climate crisis and politics for the next Stateside guest: Bill McKibben</span>
+                        <span class="story-title">LGBTQ+ protesters defy crackdown in Turkey to march with Cop31 activists</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>14h ago</span>
+                        <span>18h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Kai Wright of the Guardian podcast Stateside will speak with author and environmentalist Bill McKibben – and we’d like to hear your questions Was the climate crisis one of your top political priorities during the midterm elections? We want to hear from you: what do you want political leaders to do about it in 2027? Democrats will control the House and Senate in the new year, and they have a long list of priorities ahead of them. But it remains to be seen just how much they will focus on one of t</p>
+                    <p class="story-text">Civil society campaigners form protective cordon around LGBTQ+ campaigners as they unfurl flags and placards Queer and gay protesters defied a crackdown on LGBTQ+ rights in Turkey to lead a civil society climate march on Saturday in the city hosting this year’s UN climate summit. Turkey’s LGBTQ+ groups have faced increased persecution since September, with police targeting activists in their homes or at the offices of the NGOs that advocate for their rights.</p>
                     
-                    <a href="https://www.theguardian.com/us-news/2026/nov/13/climate-environment-questions-bill-mckibben" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/world/2026/nov/14/lgbtq-protesters-defy-crackdown-in-turkey-to-march-with-cop31-activists" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -888,22 +1004,44 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Climate action discussed at youth COP meeting</span>
+                        <span class="story-title">A Clean Air Advocate Will Represent Part of America’s Oil Capital in Congress</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC Environment</span>
-                        <span>20h ago</span>
+                        <span class="story-src">Inside Climate News</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/1707/live/28a9afe0-df6b-11f1-9892-87464bbcc2b8.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    <p class="story-text">Leticia Gutierrez’s upset victory in a Houston-area congressional district means an environmental-health advocate will represent part of the country’s oil capital, and environmental groups say that could help communities choked for years by petrochemical pollution. Gutierrez, who spent more than a decade as Air Alliance Houston’s government relations director, pledged to support policies to improve [&amp;#8230;]</p>
+                    
+                    <a href="https://insideclimatenews.org/news/14112026/a-clean-air-advocate-will-represent-part-of-americas-oil-capital-in-congress/" target="_blank" rel="noopener" class="story-link">
+                        Read at Inside Climate News &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">How to spot November&#39;s planetary parade in the pre-dawn sky</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC Environment</span>
+                        <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a1a4/live/8fa21860-daa5-11f1-9da2-b11e4d68c08e.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">School children gather to discuss climate issues to coincide with the COP31 conference in Turkey.</p>
+                    <p class="story-text">The planets of Mercury, Venus, Mars and Jupiter will align in pre-dawn sky throughout November.</p>
                     
-                    <a href="https://www.bbc.co.uk/news/articles/ckx28ly7y387o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.co.uk/weather/articles/cke8rr37lrryo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Environment &rarr;
                     </a>
                 </div>
@@ -912,7 +1050,7 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">COP31: Climate finance falls short as calls grow for polluters to pay</span>
+                        <span class="story-title">When the rains fail: Preparing for drought in Central America</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -922,12 +1060,12 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/2026/11/13-11-2026_COP-31-03.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Graphics%20Library/2026/11/Anastacio-WFPHonduras-1.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">From emotional appeals for climate justice to high-stakes negotiations over billions of dollars, finance dominated discussions at COP31 on Friday. UN Secretary-General António Guterres warned that even tripling adaptation funding for vulnerable countries would meet less than a third of their needs, as pressure mounted on wealthy nations and major polluters to pay their fair share.</p>
+                    <p class="story-text">Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains. In southwestern Honduras, Anastacio Martínez Gómez has spent most of his 73 years learning to work the land. But experience can only take him so far.</p>
                     
-                    <a href="https://news.un.org/feed/view/en/story/2026/11/1168802" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://news.un.org/feed/view/en/story/2026/11/1168776" target="_blank" rel="noopener" class="story-link">
                         Read at UN News Climate &rarr;
                     </a>
                 </div>
@@ -939,27 +1077,25 @@ body {
     <section class="section" id="tech" aria-label="Tech &amp; AI">
         <div class="sec-head" data-cat="tech">
             <h2 class="sec-label">Tech &amp; AI</h2>
-            <span class="sec-count">5 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="tech" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">5 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Privacy, which companies were once happy to claim was all about personal choice, is now primed to affect everyone around you even more than it already did. Under cofounder Jensen Huang, Nvidia has become the engine for the AI boom - and one of the tech industry&#39;s biggest environmental liabilities. The ridesharing giant said drivers&#39; license information stored by AI cloud company Fireworks AI was stolen during a security incident.</p>
+                <p class="tldr-para">From Apple&#39;s repeatedly delayed Siri AI to OpenAI&#39;s messy &#34;super app&#34; launch, here&#39;s a look at the AI projects that shut down or missed expectations. Yasmin Morgan-Griffiths follows a team testing AI early warning systems for landslides. Today, I’m talking with Helen Toner, the executive director of the Center for Security and Emerging Technology at Georgetown University.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Tech Now · </span>
-                    
-                    <span class="tldr-also-item">The Download: Silicon Valley’s blind spot and Nvidia’s chip-tracking plan</span>
+                    <span class="tldr-also-item">Starship flight 15 powers to orbit—setting up a possible catch on Saturday</span>
                     
                 </div>
                 
@@ -972,66 +1108,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Tech Companies Are Trying to Shift the Entire Concept of Privacy (Again)</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">EFF Deeplinks</span>
-                        <span>13h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.eff.org/files/banner_library/mobile-privacy.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Privacy, which companies were once happy to claim was all about personal choice, is now primed to affect everyone around you even more than it already did. Meta and Google’s smart glasses can record anything the owner is looking at or use artificial intelligence to describe it. Apple’s* Audio Intelligence feature turns every Apple Watch into a transcription machine that records or summarizes your day. Amazon’s Bee devices take that a step further and can record and transcribe everything. Dozens</p>
-                    
-                    <a href="https://www.eff.org/deeplinks/2026/11/tech-companies-are-trying-shift-entire-concept-privacy-again" target="_blank" rel="noopener" class="story-link">
-                        Read at EFF Deeplinks &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Jensen Huang was reckless with the environment, too</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">The Verge</span>
-                        <span>17h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Under cofounder Jensen Huang, Nvidia has become the engine for the AI boom - and one of the tech industry&#39;s biggest environmental liabilities. Its sought-after chips have triggered a new wave of water- and chemical-intensive factories, drained power grids from inside massive data centers, and set the stage for a looming e-waste problem. Under Huang&#39;s [&amp;#8230;]</p>
-                    
-                    <a href="https://www.theverge.com/tech/1033051/nvidia-jensen-huang-chips-gpu-supply-chain-climate-pollution" target="_blank" rel="noopener" class="story-link">
-                        Read at The Verge &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Uber confirms hackers stole thousands of drivers’ license information in data breach</span>
+                        <span class="story-title">The AI graveyard: a running list of projects and startups that didn’t make it</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">TechCrunch</span>
-                        <span>20h ago</span>
+                        <span>18h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">The ridesharing giant said drivers&#39; license information stored by AI cloud company Fireworks AI was stolen during a security incident.</p>
+                    <p class="story-text">From Apple&#39;s repeatedly delayed Siri AI to OpenAI&#39;s messy &#34;super app&#34; launch, here&#39;s a look at the AI projects that shut down or missed expectations.</p>
                     
-                    <a href="https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/" target="_blank" rel="noopener" class="story-link">
                         Read at TechCrunch &rarr;
                     </a>
                 </div>
@@ -1045,7 +1135,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Technology</span>
-                        <span>10h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1064,21 +1154,45 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">The Download: Silicon Valley’s blind spot and Nvidia’s chip-tracking plan</span>
+                        <span class="story-title">The OpenAI board member who fired Sam Altman says we still can&amp;#8217;t trust AI CEOs</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">MIT Tech Review</span>
-                        <span>22h ago</span>
+                        <span class="story-src">The Verge</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">This is today&amp;#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&amp;#8217;s going on in the world of technology. Silicon Valley claims to know the future. So why did it get the midterms so wrong? —Aaron Zamost, a tech communications consultant and a former executive at Square The self-styled visionaries&amp;#8230;</p>
+                    <p class="story-text">Today, I’m talking with Helen Toner, the executive director of the Center for Security and Emerging Technology at Georgetown University. This episode is part two of our series on AI in real life. Helen is a well-known figure in the AI safety and policy community, though she is perhaps best known for having served on [&amp;#8230;]</p>
                     
-                    <a href="https://www.technologyreview.com/2026/11/13/1148551/the-download-silicon-valley-midterms-nvidia-chip-tracking/" target="_blank" rel="noopener" class="story-link">
-                        Read at MIT Tech Review &rarr;
+                    <a href="https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview" target="_blank" rel="noopener" class="story-link">
+                        Read at The Verge &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Starship flight 15 powers to orbit—setting up a possible catch on Saturday</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Ars Technica</span>
+                        <span>1d ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2305018954-500x500.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">One way or another, the company will get some more data on Saturday.</p>
+                    
+                    <a href="https://arstechnica.com/space/2026/11/starship-flight-15-powers-to-orbit-setting-up-a-possible-catch-on-saturday/" target="_blank" rel="noopener" class="story-link">
+                        Read at Ars Technica &rarr;
                     </a>
                 </div>
             </details>
@@ -1101,7 +1215,7 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Beijing has repeatedly urged Washington to implement the $60 billion tariff-reduction deal, calling it a prerequisite for increasing purchases of US farm goods. More than eight months into the Iran war, smoke continues to billow from oil tankers as Tehran presses ahead with repeated attacks near the Strait of Hormuz. From £8 bratwursts to £11 Yorkshire pudding wraps, why is the cost of the markets rising year on year?</p>
+                <p class="tldr-para">For weeks, European stocks have outshone other markets, pushing higher as AI ructions tripped up benchmarks elsewhere. Bank of America named several stocks that still have more room to run despite market jitters. From £8 bratwursts to £11 Yorkshire pudding wraps, why is the cost of the markets rising year on year?</p>
                 
                 
             </div>
@@ -1113,21 +1227,21 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">China, US discuss tariffs, farm trade ahead of Xi-Trump meeting</span>
+                        <span class="story-title">State Street, Pictet Call Time on Europe’s Stock Market Rally</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">CNBC</span>
+                        <span class="story-src">Bloomberg</span>
                         <span>3h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Beijing has repeatedly urged Washington to implement the $60 billion tariff-reduction deal, calling it a prerequisite for increasing purchases of US farm goods.</p>
+                    <p class="story-text">For weeks, European stocks have outshone other markets, pushing higher as AI ructions tripped up benchmarks elsewhere. Now, some investors and strategists say the rare stretch of outperformance is about to end.</p>
                     
-                    <a href="https://www.cnbc.com/2026/11/14/china-us-tariffs-xi-trump-meeting.html" target="_blank" rel="noopener" class="story-link">
-                        Read at CNBC &rarr;
+                    <a href="https://www.bloomberg.com/news/articles/2026-11-15/state-street-pictet-call-time-on-europe-s-stock-market-rally" target="_blank" rel="noopener" class="story-link">
+                        Read at Bloomberg &rarr;
                     </a>
                 </div>
             </details>
@@ -1135,21 +1249,21 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">The Oil Market Is Brimming With Crude Despite Tanker Attacks</span>
+                        <span class="story-title">Bank of America says these stocks have major upside potential in an uncertain market</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Bloomberg</span>
-                        <span>2h ago</span>
+                        <span class="story-src">CNBC</span>
+                        <span>21h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">More than eight months into the Iran war, smoke continues to billow from oil tankers as Tehran presses ahead with repeated attacks near the Strait of Hormuz.</p>
+                    <p class="story-text">Bank of America named several stocks that still have more room to run despite market jitters.</p>
                     
-                    <a href="https://www.bloomberg.com/news/articles/2026-11-14/the-oil-market-is-brimming-with-crude-despite-tanker-attacks" target="_blank" rel="noopener" class="story-link">
-                        Read at Bloomberg &rarr;
+                    <a href="https://www.cnbc.com/2026/11/14/stocks-with-upside-potential-in-an-uncertain-market.html" target="_blank" rel="noopener" class="story-link">
+                        Read at CNBC &rarr;
                     </a>
                 </div>
             </details>
@@ -1162,7 +1276,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Business</span>
-                        <span>4h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1184,27 +1298,23 @@ body {
     <section class="section" id="science" aria-label="Science">
         <div class="sec-head" data-cat="science">
             <h2 class="sec-label">Science</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">1 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="science" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">1 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
-                
-                <p class="tldr-para">Quantum clocks usually rely on advanced lasers and isolated atoms in the lab, but a new experiment showed that the same clock design can work with sunlight… OpenAI and an Anthropic-associated research team have made progress on the Yang-Mills existence problem</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">AI rivals tackle one of physics’ deepest mathematical challenges · </span>
-                    
-                    <span class="tldr-also-item">Number of international students arriving in US plunges — worrying scientists</span>
+                    <span class="tldr-also-item">On this day in space! Nov. 14, 1969: NASA&#39;s Apollo 12 astronauts launch to the moon on a &#39;pinpoint landing&#39; lunar mission</span>
                     
                 </div>
                 
@@ -1217,91 +1327,23 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">On this day in space! Nov. 13, 1971: NASA&#39;s Mariner 9 becomes 1st spacecraft to orbit Mars, revealing close looks at the Martian surface</span>
+                        <span class="story-title">On this day in space! Nov. 14, 1969: NASA&#39;s Apollo 12 astronauts launch to the moon on a &#39;pinpoint landing&#39; lunar mission</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Space.com</span>
-                        <span>13h ago</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.mos.cms.futurecdn.net/KqwWii385QWmsk3ReaUnPC-1920-80.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.mos.cms.futurecdn.net/L58BN7mnVx7acqZpijhSpi-1920-80.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">On Nov. 13, 1971, Mariner 9 became the first spacecraft to orbit Mars. Here&#39;s why it mattered.</p>
+                    <p class="story-text">On Nov. 14, 1969, the Apollo 12 astronauts launched to the moon. Here&#39;s why it mattered.</p>
                     
-                    <a href="https://www.space.com/space-exploration/on-this-day-in-space-november-13-2026" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.space.com/space-exploration/on-this-day-in-space-november-14-2026" target="_blank" rel="noopener" class="story-link">
                         Read at Space.com &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Researchers build the first ever quantum clock that uses sunlight</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">New Scientist</span>
-                        <span>18h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.newscientist.com/wp-content/uploads/2026/11/SEI_320386804.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Quantum clocks usually rely on advanced lasers and isolated atoms in the lab, but a new experiment showed that the same clock design can work with sunlight instead</p>
-                    
-                    <a href="https://www.newscientist.com/article/2598583-researchers-built-the-first-ever-quantum-clock-that-uses-sunlight/?utm_campaign=RSS|NSNS&amp;utm_content=news&amp;utm_medium=RSS&amp;utm_source=NSNS" target="_blank" rel="noopener" class="story-link">
-                        Read at New Scientist &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">AI rivals tackle one of physics’ deepest mathematical challenges</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Science (AAAS)</span>
-                        <span>recently</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">OpenAI and an Anthropic-associated research team have made progress on the Yang-Mills existence problem</p>
-                    
-                    <a href="https://www.science.org/content/article/ai-rivals-tackle-one-physics-deepest-mathematical-challenges" target="_blank" rel="noopener" class="story-link">
-                        Read at Science (AAAS) &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Number of international students arriving in US plunges — worrying scientists</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Nature</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Nature, Published online: 13 November 2026; doi:10.1038/d41586-026-03668-x Declines in students from China and India are driving the trend, which researchers say could slow the progress of US science.</p>
-                    
-                    <a href="https://www.nature.com/articles/d41586-026-03668-x" target="_blank" rel="noopener" class="story-link">
-                        Read at Nature &rarr;
                     </a>
                 </div>
             </details>
@@ -1324,15 +1366,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Koalition und Medien sind sich einig, dass Ilse Aigner die ideale Kandidatin für das Schloss Bellevue ist. In München haben zahlreiche Menschen am Trauerakt für den bayerischen Vize-Ministerpräsidenten und Freie-Wähler-Chef Aiwanger teilgenommen. Im Internet finden sich massenhaft KI-generierte Darstellungen zum Klimawandel, die an Dramatik und Kitsch kaum zu überbieten sind.</p>
+                <p class="tldr-para">Die erneuten Gen-Z-Proteste am Samstag haben an Zulauf verloren. Als Schwarze Deutsche fragt sich die Autorin Alice Hasters: Warum gilt die Erinnerung an koloniale Verbrechen noch immer als Gefahr für die deutsche… Wer die Preise auf der Fotomesse Paris Photo für hoch hält, war noch nicht auf einer Kunstauktion in New York.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Cybercab: Tesla lässt ausgewählte Käufer in den USA Cybercab vorbestellen · </span>
+                    <span class="tldr-also-item">Australien und Philippinen schließen Verteidigungsabkommen · </span>
                     
-                    <span class="tldr-also-item">Guineas Goldboom: Neue Raffinerie und vertriebene Goldschürfer</span>
+                    <span class="tldr-also-item">Iran greift erneut US-Stützpunkt in Bahrain an</span>
                     
                 </div>
                 
@@ -1345,22 +1387,22 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Ilse Aigner (CSU) als Bundespräsidentin: Ein großes Missverständnis – Kolumne</span>
+                        <span class="story-title">»Gen Z regelt«-Proteste: Weniger Zulauf, 22 Festnahmen in Berlin</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Spiegel</span>
-                        <span>6m ago</span>
+                        <span>9m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.prod.www.spiegel.de/images/6dabb420-7150-4d75-8d3d-5c599091045a_w520_r2.08_fpx46.64_fpy49.99.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.prod.www.spiegel.de/images/3298d088-4262-4c57-a443-8b0145025442_w520_r2.08_fpx60.75_fpy50.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Koalition und Medien sind sich einig, dass Ilse Aigner die ideale Kandidatin für das Schloss Bellevue ist. Wie kann ein ganzes Land so irren?</p>
+                    <p class="story-text">Die erneuten Gen-Z-Proteste am Samstag haben an Zulauf verloren. Meist blieb es friedlich, nur in Berlin gab es 22 Festnahmen. Am Freitag soll ein europaweiter Jugendstreik folgen.</p>
                     
-                    <a href="https://www.spiegel.de/politik/deutschland/ilse-aigner-csu-als-bundespraesidentin-ein-grosses-missverstaendnis-kolumne-a-9a10a4b5-917f-4872-aa69-7b3b1e7c208c#ref=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.spiegel.de/panorama/gen-z-regelt-proteste-weniger-zulauf-22-festnahmen-in-berlin-a-bd129e26-8004-4562-a07a-ecee3e5ea39d#ref=rss" target="_blank" rel="noopener" class="story-link">
                         Read at Spiegel &rarr;
                     </a>
                 </div>
@@ -1369,68 +1411,22 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Trauerakt in München: Große Anteilnahme bei Abschied von Aiwanger</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>6m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">In München haben zahlreiche Menschen am Trauerakt für den bayerischen Vize-Ministerpräsidenten und Freie-Wähler-Chef Aiwanger teilgenommen. Kardinal Marx sprach von einem &#34;Schock&#34;. Er würdigte Aiwanger als &#34;außergewöhnliche Persönlichkeit&#34;.</p>
-                    
-                    <a href="https://www.tagesschau.de/inland/aiwanger-trauerfeier-100.html" target="_blank" rel="noopener" class="story-link">
-                        Read at Tagesschau &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">KI und Klimakrise: Träumen Chatbots von Eisbären?</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">FAZ</span>
-                        <span>8m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://media0.faz.net/image/79a2c2f8d35d/w1620h911x0y624/202611/6e0c9cff-408c-4fb6-8e37-0ccb65dc2c57/ki-kitsch-gegen-windenergie.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Im Internet finden sich massenhaft KI-generierte Darstellungen zum Klimawandel, die an Dramatik und Kitsch kaum zu überbieten sind. Können sie dennoch bei der Aufklärung helfen?</p>
-                    
-                    <a href="https://www.faz.net/aktuell/feuilleton/medien-und-film/medienpolitik/ki-generierte-bilder-zum-klimawandel-fluch-oder-segen-accg-201672903.html" target="_blank" rel="noopener" class="story-link">
-                        Read at FAZ &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Cybercab: Tesla lässt ausgewählte Käufer in den USA Cybercab vorbestellen</span>
+                        <span class="story-title">Deutsche Kolonialgeschichte: Die Lücken in unserem Gedächtnis</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">ZEIT Online</span>
-                        <span>9m ago</span>
+                        <span>12m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://img.zeit.de/mobilitaet/2026-11/tesla-robotaxi-cybercab-private-nutzung-ashok-elluswamy-gxe-foto-1/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://img.zeit.de/feuilleton/2026-11/deutsche-kolonialgeschichte-berliner-konferenz-afrika-erinnerung-bild/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Tesla ​bietet sein Robotaxi Cybercab ausgewählten Kunden zur privaten Nutzung an. Autonomes Fahren wird jedoch nur in einzelnen US-Städten verfügbar sein.</p>
+                    <p class="story-text">Als Schwarze Deutsche fragt sich die Autorin Alice Hasters: Warum gilt die Erinnerung an koloniale Verbrechen noch immer als Gefahr für die deutsche Erinnerungskultur?</p>
                     
-                    <a href="https://www.zeit.de/mobilitaet/2026-11/tesla-robotaxi-cybercab-private-nutzung-ashok-elluswamy-gxe" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.zeit.de/2026-11/deutsche-kolonialgeschichte-berliner-konferenz-afrika-erinnerung" target="_blank" rel="noopener" class="story-link">
                         Read at ZEIT Online &rarr;
                     </a>
                 </div>
@@ -1439,21 +1435,67 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Guineas Goldboom: Neue Raffinerie und vertriebene Goldschürfer</span>
+                        <span class="story-title">Messe Paris Photo: Die ganze Geschichte der Fotografie praktisch zum Schnäppchenpreis</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">FAZ</span>
+                        <span>19m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://media0.faz.net/image/390a1d101015/w3000h1687x0y276/202611/68984a47-7c2d-4af6-b798-1b991c5423fe/wohin-geht-die-reise-fred.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Wer die Preise auf der Fotomesse Paris Photo für hoch hält, war noch nicht auf einer Kunstauktion in New York. Weshalb also greifen Sammler und Museen nicht beherzter zu? Wir hätten ein paar Vorschläge zum Kauf.</p>
+                    
+                    <a href="https://www.faz.net/aktuell/feuilleton/kunstmarkt/die-ganze-geschichte-der-fotografie-auf-der-messe-paris-photo-accg-201680111.html" target="_blank" rel="noopener" class="story-link">
+                        Read at FAZ &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Australien und Philippinen schließen Verteidigungsabkommen</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">DW Deutsch</span>
-                        <span>33m ago</span>
+                        <span>28m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Guinea geht gegen den illegalen Goldabbau vor. Begründet wird das mit Gefahren für die Umwelt. Es gibt Berichte über Gewalt und Abschiebung. In Conakry eröffnet zeitgleich die erste eigene Goldraffinerie.</p>
+                    <p class="story-text">Die Philippinen und Australien arbeiten künftig in einem besonderen Bereich noch enger zusammen. Das hat auch mit Chinas Verhalten im Südchinesischen ⁠Meer zu tun.</p>
                     
-                    <a href="https://www.dw.com/de/guineas-goldboom-neue-raffinerie-und-vertriebene-goldschürfer/a-79922802?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.dw.com/de/australien-und-philippinen-schließen-verteidigungsabkommen/a-79951853?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
                         Read at DW Deutsch &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Iran greift erneut US-Stützpunkt in Bahrain an</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Tagesschau</span>
+                        <span>28m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Iran hat nach eigenen Angaben einen US-Stützpunkt in Bahrain angegriffen. Die Revolutionsgarde habe eine Radaranlage attackiert, meldeten Staatsmedien. Bahrain wehrte offenbar auch mehrere Angriffe ab.</p>
+                    
+                    <a href="https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Tagesschau &rarr;
                     </a>
                 </div>
             </details>
@@ -1502,7 +1544,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Updated 11:18 UTC &middot; 14.11.2026<br>
+        Updated 11:50 UTC &middot; 15.11.2026<br>
         New edition every morning
     </footer>
 
