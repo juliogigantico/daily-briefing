@@ -641,19 +641,167 @@ body {
 
     <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
-        <div class="hero-greeting">🔆 Midday update</div>
+        <div class="hero-greeting">👋 Good afternoon</div>
         <div class="hero-top">
             <h1 class="hero-title">my news</h1>
             
+            <div class="hero-weather">
+                <span class="hw-icon">☁️</span>
+                <span class="hw-temp">7&deg;</span>
+            </div>
+            
         </div>
         <div class="hero-meta">
-            <span>Monday, 16 November 2026</span>
+            <span>Tuesday, 17 November 2026</span>
             <span class="hero-sep">/</span>
             <span>Berlin</span>
             
+            <span class="hero-sep">/</span>
+            <span id="hw-today">5&deg;&ndash;9&deg;</span>
+            
+            
+            <span class="hero-sep">/</span>
+            <span id="hw-tmrw">Tmrw 8&deg;&ndash;11&deg;</span>
             
         </div>
 
+        
+        <div class="hero-hourly-wrap">
+            <div class="hero-hourly">
+                
+                <div class="hh" data-hour="13:00">
+                    <span class="hh-t">13:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="14:00">
+                    <span class="hh-t">14:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="15:00">
+                    <span class="hh-t">15:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="16:00">
+                    <span class="hh-t">16:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">75%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="17:00">
+                    <span class="hh-t">17:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">100%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="18:00">
+                    <span class="hh-t">18:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">100%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="19:00">
+                    <span class="hh-t">19:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">100%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="20:00">
+                    <span class="hh-t">20:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">6&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">68%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="21:00">
+                    <span class="hh-t">21:00</span>
+                    <span class="hh-i">🌦️</span>
+                    <span class="hh-d">7&deg;</span>
+                    
+                    <span class="hh-r">23%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="22:00">
+                    <span class="hh-t">22:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r">5%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="23:00">
+                    <span class="hh-t">23:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">8&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="00:00">
+                    <span class="hh-t">00:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">9&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="01:00">
+                    <span class="hh-t">01:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">9&deg;</span>
+                    
+                    <span class="hh-r">38%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="02:00">
+                    <span class="hh-t">02:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">9&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">68%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="03:00">
+                    <span class="hh-t">03:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">10&deg;</span>
+                    
+                    <span class="hh-r hh-r-hi">83%</span>
+                    
+                </div>
+                
+            </div>
+        </div>
         
     </header>
 
@@ -675,15 +823,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">A number of tech figures want the board of the AI chip giant to give Jensen Huang his job back. Six men&amp;#039;s and six women&amp;#039;s teams will compete for the medals in T20 format as cricket returns to the Olympics in 2028. Pope Leo XIV concludes his 12-day homecoming tour of South America on Monday, a visit that has helped dispel concerns over his health following his recovery…</p>
+                <p class="tldr-para">Challenger nears 50% of the ballot to secure victory in final midterms contest Protests greet Trump on Asia visit – follow live Chris Van Hollen set to challenge Chuck Schumer for the post as the Democrats prepare to take control of Congress. Venâncio Mondlane faces several charges over 2024 post-election protests that left hundreds of people dead.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Trump’s justice department warns Elizabeth Warren over Democrats’ plans for future investigations – live · </span>
+                    <span class="tldr-also-item">Guinea jails 200 in wildcat gold mining crackdown · </span>
                     
-                    <span class="tldr-also-item">Germany to join other EU states in announcing Rwanda deportation hub</span>
+                    <span class="tldr-also-item">Trump is in Asia ahead of Xi, Putin summit. And, tech leaders want Huang back at Nvidia</span>
                     
                 </div>
                 
@@ -696,90 +844,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Elon Musk joins &#39;Bring Jensen Back&#39; campaign to reinstate the ex-Nvidia boss</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC World</span>
-                        <span>13m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/36dc/live/86b75570-e1b8-11f1-9a3f-99aca912798e.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">A number of tech figures want the board of the AI chip giant to give Jensen Huang his job back.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/cry49plv8v3go?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC World &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Which cricket teams can qualify for the LA 2028 Olympics and how?</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Al Jazeera</span>
-                        <span>17m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Six men&amp;#039;s and six women&amp;#039;s teams will compete for the medals in T20 format as cricket returns to the Olympics in 2028.</p>
-                    
-                    <a href="https://www.aljazeera.com/sports/2026/11/16/which-cricket-teams-can-qualify-for-the-la-2028-olympics-and-how?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at Al Jazeera &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Pope Leo wraps up South America tour that tested recovery from cancer surgery</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">France 24</span>
-                        <span>18m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://s.france24.com/media/display/a010640e-e1b2-11f1-85a0-695cb59fade5/w:1024/p:16x9/EN-20261116-104127-104326-CS-01.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Pope Leo XIV concludes his 12-day homecoming tour of South America on Monday, a visit that has helped dispel concerns over his health following his recovery from cancer surgery. The 71-year-old pontiff visited Uruguay, Argentina and Peru, crisscrossing a continent where he had spent almost two decades serving as a missionary.</p>
-                    
-                    <a href="https://www.france24.com/en/video/20261116-pope-leo-wraps-up-south-america-tour-that-tested-recovery-from-cancer-surgery" target="_blank" rel="noopener" class="story-link">
-                        Read at France 24 &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Trump’s justice department warns Elizabeth Warren over Democrats’ plans for future investigations – live</span>
+                        <span class="story-title">Democrats’ Peltola ahead as counting nears end in Alaska Senate race – US politics live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>21m ago</span>
+                        <span>14m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Letter to likely chair of Senate Banking Committee is latest warning to Democrats about their potential plans after the party’s midterms success</p>
+                    <p class="story-text">Challenger nears 50% of the ballot to secure victory in final midterms contest Protests greet Trump on Asia visit – follow live</p>
                     
-                    <a href="https://www.theguardian.com/us-news/live/2026/nov/16/donald-trump-asia-visit-democrats-republicans-elizabeth-warren-faa-air-disruption-latest-news-updates" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/us-news/live/2026/nov/17/donald-trump-alaska-senate-race-midterms-democrats-republicans-latest-news-updates" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -788,7 +866,53 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Germany to join other EU states in announcing Rwanda deportation hub</span>
+                        <span class="story-title">How is US Senate majority leader chosen?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Al Jazeera</span>
+                        <span>15m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Chris Van Hollen set to challenge Chuck Schumer for the post as the Democrats prepare to take control of Congress.</p>
+                    
+                    <a href="https://www.aljazeera.com/news/2026/11/17/how-is-us-senate-majority-leader-chosen?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at Al Jazeera &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Mozambique opposition leader faces trial over deadly 2024 election unrest</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC World</span>
+                        <span>18m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/8344/live/da8191f0-e27d-11f1-bd1e-f9c53347c5a6.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Venâncio Mondlane faces several charges over 2024 post-election protests that left hundreds of people dead.</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/crq5vl1l6z2po?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC World &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Guinea jails 200 in wildcat gold mining crackdown</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -799,10 +923,32 @@ body {
                 <div class="story-body">
                     
                     
-                    <p class="story-text">The move follows approval of EU regulations that ease deportations and allow hubs to be set up outside the bloc. A similar scheme by the UK government fell apart over legal issues.</p>
+                    <p class="story-text">A Conakry court has jailed 22 former local officials from the gold-rich northeastern Siguiri region, as well as 200 people accused of illegal mining. It&#39;s part of a wider crackdown that sent thousands fleeing into Mali.</p>
                     
-                    <a href="https://www.dw.com/en/germany-to-join-other-eu-states-in-announcing-rwanda-deportation-hub/a-79959158?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.dw.com/en/guinea-jails-200-in-wildcat-gold-mining-crackdown/a-79968808?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
                         Read at DW English &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Trump is in Asia ahead of Xi, Putin summit. And, tech leaders want Huang back at Nvidia</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">NPR World</span>
+                        <span>33m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Trump says he plans to discuss Ukraine during his Asia trip, which contradicts what the White House previously announced. And, Silicon Valley leaders are pushing for Jensen Huang&#39;s return to Nvidia.</p>
+                    
+                    <a href="https://www.npr.org/2026/11/17/g-s1-153950/up-first-newsletter-faa-ground-stop-trump-asia-trip-nvidia-lindsay-clancy" target="_blank" rel="noopener" class="story-link">
+                        Read at NPR World &rarr;
                     </a>
                 </div>
             </details>
@@ -813,20 +959,27 @@ body {
     <section class="section" id="environment" aria-label="Environment &amp; Climate">
         <div class="sec-head" data-cat="environment">
             <h2 class="sec-label">Environment &amp; Climate</h2>
-            <span class="sec-count">3 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="environment" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">3 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Exclusive: Experts say watering down ZEV mandate would slow market and hamper efforts to reduce cost of living Moves to weaken the UK’s targets on electric… Trial by Fire: Second in a series about the impacts of wildfire litigation. A spell of colder, wintry weather will grip some northern parts of the UK, bringing a threat of ice and hill snow at times.</p>
+                <p class="tldr-para">‘Hyperscaler’ datacenters across country draw upon dirtier power sources to meet vast energy needs, research shows The frantic buildout of “hyperscaler”… ANTALYA, Turkey—After their big gains in the 2026 midterm elections, a delegation of Democratic U.S. The best AI models answer most climate science questions correctly, but they often abandon established facts as soon as a user disagrees, according to…</p>
                 
+                
+                <div class="tldr-also">
+                    <span class="tldr-also-label">Also:</span>
+                    
+                    <span class="tldr-also-item">Giant lunar sculpture has visitors over the moon</span>
+                    
+                </div>
                 
             </div>
         </details>
@@ -837,20 +990,20 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Weakening UK electric vehicle targets would hurt car industry, ministers told</span>
+                        <span class="story-title">Surge of US datacenters adds equivalent of Denmark’s annual emissions, study finds</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>6h ago</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Exclusive: Experts say watering down ZEV mandate would slow market and hamper efforts to reduce cost of living Moves to weaken the UK’s targets on electric vehicles would hurt the car industry as well as consumers, campaigners and experts have said before a key intervention from government advisers expected this week. The climate change committee (CCC) will write to ministers on Wednesday about the effects of changing the zero emissions vehicle (ZEV) mandate on the cost of living and the UK’s ne</p>
+                    <p class="story-text">‘Hyperscaler’ datacenters across country draw upon dirtier power sources to meet vast energy needs, research shows The frantic buildout of “hyperscaler” datacenters in the US has collectively caused planet-heating emissions of about the same scale as Denmark emits in a year, new research has found. In that period, 403 “hyperscalers” – the largest datacenters used primarily to handle the growth of artificial intelligence – emitted about 25.7m metric tons of carbon dioxide, according to the study.</p>
                     
-                    <a href="https://www.theguardian.com/environment/2026/nov/16/weakening-uk-electric-vehicle-targets-would-hurt-car-industry-ministers-told" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/us-news/2026/nov/16/datacenter-emissions-study" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -859,20 +1012,20 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Wildfire Lawsuits Against Utilities Fuel a Debate Over Who Should Pay</span>
+                        <span class="story-title">Democrats Signal US Return to Global Climate Talks</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>2h ago</span>
+                        <span>15h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Trial by Fire: Second in a series about the impacts of wildfire litigation. A week before Christmas 2025, 100-mile-per-hour wind gusts punished the foothills of Boulder, Colorado. An unusually dry summer and fall had parched trees and tall grasses. Snowfall across the county was roughly half the long-term average, and record-warm temperatures left none on [&amp;#8230;]</p>
+                    <p class="story-text">ANTALYA, Turkey—After their big gains in the 2026 midterm elections, a delegation of Democratic U.S. House members appeared at the United Nations COP31 climate change conference Monday, pledging to rejoin the international fight against global warming. Rep. Jared Huffman (D-Calif.), ranking member of the House Natural Resources Committee, said it is a “pivotal time” for [&amp;#8230;]</p>
                     
-                    <a href="https://insideclimatenews.org/news/16112026/wildfire-legal-actions-against-utilities/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://insideclimatenews.org/news/16112026/congress-democrats-united-states-cop31/" target="_blank" rel="noopener" class="story-link">
                         Read at Inside Climate News &rarr;
                     </a>
                 </div>
@@ -881,22 +1034,46 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Yellow weather warnings issued for snow as temperatures plummet</span>
+                        <span class="story-title">AI gets climate science right – until users push back</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC Environment</span>
-                        <span>2h ago</span>
+                        <span class="story-src">UN News Climate</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/6f1b/live/2225a470-e133-11f1-a204-d95dd4dbb76b.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/2026/11/16-11-2026_COP-31_02.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">A spell of colder, wintry weather will grip some northern parts of the UK, bringing a threat of ice and hill snow at times.</p>
+                    <p class="story-text">The best AI models answer most climate science questions correctly, but they often abandon established facts as soon as a user disagrees, according to a&amp;nbsp;new report co-authored by the UN.</p>
                     
-                    <a href="https://www.bbc.co.uk/weather/articles/c6y97j2xq531o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://news.un.org/feed/view/en/story/2026/11/1168817" target="_blank" rel="noopener" class="story-link">
+                        Read at UN News Climate &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Giant lunar sculpture has visitors over the moon</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC Environment</span>
+                        <span>49m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0c5c/live/1791db60-e272-11f1-99b6-a35a62fa4264.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">People can see the 6m-wide sculpture in St Helier until 29 November.</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/cm79213ngx45o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Environment &rarr;
                     </a>
                 </div>
@@ -908,25 +1085,27 @@ body {
     <section class="section" id="tech" aria-label="Tech &amp; AI">
         <div class="sec-head" data-cat="tech">
             <h2 class="sec-label">Tech &amp; AI</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">5 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="tech" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">5 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Bharat Semi says it has secured design wins for its AI-enabled sensor technology with companies including General Atomics. Washington Senator Maria Cantwell, one of the top Democrats on the Senate commerce committee, has taken fire at the Department of Commerce (DOC) under… The Nvidia scandal has raised questions over whether advanced AI chips ended up in China, despite US restrictions.</p>
+                <p class="tldr-para">The ride-sharing giant said driver&#39;s license information stored by AI cloud company Fireworks AI was stolen during a security incident. The Singapore-based company is suspected of helping to ship high-end AI chips from tech giant Nvidia to China, violating US export rules. The news has been filled with stories recently of AI breaching the security of websites.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Delivery drones are coming. For some with PTSD, that&#39;s a terrifying prospect.</span>
+                    <span class="tldr-also-item">The open-source movement wants Jensen Huang back · </span>
+                    
+                    <span class="tldr-also-item">Tech leaders are convinced that Jensen Huang’s exit was a plot against him</span>
                     
                 </div>
                 
@@ -939,20 +1118,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market</span>
+                        <span class="story-title">Uber says hackers stole information on close to 150,000 driver’s licenses during data breach</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">TechCrunch</span>
-                        <span>13h ago</span>
+                        <span>17h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Bharat Semi says it has secured design wins for its AI-enabled sensor technology with companies including General Atomics.</p>
+                    <p class="story-text">The ride-sharing giant said driver&#39;s license information stored by AI cloud company Fireworks AI was stolen during a security incident.</p>
                     
-                    <a href="https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/" target="_blank" rel="noopener" class="story-link">
                         Read at TechCrunch &rarr;
                     </a>
                 </div>
@@ -961,44 +1140,22 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Senator slams Commerce Secretary for flow of Nvidia AI chips to China</span>
+                        <span class="story-title">US government confirms investigation into tech firm Megaspeed</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">The Verge</span>
+                        <span class="story-src">BBC Technology</span>
                         <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    
-                    <p class="story-text">Washington Senator Maria Cantwell, one of the top Democrats on the Senate commerce committee, has taken fire at the Department of Commerce (DOC) under Secretary Howard Lutnick for neglecting to enforce protections intended to keep Nvidia&#39;s AI chips away from China. In a letter to Lutnick on Sunday, Cantwell said the DOC has &#34;undermined America&#39;s [&amp;#8230;]</p>
-                    
-                    <a href="https://www.theverge.com/policy/1034047/nvidia-us-commerce-department-cantwell-lutnick" target="_blank" rel="noopener" class="story-link">
-                        Read at The Verge &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Suspected China spy linked to Nvidia&#39;s ex-boss left in 2025, Megaspeed says</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC Technology</span>
-                        <span>10h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fa43/live/e2a9a870-e10d-11f1-93e1-3b657b665bcf.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/a77e/live/31ebc580-e267-11f1-900c-895604014268.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">The Nvidia scandal has raised questions over whether advanced AI chips ended up in China, despite US restrictions.</p>
+                    <p class="story-text">The Singapore-based company is suspected of helping to ship high-end AI chips from tech giant Nvidia to China, violating US export rules.</p>
                     
-                    <a href="https://www.bbc.co.uk/news/articles/cmdx1vpprk9vo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.co.uk/news/articles/cmn504nq5033o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Technology &rarr;
                     </a>
                 </div>
@@ -1007,23 +1164,67 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Delivery drones are coming. For some with PTSD, that&#39;s a terrifying prospect.</span>
+                        <span class="story-title">EFF’s AI Cybersecurity Policy Framework</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Ars Technica</span>
-                        <span>32m ago</span>
+                        <span class="story-src">EFF Deeplinks</span>
+                        <span>14h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/GettyImages-2298538124-500x500.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://www.eff.org/files/banner_library/og-governmenthacking_0.png" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">For those who have lived under armed drones, the sound overhead can be distressing.</p>
+                    <p class="story-text">The news has been filled with stories recently of AI breaching the security of websites. And while it may feel like a new problem because of AI’s involvement, it turns out that there are longstanding existing cybersecurity safety best practices that these companies—some of the largest tech companies in the world—could and should have taken to prevent these breaches. Recent cybersecurity incidents have shown that some of the world’s largest tech companies have failed to take basic security precau</p>
                     
-                    <a href="https://arstechnica.com/gadgets/2026/11/the-drone-delivery-boom-could-be-a-nightmare-for-people-traumatized-by-war/" target="_blank" rel="noopener" class="story-link">
-                        Read at Ars Technica &rarr;
+                    <a href="https://www.eff.org/deeplinks/2026/11/effs-ai-cybersecurity-policy-framework" target="_blank" rel="noopener" class="story-link">
+                        Read at EFF Deeplinks &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">The open-source movement wants Jensen Huang back</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">MIT Tech Review</span>
+                        <span>18h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. On Friday, a petition to reinstate Jensen Huang as CEO of Nvidia began circulating on social media, and by Monday it listed some notable signatories, including Elon Musk and several influential Nvidia&amp;#8230;</p>
+                    
+                    <a href="https://www.technologyreview.com/2026/11/16/1148624/the-open-source-movement-wants-jensen-huang-back/" target="_blank" rel="noopener" class="story-link">
+                        Read at MIT Tech Review &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Tech leaders are convinced that Jensen Huang’s exit was a plot against him</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">The Verge</span>
+                        <span>13h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Jensen Huang&#39;s stunning resignation from Nvidia after more than 33 years has sent shockwaves throughout the tech industry. Now prominent figures are calling for Huang&#39;s reinstatement, and many are also hopping on board with a theory spreading throughout Silicon Valley: that the scandal is the result of a plot against the former CEO. At the [&amp;#8230;]</p>
+                    
+                    <a href="https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories" target="_blank" rel="noopener" class="story-link">
+                        Read at The Verge &rarr;
                     </a>
                 </div>
             </details>
@@ -1034,20 +1235,27 @@ body {
     <section class="section" id="economy" aria-label="Economy &amp; Markets">
         <div class="sec-head" data-cat="economy">
             <h2 class="sec-label">Economy &amp; Markets</h2>
-            <span class="sec-count">3 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="economy" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">3 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Bond traders fresh off a bruising week will look to a slew of Federal Reserve speeches and the central bank’s most recent meeting minutes for clues on interest… Follow along as CNBC highlights the biggest stock market moves of the day. Some parents are so desperate for their children to find a job that they&#39;ve offered to pay their wages, one hairdresser has told the BBC.</p>
+                <p class="tldr-para">Federal Reserve Bank of St. Berkshire Hathaway added to several stock positions in the third quarter while trimming others, including Bank of America. How many jobs are there where you live and in which sectors are you most likely to find an opening?</p>
                 
+                
+                <div class="tldr-also">
+                    <span class="tldr-also-label">Also:</span>
+                    
+                    <span class="tldr-also-item">America does not produce world-beating statistics. Who does?</span>
+                    
+                </div>
                 
             </div>
         </details>
@@ -1058,20 +1266,20 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Roughed-Up Bond Traders Eye Fedspeak, Minutes for Next Move</span>
+                        <span class="story-title">Fed’s Musalem Says ‘Several’ Rate Hikes Likely Needed by Spring</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Bloomberg</span>
-                        <span>16h ago</span>
+                        <span>23m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Bond traders fresh off a bruising week will look to a slew of Federal Reserve speeches and the central bank’s most recent meeting minutes for clues on interest rates after the market ramped up expectations for an extended cycle of hikes.</p>
+                    <p class="story-text">Federal Reserve Bank of St. Louis President Alberto Musalem signaled support Tuesday for multiple interest rate-increases in the coming months to bring inflation under control.</p>
                     
-                    <a href="https://www.bloomberg.com/news/articles/2026-11-15/roughed-up-bond-traders-look-to-fedspeak-minutes-for-next-move" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bloomberg.com/news/articles/2026-11-17/fed-s-musalem-says-several-rate-hikes-likely-needed-by-spring" target="_blank" rel="noopener" class="story-link">
                         Read at Bloomberg &rarr;
                     </a>
                 </div>
@@ -1080,20 +1288,20 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Stocks making the biggest moves premarket: Nvidia, Take-Two Interactive, Yeti, American Airlines &amp; more</span>
+                        <span class="story-title">Berkshire Hathaway raised its stake in Delta in the third quarter. It also trimmed a key bank holding</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC</span>
-                        <span>13m ago</span>
+                        <span>13h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Follow along as CNBC highlights the biggest stock market moves of the day.</p>
+                    <p class="story-text">Berkshire Hathaway added to several stock positions in the third quarter while trimming others, including Bank of America.</p>
                     
-                    <a href="https://www.cnbc.com/2026/11/16/stocks-moving-the-most-today-live-updates.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.cnbc.com/2026/11/16/berkshire-hathaway-raised-its-stake-in-delta-air-in-the-third-quarter.html" target="_blank" rel="noopener" class="story-link">
                         Read at CNBC &rarr;
                     </a>
                 </div>
@@ -1102,23 +1310,45 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Create more jobs for under-25s by cutting National Insurance, key report urges</span>
+                        <span class="story-title">Where are the most jobs for 18-24 year-olds?</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">BBC Business</span>
-                        <span>1h ago</span>
+                        <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/283e/live/4753f640-e1ae-11f1-b0a4-450a350911f4.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/ca90/live/0c02f160-e1ac-11f1-8ee3-23d0d09d2796.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Some parents are so desperate for their children to find a job that they&#39;ve offered to pay their wages, one hairdresser has told the BBC.</p>
+                    <p class="story-text">How many jobs are there where you live and in which sectors are you most likely to find an opening?</p>
                     
-                    <a href="https://www.bbc.co.uk/news/articles/c6p9dzmj514ko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.bbc.co.uk/news/articles/cw3djdjk5d7ko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
                         Read at BBC Business &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">America does not produce world-beating statistics. Who does?</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">The Economist</span>
+                        <span>18h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">We search for the world’s worst—and best—economic data</p>
+                    
+                    <a href="https://www.economist.com/finance-and-economics/2026/11/16/america-does-not-produce-world-beating-statistics-who-does" target="_blank" rel="noopener" class="story-link">
+                        Read at The Economist &rarr;
                     </a>
                 </div>
             </details>
@@ -1129,25 +1359,27 @@ body {
     <section class="section" id="science" aria-label="Science">
         <div class="sec-head" data-cat="science">
             <h2 class="sec-label">Science</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">5 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="science" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">5 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Voyager 1 is celebrating a big milestone as it approaches its 50th birthday: reaching one light-day away from Earth. Nature, Published online: 16 November 2026; doi:10.1038/d41586-026-03712-w A lack of crosstalk between research disciplines is hampering scholars’ ability to… OpenAI and an Anthropic-associated research team have made progress on the Yang-Mills existence problem</p>
+                <p class="tldr-para">Voyager 1 is celebrating a big milestone as it approaches its 50th birthday: reaching one light-day away from Earth. A pilot experiment explores alternatives to traditional journal peer review Some countries at the COP31 summit are calling to accelerate the deployment of carbon dioxide removal and carbon capture, but critics argue these approaches…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Skeleton found in Denmark came from man who witnessed the arrival of farming</span>
+                    <span class="tldr-also-item">New US Congress should ‘reimagine’ science — not just return to the past · </span>
+                    
+                    <span class="tldr-also-item">What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing.</span>
                     
                 </div>
                 
@@ -1165,7 +1397,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Space.com</span>
-                        <span>1h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1184,7 +1416,53 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Is the sixth great extinction imminent? Scientists must draw on natural history for clues</span>
+                        <span class="story-title">Scientific peer review should rate quality and impact separately, study argues</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Science (AAAS)</span>
+                        <span>1d ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">A pilot experiment explores alternatives to traditional journal peer review</p>
+                    
+                    <a href="https://www.science.org/content/article/scientific-peer-review-should-rate-quality-and-impact-separately-study-argues" target="_blank" rel="noopener" class="story-link">
+                        Read at Science (AAAS) &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="science">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Plans to rely on carbon removal tech spark debate at COP31</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">New Scientist</span>
+                        <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://www.newscientist.com/wp-content/uploads/2026/11/SEI_320895754.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Some countries at the COP31 summit are calling to accelerate the deployment of carbon dioxide removal and carbon capture, but critics argue these approaches are unproven at scale and distract from efforts to phase out fossil fuels</p>
+                    
+                    <a href="https://www.newscientist.com/article/2599223-plans-to-rely-on-carbon-removal-tech-spark-debate-at-cop31/?utm_campaign=RSS|NSNS&amp;utm_content=news&amp;utm_medium=RSS&amp;utm_source=NSNS" target="_blank" rel="noopener" class="story-link">
+                        Read at New Scientist &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="science">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">New US Congress should ‘reimagine’ science — not just return to the past</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1195,9 +1473,9 @@ body {
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Nature, Published online: 16 November 2026; doi:10.1038/d41586-026-03712-w A lack of crosstalk between research disciplines is hampering scholars’ ability to fully examine how people have altered Earth’s biodiversity.</p>
+                    <p class="story-text">Nature, Published online: 17 November 2026; doi:10.1038/d41586-026-03709-5 For science policy to be effective, the public must be engaged in the process of funding research.</p>
                     
-                    <a href="https://www.nature.com/articles/d41586-026-03712-w" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.nature.com/articles/d41586-026-03709-5" target="_blank" rel="noopener" class="story-link">
                         Read at Nature &rarr;
                     </a>
                 </div>
@@ -1206,45 +1484,23 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">AI rivals tackle one of physics’ deepest mathematical challenges</span>
+                        <span class="story-title">What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing.</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Science (AAAS)</span>
-                        <span>recently</span>
+                        <span class="story-src">Quanta Magazine</span>
+                        <span>21h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    
-                    <p class="story-text">OpenAI and an Anthropic-associated research team have made progress on the Yang-Mills existence problem</p>
-                    
-                    <a href="https://www.science.org/content/article/ai-rivals-tackle-one-physics-deepest-mathematical-challenges" target="_blank" rel="noopener" class="story-link">
-                        Read at Science (AAAS) &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Skeleton found in Denmark came from man who witnessed the arrival of farming</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">New Scientist</span>
-                        <span>12h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.newscientist.com/wp-content/uploads/2026/11/SEI_320519457.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://www.quantamagazine.org/wp-content/uploads/2026/11/DES-cr.CTIO-NOIRLab-NSF-AURA-T.-Matsopoulos-Default.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Clues about the diet of “Rødhals Man”, who lived some 6000 years ago, hint that he lived through one of the most revolutionary changes in human history</p>
+                    <p class="story-text">An era-defining galaxy survey has released its final results. They don’t quite fit the leading theory of cosmology. The post What Makes Up the Cosmos? A 20-Year Survey Hints That Something Is Missing. first appeared on Quanta Magazine</p>
                     
-                    <a href="https://www.newscientist.com/article/2598961-skeleton-found-in-denmark-was-from-man-who-witnessed-the-arrival-of-farming/?utm_campaign=RSS|NSNS&amp;utm_content=news&amp;utm_medium=RSS&amp;utm_source=NSNS" target="_blank" rel="noopener" class="story-link">
-                        Read at New Scientist &rarr;
+                    <a href="https://www.quantamagazine.org/what-makes-up-the-cosmos-a-20-year-survey-hints-that-something-is-missing-20261116/" target="_blank" rel="noopener" class="story-link">
+                        Read at Quanta Magazine &rarr;
                     </a>
                 </div>
             </details>
@@ -1267,15 +1523,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Erstmals könnten EU-Staaten die Chance haben, aktiv über ein Kriegsende in der Ukraine mit zu verhandeln. SPD, Linke und Grüne haben dem Koalitionsvertrag zugestimmt, nun folgt die Wahl der Ministerpräsidentin im Landtag von Mecklenburg-Vorpommern. In der philippinischen Hauptstadt Manila treffen sich derzeit führende Politiker aus der Region zum Gipfel der südostasiatischen Staaten ASEAN.</p>
+                <p class="tldr-para">Wie wichtigsten Transfer-News im Fußball ▷ Transfermarkt, Vereinswechsel und Vertragsverlängerungen in der Bundesliga und international im Überblick bei der… Die Unterlagen zeigen laut Berichten etwa, wie das Institut sein Russlandgeschäft noch kurz vor Beginn des Ukrainekriegs ausbauen wollte. Mit 190.600 Soldaten hat die Bundeswehr das Personalziel für 2026 bereits erreicht.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Zweifache Weltmeisterin: „Einfach mit einem Männchen schnell loslaufen“ · </span>
+                    <span class="tldr-also-item">Wacken Open Air: Limp Bizkit feiern 2027 Premiere beim Metal-Festival · </span>
                     
-                    <span class="tldr-also-item">Geldwäsche: „Finanzreservoir für Schwerverbrecher“ – Italienisches Gericht stellt Revolut-Tochter ein Jahr unter Verwaltung</span>
+                    <span class="tldr-also-item">Türkischer Sender Sözcü TV jetzt unter Zwangsverwaltung</span>
                     
                 </div>
                 
@@ -1288,92 +1544,22 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">EU-Außenminister wollen Ukraine-Strategie ausarbeiten</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Tagesschau</span>
-                        <span>10m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Erstmals könnten EU-Staaten die Chance haben, aktiv über ein Kriegsende in der Ukraine mit zu verhandeln. Doch auch eine andere Region verlieren die EU-Außenminister nicht aus dem Blick: den leidgeplagten Gazastreifen. Von Sabrina Fritz.</p>
-                    
-                    <a href="https://www.tagesschau.de/ausland/europa/eu-aussenminister-ukraine-nahost-100.html" target="_blank" rel="noopener" class="story-link">
-                        Read at Tagesschau &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Mecklenburg-Vorpommern: Manuela Schwesig erneut zur Ministerpräsidentin gewählt</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Spiegel</span>
-                        <span>12m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://cdn.prod.www.spiegel.de/images/accd36ee-19b0-4138-9559-dae5928b37fa_w520_r2.08_fpx34.65_fpy49.99.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">SPD, Linke und Grüne haben dem Koalitionsvertrag zugestimmt, nun folgt die Wahl der Ministerpräsidentin im Landtag von Mecklenburg-Vorpommern. Manuela Schwesig genießt eine komfortable Mehrheit.</p>
-                    
-                    <a href="https://www.spiegel.de/politik/deutschland/mecklenburg-vorpommern-manuela-schwesig-erneut-zur-ministerpraesidentin-gewaehlt-a-223a2d1e-3809-43fb-977a-73be20bcfac9#ref=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at Spiegel &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Gipfel in Manila: Regionale Kooperation und Chinas Beziehungen im Fokus</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>13m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://img.zeit.de/video/2026-11/6408445543112-still/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">In der philippinischen Hauptstadt Manila treffen sich derzeit führende Politiker aus der Region zum Gipfel der südostasiatischen Staaten ASEAN.</p>
-                    
-                    <a href="https://www.zeit.de/video/2026-11/gipfel-in-manila-regionale-kooperation-und-chinas-beziehungen-im-fokus" target="_blank" rel="noopener" class="story-link">
-                        Read at ZEIT Online &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Zweifache Weltmeisterin: „Einfach mit einem Männchen schnell loslaufen“</span>
+                        <span class="story-title">Transferticker: „Kein Problem“: Trainer bietet Messi Job im Nationalteam an</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">FAZ</span>
-                        <span>15m ago</span>
+                        <span>4m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://media0.faz.net/image/6ccd6b901779/w2394h1347x0y241/202611/99817b5f-5d3c-47de-92e1-93c5bd705bef/hat-den-dreh-raus-mensch.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://media0.faz.net/image/15933ee78551/w2688h1512x0y38/202607/43601.0.2334441092/argentinisches-erfolgsduo.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Mandy Kunze aus Sachsen ist zum zweiten Mal Weltmeisterin in „Mensch ärgere Dich nicht“ geworden. Im Interview erzählt sie, welche Farbe ihr zum Sieg verholfen hat und ob sie sich doch manchmal ärgert.</p>
+                    <p class="story-text">Wie wichtigsten Transfer-News im Fußball ▷ Transfermarkt, Vereinswechsel und Vertragsverlängerungen in der Bundesliga und international im Überblick bei der F.A.Z.</p>
                     
-                    <a href="https://www.faz.net/aktuell/gesellschaft/menschen/die-zweifache-weltmeisterin-im-mensch-aergere-dich-nicht-im-interview-accg-201686775.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.faz.net/aktuell/sport/fussball/fussball-transferticker-trainer-bietet-lionel-messi-aufgabe-im-nationalteam-an-18134600.html" target="_blank" rel="noopener" class="story-link">
                         Read at FAZ &rarr;
                     </a>
                 </div>
@@ -1382,23 +1568,93 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Geldwäsche: „Finanzreservoir für Schwerverbrecher“ – Italienisches Gericht stellt Revolut-Tochter ein Jahr unter Verwaltung</span>
+                        <span class="story-title">Kreditinstitute: Datenleak von Millionen Dokumenten belastet Deutsche Bank – Aktie reagiert deutlich</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Handelsblatt</span>
-                        <span>25m ago</span>
+                        <span>5m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://images.handelsblatt.com/VThitIhvVPP2/cover/900/506/0/0/456/124/0.5/0.5/revolut-app.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://images.handelsblatt.com/fOgsbV-PFygR/cover/900/506/0/0/166/459/0.5/0.5/archiv-29.01.2026-hessen-frankfurt-m.-christian-sewing-vorsitzender-des-vorstands-der-deutsche.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Über Konten der Bank flossen 41,9 Millionen Euro von Verdächtigen, gemeldet hat Revolut nichts. Die Richter sehen darin ein System – und setzen eine Frist von 60 Tagen.</p>
+                    <p class="story-text">Die Unterlagen zeigen laut Berichten etwa, wie das Institut sein Russlandgeschäft noch kurz vor Beginn des Ukrainekriegs ausbauen wollte. Was die Deutsche Bank zu den Enthüllungen sagt.</p>
                     
-                    <a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/geldwaesche-mailaender-gericht-stellt-revolut-bank-ein-jahr-unter-verwaltung/100270182.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.handelsblatt.com/finanzen/banken-versicherungen/banken/deutsche-bank-datenleak-von-millionen-dokumenten-belastet-das-institut/100270448.html" target="_blank" rel="noopener" class="story-link">
                         Read at Handelsblatt &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Debatte über Wehrpflicht: Bundeswehr hat Personalziel für 2026 bereits übertroffen</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>9m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://img.zeit.de/politik/deutschland/2026-11/bundeswehr-personalstaerke-soldaten-wehrpflicht-reservisten-foto-1/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Mit 190.600 Soldaten hat die Bundeswehr das Personalziel für 2026 bereits erreicht. Die Rekrutierung könnte laut Boris Pistorius auch künftig freiwillig bleiben.</p>
+                    
+                    <a href="https://www.zeit.de/politik/deutschland/2026-11/bundeswehr-personalstaerke-soldaten-wehrpflicht-reservisten" target="_blank" rel="noopener" class="story-link">
+                        Read at ZEIT Online &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Wacken Open Air: Limp Bizkit feiern 2027 Premiere beim Metal-Festival</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Spiegel</span>
+                        <span>15m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://cdn.prod.www.spiegel.de/images/9063bb48-0001-0004-0000-000000984875_w520_r2.08_fpx51_fpy38.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Es ist das erste Mal, dass die Nu-Metal-Band Limp Bizkit beim Wacken Open Air dabei ist. Außerdem da: Slash, Killswitch Engage und die Donots. Das Festival setzt auf Metal und Punkrock.</p>
+                    
+                    <a href="https://www.spiegel.de/kultur/musik/wacken-open-air-limp-bizkit-feiern-2027-premiere-beim-metal-festival-a-13c9bfd2-6a89-4b7b-997e-fb4e889e998e#ref=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at Spiegel &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Türkischer Sender Sözcü TV jetzt unter Zwangsverwaltung</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">DW Deutsch</span>
+                        <span>31m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Einen Monat nach der Razzia bei Halk TV wird nun ein weiterer oppositioneller Sender in der Türkei unter Zwangsverwaltung gestellt. Sözcü gehört zu den populärsten regierungskritischen Medien im Land.</p>
+                    
+                    <a href="https://www.dw.com/de/türkischer-sender-sözcü-tv-jetzt-unter-zwangsverwaltung/a-79969541?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
+                        Read at DW Deutsch &rarr;
                     </a>
                 </div>
             </details>
@@ -1447,7 +1703,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Updated 12:33 UTC &middot; 16.11.2026<br>
+        Updated 12:53 UTC &middot; 17.11.2026<br>
         New edition every morning
     </footer>
 
