@@ -641,19 +641,165 @@ body {
 
     <!-- HERO: Greeting + Masthead + Weather combined -->
     <header class="hero">
-        <div class="hero-greeting">📋 Afternoon check-in</div>
+        <div class="hero-greeting">🔆 Midday update</div>
         <div class="hero-top">
             <h1 class="hero-title">my news</h1>
             
+            <div class="hero-weather">
+                <span class="hw-icon">☁️</span>
+                <span class="hw-temp">5&deg;</span>
+            </div>
+            
         </div>
         <div class="hero-meta">
-            <span>Saturday, 21 November 2026</span>
+            <span>Sunday, 22 November 2026</span>
             <span class="hero-sep">/</span>
             <span>Berlin</span>
             
+            <span class="hero-sep">/</span>
+            <span id="hw-today">2&deg;&ndash;6&deg;</span>
+            
+            
+            <span class="hero-sep">/</span>
+            <span id="hw-tmrw">Tmrw 0&deg;&ndash;4&deg;</span>
             
         </div>
 
+        
+        <div class="hero-hourly-wrap">
+            <div class="hero-hourly">
+                
+                <div class="hh" data-hour="13:00">
+                    <span class="hh-t">13:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">5&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="14:00">
+                    <span class="hh-t">14:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">5&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="15:00">
+                    <span class="hh-t">15:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">5&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="16:00">
+                    <span class="hh-t">16:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="17:00">
+                    <span class="hh-t">17:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="18:00">
+                    <span class="hh-t">18:00</span>
+                    <span class="hh-i">🌧️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                    <span class="hh-r">13%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="19:00">
+                    <span class="hh-t">19:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                    <span class="hh-r">13%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="20:00">
+                    <span class="hh-t">20:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">4&deg;</span>
+                    
+                    <span class="hh-r">5%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="21:00">
+                    <span class="hh-t">21:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">3&deg;</span>
+                    
+                    <span class="hh-r">5%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="22:00">
+                    <span class="hh-t">22:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">3&deg;</span>
+                    
+                    <span class="hh-r">8%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="23:00">
+                    <span class="hh-t">23:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">2&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="00:00">
+                    <span class="hh-t">00:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">2&deg;</span>
+                    
+                    <span class="hh-r">5%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="01:00">
+                    <span class="hh-t">01:00</span>
+                    <span class="hh-i">⛅</span>
+                    <span class="hh-d">2&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="02:00">
+                    <span class="hh-t">02:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">1&deg;</span>
+                    
+                </div>
+                
+                <div class="hh" data-hour="03:00">
+                    <span class="hh-t">03:00</span>
+                    <span class="hh-i">☁️</span>
+                    <span class="hh-d">1&deg;</span>
+                    
+                    <span class="hh-r">3%</span>
+                    
+                </div>
+                
+            </div>
+        </div>
         
     </header>
 
@@ -675,15 +821,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Manchester-based Megatone Sound Foundation and Baron Turbo Charge have rejuvenated the culture to offer a sense of belonging and empowerment For a generation… Mexico’s military captured FBI-wanted cartel leader ‘El Chapo Isidro’ in Guasave, Sinaloa. A Russian tech firm backed by an oligarch close to President Vladimir Putin has secretly been collecting data from hundreds of thousands – possibly millions –…</p>
+                <p class="tldr-para">Issue dominates Sunday broadcast round following Friday’s deals on trade and youth mobility Theresa May ‘aghast’ at Andy Burnham’s talk about rejoining EU… Tehran has ramped up attacks as the US naval blockade and sanctions campaign hurt the country economically. Officials have publicly questioned whether Musiala will ever fully recover from a debilitating neurological condition and queried the validity of his contract,…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">COP31: UN Climate summit runs into overtime as deal remains elusive · </span>
+                    <span class="tldr-also-item">Russia-bound ship still on fire after attack in Gulf of Finland · </span>
                     
-                    <span class="tldr-also-item">Denmark accuses Russia of plotting to assassinate US-Ukrainian rapper</span>
+                    <span class="tldr-also-item">Former Italian police chief found dead</span>
                     
                 </div>
                 
@@ -696,20 +842,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">‘Music was our teacher’: the sound system pioneers reviving the scene in Manchester and beyond</span>
+                        <span class="story-title">Burnham should ‘move on’ from Brexit, says Theresa May, as critics hit out over closer EU ties – UK politics live</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>17m ago</span>
+                        <span>13m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Manchester-based Megatone Sound Foundation and Baron Turbo Charge have rejuvenated the culture to offer a sense of belonging and empowerment For a generation of young Black Mancunians, some of the history lessons that mattered most were not taught in classrooms, but through towering stacks of amps and speakers, turntables and Jamaican records. “We didn’t know where we fit in. We didn’t know our history. Our parents were busy working two or three jobs,” says Errol “Barzy” Beaumont, a founder memb</p>
+                    <p class="story-text">Issue dominates Sunday broadcast round following Friday’s deals on trade and youth mobility Theresa May ‘aghast’ at Andy Burnham’s talk about rejoining EU European Relations Minister Hamish Falconer on Sky this morning criticised the post from earlier this week, where the US president shared a picture of him embracing Putin under the caption “My Friend”. Falconer said Putin was a “butcher” and “not a friend of the UK”. One area where the UK is absolutely and completely united across the whole po</p>
                     
-                    <a href="https://www.theguardian.com/news/2026/nov/21/sound-system-pioneers-music-manchester-windrush" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/politics/live/2026/nov/22/andy-burnham-brexit-theresa-may-michael-gove-latest-news-updates" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
                     </a>
                 </div>
@@ -718,20 +864,20 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Mexico captures FBI-wanted cartel boss in military raid</span>
+                        <span class="story-title">What’s behind Iran’s escalation of attacks in the Gulf?</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Al Jazeera</span>
-                        <span>24m ago</span>
+                        <span>36m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Mexico’s military captured FBI-wanted cartel leader ‘El Chapo Isidro’ in Guasave, Sinaloa.</p>
+                    <p class="story-text">Tehran has ramped up attacks as the US naval blockade and sanctions campaign hurt the country economically.</p>
                     
-                    <a href="https://www.aljazeera.com/video/newsfeed/2026/11/21/mexico-captures-fbi-wanted-cartel-boss-in-military-raid?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.aljazeera.com/news/2026/11/22/whats-behind-irans-escalation-of-attacks-in-the-gulf?traffic_source=rss" target="_blank" rel="noopener" class="story-link">
                         Read at Al Jazeera &rarr;
                     </a>
                 </div>
@@ -740,7 +886,53 @@ body {
             <details class="story" data-cat="international">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">&#39;Accept cookies&#39;? Russia collects data from swaths of unknowing Swedes</span>
+                        <span class="story-title">Bayern Munich bosses under fire over Jamal Musiala comments</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">DW English</span>
+                        <span>53m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">Officials have publicly questioned whether Musiala will ever fully recover from a debilitating neurological condition and queried the validity of his contract, prompting criticism from fans, media and the FIFPRO union.</p>
+                    
+                    <a href="https://www.dw.com/en/bayern-munich-bosses-under-fire-over-jamal-musiala-comments/a-80013187?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
+                        Read at DW English &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Russia-bound ship still on fire after attack in Gulf of Finland</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC World</span>
+                        <span>58m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/d6f9/live/a55b16b0-e66d-11f1-9e24-791c5321ff0f.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Finnish defence forces say that Ukraine was likely behind the drone attack on the vessel.</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/cj752ddve27ko?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC World &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="international">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Former Italian police chief found dead</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -750,59 +942,13 @@ body {
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://s.france24.com/media/display/75dade0c-e500-11f1-86bd-1bac47ab2f5d/w:1024/p:16x9/AP21173406344763.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://s.france24.com/media/display/a9d7f9c0-e658-11f1-9bb1-ebb478925cf0/w:1024/p:16x9/EN-20261122-101007-101157-CS.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">A Russian tech firm backed by an oligarch close to President Vladimir Putin has secretly been collecting data from hundreds of thousands – possibly millions – of Swedes, a newspaper investigation found. The revelation has rattled the Nordic nation, whose proximity to Russia and unusually open public records system make it particularly vulnerable to Moscow’s hybrid war tactics.</p>
+                    <p class="story-text">Italian Prime Minister Giorgia Meloni has expressed shock following the death of a former national police chief, whose body was found on Saturday. He had been under investigation over an alleged cover-up in an inquiry into a bombing linked to organised crime in Sicily. Jennie Shin reports.</p>
                     
-                    <a href="https://www.france24.com/en/europe/20261121-accept-cookies-russia-collected-data-swaths-unknowing-swedes" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.france24.com/en/former-italian-police-chief-found-dead" target="_blank" rel="noopener" class="story-link">
                         Read at France 24 &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">COP31: UN Climate summit runs into overtime as deal remains elusive</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">DW English</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">After nearly two weeks of negotiations, countries remain divided on how to fight global warming. A new draft declaration doesn&#39;t mention the phaseout of fossil fuels, the main drivers of climate change. DW has more.</p>
-                    
-                    <a href="https://www.dw.com/en/cop31-un-climate-summit-runs-into-overtime-as-deal-remains-elusive/live-79999516?maca=en-rss-en-all-1573-rdf" target="_blank" rel="noopener" class="story-link">
-                        Read at DW English &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="international">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Denmark accuses Russia of plotting to assassinate US-Ukrainian rapper</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC World</span>
-                        <span>1h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9834/live/684cb9a0-e527-11f1-b32f-b1f1a32fbf0e.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">The Russian embassy in Denmark has denied the allegation, which has led to Russia&#39;s defence attaché being expelled.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/cmde1lj4yjxno?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC World &rarr;
                     </a>
                 </div>
             </details>
@@ -825,13 +971,13 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Environmental groups are aghast, but supporters say bill might be only chance to speed up clean energy projects The US Senate has passed a bill to fast-track… The Resistance, Part 3: A key ally to environmentalist Diane Wilson opposes a move by Texas regulators to issue Formosa Plastics Corp. A group of countries from Europe, Africa, Latin America and the Pacific has challenged the proposed COP31 agreement, demanding explicit action on fossil fuels…</p>
+                <p class="tldr-para">Another version of the draft text has been published and negotiators have been called in for the final session Full report: Climate talks stall as countries… The UN COP31 meeting in Turkey enters a second day of overtime as countries struggle to reach an agreement. Years of insecurity, violence perpetrated by murderous armed gangs and economic instability, combined with displacement, poor agricultural performance and…</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">What are heat pumps and how much do they cost?</span>
+                    <span class="tldr-also-item">He Sacrificed Everything to Stop Industrial Water Pollution. Authorities in Texas Don’t Care.</span>
                     
                 </div>
                 
@@ -844,21 +990,69 @@ body {
             <details class="story" data-cat="environment">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">What to know about the US permitting bill, from datacenters to Trump’s arch</span>
+                        <span class="story-title">Cop31 live: EU rejects deal as longest climate summit ever faces collapse</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Guardian</span>
-                        <span>17h ago</span>
+                        <span>11m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Environmental groups are aghast, but supporters say bill might be only chance to speed up clean energy projects The US Senate has passed a bill to fast-track energy and datacenter projects by removing environmental and legal guardrails. The legislation has caused a fraught divide among Democrats and green groups over whether this will help or hinder the effort to tackle the climate crisis. The sweeping bill, called the Bipartisan American Affordability and Jobs Act (or Baaja) , is now set for pa</p>
+                    <p class="story-text">Another version of the draft text has been published and negotiators have been called in for the final session Full report: Climate talks stall as countries mull showdown with Saudi Arabia over fossil fuel phaseout Mohamed Adow, director of Power Shift Africa, has been looking through the text and says: “This latest text is a total mess and countries should throw it out. It fails to deliver vital climate finance to the vulnerable while promoting far-fetched and eye wateringly expensive carbon re</p>
                     
-                    <a href="https://www.theguardian.com/us-news/2026/nov/20/what-to-know-permitting-bill-energy-passed" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theguardian.com/environment/live/2026/nov/22/cop31-climate-crisis-talks-turkey-latest-news-updates" target="_blank" rel="noopener" class="story-link">
                         Read at The Guardian &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">New draft deal aims to avert collapse of talks at COP31 climate summit</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">BBC Environment</span>
+                        <span>5h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/9b71/live/e0c68530-e61e-11f1-94c8-1db910b5b42e.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">The UN COP31 meeting in Turkey enters a second day of overtime as countries struggle to reach an agreement.</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/cq7827z2841zo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC Environment &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="environment">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Homes abandoned, harvests failing: Haiti’s farmers rebuild amid violence, hunger and El Niño</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">UN News Climate</span>
+                        <span>1d ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Embargoed/20-05-2024-UNICEF-Haiti-12.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Years of insecurity, violence perpetrated by murderous armed gangs and economic instability, combined with displacement, poor agricultural performance and climate shocks, have left millions of Haitians struggling to meet their food needs.</p>
+                    
+                    <a href="https://news.un.org/feed/view/en/story/2026/11/1168834" target="_blank" rel="noopener" class="story-link">
+                        Read at UN News Climate &rarr;
                     </a>
                 </div>
             </details>
@@ -871,7 +1065,7 @@ body {
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Inside Climate News</span>
-                        <span>2h ago</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -885,81 +1079,31 @@ body {
                 </div>
             </details>
             
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">COP31: Countries demand stronger climate deal as talks in Antalya reach final day</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">UN News Climate</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://global.unitednations.entermediadb.net/assets/mediadb/services/module/asset/downloads/preset/Collections/Production%20Library/2026/11/55662349225_208649f008_k.jpg/image560x340cropped.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">A group of countries from Europe, Africa, Latin America and the Pacific has challenged the proposed COP31 agreement, demanding explicit action on fossil fuels and stronger climate finance. With the summit due to close on Friday, tensions are rising as activists warn the talks are headed for failure, and negotiators search for a deal that nearly 200 governments can accept.&amp;nbsp;</p>
-                    
-                    <a href="https://news.un.org/feed/view/en/story/2026/11/1168845" target="_blank" rel="noopener" class="story-link">
-                        Read at UN News Climate &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="environment">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">What are heat pumps and how much do they cost?</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC Environment</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/3050/live/eba8d700-de8a-11f1-b88b-3f1671ea859d.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">The government wants more homes to have heat pumps to cut fossil fuel use and drive down energy bills.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/c8xgdv9e007o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC Environment &rarr;
-                    </a>
-                </div>
-            </details>
-            
         
     </section>
     
     <section class="section" id="tech" aria-label="Tech &amp; AI">
         <div class="sec-head" data-cat="tech">
             <h2 class="sec-label">Tech &amp; AI</h2>
-            <span class="sec-count">5 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="tech" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">5 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Test using prompts with unique, trackable secrets proves that data doesn&#39;t stay private. Exclusive: A simple security lapse exposed transcriptions of police interviews and bodycam footage on a cloud server without a password. He has been fired after losing the confidence of new White House chief of staff Stephen Miller, according to reports.</p>
+                <p class="tldr-para">An actor has licensed his face to a microdrama startup — in a trend that&#39;s already popular in China. Amazon only announced its first digital photo frame less than a month ago, but it&amp;#8217;s already getting a sizable discount for Black Friday. Alasdair Keane is in Naples exploring how tech is transforming the America&#39;s Cup race.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Trump threatens ‘tremendous tax’ for moving AI data centers outside the US · </span>
-                    
-                    <span class="tldr-also-item">The most misunderstood graph in AI just got a major update</span>
+                    <span class="tldr-also-item">GLP-1 drugs could have a surprisingly large environmental payoff</span>
                     
                 </div>
                 
@@ -972,31 +1116,7 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Ars Technica</span>
-                        <span>15h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2026/11/ai-privacy-leakage-500x500.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Test using prompts with unique, trackable secrets proves that data doesn&#39;t stay private.</p>
-                    
-                    <a href="https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/" target="_blank" rel="noopener" class="story-link">
-                        Read at Ars Technica &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">A transcription firm used by police, prosecutors, and tech giants exposed customer data online</span>
+                        <span class="story-title">Is selling an AI version of your face to this microdrama startup the future of Hollywood?</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
@@ -1007,9 +1127,9 @@ body {
                 <div class="story-body">
                     
                     
-                    <p class="story-text">Exclusive: A simple security lapse exposed transcriptions of police interviews and bodycam footage on a cloud server without a password.</p>
+                    <p class="story-text">An actor has licensed his face to a microdrama startup — in a trend that&#39;s already popular in China. Experts question the long-term consequences if this becomes a trend in Hollywood, too.</p>
                     
-                    <a href="https://techcrunch.com/2026/11/20/a-transcription-firm-used-by-police-prosecutors-and-tech-giants-exposed-customer-data-online/" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/" target="_blank" rel="noopener" class="story-link">
                         Read at TechCrunch &rarr;
                     </a>
                 </div>
@@ -1018,44 +1138,20 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">White House removes cyber-security chief after series of tech outages</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">BBC Technology</span>
-                        <span>17h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/76fa/live/ea62ee60-e4bd-11f1-87df-79d8910e0f29.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">He has been fired after losing the confidence of new White House chief of staff Stephen Miller, according to reports.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/cwz0k3nn5p5mo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC Technology &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="tech">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Trump threatens ‘tremendous tax’ for moving AI data centers outside the US</span>
+                        <span class="story-title">Amazon’s first digital photo frame is up to 50 percent off for Black Friday</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">The Verge</span>
-                        <span>17h ago</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
                     
-                    <p class="story-text">President Donald Trump promised to put a &#34;tremendous tax&#34; on companies that build data centers outside of the US, even as states and cities around the country are placing restrictions on new applications to build them. &#34;We&#39;re not going to allow our companies to build data centers outside of our country,&#34; Trump said at a [&amp;#8230;]</p>
+                    <p class="story-text">Amazon only announced its first digital photo frame less than a month ago, but it&amp;#8217;s already getting a sizable discount for Black Friday. You can currently grab the Alexa Photo Frame at Amazon and Best Buy starting at $114 ($115 off), making it a great holiday gift for anyone who loves displaying family photos. If [&amp;#8230;]</p>
                     
-                    <a href="https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.theverge.com/gadgets/1038762/amazon-alexa-photo-frame-black-friday-2026-deal-sale" target="_blank" rel="noopener" class="story-link">
                         Read at The Verge &rarr;
                     </a>
                 </div>
@@ -1064,21 +1160,47 @@ body {
             <details class="story" data-cat="tech">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">The most misunderstood graph in AI just got a major update</span>
+                        <span class="story-title">Tech Now</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">MIT Tech Review</span>
-                        <span>18h ago</span>
+                        <span class="story-src">BBC Technology</span>
+                        <span>1d ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
+                    <img src="https://ichef.bbci.co.uk/images/ic/240x135/p0pp14ps.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
-                    <p class="story-text">A new report from the AI evaluation nonprofit METR finds that some AI capabilities are continuing to improve along an exponential trajectory—but it also indicates that models aren’t quite as good at tasks that require judgment as they are at coding. The report is an update to the organization’s time horizon plot, which was widely&amp;#8230;</p>
                     
-                    <a href="https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/" target="_blank" rel="noopener" class="story-link">
-                        Read at MIT Tech Review &rarr;
+                    <p class="story-text">Alasdair Keane is in Naples exploring how tech is transforming the America&#39;s Cup race.</p>
+                    
+                    <a href="https://www.bbc.co.uk/iplayer/episode/m0034tjc?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC Technology &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="tech">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">GLP-1 drugs could have a surprisingly large environmental payoff</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Ars Technica</span>
+                        <span>15m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://cdn.arstechnica.net/wp-content/uploads/2025/04/agriculture-500x500.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">GLP-1 drugs could cut food demand enough to free farmland larger than Italy.</p>
+                    
+                    <a href="https://arstechnica.com/health/2026/11/glp-1-drugs-could-have-a-surprisingly-large-environmental-payoff/" target="_blank" rel="noopener" class="story-link">
+                        Read at Ars Technica &rarr;
                     </a>
                 </div>
             </details>
@@ -1089,20 +1211,27 @@ body {
     <section class="section" id="economy" aria-label="Economy &amp; Markets">
         <div class="sec-head" data-cat="economy">
             <h2 class="sec-label">Economy &amp; Markets</h2>
-            <span class="sec-count">3 stories</span>
+            <span class="sec-count">4 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="economy" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">3 stories</span>
+                <span class="tldr-count">4 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">Anthropic&#39;s IPO was a big public market success for the company, but Friday&#39;s selloff shows that valuing the AI stock will remain volatile for investors. At a factory in Germany, there are increasingly hours when it is simply too expensive to produce steel. The trade deal is unlikely lower food prices for shoppers, but should boost the economy more than other post-Brexit agreements.</p>
+                <p class="tldr-para">China loosened margin requirements for stock financing, seeking to boost liquidity and support stability in the nation’s equity market as leveraged trading… Anthropic&#39;s IPO was a big public market success for the company, but Friday&#39;s selloff shows that valuing the AI stock will remain volatile for investors. People say they often hear nothing back after applying for jobs.</p>
                 
+                
+                <div class="tldr-also">
+                    <span class="tldr-also-label">Also:</span>
+                    
+                    <span class="tldr-also-item">Saudi Arabia’s $1trn wealth pot suffers an identity crisis</span>
+                    
+                </div>
                 
             </div>
         </details>
@@ -1113,12 +1242,34 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Why Anthropic&#39;s blockbuster IPO couldn&#39;t escape the market correction</span>
+                        <span class="story-title">China Lowers Margin Requirement to 80% to Boost Stock Liquidity</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">Bloomberg</span>
+                        <span>1h ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    
+                    <p class="story-text">China loosened margin requirements for stock financing, seeking to boost liquidity and support stability in the nation’s equity market as leveraged trading activity declined.</p>
+                    
+                    <a href="https://www.bloomberg.com/news/articles/2026-11-22/china-lowers-margin-requirement-to-80-to-boost-stock-liquidity" target="_blank" rel="noopener" class="story-link">
+                        Read at Bloomberg &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="economy">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Why Anthropic&#39;s blockbuster IPO couldn&#39;t escape the stock market correction</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">CNBC</span>
-                        <span>6h ago</span>
+                        <span>22h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
@@ -1135,21 +1286,23 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Europe’s Power Market Is Flashing a Warning to Its Economy</span>
+                        <span class="story-title">Employers are being asked to give interview feedback - here&#39;s what applicants want</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">Bloomberg</span>
-                        <span>3h ago</span>
+                        <span class="story-src">BBC Business</span>
+                        <span>12h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
+                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/fb80/live/784ad260-e4e1-11f1-99b6-a35a62fa4264.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
-                    <p class="story-text">At a factory in Germany, there are increasingly hours when it is simply too expensive to produce steel.</p>
                     
-                    <a href="https://www.bloomberg.com/news/articles/2026-11-21/europe-s-power-market-is-flashing-a-warning-to-its-economy" target="_blank" rel="noopener" class="story-link">
-                        Read at Bloomberg &rarr;
+                    <p class="story-text">People say they often hear nothing back after applying for jobs. But could employers be forced to respond to every applicant?</p>
+                    
+                    <a href="https://www.bbc.co.uk/news/articles/cm2d94le23xyo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
+                        Read at BBC Business &rarr;
                     </a>
                 </div>
             </details>
@@ -1157,23 +1310,21 @@ body {
             <details class="story" data-cat="economy">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Faisal Islam: This cost-cutting UK-EU deal doesn&#39;t mean lower prices will follow</span>
+                        <span class="story-title">Saudi Arabia’s $1trn wealth pot suffers an identity crisis</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">BBC Business</span>
-                        <span>19h ago</span>
+                        <span class="story-src">The Economist</span>
+                        <span>1h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/bd6d/live/fa851d90-e4fe-11f1-a8e4-b1e12a49db15.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
+                    <p class="story-text">The Public Investment Fund is distracted, and not just by war</p>
                     
-                    <p class="story-text">The trade deal is unlikely lower food prices for shoppers, but should boost the economy more than other post-Brexit agreements.</p>
-                    
-                    <a href="https://www.bbc.co.uk/news/articles/cm1wr029evnqo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener" class="story-link">
-                        Read at BBC Business &rarr;
+                    <a href="https://www.economist.com/finance-and-economics/2026/11/22/saudi-arabias-1trn-wealth-pot-suffers-an-identity-crisis" target="_blank" rel="noopener" class="story-link">
+                        Read at The Economist &rarr;
                     </a>
                 </div>
             </details>
@@ -1184,25 +1335,23 @@ body {
     <section class="section" id="science" aria-label="Science">
         <div class="sec-head" data-cat="science">
             <h2 class="sec-label">Science</h2>
-            <span class="sec-count">4 stories</span>
+            <span class="sec-count">1 stories</span>
         </div>
 
         
         <details class="tldr" data-cat="science" open>
             <summary class="tldr-head">
                 <span class="tldr-label">What's happening</span>
-                <span class="tldr-count">4 stories</span>
+                <span class="tldr-count">1 stories</span>
                 <span class="tldr-chevron">&#9654;</span>
             </summary>
             <div class="tldr-body">
-                
-                <p class="tldr-para">SpaceX launched a classified mission for the U.S. Two mathematical investigations devised a way to possibly make gravity produce repulsion between objects, breaking away from a long-standing understanding of… When links in a communication network go down, messages can get routed in a loop.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Scientists control a virtual fruit fly with map of insect’s brain</span>
+                    <span class="tldr-also-item">On this day in space! Nov. 21, 1676: Danish astronomer discovers speed of light — by accident — while observing Jupiter&#39;s moon Io</span>
                     
                 </div>
                 
@@ -1215,93 +1364,23 @@ body {
             <details class="story" data-cat="science">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">SpaceX launches classified mission for US Space Force from California</span>
+                        <span class="story-title">On this day in space! Nov. 21, 1676: Danish astronomer discovers speed of light — by accident — while observing Jupiter&#39;s moon Io</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Space.com</span>
-                        <span>6h ago</span>
+                        <span>20h ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.mos.cms.futurecdn.net/YaShmYFZ8edZqBUjFWgP3-1920-80.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.mos.cms.futurecdn.net/hDwaad2isLaVa7K7amh3qf-1920-80.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">SpaceX launched a classified mission for the U.S. Space Force tonight (Nov. 20), sending a mystery payload to orbit from California&#39;s central coast.</p>
+                    <p class="story-text">On Nov. 21, 1676, the Danish astronomer Ole Rømer discovered the speed of lightwhile observing Jupiter and its moon volcanic moon Io. Here&#39;s why it mattered.</p>
                     
-                    <a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-classified-space-force-launch-ussf-317" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.space.com/space-exploration/on-this-day-in-space-november-21-2026" target="_blank" rel="noopener" class="story-link">
                         Read at Space.com &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Quantum effect could reverse gravity and violate Einstein’s theory of relativity</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">New Scientist</span>
-                        <span>14h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.newscientist.com/wp-content/uploads/2026/11/SEI_321280192.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Two mathematical investigations devised a way to possibly make gravity produce repulsion between objects, breaking away from a long-standing understanding of this force</p>
-                    
-                    <a href="https://www.newscientist.com/article/2599897-quantum-effect-could-reverse-gravity-and-violate-einsteins-theory-of-relativity/?utm_campaign=RSS|NSNS&amp;utm_content=news&amp;utm_medium=RSS&amp;utm_source=NSNS" target="_blank" rel="noopener" class="story-link">
-                        Read at New Scientist &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Network Researchers Nail Down Theory of ‘Perfect Resilience’</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Quanta Magazine</span>
-                        <span>21h ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://www.quantamagazine.org/wp-content/uploads/2026/11/net-resilience-cr.DVDP-Default.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">When links in a communication network go down, messages can get routed in a loop. Computer scientists now know that four simple network structures are to blame. The post Network Researchers Nail Down Theory of ‘Perfect Resilience’ first appeared on Quanta Magazine</p>
-                    
-                    <a href="https://www.quantamagazine.org/network-researchers-nail-down-theory-of-perfect-resilience-20261120/" target="_blank" rel="noopener" class="story-link">
-                        Read at Quanta Magazine &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="science">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Scientists control a virtual fruit fly with map of insect’s brain</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">Science (AAAS)</span>
-                        <span>1d ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Modeling effort aims to predict how neuron activity drives animal movement</p>
-                    
-                    <a href="https://www.science.org/content/article/scientists-control-virtual-fruit-fly-map-insect-s-brain" target="_blank" rel="noopener" class="story-link">
-                        Read at Science (AAAS) &rarr;
                     </a>
                 </div>
             </details>
@@ -1324,15 +1403,15 @@ body {
             </summary>
             <div class="tldr-body">
                 
-                <p class="tldr-para">1980 trank jeder Deutsche im Schnitt eine Badewanne voller Bier, mittlerweile ist es beinahe nur noch halb so viel. Dänemarks Geheimdienst vermutet Russland hinter dem Anschlagsversuch auf einen ukrainischen Rapper. Die Behörde war erst im September Opfer einer Cyberattacke geworden.</p>
+                <p class="tldr-para">Die Teilnehmer der Weltklimakonferenz im türkischen Antalya haben sich nicht auf eine gemeinsame Abschlusserklärung einigen können. Der erste Bundesliga-Spieltag seit dem GTA-6-Release steht an. Würden bei einem harten Spritpreisdeckel Benzin und Diesel an den Tankstellen knapp? Katherina Reiche befürchtet das – und will Ausnahmen machen.</p>
                 
                 
                 <div class="tldr-also">
                     <span class="tldr-also-label">Also:</span>
                     
-                    <span class="tldr-also-item">Mick Jagger: Rolling Stones-Frontmann Mick Jagger wundert sich über Vorbehalte gegen Migration · </span>
+                    <span class="tldr-also-item">Kommentar: Die Manager-Boni bei VW müssen sich an einer Frage messen lassen · </span>
                     
-                    <span class="tldr-also-item">COP31: Die Weltklimakonferenz ringt weiter um ein Abschlussdokument</span>
+                    <span class="tldr-also-item">COP 31: Weltklimakonferenz verständigt sich nicht auf gemeinsame Erklärung</span>
                     
                 </div>
                 
@@ -1345,22 +1424,44 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Schneller Schlau: Bier auf dem Rückzug</span>
+                        <span class="story-title">Weltklimakonferenz: Keine Einigung auf Abschlusserklärung</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
-                        <span class="story-src">FAZ</span>
-                        <span>just now</span>
+                        <span class="story-src">Tagesschau</span>
+                        <span>6m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://media0.faz.net/image/a7f0a64357a0/w3870h2177x945y0/202611/28d9be25-8fe6-497e-97b1-720e9bedaab7/lto5x7yaj57t.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    <p class="story-text">Die Teilnehmer der Weltklimakonferenz im türkischen Antalya haben sich nicht auf eine gemeinsame Abschlusserklärung einigen können. Zuvor hatte es am Papier unter anderem von Deutschland und der EU scharfe Kritik gegeben.</p>
+                    
+                    <a href="https://www.tagesschau.de/ausland/asien/eilmeldung-weltklimakonferenz-cop31-antalya-kein-abschlussdokument-100.html" target="_blank" rel="noopener" class="story-link">
+                        Read at Tagesschau &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">Zockende Sportler: Sie sollen nur spielen</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">FAZ</span>
+                        <span>13m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://media0.faz.net/image/a14afa425484/w2000h1125x0y15/202611/efa6fca9-f5c3-40d7-93c0-c9522a09abea/in-der-echten-welt-duerfen.webp" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">1980 trank jeder Deutsche im Schnitt eine Badewanne voller Bier, mittlerweile ist es beinahe nur noch halb so viel. In der Rangliste der größten Braukonzerne spielen deutsche kaum noch eine Rolle.</p>
+                    <p class="story-text">Der erste Bundesliga-Spieltag seit dem GTA-6-Release steht an. Müssen sich die Klubs um die Leistungsfähigkeit ihrer Spieler sorgen? Nicht der FC Bayern, obwohl dessen Bestverdiener online zockt.</p>
                     
-                    <a href="https://www.faz.net/aktuell/wirtschaft/schneller-schlau/das-bier-ist-auf-dem-rueckzug-201698741.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.faz.net/aktuell/sport/fussball/bundesliga/gta-6-und-der-fussball-muessen-klubs-ihre-spieler-schuetzen-201701012.html" target="_blank" rel="noopener" class="story-link">
                         Read at FAZ &rarr;
                     </a>
                 </div>
@@ -1369,68 +1470,22 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">Russland: Dänemark fordert nach vereiteltem Attentat strengere EU-Einreiseregeln</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">ZEIT Online</span>
-                        <span>11m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    <img src="https://img.zeit.de/politik/ausland/2026-11/daenemark-eu-einreisebeschraenkungen-russland-touristen-gxe-foto-1/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
-                    
-                    
-                    <p class="story-text">Dänemarks Geheimdienst vermutet Russland hinter dem Anschlagsversuch auf einen ukrainischen Rapper. Das Land schlägt als Reaktion einen EU-Visastopp für Russen vor.</p>
-                    
-                    <a href="https://www.zeit.de/politik/ausland/2026-11/daenemark-eu-einreisebeschraenkungen-russland-touristen-gxe" target="_blank" rel="noopener" class="story-link">
-                        Read at ZEIT Online &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">US-Berichte: Wieder Hackerangriff auf FBI</span>
-                        <span class="story-chevron">&#9654;</span>
-                    </span>
-                    <span class="story-meta">
-                        <span class="story-src">DW Deutsch</span>
-                        <span>38m ago</span>
-                    </span>
-                </summary>
-                <div class="story-body">
-                    
-                    
-                    <p class="story-text">Die Behörde war erst im September Opfer einer Cyberattacke geworden. Auch das Landwirtschaftsministerium soll diesmal im Visier von Hackern gestanden haben.</p>
-                    
-                    <a href="https://www.dw.com/de/us-berichte-wieder-hackerangriff-auf-fbi/a-80009259?maca=de-rss-de-all-1119-rdf" target="_blank" rel="noopener" class="story-link">
-                        Read at DW Deutsch &rarr;
-                    </a>
-                </div>
-            </details>
-            
-            <details class="story" data-cat="germany">
-                <summary class="story-head">
-                    <span class="story-row">
-                        <span class="story-title">Mick Jagger: Rolling Stones-Frontmann Mick Jagger wundert sich über Vorbehalte gegen Migration</span>
+                        <span class="story-title">Hohe Spritpreise: Katherina Reiche will Autobahntankstellen von Preisdeckel ausnehmen</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Spiegel</span>
-                        <span>38m ago</span>
+                        <span>17m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://cdn.prod.www.spiegel.de/images/1900819c-8a83-4762-a6c4-9a2d0ed96377_w520_r2.08_fpx58.03_fpy44.99.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://cdn.prod.www.spiegel.de/images/c05d8e73-31dd-46f5-a08f-39ab7ffc6608_w520_r2.08_fpx69.99_fpy45.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Fast überall auf der Welt haben Migranten einen schweren Stand. Mick Jagger will sich damit nicht abfinden. Menschen sollten zusammenhalten, erklärte der Rolling-Stones-Sänger jetzt in einem Interview.</p>
+                    <p class="story-text">Würden bei einem harten Spritpreisdeckel Benzin und Diesel an den Tankstellen knapp? Katherina Reiche befürchtet das – und will Ausnahmen machen. Linke und Grüne kritisieren die Wirtschaftsministerin.</p>
                     
-                    <a href="https://www.spiegel.de/kultur/musik/mick-jagger-rolling-stones-frontmann-mick-jagger-wundert-sich-ueber-vorbehalte-gegen-migration-a-fc00f367-f024-4594-b257-7911983d40b2#ref=rss" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.spiegel.de/wirtschaft/service/hohe-spritpreise-katherina-reiche-will-autobahntankstellen-von-preisdeckel-ausnehmen-a-98639391-2d38-4b1a-873b-927535a346a9#ref=rss" target="_blank" rel="noopener" class="story-link">
                         Read at Spiegel &rarr;
                     </a>
                 </div>
@@ -1439,23 +1494,47 @@ body {
             <details class="story" data-cat="germany">
                 <summary class="story-head">
                     <span class="story-row">
-                        <span class="story-title">COP31: Die Weltklimakonferenz ringt weiter um ein Abschlussdokument</span>
+                        <span class="story-title">Kommentar: Die Manager-Boni bei VW müssen sich an einer Frage messen lassen</span>
                         <span class="story-chevron">&#9654;</span>
                     </span>
                     <span class="story-meta">
                         <span class="story-src">Handelsblatt</span>
-                        <span>49m ago</span>
+                        <span>18m ago</span>
                     </span>
                 </summary>
                 <div class="story-body">
                     
-                    <img src="https://images.handelsblatt.com/OBpEiYmZzQUd/cover/900/506/693/729/0/1425/0.5/0.5/cop31-climate-summit-continues-in-turkiye-s-antalya-antalya-turkiye-november-20-the-31st-confere.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    <img src="https://images.handelsblatt.com/duGFCGr23bG8/cover/900/506/0/0/305/305/0.5/0.5/19.11.2026-niedersachsen-wolfsburg-ein-pfeil-auf-einem-verkehrsschild-zeigt-nach-unten-am-tor-san.jpg" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
                     
                     
-                    <p class="story-text">Das Verbrennen von Öl, Gas und Kohle lässt die Klimakrise eskalieren. Doch werden sie in der Abschlusserklärung erwähnt? Das ist nur eine der Fragen, um die man in Antalya streitet.</p>
+                    <p class="story-text">Das Management von Deutschlands größtem Autobauer hat ziemlich genaue Vorstellungen davon, was seine Beschäftigten leisten sollen. Das hat Konsequenzen. Ein Vorschlag.</p>
                     
-                    <a href="https://www.handelsblatt.com/politik/deutschland/cop31-die-weltklimakonferenz-ringt-weiter-um-ein-abschlussdokument/100270720.html" target="_blank" rel="noopener" class="story-link">
+                    <a href="https://www.handelsblatt.com/meinung/kommentare/kommentar-die-manager-boni-bei-vw-muessen-sich-an-einer-frage-messen-lassen/100271186.html" target="_blank" rel="noopener" class="story-link">
                         Read at Handelsblatt &rarr;
+                    </a>
+                </div>
+            </details>
+            
+            <details class="story" data-cat="germany">
+                <summary class="story-head">
+                    <span class="story-row">
+                        <span class="story-title">COP 31: Weltklimakonferenz verständigt sich nicht auf gemeinsame Erklärung</span>
+                        <span class="story-chevron">&#9654;</span>
+                    </span>
+                    <span class="story-meta">
+                        <span class="story-src">ZEIT Online</span>
+                        <span>34m ago</span>
+                    </span>
+                </summary>
+                <div class="story-body">
+                    
+                    <img src="https://img.zeit.de/gesellschaft/zeitgeschehen/2026-11/tuerkei-klimakonferenz-einigung/original__640x360" alt="" class="story-img" loading="lazy" decoding="async" onerror="this.remove()">
+                    
+                    
+                    <p class="story-text">Die 31. Weltklimakonferenz hat sich nicht auf eine gemeinsame Abschlusserklärung geeinigt. Es seien keine Beschlüsse gefasst ​worden, sagte Konferenzpräsident Kurum.</p>
+                    
+                    <a href="https://www.zeit.de/politik/ausland/2026-11/31-weltklimakonferenz-keine-einigung-cop-antalya" target="_blank" rel="noopener" class="story-link">
+                        Read at ZEIT Online &rarr;
                     </a>
                 </div>
             </details>
@@ -1504,7 +1583,7 @@ body {
 
     <!-- FOOTER -->
     <footer class="foot">
-        Updated 12:18 UTC &middot; 21.11.2026<br>
+        Updated 12:23 UTC &middot; 22.11.2026<br>
         New edition every morning
     </footer>
 
